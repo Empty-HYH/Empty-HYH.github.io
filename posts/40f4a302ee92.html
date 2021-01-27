@@ -1,0 +1,1124 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>R 语言统计分析 | Empty</title><meta name="keywords" content="教程,R"><meta name="author" content="Huang Yuhang,empty-hyh@qq.com"><meta name="copyright" content="Huang Yuhang"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><meta name="description" content="前言R中的统计分析通过使用许多内置函数来执行。这些函数大多数是R基础包的一部分。这些函数将R向量作为输入和参数，并给出结果。 平均值通过求出数据集的和再除以求和数的总量得到平均值 函数 mean() 用于在 R 语言中计算平均值。 语法用于计算R中的平均值的基本语法是： 1mean(x, trim &#x3D; 0, na.rm &#x3D; FALSE, ...)  以下是所使用的参数的说明：  x 是输入向量。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="R 语言统计分析">
+<meta property="og:url" content="https://empty-hyh.gitee.io/posts/40f4a302ee92.html">
+<meta property="og:site_name" content="Empty">
+<meta property="og:description" content="前言R中的统计分析通过使用许多内置函数来执行。这些函数大多数是R基础包的一部分。这些函数将R向量作为输入和参数，并给出结果。 平均值通过求出数据集的和再除以求和数的总量得到平均值 函数 mean() 用于在 R 语言中计算平均值。 语法用于计算R中的平均值的基本语法是： 1mean(x, trim &#x3D; 0, na.rm &#x3D; FALSE, ...)  以下是所使用的参数的说明：  x 是输入向量。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://empty-hyh.gitee.io/images/cover/r_statistics.jpg">
+<meta property="article:published_time" content="2021-01-22T02:10:41.000Z">
+<meta property="article:modified_time" content="2021-01-27T11:51:15.613Z">
+<meta property="article:author" content="Huang Yuhang">
+<meta property="article:tag" content="教程">
+<meta property="article:tag" content="R">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://empty-hyh.gitee.io/images/cover/r_statistics.jpg"><link rel="shortcut icon" href="/images/user/favicon.png"><link rel="canonical" href="https://empty-hyh.gitee.io/posts/40f4a302ee92"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="preconnect" href="//zz.bdstatic.com"/><meta name="google-site-verification" content="N2wcnlAQOlJ2jspDYyibhqUqCHHOCpvSlbVkhZG9fZw"/><meta name="msvalidate.01" content="F299EA4E7AD0E2B28FDF4E0EA94879BA"/><meta name="baidu-site-verification" content="code-EvNTQv5FqO"/><meta name="360-site-verification" content="82885fa1c62057f33a080b43ac12456c"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?fe4b6fd58b051190a1e0890917094ccc";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":1,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: Huang Yuhang","link":"链接: ","source":"来源: Empty","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#121212","position":"bottom-left"},
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: true
+};
+
+var saveToLocal = {
+  set: function setWithExpiry(key, value, ttl) {
+    const now = new Date()
+    const expiryDay = ttl * 86400000
+    const item = {
+      value: value,
+      expiry: now.getTime() + expiryDay,
+    }
+    localStorage.setItem(key, JSON.stringify(item))
+  },
+
+  get: function getWithExpiry(key) {
+    const itemStr = localStorage.getItem(key)
+
+    if (!itemStr) {
+      return undefined
+    }
+    const item = JSON.parse(itemStr)
+    const now = new Date()
+
+    if (now.getTime() > item.expiry) {
+      localStorage.removeItem(key)
+      return undefined
+    }
+    return item.value
+  }
+}
+
+// https://stackoverflow.com/questions/16839698/jquery-getscript-alternative-in-native-javascript
+const getScript = url => new Promise((resolve, reject) => {
+  const script = document.createElement('script')
+  script.src = url
+  script.async = true
+  script.onerror = reject
+  script.onload = script.onreadystatechange = function() {
+    const loadState = this.readyState
+    if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+    script.onload = script.onreadystatechange = null
+    resolve()
+  }
+  document.head.appendChild(script)
+})</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-01-27 19:51:15'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(function () {  window.activateDarkMode = function () {
+    document.documentElement.setAttribute('data-theme', 'dark')
+    if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+    }
+  }
+  window.activateLightMode = function () {
+    document.documentElement.setAttribute('data-theme', 'light')
+   if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+    }
+  }
+  const autoChangeMode = 'false'
+  const t = saveToLocal.get('theme')
+  if (autoChangeMode === '1') {
+    const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+    const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+    const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+    const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+    if (t === undefined) {
+      if (isLightMode) activateLightMode()
+      else if (isDarkMode) activateDarkMode()
+      else if (isNotSpecified || hasNoSupport) {
+        const now = new Date()
+        const hour = now.getHours()
+        const isNight = hour <= 6 || hour >= 18
+        isNight ? activateDarkMode() : activateLightMode()
+      }
+      window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+        if (saveToLocal.get('theme') === undefined) {
+          e.matches ? activateDarkMode() : activateLightMode()
+        }
+      })
+    } else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else if (autoChangeMode === '2') {
+    const now = new Date()
+    const hour = now.getHours()
+    const isNight = hour <= 6 || hour >= 18
+    if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+    else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else {
+    if (t === 'dark') activateDarkMode()
+    else if (t === 'light') activateLightMode()
+  }const asideStatus = saveToLocal.get('aside-status')
+if (asideStatus !== undefined) {
+   if (asideStatus === 'hide') {
+     document.documentElement.classList.add('hide-aside')
+   } else {
+     document.documentElement.classList.remove('hide-aside')
+   }
+}const fontSizeVal = saveToLocal.get('global-font-size')
+if (fontSizeVal !== undefined) {
+  document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
+}})()</script><link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.15.10/styles/dracula.min.css"><link rel="stylesheet" href="/css/custom.css"><meta name="generator" content="Hexo 5.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="/images/user/avatar.png" onerror="onerror=null;src='/images/sys/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">13</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">8</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 娱乐</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/books/"><i class="fa-fw fas fa-book"></i><span> 书籍</span></a></li><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/images/"><i class="fa-fw fas fa-images"></i><span> 图库</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li><li><a class="site-page" href="/games/"><i class="fa-fw fas fa-gamepad"></i><span> 游戏</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(/images/cover/r_statistics.jpg)"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Empty</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 娱乐</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/books/"><i class="fa-fw fas fa-book"></i><span> 书籍</span></a></li><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/images/"><i class="fa-fw fas fa-images"></i><span> 图库</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li><li><a class="site-page" href="/games/"><i class="fa-fw fas fa-gamepad"></i><span> 游戏</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">R 语言统计分析</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-01-22T02:10:41.000Z" title="发表于 2021-01-22 10:10:41">2021-01-22</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-01-27T11:51:15.613Z" title="更新于 2021-01-27 19:51:15">2021-01-27</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/R/">R</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">11,037</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>49分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>R中的统计分析通过使用许多内置函数来执行。这些函数大多数是R基础包的一部分。这些函数将R向量作为输入和参数，并给出结果。</p>
+<h1 id="平均值"><a href="#平均值" class="headerlink" title="平均值"></a>平均值</h1><p>通过求出数据集的和再除以求和数的总量得到平均值</p>
+<p>函数 <code>mean()</code> 用于在 R 语言中计算平均值。</p>
+<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><p>用于计算R中的平均值的基本语法是：</p>
+<p><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs r">mean(x, trim = <span class="hljs-number">0</span>, na.rm = <span class="hljs-literal">FALSE</span>, ...)<br></code></pre></td></tr></table></figure>
+</p>
+<p>以下是所使用的参数的说明：</p>
+<ul>
+<li><code>x</code> 是输入向量。</li>
+<li><code>trim</code> 用于从排序向量的两端丢弃一些观察结果。</li>
+<li><code>na.rm</code> 用于从输入向量中删除缺失值。</li>
+</ul>
+<p><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs r"><span class="hljs-comment"># Create a vector. </span><br>x &lt;- <span class="hljs-built_in">c</span>(<span class="hljs-number">12</span>, <span class="hljs-number">7</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4.2</span>, <span class="hljs-number">18</span>, <span class="hljs-number">2</span>, <span class="hljs-number">54</span>, -<span class="hljs-number">21</span>, <span class="hljs-number">8</span>, -<span class="hljs-number">5</span>)<br><br><span class="hljs-comment"># Find Mean.</span><br>result.mean &lt;- mean(x)<br>print(result.mean)<br><br><span class="hljs-comment"># 当我们执行上面的代码，它产生以下结果：</span><br><br>[<span class="hljs-number">1</span>] <span class="hljs-number">8.22</span><br></code></pre></td></tr></table></figure>
+</p>
+<h2 id="应用-trim-选项"><a href="#应用-trim-选项" class="headerlink" title="应用 trim 选项"></a>应用 trim 选项</h2><p>当提供 <code>trim</code> 参数时，向量中的值被排序，然后从计算平均值中减去所需的观察值。</p>
+<p>当 <code>trim = 0.3</code> 时，来自每端的 3 个值将从计算中减去以找到均值。</p>
+<p>在这种情况下，排序的向量是 <code>(-21, -5, 2, 3, 4.2, 7, 8, 12, 18, 54)</code>，并且从用于计算平均值的向量中移除的值是左边的 <code>(-21, -5, 2)</code> 从和右边的 <code>(12, 18, 54)</code>。</p>
+<p><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs r"><span class="hljs-comment"># Create a vector.</span><br>x &lt;- <span class="hljs-built_in">c</span>(<span class="hljs-number">12</span>, <span class="hljs-number">7</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4.2</span>, <span class="hljs-number">18</span>, <span class="hljs-number">2</span>, <span class="hljs-number">54</span>, -<span class="hljs-number">21</span>, <span class="hljs-number">8</span>, -<span class="hljs-number">5</span>)<br><br><span class="hljs-comment"># Find Mean.</span><br>result.mean &lt;-  mean(x,trim = <span class="hljs-number">0.3</span>)<br>print(result.mean)<br><br><span class="hljs-comment"># 当我们执行上面的代码，它产生以下结果：</span><br><br>[<span class="hljs-number">1</span>] <span class="hljs-number">5.55</span><br></code></pre></td></tr></table></figure>
+</p>
+<h2 id="应用-NA-选项"><a href="#应用-NA-选项" class="headerlink" title="应用 NA 选项"></a>应用 NA 选项</h2><p>如果有缺失值，则平均函数返回 <code>NA</code>。</p>
+<p>要从计算中删除缺少的值，请使用 <code>na.rm = TRUE</code>。这意味着去除 <code>NA</code> 值。</p>
+<p><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs r"><span class="hljs-comment"># Create a vector. </span><br>x &lt;- <span class="hljs-built_in">c</span>(<span class="hljs-number">12</span>, <span class="hljs-number">7</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4.2</span>, <span class="hljs-number">18</span>, <span class="hljs-number">2</span>, <span class="hljs-number">54</span>, -<span class="hljs-number">21</span>, <span class="hljs-number">8</span>, -<span class="hljs-number">5</span>, <span class="hljs-literal">NA</span>)<br><br><span class="hljs-comment"># Find mean.</span><br>result.mean &lt;-  mean(x)<br>print(result.mean)<br><br><span class="hljs-comment"># Find mean dropping NA values.</span><br>result.mean &lt;-  mean(x,na.rm = <span class="hljs-literal">TRUE</span>)<br>print(result.mean)<br><br><span class="hljs-comment"># 当我们执行上面的代码，它产生以下结果：</span><br><br>[<span class="hljs-number">1</span>] <span class="hljs-literal">NA</span><br>[<span class="hljs-number">1</span>] <span class="hljs-number">8.22</span><br></code></pre></td></tr></table></figure>
+</p>
+<h1 id="中位数"><a href="#中位数" class="headerlink" title="中位数"></a>中位数</h1><p>数据系列中的最中间值称为中位数。在 R 语言中使用 <code>median()</code> 函数来计算此值。</p>
+<h2 id="语法-1"><a href="#语法-1" class="headerlink" title="语法"></a>语法</h2><p>计算 R 语言中位数的基本语法是：</p>
+<p><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs r">median(x, na.rm = <span class="hljs-literal">FALSE</span>)<br></code></pre></td></tr></table></figure>
+</p>
+<p>以下是所使用的参数的说明：</p>
+<ul>
+<li><code>x</code> 是输入向量。</li>
+<li><code>na.rm</code> 用于从输入向量中删除缺失值。</li>
+</ul>
+<p><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs r"><span class="hljs-comment"># Create the vector.</span><br>x &lt;- <span class="hljs-built_in">c</span>(<span class="hljs-number">12</span>, <span class="hljs-number">7</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4.2</span>, <span class="hljs-number">18</span>, <span class="hljs-number">2</span>, <span class="hljs-number">54</span>, -<span class="hljs-number">21</span>, <span class="hljs-number">8</span>, -<span class="hljs-number">5</span>)<br><br><span class="hljs-comment"># Find the median.</span><br>median.result &lt;- median(x)<br>print(median.result)<br><br><span class="hljs-comment"># 当我们执行上面的代码，它产生以下结果：</span><br><br>[<span class="hljs-number">1</span>] <span class="hljs-number">5.6</span><br></code></pre></td></tr></table></figure>
+</p>
+<h1 id="众数"><a href="#众数" class="headerlink" title="众数"></a>众数</h1><p>众数是一组数据中出现次数最多的值，不同于平均值和中位数，众数可以同时包含数字和字符数据。R 没有标准的内置函数来计算众数。因此，我们将创建一个用户自定义函数来计算 R 语言中的数据集的众数。该函数将向量作为输入，并将众数值作为输出。</p>
+<p><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs r"><span class="hljs-comment"># Create the function.</span><br>getmode &lt;- <span class="hljs-keyword">function</span>(v) &#123;<br>   uniqv &lt;- unique(v)<br>   uniqv[which.max(tabulate(match(v, uniqv)))]<br>&#125;<br><br><span class="hljs-comment"># Create the vector with numbers.</span><br>v &lt;- <span class="hljs-built_in">c</span>(<span class="hljs-number">2</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">1</span>, <span class="hljs-number">5</span>, <span class="hljs-number">5</span>, <span class="hljs-number">3</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>)<br><br><span class="hljs-comment"># Calculate the mode using the user function.</span><br>result &lt;- getmode(v)<br>print(result)<br><br><span class="hljs-comment"># Create the vector with characters.</span><br>charv &lt;- <span class="hljs-built_in">c</span>(<span class="hljs-string">&quot;o&quot;</span>, <span class="hljs-string">&quot;it&quot;</span>, <span class="hljs-string">&quot;the&quot;</span>, <span class="hljs-string">&quot;it&quot;</span>, <span class="hljs-string">&quot;it&quot;</span>)<br><br><span class="hljs-comment"># Calculate the mode using the user function.</span><br>result &lt;- getmode(charv)<br>print(result)<br><br><span class="hljs-comment"># 当我们执行上面的代码，它产生以下结果：</span><br><br>[<span class="hljs-number">1</span>] <span class="hljs-number">2</span><br>[<span class="hljs-number">1</span>] <span class="hljs-string">&quot;it&quot;</span><br></code></pre></td></tr></table></figure>
+</p>
+<h1 id="线性回归"><a href="#线性回归" class="headerlink" title="线性回归"></a>线性回归</h1><p>回归分析是一种非常广泛使用的统计工具，用于建立两个变量之间的关系模型。这些变量之一称为预测变量，其值通过实验收集。另一个变量称为响应变量，其值从预测变量派生。</p>
+<p>在线性回归中，这两个变量通过方程相关，其中这两个变量的指数（幂）为1.数学上，线性关系表示当绘制为曲线图时的直线。任何变量的指数不等于1的非线性关系将创建一条曲线。</p>
+<p>线性回归的一般数学方程为：</p>
+<p><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs r">y = ax + b<br></code></pre></td></tr></table></figure>
+</p>
+<p>以下是所使用的参数的说明：</p>
+<ul>
+<li><code>y</code> 是响应变量。</li>
+<li><code>x</code> 是预测变量。</li>
+<li><code>a,b</code> 被称为系数常数。</li>
+</ul>
+<p><strong>建立回归的步骤</strong></p>
+<p>回归的简单例子是当人的身高已知时预测人的体重。为了做到这一点，我们需要有一个人的身高和体重之间的关系。</p>
+<p>创建关系的步骤是：</p>
+<ol>
+<li>进行收集高度和相应重量的观测值的样本的实验。</li>
+<li>使用 R 语言中的 <code>lm()</code> 函数创建关系模型。</li>
+<li>从创建的模型中找到系数，并使用这些创建数学方程</li>
+<li>获得关系模型的摘要以了解预测中的平均误差。也称为残差。</li>
+<li>为了预测新人的体重，使用 R 中的 <code>predict()</code> 函数。</li>
+</ol>
+<p><strong>输入数据</strong></p>
+<p>下面是代表观察的样本数据：</p>
+<p><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs r"><span class="hljs-comment"># Values of height</span><br>151, <span class="hljs-number">174</span>, <span class="hljs-number">138</span>, <span class="hljs-number">186</span>, <span class="hljs-number">128</span>, <span class="hljs-number">136</span>, <span class="hljs-number">179</span>, <span class="hljs-number">163</span>, <span class="hljs-number">152</span>, <span class="hljs-number">131</span><br><br><span class="hljs-comment"># Values of weight.</span><br>63, <span class="hljs-number">81</span>, <span class="hljs-number">56</span>, <span class="hljs-number">91</span>, <span class="hljs-number">47</span>, <span class="hljs-number">57</span>, <span class="hljs-number">76</span>, <span class="hljs-number">72</span>, <span class="hljs-number">62</span>, <span class="hljs-number">48</span><br></code></pre></td></tr></table></figure>
+</p>
+<h2 id="LM-函数"><a href="#LM-函数" class="headerlink" title="LM()函数"></a>LM()函数</h2><p>此函数创建预测变量和响应变量之间的关系模型。</p>
+<p><strong>语法</strong></p>
+<p>线性回归中 <code>lm()</code> 函数的基本语法是：</p>
+<p><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs r">lm(formula, data)<br></code></pre></td></tr></table></figure>
+</p>
+<p>以下是所使用的参数的说明：</p>
+<ul>
+<li><code>formula</code> 是表示 <code>x</code> 和 <code>y</code> 之间的关系的符号。</li>
+<li><code>data</code> 是应用公式的向量。</li>
+</ul>
+<p><strong>创建关系模型并获取系数</strong></p>
+<p><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs r">x &lt;- <span class="hljs-built_in">c</span>(<span class="hljs-number">151</span>, <span class="hljs-number">174</span>, <span class="hljs-number">138</span>, <span class="hljs-number">186</span>, <span class="hljs-number">128</span>, <span class="hljs-number">136</span>, <span class="hljs-number">179</span>, <span class="hljs-number">163</span>, <span class="hljs-number">152</span>, <span class="hljs-number">131</span>)<br>y &lt;- <span class="hljs-built_in">c</span>(<span class="hljs-number">63</span>, <span class="hljs-number">81</span>, <span class="hljs-number">56</span>, <span class="hljs-number">91</span>, <span class="hljs-number">47</span>, <span class="hljs-number">57</span>, <span class="hljs-number">76</span>, <span class="hljs-number">72</span>, <span class="hljs-number">62</span>, <span class="hljs-number">48</span>)<br><br><span class="hljs-comment"># Apply the lm() function.</span><br>relation &lt;- lm(y~x)<br><br>print(relation)<br><br><span class="hljs-comment"># 当我们执行上面的代码，它产生以下结果：</span><br><br>Call:<br>lm(formula = y ~ x)<br><br>Coefficients:<br>(Intercept)            x<br>   -<span class="hljs-number">38.4551</span>       <span class="hljs-number">0.6746</span><br></code></pre></td></tr></table></figure>
+</p>
+<p><strong>获取相关的摘要</strong></p>
+<p><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs r">x &lt;- <span class="hljs-built_in">c</span>(<span class="hljs-number">151</span>, <span class="hljs-number">174</span>, <span class="hljs-number">138</span>, <span class="hljs-number">186</span>, <span class="hljs-number">128</span>, <span class="hljs-number">136</span>, <span class="hljs-number">179</span>, <span class="hljs-number">163</span>, <span class="hljs-number">152</span>, <span class="hljs-number">131</span>)<br>y &lt;- <span class="hljs-built_in">c</span>(<span class="hljs-number">63</span>, <span class="hljs-number">81</span>, <span class="hljs-number">56</span>, <span class="hljs-number">91</span>, <span class="hljs-number">47</span>, <span class="hljs-number">57</span>, <span class="hljs-number">76</span>, <span class="hljs-number">72</span>, <span class="hljs-number">62</span>, <span class="hljs-number">48</span>)<br><br><span class="hljs-comment"># Apply the lm() function.</span><br>relation &lt;- lm(y~x)<br><br>print(summary(relation))<br><br><span class="hljs-comment"># 当我们执行上面的代码，它产生以下结果：</span><br><br>Call:<br>lm(formula = y ~ x)<br><br>Residuals:<br>    Min      <span class="hljs-number">1</span>Q  Median      <span class="hljs-number">3</span>Q     Max <br>-<span class="hljs-number">6.3002</span> -<span class="hljs-number">1.6629</span>  <span class="hljs-number">0.0412</span>  <span class="hljs-number">1.8944</span>  <span class="hljs-number">3.9775</span> <br><br>Coefficients:<br>             Estimate Std. Error t value Pr(&gt;|t|)    <br>(Intercept) -<span class="hljs-number">38.45509</span>    <span class="hljs-number">8.04901</span>  -<span class="hljs-number">4.778</span>  <span class="hljs-number">0.00139</span> ** <br>x             <span class="hljs-number">0.67461</span>    <span class="hljs-number">0.05191</span>  <span class="hljs-number">12.997</span> <span class="hljs-number">1.16e-06</span> ***<br>---<br>Signif. codes:  <span class="hljs-number">0</span> ‘***’ <span class="hljs-number">0.001</span> ‘**’ <span class="hljs-number">0.01</span> ‘*’ <span class="hljs-number">0.05</span> ‘.’ <span class="hljs-number">0.1</span> ‘ ’ <span class="hljs-number">1</span><br><br>Residual standard error: <span class="hljs-number">3.253</span> on <span class="hljs-number">8</span> degrees of freedom<br>Multiple R-squared:  <span class="hljs-number">0.9548</span>,	Adjusted R-squared:  <span class="hljs-number">0.9491</span> <br><span class="hljs-built_in">F</span>-statistic: <span class="hljs-number">168.9</span> on <span class="hljs-number">1</span> and <span class="hljs-number">8</span> DF,  p-value: <span class="hljs-number">1.164e-06</span><br></code></pre></td></tr></table></figure>
+</p>
+<h2 id="predict-函数"><a href="#predict-函数" class="headerlink" title="predict()函数"></a>predict()函数</h2><p><strong>语法</strong></p>
+<p>线性回归中的 <code>predict()</code> 的基本语法是：</p>
+<p><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs r">predict(object, newdata)<br></code></pre></td></tr></table></figure>
+</p>
+<p>以下是所使用的参数的说明：</p>
+<ul>
+<li><code>object</code> 是已使用 <code>lm()</code> 函数创建的公式。</li>
+<li><code>newdata</code> 是包含预测变量的新值的向量。</li>
+</ul>
+<p><strong>预测新人的体重</strong></p>
+<p><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs r"><span class="hljs-comment"># The predictor vector.</span><br>x &lt;- <span class="hljs-built_in">c</span>(<span class="hljs-number">151</span>, <span class="hljs-number">174</span>, <span class="hljs-number">138</span>, <span class="hljs-number">186</span>, <span class="hljs-number">128</span>, <span class="hljs-number">136</span>, <span class="hljs-number">179</span>, <span class="hljs-number">163</span>, <span class="hljs-number">152</span>, <span class="hljs-number">131</span>)<br><br><span class="hljs-comment"># The resposne vector.</span><br>y &lt;- <span class="hljs-built_in">c</span>(<span class="hljs-number">63</span>, <span class="hljs-number">81</span>, <span class="hljs-number">56</span>, <span class="hljs-number">91</span>, <span class="hljs-number">47</span>, <span class="hljs-number">57</span>, <span class="hljs-number">76</span>, <span class="hljs-number">72</span>, <span class="hljs-number">62</span>, <span class="hljs-number">48</span>)<br><br><span class="hljs-comment"># Apply the lm() function.</span><br>relation &lt;- lm(y~x)<br><br><span class="hljs-comment"># Find weight of a person with height 170.</span><br>a &lt;- data.frame(x = <span class="hljs-number">170</span>)<br>result &lt;- predict(relation,a)<br>print(result)<br><br><span class="hljs-comment"># 当我们执行上面的代码，它产生以下结果：</span><br><br>       <span class="hljs-number">1</span> <br>76.22869 <br></code></pre></td></tr></table></figure>
+</p>
+<p><strong>以图形方式可视化回归</strong></p>
+<p><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs r"><span class="hljs-comment"># Create the predictor and response variable.</span><br>x &lt;- <span class="hljs-built_in">c</span>(<span class="hljs-number">151</span>, <span class="hljs-number">174</span>, <span class="hljs-number">138</span>, <span class="hljs-number">186</span>, <span class="hljs-number">128</span>, <span class="hljs-number">136</span>, <span class="hljs-number">179</span>, <span class="hljs-number">163</span>, <span class="hljs-number">152</span>, <span class="hljs-number">131</span>)<br>y &lt;- <span class="hljs-built_in">c</span>(<span class="hljs-number">63</span>, <span class="hljs-number">81</span>, <span class="hljs-number">56</span>, <span class="hljs-number">91</span>, <span class="hljs-number">47</span>, <span class="hljs-number">57</span>, <span class="hljs-number">76</span>, <span class="hljs-number">72</span>, <span class="hljs-number">62</span>, <span class="hljs-number">48</span>)<br>relation &lt;- lm(y~x)<br><br><span class="hljs-comment"># Give the chart file a name.</span><br>png(file = <span class="hljs-string">&quot;linear_regression.png&quot;</span>)<br><br><span class="hljs-comment"># Plot the chart.</span><br>plot(y, x, col = <span class="hljs-string">&quot;blue&quot;</span>,main = <span class="hljs-string">&quot;Height &amp; Weight Regression&quot;</span>, abline(lm(x~y)), cex = <span class="hljs-number">1.3</span>, pch = <span class="hljs-number">16</span>, xlab = <span class="hljs-string">&quot;Weight in Kg&quot;</span>, ylab = <span class="hljs-string">&quot;Height in cm&quot;</span>)<br><br><span class="hljs-comment"># Save the file.</span><br>dev.off()<br></code></pre></td></tr></table></figure>
+</p>
+<p>当我们执行上面的代码，它产生以下结果：</p>
+<p><img src="/images/post/r_statistics/linear_regression.png" alt></p>
+<h1 id="多元回归"><a href="#多元回归" class="headerlink" title="多元回归"></a>多元回归</h1><p>多元回归是线性回归到两个以上变量之间的关系的延伸。在简单线性关系中，我们有一个预测变量和一个响应变量，但在多元回归中，我们有多个预测变量和一个响应变量。</p>
+<p>多元回归的一般数学方程为：</p>
+<p>y = a + b1x1 + b2x2 +...bnxn
+以下是所使用的参数的说明：</p>
+<p>y是响应变量。</p>
+<p>a，b1，b2 ... bn是系数。</p>
+<p>x1，x2，... xn是预测变量。</p>
+<p>我们使用R语言中的lm()函数创建回归模型。模型使用输入数据确定系数的值。接下来，我们可以使用这些系数来预测给定的一组预测变量的响应变量的值。</p>
+<p>lm()函数
+此函数创建预测变量和响应变量之间的关系模型。</p>
+<p>语法
+lm()函数在多元回归中的基本语法是：</p>
+<p>lm(y ~ x1+x2+x3...,data)
+以下是所使用的参数的说明：</p>
+<p>公式是表示响应变量和预测变量之间的关系的符号。</p>
+<p>数据是应用公式的向量。</p>
+<p>例
+输入数据
+考虑在R语言环境中可用的数据集“mtcars”。它给出了每加仑里程（mpg），气缸排量（“disp”），马力（“hp”），汽车重量（“wt”）和一些其他参数的不同汽车模型之间的比较。</p>
+<p>模型的目标是建立“mpg”作为响应变量与“disp”，“hp”和“wt”作为预测变量之间的关系。为此，我们从mtcars数据集中创建这些变量的子集。</p>
+<p>input &lt;- mtcars[,c(&quot;mpg&quot;,&quot;disp&quot;,&quot;hp&quot;,&quot;wt&quot;)]
+print(head(input))</p>
+<h1 id="当我们执行上面的代码，它产生以下结果："><a href="#当我们执行上面的代码，它产生以下结果：" class="headerlink" title="当我们执行上面的代码，它产生以下结果："></a>当我们执行上面的代码，它产生以下结果：</h1><pre><code>               mpg   disp   hp    wt
+</code></pre><p>Mazda RX4          21.0  160    110   2.620
+Mazda RX4 Wag      21.0  160    110   2.875
+Datsun 710         22.8  108     93   2.320
+Hornet 4 Drive     21.4  258    110   3.215
+Hornet Sportabout  18.7  360    175   3.440
+Valiant            18.1  225    105   3.460
+创建关系模型并获取系数
+input &lt;- mtcars[,c(&quot;mpg&quot;,&quot;disp&quot;,&quot;hp&quot;,&quot;wt&quot;)]</p>
+<h1 id="Create-the-relationship-model"><a href="#Create-the-relationship-model" class="headerlink" title="Create the relationship model."></a>Create the relationship model.</h1><p>model &lt;- lm(mpg~disp+hp+wt, data = input)</p>
+<h1 id="Show-the-model"><a href="#Show-the-model" class="headerlink" title="Show the model."></a>Show the model.</h1><p>print(model)</p>
+<h1 id="Get-the-Intercept-and-coefficients-as-vector-elements"><a href="#Get-the-Intercept-and-coefficients-as-vector-elements" class="headerlink" title="Get the Intercept and coefficients as vector elements."></a>Get the Intercept and coefficients as vector elements.</h1><p>cat(&quot;# # # # The Coefficient Values # # # #&quot;, &quot;&quot;)</p>
+<p>a &lt;- coef(model)[1]
+print(a)</p>
+<p>Xdisp &lt;- coef(model)[2]
+Xhp &lt;- coef(model)[3]
+Xwt &lt;- coef(model)[4]</p>
+<p>print(Xdisp)
+print(Xhp)
+print(Xwt)</p>
+<h1 id="当我们执行上面的代码，它产生以下结果：-1"><a href="#当我们执行上面的代码，它产生以下结果：-1" class="headerlink" title="当我们执行上面的代码，它产生以下结果："></a>当我们执行上面的代码，它产生以下结果：</h1><p>Call:
+lm(formula = mpg ~ disp + hp + wt, data = input)</p>
+<p>Coefficients:
+(Intercept)         disp           hp           wt<br>  37.105505      -0.000937        -0.031157    -3.800891  </p>
+<h1 id="The-Coefficient-Values"><a href="#The-Coefficient-Values" class="headerlink" title="# # # The Coefficient Values # #"></a># # # The Coefficient Values # #</h1><p>(Intercept) 
+   37.10551 
+         disp 
+-0.0009370091 
+         hp 
+-0.03115655 
+       wt 
+-3.800891 
+创建回归模型的方程
+基于上述截距和系数值，我们创建了数学方程。</p>
+<p>Y = a+Xdisp.x1+Xhp.x2+Xwt.x3
+or
+Y = 37.15+(-0.000937)<em>x1+(-0.0311)</em>x2+(-3.8008)<em>x3
+应用方程预测新值
+当提供一组新的位移，马力和重量值时，我们可以使用上面创建的回归方程来预测里程数。
+对于disp = 221，hp = 102和wt = 2.91的汽车，预测里程为：
+Y = 37.15+(-0.000937)</em>221+(-0.0311)<em>102+(-3.8008)</em>2.91 = 22.7104</p>
+<h1 id="逻辑回归"><a href="#逻辑回归" class="headerlink" title="逻辑回归"></a>逻辑回归</h1><p>逻辑回归是回归模型，其中响应变量（因变量）具有诸如True / False或0/1的分类值。它实际上基于将其与预测变量相关的数学方程测量二元响应的概率作为响应变量的值。</p>
+<p>逻辑回归的一般数学方程为：</p>
+<p>y = 1/(1+e^-(a+b1x1+b2x2+b3x3+...))
+以下是所使用的参数的说明：</p>
+<p>y是响应变量。</p>
+<p>x是预测变量。</p>
+<p>a和b是作为数字常数的系数。</p>
+<p>用于创建回归模型的函数是glm()函数。</p>
+<p>语法
+逻辑回归中glm()函数的基本语法是：</p>
+<p>glm(formula,data,family)
+以下是所使用的参数的说明：</p>
+<p>formula是表示变量之间的关系的符号。</p>
+<p>data是给出这些变量的值的数据集。</p>
+<p>family是R语言对象来指定模型的细节。它的值是二项逻辑回归。</p>
+<p>例
+内置数据集“mtcars”描述具有各种发动机规格的汽车的不同型号。在“mtcars”数据集中，传输模式（自动或手动）由am列描述，它是一个二进制值（0或1）。我们可以在列“am”和其他3列（hp，wt和cyl）之间创建逻辑回归模型。</p>
+<h1 id="Select-some-columns-form-mtcars"><a href="#Select-some-columns-form-mtcars" class="headerlink" title="Select some columns form mtcars."></a>Select some columns form mtcars.</h1><p>input &lt;- mtcars[,c(&quot;am&quot;,&quot;cyl&quot;,&quot;hp&quot;,&quot;wt&quot;)]</p>
+<p>print(head(input))</p>
+<h1 id="当我们执行上面的代码，它产生以下结果：-2"><a href="#当我们执行上面的代码，它产生以下结果：-2" class="headerlink" title="当我们执行上面的代码，它产生以下结果："></a>当我们执行上面的代码，它产生以下结果：</h1><pre><code>              am   cyl  hp    wt
+</code></pre><p>Mazda RX4          1   6    110   2.620
+Mazda RX4 Wag      1   6    110   2.875
+Datsun 710         1   4     93   2.320
+Hornet 4 Drive     0   6    110   3.215
+Hornet Sportabout  0   8    175   3.440
+Valiant            0   6    105   3.460
+创建回归模型
+我们使用glm()函数创建回归模型，并得到其摘要进行分析。</p>
+<p>input &lt;- mtcars[,c(&quot;am&quot;,&quot;cyl&quot;,&quot;hp&quot;,&quot;wt&quot;)]</p>
+<p>am.data = glm(formula = am ~ cyl + hp + wt, data = input, family = binomial)</p>
+<p>print(summary(am.data))</p>
+<h1 id="当我们执行上面的代码，它产生以下结果：-3"><a href="#当我们执行上面的代码，它产生以下结果：-3" class="headerlink" title="当我们执行上面的代码，它产生以下结果："></a>当我们执行上面的代码，它产生以下结果：</h1><p>Call:
+glm(formula = am ~ cyl + hp + wt, family = binomial, data = input)</p>
+<p>Deviance Residuals: 
+     Min        1Q      Median        3Q       Max<br>-2.17272     -0.14907  -0.01464     0.14116   1.27641  </p>
+<p>Coefficients:
+            Estimate Std. Error z value Pr(&gt;|z|)<br>(Intercept) 19.70288    8.11637   2.428   0.0152 *
+cyl          0.48760    1.07162   0.455   0.6491<br>hp           0.03259    0.01886   1.728   0.0840 .</p>
+<h2 id="wt-9-14947-4-15332-2-203-0-0276"><a href="#wt-9-14947-4-15332-2-203-0-0276" class="headerlink" title="wt          -9.14947    4.15332  -2.203   0.0276 *"></a>wt          -9.14947    4.15332  -2.203   0.0276 *</h2><p>Signif. codes:  0 ‘<strong>*’ 0.001 ‘</strong>’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1</p>
+<p>(Dispersion parameter for binomial family taken to be 1)</p>
+<pre><code>Null deviance: 43.2297  on 31  degrees of freedom
+</code></pre><p>Residual deviance:  9.8415  on 28  degrees of freedom
+AIC: 17.841</p>
+<p>Number of Fisher Scoring iterations: 8
+结论
+在总结中，对于变量“cyl”和“hp”，最后一列中的p值大于0.05，我们认为它们对变量“am”的值有贡献是无关紧要的。只有重量（wt）影响该回归模型中的“am”值。</p>
+<p>标准分布</p>
+<p>在来自独立源的数据的随机集合中，通常观察到数据的分布是正常的。这意味着，在绘制水平轴上的变量值和垂直轴上的值的计数的图形时，我们得到钟形曲线。曲线的中心表示数据集的平均值。在图中，50％的值位于平均值的左侧，另外50％位于图表的右侧。这在统计学中被称为正态分布。</p>
+<p>R语言有四个内置函数来产生正态分布。它们描述如下。</p>
+<p>dnorm(x, mean, sd)
+pnorm(x, mean, sd)
+qnorm(p, mean, sd)
+rnorm(n, mean, sd)
+以下是在上述功能中使用的参数的描述 - </p>
+<p>x是数字的向量。</p>
+<p>p是概率的向量。</p>
+<p>n是观察的数量（样本大小）。</p>
+<p>mean是样本数据的平均值。它的默认值为零。</p>
+<p>sd是标准偏差。它的默认值为1。</p>
+<p>dnorm（）
+该函数给出给定平均值和标准偏差在每个点的概率分布的高度。</p>
+<h1 id="Create-a-sequence-of-numbers-between-10-and-10-incrementing-by-0-1"><a href="#Create-a-sequence-of-numbers-between-10-and-10-incrementing-by-0-1" class="headerlink" title="Create a sequence of numbers between -10 and 10 incrementing by 0.1."></a>Create a sequence of numbers between -10 and 10 incrementing by 0.1.</h1><p>x &lt;- seq(-10, 10, by = .1)</p>
+<h1 id="Choose-the-mean-as-2-5-and-standard-deviation-as-0-5"><a href="#Choose-the-mean-as-2-5-and-standard-deviation-as-0-5" class="headerlink" title="Choose the mean as 2.5 and standard deviation as 0.5."></a>Choose the mean as 2.5 and standard deviation as 0.5.</h1><p>y &lt;- dnorm(x, mean = 2.5, sd = 0.5)</p>
+<h1 id="Give-the-chart-file-a-name"><a href="#Give-the-chart-file-a-name" class="headerlink" title="Give the chart file a name."></a>Give the chart file a name.</h1><p>png(file = &quot;dnorm.png&quot;)</p>
+<p>plot(x,y)</p>
+<h1 id="Save-the-file"><a href="#Save-the-file" class="headerlink" title="Save the file."></a>Save the file.</h1><p>dev.off()</p>
+<h1 id="当我们执行上面的代码，它产生以下结果：-4"><a href="#当我们执行上面的代码，它产生以下结果：-4" class="headerlink" title="当我们执行上面的代码，它产生以下结果："></a>当我们执行上面的代码，它产生以下结果：</h1><p>dnorm（）图
+pnorm（）
+该函数给出正态分布随机数的概率小于给定数的值。它也被称为“累积分布函数”。</p>
+<h1 id="Create-a-sequence-of-numbers-between-10-and-10-incrementing-by-0-2"><a href="#Create-a-sequence-of-numbers-between-10-and-10-incrementing-by-0-2" class="headerlink" title="Create a sequence of numbers between -10 and 10 incrementing by 0.2."></a>Create a sequence of numbers between -10 and 10 incrementing by 0.2.</h1><p>x &lt;- seq(-10,10,by = .2)</p>
+<h1 id="Choose-the-mean-as-2-5-and-standard-deviation-as-2"><a href="#Choose-the-mean-as-2-5-and-standard-deviation-as-2" class="headerlink" title="Choose the mean as 2.5 and standard deviation as 2."></a>Choose the mean as 2.5 and standard deviation as 2.</h1><p>y &lt;- pnorm(x, mean = 2.5, sd = 2)</p>
+<h1 id="Give-the-chart-file-a-name-1"><a href="#Give-the-chart-file-a-name-1" class="headerlink" title="Give the chart file a name."></a>Give the chart file a name.</h1><p>png(file = &quot;pnorm.png&quot;)</p>
+<h1 id="Plot-the-graph"><a href="#Plot-the-graph" class="headerlink" title="Plot the graph."></a>Plot the graph.</h1><p>plot(x,y)</p>
+<h1 id="Save-the-file-1"><a href="#Save-the-file-1" class="headerlink" title="Save the file."></a>Save the file.</h1><p>dev.off()</p>
+<h1 id="当我们执行上面的代码，它产生以下结果：-5"><a href="#当我们执行上面的代码，它产生以下结果：-5" class="headerlink" title="当我们执行上面的代码，它产生以下结果："></a>当我们执行上面的代码，它产生以下结果：</h1><p>pnorm（）图
+qnorm（）
+该函数采用概率值，并给出累积值与概率值匹配的数字。</p>
+<h1 id="Create-a-sequence-of-probability-values-incrementing-by-0-02"><a href="#Create-a-sequence-of-probability-values-incrementing-by-0-02" class="headerlink" title="Create a sequence of probability values incrementing by 0.02."></a>Create a sequence of probability values incrementing by 0.02.</h1><p>x &lt;- seq(0, 1, by = 0.02)</p>
+<h1 id="Choose-the-mean-as-2-and-standard-deviation-as-3"><a href="#Choose-the-mean-as-2-and-standard-deviation-as-3" class="headerlink" title="Choose the mean as 2 and standard deviation as 3."></a>Choose the mean as 2 and standard deviation as 3.</h1><p>y &lt;- qnorm(x, mean = 2, sd = 1)</p>
+<h1 id="Give-the-chart-file-a-name-2"><a href="#Give-the-chart-file-a-name-2" class="headerlink" title="Give the chart file a name."></a>Give the chart file a name.</h1><p>png(file = &quot;qnorm.png&quot;)</p>
+<h1 id="Plot-the-graph-1"><a href="#Plot-the-graph-1" class="headerlink" title="Plot the graph."></a>Plot the graph.</h1><p>plot(x,y)</p>
+<h1 id="Save-the-file-2"><a href="#Save-the-file-2" class="headerlink" title="Save the file."></a>Save the file.</h1><p>dev.off()</p>
+<h1 id="当我们执行上面的代码，它产生以下结果：-6"><a href="#当我们执行上面的代码，它产生以下结果：-6" class="headerlink" title="当我们执行上面的代码，它产生以下结果："></a>当我们执行上面的代码，它产生以下结果：</h1><p>qnorm（）图
+RNORM（）
+此函数用于生成分布正常的随机数。它将样本大小作为输入，并生成许多随机数。我们绘制一个直方图来显示生成的数字的分布。</p>
+<h1 id="Create-a-sample-of-50-numbers-which-are-normally-distributed"><a href="#Create-a-sample-of-50-numbers-which-are-normally-distributed" class="headerlink" title="Create a sample of 50 numbers which are normally distributed."></a>Create a sample of 50 numbers which are normally distributed.</h1><p>y &lt;- rnorm(50)</p>
+<h1 id="Give-the-chart-file-a-name-3"><a href="#Give-the-chart-file-a-name-3" class="headerlink" title="Give the chart file a name."></a>Give the chart file a name.</h1><p>png(file = &quot;rnorm.png&quot;)</p>
+<h1 id="Plot-the-histogram-for-this-sample"><a href="#Plot-the-histogram-for-this-sample" class="headerlink" title="Plot the histogram for this sample."></a>Plot the histogram for this sample.</h1><p>hist(y, main = &quot;Normal DIstribution&quot;)</p>
+<h1 id="Save-the-file-3"><a href="#Save-the-file-3" class="headerlink" title="Save the file."></a>Save the file.</h1><p>dev.off()</p>
+<h1 id="当我们执行上面的代码，它产生以下结果：-7"><a href="#当我们执行上面的代码，它产生以下结果：-7" class="headerlink" title="当我们执行上面的代码，它产生以下结果："></a>当我们执行上面的代码，它产生以下结果：</h1><p>RNORM（）图</p>
+<h1 id="二项分布"><a href="#二项分布" class="headerlink" title="二项分布"></a>二项分布</h1><p>二项分布模型处理在一系列实验中仅发现两个可能结果的事件的成功概率。例如，掷硬币总是给出头或尾。在二项分布期间估计在10次重复抛掷硬币中精确找到3个头的概率。</p>
+<p>R语言有四个内置函数来生成二项分布。它们描述如下。</p>
+<p>dbinom(x, size, prob)
+pbinom(x, size, prob)
+qbinom(p, size, prob)
+rbinom(n, size, prob)
+以下是所使用的参数的说明：</p>
+<p>x是数字的向量。</p>
+<p>p是概率向量。</p>
+<p>n是观察的数量。</p>
+<p>size是试验的数量。</p>
+<p>prob是每个试验成功的概率。</p>
+<p>dbinom（）
+该函数给出每个点的概率密度分布。</p>
+<h1 id="Create-a-sample-of-50-numbers-which-are-incremented-by-1"><a href="#Create-a-sample-of-50-numbers-which-are-incremented-by-1" class="headerlink" title="Create a sample of 50 numbers which are incremented by 1."></a>Create a sample of 50 numbers which are incremented by 1.</h1><p>x &lt;- seq(0,50,by = 1)</p>
+<h1 id="Create-the-binomial-distribution"><a href="#Create-the-binomial-distribution" class="headerlink" title="Create the binomial distribution."></a>Create the binomial distribution.</h1><p>y &lt;- dbinom(x,50,0.5)</p>
+<h1 id="Give-the-chart-file-a-name-4"><a href="#Give-the-chart-file-a-name-4" class="headerlink" title="Give the chart file a name."></a>Give the chart file a name.</h1><p>png(file = &quot;dbinom.png&quot;)</p>
+<h1 id="Plot-the-graph-for-this-sample"><a href="#Plot-the-graph-for-this-sample" class="headerlink" title="Plot the graph for this sample."></a>Plot the graph for this sample.</h1><p>plot(x,y)</p>
+<h1 id="Save-the-file-4"><a href="#Save-the-file-4" class="headerlink" title="Save the file."></a>Save the file.</h1><p>dev.off()</p>
+<h1 id="当我们执行上面的代码，它产生以下结果：-8"><a href="#当我们执行上面的代码，它产生以下结果：-8" class="headerlink" title="当我们执行上面的代码，它产生以下结果："></a>当我们执行上面的代码，它产生以下结果：</h1><p>dbinom（）图
+pbinom（）
+此函数给出事件的累积概率。它是表示概率的单个值。</p>
+<h1 id="Probability-of-getting-26-or-less-heads-from-a-51-tosses-of-a-coin"><a href="#Probability-of-getting-26-or-less-heads-from-a-51-tosses-of-a-coin" class="headerlink" title="Probability of getting 26 or less heads from a 51 tosses of a coin."></a>Probability of getting 26 or less heads from a 51 tosses of a coin.</h1><p>x &lt;- pbinom(26,51,0.5)</p>
+<p>print(x)</p>
+<h1 id="当我们执行上面的代码，它产生以下结果：-9"><a href="#当我们执行上面的代码，它产生以下结果：-9" class="headerlink" title="当我们执行上面的代码，它产生以下结果："></a>当我们执行上面的代码，它产生以下结果：</h1><p>[1] 0.610116
+qbinom（）
+该函数采用概率值，并给出累积值与概率值匹配的数字。</p>
+<h1 id="How-many-heads-will-have-a-probability-of-0-25-will-come-out-when-a-coin-is-tossed-51-times"><a href="#How-many-heads-will-have-a-probability-of-0-25-will-come-out-when-a-coin-is-tossed-51-times" class="headerlink" title="How many heads will have a probability of 0.25 will come out when a coin is tossed 51 times."></a>How many heads will have a probability of 0.25 will come out when a coin is tossed 51 times.</h1><p>x &lt;- qbinom(0.25,51,1/2)</p>
+<p>print(x)</p>
+<h1 id="当我们执行上面的代码，它产生以下结果：-10"><a href="#当我们执行上面的代码，它产生以下结果：-10" class="headerlink" title="当我们执行上面的代码，它产生以下结果："></a>当我们执行上面的代码，它产生以下结果：</h1><p>[1] 23
+rbinom（）
+该函数从给定样本产生给定概率的所需数量的随机值。</p>
+<h1 id="Find-8-random-values-from-a-sample-of-150-with-probability-of-0-4"><a href="#Find-8-random-values-from-a-sample-of-150-with-probability-of-0-4" class="headerlink" title="Find 8 random values from a sample of 150 with probability of 0.4."></a>Find 8 random values from a sample of 150 with probability of 0.4.</h1><p>x &lt;- rbinom(8,150,.4)</p>
+<p>print(x)</p>
+<h1 id="当我们执行上面的代码，它产生以下结果：-11"><a href="#当我们执行上面的代码，它产生以下结果：-11" class="headerlink" title="当我们执行上面的代码，它产生以下结果："></a>当我们执行上面的代码，它产生以下结果：</h1><p>[1] 58 61 59 66 55 60 61 67</p>
+<h1 id="泊松回归"><a href="#泊松回归" class="headerlink" title="泊松回归"></a>泊松回归</h1><p>泊松回归（英语:Poisson regression）包括回归模型，其中响应变量是计数而不是分数的形式。</p>
+<p>例如，足球比赛系列中的出生次数或胜利次数。此外，响应变量的值遵循泊松分布。</p>
+<p>泊松回归的一般数学方程为：</p>
+<p>log(y) = a + b1x1 + b2x2 + bnxn.....
+以下是所使用的参数的说明：</p>
+<p>​y​是响应变量。</p>
+<p>​a​和​b​是数字系数。</p>
+<p>​x​是预测变量。</p>
+<p>用于创建泊松回归模型的函数是​glm()​函数。</p>
+<p>语法
+在泊松回归中​glm()​函数的基本语法是：</p>
+<p>glm(formula,data,family)
+以下是在上述功能中使用的参数的描述 - </p>
+<p>​formula​是表示变量之间的关系的符号。</p>
+<p>​data​是给出这些变量的值的数据集。</p>
+<p>​family​是 R 语言对象来指定模型的细节。它的值是“泊松”的逻辑回归。</p>
+<p>例
+我们有内置的数据集“​warpbreaks​”，其描述了羊毛类型（​A​或​B​）和张力（低，中或高）对每个织机的经纱断裂数量的影响。让我们考虑“断裂”作为响应变量，它是断裂次数的计数。羊毛“类型”和“张力”作为预测变量。</p>
+<p>输入数据
+input &lt;- warpbreaks
+print(head(input))</p>
+<h1 id="当我们执行上面的代码，它产生以下结果：-12"><a href="#当我们执行上面的代码，它产生以下结果：-12" class="headerlink" title="当我们执行上面的代码，它产生以下结果："></a>当我们执行上面的代码，它产生以下结果：</h1><pre><code>  breaks   wool  tension
+</code></pre><p>1     26       A     L
+2     30       A     L
+3     54       A     L
+4     25       A     L
+5     70       A     L
+6     52       A     L
+创建回归模型
+output &lt;-glm(formula = breaks ~ wool+tension, 
+                   data = warpbreaks, 
+                 family = poisson)
+print(summary(output))</p>
+<h1 id="当我们执行上面的代码，它产生以下结果：-13"><a href="#当我们执行上面的代码，它产生以下结果：-13" class="headerlink" title="当我们执行上面的代码，它产生以下结果："></a>当我们执行上面的代码，它产生以下结果：</h1><p>Call:
+glm(formula = breaks ~ wool + tension, family = poisson, data = warpbreaks)</p>
+<p>Deviance Residuals: 
+    Min       1Q     Median       3Q      Max<br>  -3.6871  -1.6503  -0.4269     1.1902   4.2616  </p>
+<p>Coefficients:
+            Estimate Std. Error z value Pr(&gt;|z|)<br>(Intercept)  3.69196    0.04541  81.302  &lt; 2e-16 <strong><em>
+woolB       -0.20599    0.05157  -3.994 6.49e-05 </em></strong>
+tensionM    -0.32132    0.06027  -5.332 9.73e-08 <em>*</em></p>
+<h2 id="tensionH-0-51849-0-06396-8-107-5-21e-16"><a href="#tensionH-0-51849-0-06396-8-107-5-21e-16" class="headerlink" title="tensionH    -0.51849    0.06396  -8.107 5.21e-16 *"></a>tensionH    -0.51849    0.06396  -8.107 5.21e-16 <em>*</em></h2><p>Signif. codes:  0 ‘<strong>*’ 0.001 ‘</strong>’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1</p>
+<p>(Dispersion parameter for poisson family taken to be 1)</p>
+<pre><code>Null deviance: 297.37  on 53  degrees of freedom
+</code></pre><p>Residual deviance: 210.39  on 50  degrees of freedom
+AIC: 493.06</p>
+<p>Number of Fisher Scoring iterations: 4
+在摘要中，我们查找最后一列中的​p​值小于​0.05​，以考虑预测变量对响应变量的影响。如图所示，具有张力类型​M​和​H​的羊毛类型​B​对断裂计数有影响。</p>
+<h1 id="协方差分析"><a href="#协方差分析" class="headerlink" title="协方差分析"></a>协方差分析</h1><p>我们使用回归分析创建模型，描述变量在预测变量对响应变量的影响。有时，如果我们有一个类别变量，如Yes / No或Male / Female等。简单的回归分析为分类变量的每个值提供多个结果。在这种情况下，我们可以通过将分类变量与预测变量一起使用并比较分类变量的每个级别的回归线来研究分类变量的效果。这样的分析被称为协方差分析，也称为ANCOVA。</p>
+<p>例
+考虑在数据集mtcars中内置的R语言。在其中我们观察到字段“am”表示传输的类型（自动或手动）。它是值为0和1的分类变量。汽车的每加仑英里数（mpg）也可以取决于马力（“hp”）的值。</p>
+<p>我们研究“am”的值对“mpg”和“hp”之间回归的影响。它是通过使用aov()函数，然后使用anova()函数来比较多个回归来完成的。</p>
+<p>输入数据
+从数据集mtcars创建一个包含字段“mpg”，“hp”和“am”的数据框。这里我们取“mpg”作为响应变量，“hp”作为预测变量，“am”作为分类变量。</p>
+<p>input &lt;- mtcars[,c(&quot;am&quot;,&quot;mpg&quot;,&quot;hp&quot;)]
+print(head(input))</p>
+<h1 id="当我们执行上面的代码，它产生以下结果：-14"><a href="#当我们执行上面的代码，它产生以下结果：-14" class="headerlink" title="当我们执行上面的代码，它产生以下结果："></a>当我们执行上面的代码，它产生以下结果：</h1><pre><code>               am   mpg   hp
+</code></pre><p>Mazda RX4          1    21.0  110
+Mazda RX4 Wag      1    21.0  110
+Datsun 710         1    22.8   93
+Hornet 4 Drive     0    21.4  110
+Hornet Sportabout  0    18.7  175
+Valiant            0    18.1  105
+协方差分析
+我们创建一个回归模型，以“hp”作为预测变量，“mpg”作为响应变量，考虑“am”和“hp”之间的相互作用。</p>
+<p>模型与分类变量和预测变量之间的相互作用</p>
+<h1 id="Get-the-dataset"><a href="#Get-the-dataset" class="headerlink" title="Get the dataset."></a>Get the dataset.</h1><p>input &lt;- mtcars</p>
+<h1 id="Create-the-regression-model"><a href="#Create-the-regression-model" class="headerlink" title="Create the regression model."></a>Create the regression model.</h1><p>result &lt;- aov(mpg~hp*am,data = input)
+print(summary(result))</p>
+<h1 id="当我们执行上面的代码，它产生以下结果：-15"><a href="#当我们执行上面的代码，它产生以下结果：-15" class="headerlink" title="当我们执行上面的代码，它产生以下结果："></a>当我们执行上面的代码，它产生以下结果：</h1><pre><code>        Df Sum Sq Mean Sq F value   Pr(&gt;F)    
+</code></pre><p>hp           1  678.4   678.4  77.391 1.50e-09 <strong><em>
+am           1  202.2   202.2  23.072 4.75e-05 </em></strong>
+hp:am        1    0.0     0.0   0.001    0.981    </p>
+<h2 id="Residuals-28-245-4-8-8"><a href="#Residuals-28-245-4-8-8" class="headerlink" title="Residuals   28  245.4     8.8                     "></a>Residuals   28  245.4     8.8                     </h2><p>Signif. codes:  0 ‘<strong>*’ 0.001 ‘</strong>’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+这个结果表明，马力和传输类型对每加仑的英里有显着的影响，因为两种情况下的p值都小于0.05。但是这两个变量之间的相互作用不显着，因为p值大于0.05。</p>
+<p>没有分类变量和预测变量之间相互作用的模型</p>
+<h1 id="Get-the-dataset-1"><a href="#Get-the-dataset-1" class="headerlink" title="Get the dataset."></a>Get the dataset.</h1><p>input &lt;- mtcars</p>
+<h1 id="Create-the-regression-model-1"><a href="#Create-the-regression-model-1" class="headerlink" title="Create the regression model."></a>Create the regression model.</h1><p>result &lt;- aov(mpg~hp+am,data = input)
+print(summary(result))</p>
+<h1 id="当我们执行上面的代码，它产生以下结果：-16"><a href="#当我们执行上面的代码，它产生以下结果：-16" class="headerlink" title="当我们执行上面的代码，它产生以下结果："></a>当我们执行上面的代码，它产生以下结果：</h1><pre><code>        Df  Sum Sq  Mean Sq   F value   Pr(&gt;F)    
+</code></pre><p>hp           1  678.4   678.4   80.15 7.63e-10 <strong><em>
+am           1  202.2   202.2   23.89 3.46e-05 </em></strong></p>
+<h2 id="Residuals-29-245-4-8-5"><a href="#Residuals-29-245-4-8-5" class="headerlink" title="Residuals   29  245.4     8.5                     "></a>Residuals   29  245.4     8.5                     </h2><p>Signif. codes:  0 ‘<strong>*’ 0.001 ‘</strong>’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+这个结果表明，马力和传输类型对每加仑的英里有显着的影响，因为两种情况下的p值都小于0.05。</p>
+<p>比较两个模型
+现在我们可以比较两个模型来得出结论，变量的相互作用是否真正重要。为此，我们使用anova()函数。</p>
+<h1 id="Get-the-dataset-2"><a href="#Get-the-dataset-2" class="headerlink" title="Get the dataset."></a>Get the dataset.</h1><p>input &lt;- mtcars</p>
+<h1 id="Create-the-regression-models"><a href="#Create-the-regression-models" class="headerlink" title="Create the regression models."></a>Create the regression models.</h1><p>result1 &lt;- aov(mpg~hp*am,data = input)
+result2 &lt;- aov(mpg~hp+am,data = input)</p>
+<h1 id="Compare-the-two-models"><a href="#Compare-the-two-models" class="headerlink" title="Compare the two models."></a>Compare the two models.</h1><p>print(anova(result1,result2))</p>
+<h1 id="当我们执行上面的代码，它产生以下结果：-17"><a href="#当我们执行上面的代码，它产生以下结果：-17" class="headerlink" title="当我们执行上面的代码，它产生以下结果："></a>当我们执行上面的代码，它产生以下结果：</h1><p>Model 1: mpg ~ hp * am
+Model 2: mpg ~ hp + am
+  Res.Df    RSS Df  Sum of Sq     F Pr(&gt;F)
+1     28 245.43<br>2     29 245.44 -1 -0.0052515 6e-04 0.9806
+由于p值大于0.05，我们得出结论，马力和传播类型之间的相互作用不显着。因此，在汽车和手动变速器模式下，每加仑的里程将以类似的方式取决于汽车的马力。</p>
+<h1 id="时间序列分析"><a href="#时间序列分析" class="headerlink" title="时间序列分析"></a>时间序列分析</h1><p>时间序列是将统一统计值按照时间发生的先后顺序来进行排列，时间序列分析的主要目的是根据已有数据对未来进行预测。</p>
+<p>一个稳定的时间序列中常常包含两个部分，那么就是：有规律的时间序列+噪声。所以，在以下的方法中，主要的目的就是去过滤噪声值，让我们的时间序列更加的有分析意义。</p>
+<p>语法
+时间序列分析中ts()函数的基本语法是：</p>
+<p>timeseries.object.name &lt;-  ts(data, start, end, frequency)
+以下是所使用的参数的说明：</p>
+<p>data是包含在时间序列中使用的值的向量或矩阵。</p>
+<p>start以时间序列指定第一次观察的开始时间。</p>
+<p>end指定时间序列中最后一次观测的结束时间。</p>
+<p>frequency指定每单位时间的观测数。</p>
+<p>除了参数“data”，所有其他参数是可选的。</p>
+<p>时间序列的预处理：
+平稳性检验：
+拿到一个时间序列之后，我们首先要对其稳定性进行判断，只有非白噪声的稳定性时间序列才有分析的意义以及预测未来数据的价值。</p>
+<p>所谓平稳，是指统计值在一个常数上下波动并且波动范围是有界限的。如果有明显的趋势或者周期性，那么就是不稳定的。一般判断有三种方法：</p>
+<p>画出时间序列的趋势图，看趋势判断
+画自相关图和偏相关图，平稳时间序列的自相关图和偏相关图，要么拖尾，要么截尾。
+检验序列中是否存在单位根，如果存在单位根，就是非平稳时间序列。
+在R语言中，DF检测是一种检测稳定性的方法，如果得出的P值小于临界值，则认为是数列是稳定的。</p>
+<p>白噪声检验
+白噪声序列，又称为纯随机性序列，序列的各个值之间没有任何的相关关系，序列在进行无序的随机波动，可以终止对该序列的分析，因为从白噪声序列中是提取不到任何有价值的信息的。</p>
+<p>平稳时间序列的参数特点
+均值和方差为常数，并且具有与时间无关的自协方差。</p>
+<p>时间序列建模步骤:
+拿到被分析的时间序列数据集。
+对数据绘图，观测其平稳性。若为非平稳时间序列要先进行 d 阶差分运算后化为平稳时间序列，此处的 d 即为 ARIMA(p,d,q) 模型中的 d ；若为平稳序列，则用 ARMA(p,q) 模型。所以 ARIMA(p,d,q) 模型区别于 ARMA(p,q) 之处就在于前者的自回归部分的特征多项式含有d个单位根。
+对得到的平稳时间序列分别求得其自相关系数 ACF 和偏自相关系数 PACF ，通过对自相关图和偏自相关图的分析，得到最佳的阶层 p 和阶数 q。由以上得到的 d、q、p ，得到 ARIMA 模型。
+模型诊断。进行诊断分析，以证实所得模型确实与所观察到的数据特征相符。若不相符，重新回到第（3）步。
+例
+考虑从2012年1月开始的一个地方的年降雨量细节。我们创建一个R时间序列对象为期12个月并绘制它。</p>
+<h1 id="Get-the-data-points-in-form-of-a-R-vector"><a href="#Get-the-data-points-in-form-of-a-R-vector" class="headerlink" title="Get the data points in form of a R vector."></a>Get the data points in form of a R vector.</h1><p>rainfall &lt;- c(799,1174.8,865.1,1334.6,635.4,918.5,685.5,998.6,784.2,985,882.8,1071)</p>
+<h1 id="Convert-it-to-a-time-series-object"><a href="#Convert-it-to-a-time-series-object" class="headerlink" title="Convert it to a time series object."></a>Convert it to a time series object.</h1><p>rainfall.timeseries &lt;- ts(rainfall,start = c(2012,1),frequency = 12)</p>
+<h1 id="Print-the-timeseries-data"><a href="#Print-the-timeseries-data" class="headerlink" title="Print the timeseries data."></a>Print the timeseries data.</h1><p>print(rainfall.timeseries)</p>
+<h1 id="Give-the-chart-file-a-name-5"><a href="#Give-the-chart-file-a-name-5" class="headerlink" title="Give the chart file a name."></a>Give the chart file a name.</h1><p>png(file = &quot;rainfall.png&quot;)</p>
+<h1 id="Plot-a-graph-of-the-time-series"><a href="#Plot-a-graph-of-the-time-series" class="headerlink" title="Plot a graph of the time series."></a>Plot a graph of the time series.</h1><p>plot(rainfall.timeseries)</p>
+<h1 id="Save-the-file-5"><a href="#Save-the-file-5" class="headerlink" title="Save the file."></a>Save the file.</h1><p>dev.off()
+当我们执行上面的代码，它产生以下结果及图表 -</p>
+<p>Jan    Feb    Mar    Apr    May     Jun    Jul    Aug    Sep
+2012  799.0  1174.8  865.1  1334.6  635.4  918.5  685.5  998.6  784.2
+        Oct    Nov    Dec
+2012  985.0  882.8 1071.0
+时间序列图 -</p>
+<p>时间序列，使用R</p>
+<p>不同的时间间隔
+ts()函数中的频率参数值决定了测量数据点的时间间隔。值为12表示时间序列为12个月。其他值及其含义如下 - </p>
+<p>频率= 12指定一年中每个月的数据点。</p>
+<p>频率= 4每年的每个季度的数据点。</p>
+<p>频率= 6每小时的10分钟的数据点。</p>
+<p>频率= 24 * 6将一天的每10分钟的数据点固定。</p>
+<p>多时间序列
+我们可以通过将两个系列组合成一个矩阵，在一个图表中绘制多个时间序列。</p>
+<h1 id="Get-the-data-points-in-form-of-a-R-vector-1"><a href="#Get-the-data-points-in-form-of-a-R-vector-1" class="headerlink" title="Get the data points in form of a R vector."></a>Get the data points in form of a R vector.</h1><p>rainfall1 &lt;- c(799,1174.8,865.1,1334.6,635.4,918.5,685.5,998.6,784.2,985,882.8,1071)
+rainfall2 &lt;- 
+           c(655,1306.9,1323.4,1172.2,562.2,824,822.4,1265.5,799.6,1105.6,1106.7,1337.8)</p>
+<h1 id="Convert-them-to-a-matrix"><a href="#Convert-them-to-a-matrix" class="headerlink" title="Convert them to a matrix."></a>Convert them to a matrix.</h1><p>combined.rainfall &lt;-  matrix(c(rainfall1,rainfall2),nrow = 12)</p>
+<h1 id="Convert-it-to-a-time-series-object-1"><a href="#Convert-it-to-a-time-series-object-1" class="headerlink" title="Convert it to a time series object."></a>Convert it to a time series object.</h1><p>rainfall.timeseries &lt;- ts(combined.rainfall,start = c(2012,1),frequency = 12)</p>
+<h1 id="Print-the-timeseries-data-1"><a href="#Print-the-timeseries-data-1" class="headerlink" title="Print the timeseries data."></a>Print the timeseries data.</h1><p>print(rainfall.timeseries)</p>
+<h1 id="Give-the-chart-file-a-name-6"><a href="#Give-the-chart-file-a-name-6" class="headerlink" title="Give the chart file a name."></a>Give the chart file a name.</h1><p>png(file = &quot;rainfall_combined.png&quot;)</p>
+<h1 id="Plot-a-graph-of-the-time-series-1"><a href="#Plot-a-graph-of-the-time-series-1" class="headerlink" title="Plot a graph of the time series."></a>Plot a graph of the time series.</h1><p>plot(rainfall.timeseries, main = &quot;Multiple Time Series&quot;)</p>
+<h1 id="Save-the-file-6"><a href="#Save-the-file-6" class="headerlink" title="Save the file."></a>Save the file.</h1><p>dev.off()
+当我们执行上面的代码，它产生以下结果及图表 -</p>
+<pre><code>       Series 1  Series 2
+</code></pre><p>Jan 2012    799.0    655.0
+Feb 2012   1174.8   1306.9
+Mar 2012    865.1   1323.4
+Apr 2012   1334.6   1172.2
+May 2012    635.4    562.2
+Jun 2012    918.5    824.0
+Jul 2012    685.5    822.4
+Aug 2012    998.6   1265.5
+Sep 2012    784.2    799.6
+Oct 2012    985.0   1105.6
+Nov 2012    882.8   1106.7
+Dec 2012   1071.0   1337.8
+多时间序列图 -</p>
+<p>结合时间序列，使用R</p>
+<h1 id="非线性最小二乘"><a href="#非线性最小二乘" class="headerlink" title="非线性最小二乘"></a>非线性最小二乘</h1><p>当模拟真实世界数据用于回归分析时，我们观察到，很少情况下，模型的方程是给出线性图的线性方程。大多数时候，真实世界数据模型的方程涉及更高程度的数学函数，如3的指数或sin函数。在这种情况下，模型的图给出了曲线而不是线。线性和非线性回归的目的是调整模型参数的值，以找到最接近您的数据的线或曲线。在找到这些值时，我们将能够以良好的精确度估计响应变量。</p>
+<p>在最小二乘回归中，我们建立了一个回归模型，其中来自回归曲线的不同点的垂直距离的平方和被最小化。我们通常从定义的模型开始，并假设系数的一些值。然后我们应用R语言的nls()函数获得更准确的值以及置信区间。</p>
+<p>语法
+在R语言中创建非线性最小二乘测试的基本语法是：</p>
+<p>nls(formula, data, start)
+以下是所使用的参数的说明：</p>
+<p>formula是包括变量和参数的非线性模型公式。</p>
+<p>data是用于计算公式中变量的数据框。</p>
+<p>start是起始估计的命名列表或命名数字向量。</p>
+<p>例
+我们将考虑一个假设其系数的初始值的非线性模型。接下来，我们将看到这些假设值的置信区间是什么，以便我们可以判断这些值在模型中有多好。</p>
+<p>所以让我们考虑下面的方程为这个目的 -</p>
+<p>a = b1*x^2+b2
+让我们假设初始系数为1和3，并将这些值拟合到nls()函数中。</p>
+<p>xvalues &lt;- c(1.6,2.1,2,2.23,3.71,3.25,3.4,3.86,1.19,2.21)
+yvalues &lt;- c(5.19,7.43,6.94,8.11,18.75,14.88,16.06,19.12,3.21,7.58)</p>
+<h1 id="Give-the-chart-file-a-name-7"><a href="#Give-the-chart-file-a-name-7" class="headerlink" title="Give the chart file a name."></a>Give the chart file a name.</h1><p>png(file = &quot;nls.png&quot;)</p>
+<h1 id="Plot-these-values"><a href="#Plot-these-values" class="headerlink" title="Plot these values."></a>Plot these values.</h1><p>plot(xvalues,yvalues)</p>
+<h1 id="Take-the-assumed-values-and-fit-into-the-model"><a href="#Take-the-assumed-values-and-fit-into-the-model" class="headerlink" title="Take the assumed values and fit into the model."></a>Take the assumed values and fit into the model.</h1><p>model &lt;- nls(yvalues ~ b1*xvalues^2+b2,start = list(b1 = 1,b2 = 3))</p>
+<h1 id="Plot-the-chart-with-new-data-by-fitting-it-to-a-prediction-from-100-data-points"><a href="#Plot-the-chart-with-new-data-by-fitting-it-to-a-prediction-from-100-data-points" class="headerlink" title="Plot the chart with new data by fitting it to a prediction from 100 data points."></a>Plot the chart with new data by fitting it to a prediction from 100 data points.</h1><p>new.data &lt;- data.frame(xvalues = seq(min(xvalues),max(xvalues),len = 100))
+lines(new.data$xvalues,predict(model,newdata = new.data))</p>
+<h1 id="Save-the-file-7"><a href="#Save-the-file-7" class="headerlink" title="Save the file."></a>Save the file.</h1><p>dev.off()</p>
+<h1 id="Get-the-sum-of-the-squared-residuals"><a href="#Get-the-sum-of-the-squared-residuals" class="headerlink" title="Get the sum of the squared residuals."></a>Get the sum of the squared residuals.</h1><p>print(sum(resid(model)^2))</p>
+<h1 id="Get-the-confidence-intervals-on-the-chosen-values-of-the-coefficients"><a href="#Get-the-confidence-intervals-on-the-chosen-values-of-the-coefficients" class="headerlink" title="Get the confidence intervals on the chosen values of the coefficients."></a>Get the confidence intervals on the chosen values of the coefficients.</h1><p>print(confint(model))</p>
+<h1 id="当我们执行上面的代码，它产生以下结果：-18"><a href="#当我们执行上面的代码，它产生以下结果：-18" class="headerlink" title="当我们执行上面的代码，它产生以下结果："></a>当我们执行上面的代码，它产生以下结果：</h1><p>[1] 1.081935
+Waiting for profiling to be done...
+       2.5%    97.5%
+b1 1.137708 1.253135
+b2 1.497364 2.496484
+非线性至少方块R
+我们可以得出结论，b1的值更接近1，而b2的值更接近2而不是3。</p>
+<h1 id="决策树"><a href="#决策树" class="headerlink" title="决策树"></a>决策树</h1><p>决策树是以树的形式表示选择及其结果的图。图中的节点表示事件或选择，并且图的边缘表示决策规则或条件。它主要用于使用R的机器学习和数据挖掘应用程序。</p>
+<p>决策树的使用的例子是：预测电子邮件是垃圾邮件或非垃圾邮件，预测肿瘤癌变，或者基于这些因素预测贷款的信用风险。通常，使用观测数据（也称为训练数据）来创建模型。然后使用一组验证数据来验证和改进模型。R具有用于创建和可视化决策树的包。对于新的预测变量集合，我们使用此模型来确定R包“party”用于创建决策树。</p>
+<p>安装R语言包
+在R语言控制台中使用以下命令安装软件包。您还必须安装相关软件包（如果有）。</p>
+<p>install.packages(&quot;party&quot;)
+“party”包具有用于创建和分析决策树的函数ctree()。</p>
+<p>语法
+在R中创建决策树的基本语法是：</p>
+<p>ctree(formula, data)
+以下是所使用的参数的说明：</p>
+<p>formula是描述预测变量和响应变量的公式。</p>
+<p>data是所使用的数据集的名称。</p>
+<p>输入数据
+我们将使用名为readingSkills的R内置数据集来创建决策树。它描述了某人的readingSkills的分数，如果我们知道变量“年龄”，“shoesize”，“分数”，以及该人是否为母语者。</p>
+<p>这里是示例数据。</p>
+<h1 id="Load-the-party-package-It-will-automatically-load-other-dependent-packages"><a href="#Load-the-party-package-It-will-automatically-load-other-dependent-packages" class="headerlink" title="Load the party package. It will automatically load other dependent packages."></a>Load the party package. It will automatically load other dependent packages.</h1><p>library(party)</p>
+<h1 id="Print-some-records-from-data-set-readingSkills"><a href="#Print-some-records-from-data-set-readingSkills" class="headerlink" title="Print some records from data set readingSkills."></a>Print some records from data set readingSkills.</h1><p>print(head(readingSkills))
+当我们执行上面的代码，它产生以下结果及图表 -</p>
+<p>  nativeSpeaker   age   shoeSize      score
+1           yes     5   24.83189   32.29385
+2           yes     6   25.95238   36.63105
+3            no    11   30.42170   49.60593
+4           yes     7   28.66450   40.28456
+5           yes    11   31.88207   55.46085
+6           yes    10   30.07843   52.83124
+Loading required package: methods
+Loading required package: grid
+...............................
+...............................
+例
+我们将使用ctree()函数创建决策树并查看其图形。</p>
+<h1 id="Load-the-party-package-It-will-automatically-load-other-dependent-packages-1"><a href="#Load-the-party-package-It-will-automatically-load-other-dependent-packages-1" class="headerlink" title="Load the party package. It will automatically load other dependent packages."></a>Load the party package. It will automatically load other dependent packages.</h1><p>library(party)</p>
+<h1 id="Create-the-input-data-frame"><a href="#Create-the-input-data-frame" class="headerlink" title="Create the input data frame."></a>Create the input data frame.</h1><p>input.dat &lt;- readingSkills[c(1:105),]</p>
+<h1 id="Give-the-chart-file-a-name-8"><a href="#Give-the-chart-file-a-name-8" class="headerlink" title="Give the chart file a name."></a>Give the chart file a name.</h1><p>png(file = &quot;decision_tree.png&quot;)</p>
+<h1 id="Create-the-tree"><a href="#Create-the-tree" class="headerlink" title="Create the tree."></a>Create the tree.</h1><p>  output.tree &lt;- ctree(
+  nativeSpeaker ~ age + shoeSize + score, 
+  data = input.dat)</p>
+<h1 id="Plot-the-tree"><a href="#Plot-the-tree" class="headerlink" title="Plot the tree."></a>Plot the tree.</h1><p>plot(output.tree)</p>
+<h1 id="Save-the-file-8"><a href="#Save-the-file-8" class="headerlink" title="Save the file."></a>Save the file.</h1><p>dev.off()</p>
+<h1 id="当我们执行上面的代码，它产生以下结果：-19"><a href="#当我们执行上面的代码，它产生以下结果：-19" class="headerlink" title="当我们执行上面的代码，它产生以下结果："></a>当我们执行上面的代码，它产生以下结果：</h1><p>null device 
+          1 
+Loading required package: methods
+Loading required package: grid
+Loading required package: mvtnorm
+Loading required package: modeltools
+Loading required package: stats4
+Loading required package: strucchange
+Loading required package: zoo</p>
+<p>Attaching package: ‘zoo’</p>
+<p>The following objects are masked from ‘package:base’:</p>
+<pre><code>as.Date, as.Date.numeric
+</code></pre><p>Loading required package: sandwich
+决策树，使用R
+结论
+从上面显示的决策树，我们可以得出结论，其readingSkills分数低于38.3和年龄超过6的人不是一个母语者。</p>
+<h1 id="随机森林"><a href="#随机森林" class="headerlink" title="随机森林"></a>随机森林</h1><p>在随机森林方法中，创建大量的决策树。每个观察被馈入每个决策树。每个观察的最常见的结果被用作最终输出。新的观察结果被馈入所有的树并且对每个分类模型取多数投票。</p>
+<p>对构建树时未使用的情况进行错误估计。这称为OOB（袋外）误差估计，其被提及为百分比。</p>
+<p>R语言包“randomForest”用于创建随机森林。</p>
+<p>安装R包
+在R语言控制台中使用以下命令安装软件包。您还必须安装相关软件包（如果有）。</p>
+<p>install.packages(&quot;randomForest)
+包“randomForest”具有函数randomForest()，用于创建和分析随机森林。</p>
+<p>语法
+在R语言中创建随机森林的基本语法是：</p>
+<p>randomForest(formula, data)
+以下是所使用的参数的说明：</p>
+<p>formula是描述预测变量和响应变量的公式。</p>
+<p>data是所使用的数据集的名称。</p>
+<p>输入数据
+我们将使用名为readingSkills的R语言内置数据集来创建决策树。它描述了某人的readingSkills的分数，如果我们知道变量“age”，“shoesize”，“score”，以及该人是否是母语。</p>
+<p>以下是示例数据。</p>
+<h1 id="Load-the-party-package-It-will-automatically-load-other-required-packages"><a href="#Load-the-party-package-It-will-automatically-load-other-required-packages" class="headerlink" title="Load the party package. It will automatically load other required packages."></a>Load the party package. It will automatically load other required packages.</h1><p>library(party)</p>
+<h1 id="Print-some-records-from-data-set-readingSkills-1"><a href="#Print-some-records-from-data-set-readingSkills-1" class="headerlink" title="Print some records from data set readingSkills."></a>Print some records from data set readingSkills.</h1><p>print(head(readingSkills))
+当我们执行上面的代码，它产生以下结果及图表 -</p>
+<p>  nativeSpeaker   age   shoeSize      score
+1           yes     5   24.83189   32.29385
+2           yes     6   25.95238   36.63105
+3            no    11   30.42170   49.60593
+4           yes     7   28.66450   40.28456
+5           yes    11   31.88207   55.46085
+6           yes    10   30.07843   52.83124
+Loading required package: methods
+Loading required package: grid
+...............................
+...............................
+例
+我们将使用randomForest()函数来创建决策树并查看它的图。</p>
+<h1 id="Load-the-party-package-It-will-automatically-load-other-required-packages-1"><a href="#Load-the-party-package-It-will-automatically-load-other-required-packages-1" class="headerlink" title="Load the party package. It will automatically load other required packages."></a>Load the party package. It will automatically load other required packages.</h1><p>library(party)
+library(randomForest)</p>
+<h1 id="Create-the-forest"><a href="#Create-the-forest" class="headerlink" title="Create the forest."></a>Create the forest.</h1><p>output.forest &lt;- randomForest(nativeSpeaker ~ age + shoeSize + score, 
+           data = readingSkills)</p>
+<h1 id="View-the-forest-results"><a href="#View-the-forest-results" class="headerlink" title="View the forest results."></a>View the forest results.</h1><p>print(output.forest) </p>
+<h1 id="Importance-of-each-predictor"><a href="#Importance-of-each-predictor" class="headerlink" title="Importance of each predictor."></a>Importance of each predictor.</h1><p>print(importance(fit,type = 2)) </p>
+<h1 id="当我们执行上面的代码，它产生以下结果：-20"><a href="#当我们执行上面的代码，它产生以下结果：-20" class="headerlink" title="当我们执行上面的代码，它产生以下结果："></a>当我们执行上面的代码，它产生以下结果：</h1><p>Call:
+ randomForest(formula = nativeSpeaker ~ age + shoeSize + score,<br>                 data = readingSkills)
+               Type of random forest: classification
+                     Number of trees: 500
+No. of variables tried at each split: 1</p>
+<pre><code>    OOB estimate of  error rate: 1%
+</code></pre><p>Confusion matrix:
+    no yes class.error
+no  99   1        0.01
+yes  1  99        0.01
+         MeanDecreaseGini
+age              13.95406
+shoeSize         18.91006
+score            56.73051
+结论
+从上面显示的随机森林，我们可以得出结论，鞋码和成绩是决定如果某人是母语者或不是母语的重要因素。此外，该模型只有1%的误差，这意味着我们可以预测精度为99%。</p>
+<h1 id="生存分析"><a href="#生存分析" class="headerlink" title="生存分析"></a>生存分析</h1><p>生存分析处理预测特定事件将要发生的时间。它也被称为故障时间分析或分析死亡时间。例如，预测患有癌症的人将存活的天数或预测机械系统将失败的时间。</p>
+<p>命名为survival的R语言包用于进行生存分析。此包包含函数Surv（），它将输入数据作为R语言公式，并在选择的变量中创建一个生存对象用于分析。然后我们使用函数survfit()创建一个分析图。</p>
+<p>安装软件包
+install.packages(&quot;survival&quot;)
+语法
+在R语言中创建生存分析的基本语法是：</p>
+<p>Surv(time,event)
+survfit(formula)
+以下是所使用的参数的说明：</p>
+<p>time是直到事件发生的跟踪时间。</p>
+<p>event指示预期事件的发生的状态。</p>
+<p>formula是预测变量之间的关系。</p>
+<p>例
+我们将考虑在上面安装的生存包中存在的名为“pbc”的数据集。它描述了关于受肝原发性胆汁性肝硬化（PBC）影响的人的生存数据点。在数据集中存在的许多列中，我们主要关注字段“time”和“status”。时间表示在接受肝移植或患者死亡的患者的登记和事件的较早之间的天数。</p>
+<h1 id="Load-the-library"><a href="#Load-the-library" class="headerlink" title="Load the library."></a>Load the library.</h1><p>library(&quot;survival&quot;)</p>
+<h1 id="Print-first-few-rows"><a href="#Print-first-few-rows" class="headerlink" title="Print first few rows."></a>Print first few rows.</h1><p>print(head(pbc))
+当我们执行上面的代码，它产生以下结果及图表 -</p>
+<p>  id time status trt      age sex ascites hepato spiders edema bili chol
+1  1  400      2   1 58.76523   f       1      1       1   1.0 14.5  261
+2  2 4500      0   1 56.44627   f       0      1       1   0.0  1.1  302
+3  3 1012      2   1 70.07255   m       0      0       0   0.5  1.4  176
+4  4 1925      2   1 54.74059   f       0      1       1   0.5  1.8  244
+5  5 1504      1   2 38.10541   f       0      1       1   0.0  3.4  279
+6  6 2503      2   2 66.25873   f       0      1       0   0.0  0.8  248
+  albumin copper alk.phos    ast trig platelet protime stage
+1    2.60    156   1718.0 137.95  172      190    12.2     4
+2    4.14     54   7394.8 113.52   88      221    10.6     3
+3    3.48    210    516.0  96.10   55      151    12.0     4
+4    2.54     64   6121.8  60.63   92      183    10.3     4
+5    3.53    143    671.0 113.15   72      136    10.9     3
+6    3.98     50    944.0  93.00   63       NA    11.0     3
+从上述数据，我们正在考虑分析的时间和状态。</p>
+<p>应用Surv（）和survfit（）函数
+现在我们继续应用Surv()函数到上面的数据集，并创建一个将显示趋势图。</p>
+<h1 id="Load-the-library-1"><a href="#Load-the-library-1" class="headerlink" title="Load the library."></a>Load the library.</h1><p>library(&quot;survival&quot;)</p>
+<h1 id="Create-the-survival-object"><a href="#Create-the-survival-object" class="headerlink" title="Create the survival object."></a>Create the survival object.</h1><p>survfit(Surv(pbc$time,pbc$status == 2)~1)</p>
+<h1 id="Give-the-chart-file-a-name-9"><a href="#Give-the-chart-file-a-name-9" class="headerlink" title="Give the chart file a name."></a>Give the chart file a name.</h1><p>png(file = &quot;survival.png&quot;)</p>
+<h1 id="Plot-the-graph-2"><a href="#Plot-the-graph-2" class="headerlink" title="Plot the graph."></a>Plot the graph.</h1><p>plot(survfit(Surv(pbc$time,pbc$status == 2)~1))</p>
+<h1 id="Save-the-file-9"><a href="#Save-the-file-9" class="headerlink" title="Save the file."></a>Save the file.</h1><p>dev.off()
+当我们执行上面的代码，它产生以下结果及图表 -</p>
+<p>Call: survfit(formula = Surv(pbc$time, pbc$status == 2) ~ 1)</p>
+<pre><code>  n  events  median 0.95LCL 0.95UCL 
+418     161    3395    3090    3853 
+</code></pre><p>，使用R生存分析
+上图中的趋势有助于我们预测在特定天数结束时的生存概率。</p>
+<h1 id="卡方检验"><a href="#卡方检验" class="headerlink" title="卡方检验"></a>卡方检验</h1><p>卡方检验是一种确定两个分类变量之间是否存在显着相关性的统计方法。这两个变量应该来自相同的人口，他们应该是类似 - 是/否，男/女，红/绿等。</p>
+<p>例如，我们可以建立一个观察人们的冰淇淋购买模式的数据集，并尝试将一个人的性别与他们喜欢的冰淇淋的味道相关联。如果发现相关性，我们可以通过了解访问的人的性别的数量来计划适当的味道库存。</p>
+<p>语法
+用于执行卡方检验的函数是chisq.test()。
+在R语言中创建卡方检验的基本语法是：
+chisq.test(data)
+以下是所使用的参数的说明：</p>
+<p>data是以包含观察中变量的计数值的表的形式的数据。</p>
+<p>例
+我们将在“MASS”图书馆中获取Cars93数据，该图书馆代表1993年不同型号汽车的销售额。</p>
+<p>library(&quot;MASS&quot;)
+print(str(Cars93))</p>
+<h1 id="当我们执行上面的代码，它产生以下结果：-21"><a href="#当我们执行上面的代码，它产生以下结果：-21" class="headerlink" title="当我们执行上面的代码，它产生以下结果："></a>当我们执行上面的代码，它产生以下结果：</h1><p>&#39;data.frame&#39;:   93 obs. of  27 variables: 
+ $ Manufacturer      : Factor w/ 32 levels &quot;Acura&quot;,&quot;Audi&quot;,..: 1 1 2 2 3 4 4 4 4 5 ... 
+ $ Model             : Factor w/ 93 levels &quot;100&quot;,&quot;190E&quot;,&quot;240&quot;,..: 49 56 9 1 6 24 54 74 73 35 ... 
+ $ Type              : Factor w/ 6 levels &quot;Compact&quot;,&quot;Large&quot;,..: 4 3 1 3 3 3 2 2 3 2 ... 
+ $ Min.Price         : num  12.9 29.2 25.9 30.8 23.7 14.2 19.9 22.6 26.3 33 ... 
+ $ Price             : num  15.9 33.9 29.1 37.7 30 15.7 20.8 23.7 26.3 34.7 ... 
+ $ Max.Price         : num  18.8 38.7 32.3 44.6 36.2 17.3 21.7 24.9 26.3 36.3 ... 
+ $ MPG.city          : int  25 18 20 19 22 22 19 16 19 16 ... 
+ $ MPG.highway       : int  31 25 26 26 30 31 28 25 27 25 ... 
+ $ AirBags           : Factor w/ 3 levels &quot;Driver &amp; Passenger&quot;,..: 3 1 2 1 2 2 2 2 2 2 ... 
+ $ DriveTrain        : Factor w/ 3 levels &quot;4WD&quot;,&quot;Front&quot;,..: 2 2 2 2 3 2 2 3 2 2 ... 
+ $ Cylinders         : Factor w/ 6 levels &quot;3&quot;,&quot;4&quot;,&quot;5&quot;,&quot;6&quot;,..: 2 4 4 4 2 2 4 4 4 5 ... 
+ $ EngineSize        : num  1.8 3.2 2.8 2.8 3.5 2.2 3.8 5.7 3.8 4.9 ... 
+ $ Horsepower        : int  140 200 172 172 208 110 170 180 170 200 ... 
+ $ RPM               : int  6300 5500 5500 5500 5700 5200 4800 4000 4800 4100 ... 
+ $ Rev.per.mile      : int  2890 2335 2280 2535 2545 2565 1570 1320 1690 1510 ... 
+ $ Man.trans.avail   : Factor w/ 2 levels &quot;No&quot;,&quot;Yes&quot;: 2 2 2 2 2 1 1 1 1 1 ... 
+ $ Fuel.tank.capacity: num  13.2 18 16.9 21.1 21.1 16.4 18 23 18.8 18 ... 
+ $ Passengers        : int  5 5 5 6 4 6 6 6 5 6 ... 
+ $ Length            : int  177 195 180 193 186 189 200 216 198 206 ... 
+ $ Wheelbase         : int  102 115 102 106 109 105 111 116 108 114 ... 
+ $ Width             : int  68 71 67 70 69 69 74 78 73 73 ... 
+ $ Turn.circle       : int  37 38 37 37 39 41 42 45 41 43 ... 
+ $ Rear.seat.room    : num  26.5 30 28 31 27 28 30.5 30.5 26.5 35 ... 
+ $ Luggage.room      : int  11 15 14 17 13 16 17 21 14 18 ... 
+ $ Weight            : int  2705 3560 3375 3405 3640 2880 3470 4105 3495 3620 ... 
+ $ Origin            : Factor w/ 2 levels &quot;USA&quot;,&quot;non-USA&quot;: 2 2 2 2 2 1 1 1 1 1 ... 
+ $ Make              : Factor w/ 93 levels &quot;Acura Integra&quot;,..: 1 2 4 3 5 6 7 9 8 10 ... 
+上述结果表明数据集有很多因素变量，可以被认为是分类变量。对于我们的模型，我们将考虑变量“AirBags”和“Type”。在这里，我们的目标是找出所售的汽车类型和安全气囊类型之间的任何显着的相关性。如果观察到相关性，我们可以估计哪种类型的汽车可以更好地卖什么类型的气囊。</p>
+<h1 id="Load-the-library-2"><a href="#Load-the-library-2" class="headerlink" title="Load the library."></a>Load the library.</h1><p>library(&quot;MASS&quot;)</p>
+<h1 id="Create-a-data-frame-from-the-main-data-set"><a href="#Create-a-data-frame-from-the-main-data-set" class="headerlink" title="Create a data frame from the main data set."></a>Create a data frame from the main data set.</h1><p>car.data &lt;- data.frame(Cars93$AirBags, Cars93$Type)</p>
+<h1 id="Create-a-table-with-the-needed-variables"><a href="#Create-a-table-with-the-needed-variables" class="headerlink" title="Create a table with the needed variables."></a>Create a table with the needed variables.</h1><p>car.data = table(Cars93$AirBags, Cars93$Type) 
+print(car.data)</p>
+<h1 id="Perform-the-Chi-Square-test"><a href="#Perform-the-Chi-Square-test" class="headerlink" title="Perform the Chi-Square test."></a>Perform the Chi-Square test.</h1><p>print(chisq.test(car.data))</p>
+<h1 id="当我们执行上面的代码，它产生以下结果：-22"><a href="#当我们执行上面的代码，它产生以下结果：-22" class="headerlink" title="当我们执行上面的代码，它产生以下结果："></a>当我们执行上面的代码，它产生以下结果：</h1><pre><code>                 Compact Large Midsize Small Sporty Van
+</code></pre><p>  Driver &amp; Passenger       2     4       7     0      3   0
+  Driver only              9     7      11     5      8   3
+  None                     5     0       4    16      3   6</p>
+<pre><code>    Pearson&#39;s Chi-squared test
+</code></pre><p>data:  car.data
+X-squared = 33.001, df = 10, p-value = 0.0002723</p>
+<p>Warning message:
+In chisq.test(car.data) : Chi-squared approximation may be incorrect
+结论
+结果显示p值小于0.05，这表明字符串相关。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:empty-hyh@qq.com">Huang Yuhang</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://empty-hyh.gitee.io/posts/40f4a302ee92.html">https://empty-hyh.gitee.io/posts/40f4a302ee92.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://empty-hyh.gitee.io" target="_blank">Empty</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%95%99%E7%A8%8B/">教程</a><a class="post-meta__tags" href="/tags/R/">R</a></div><div class="post_share"><div class="social-share" data-image="/images/cover/r_statistics.jpg" data-sites="facebook,twitter,wechat,weibo,qq,qzone,douban,linkedin,google"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏<div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/images/user/wechat.jpg" target="_blank"><img class="post-qr-code-img" src="/images/user/wechat.jpg" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="/images/user/alipay.jpg" target="_blank"><img class="post-qr-code-img" src="/images/user/alipay.jpg" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/posts/63c85d3a2495.html"><img class="next-cover" src="/images/cover/r_data_interface.png" onerror="onerror=null;src='/images/sys/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">R 语言数据接口</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts-list"><div><a href="/posts/4cc96057705e.html" title="R 语言图表"><img class="cover" src="/images/cover/r_chart.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-01-20</div><div class="title">R 语言图表</div></div></a></div><div><a href="/posts/63c85d3a2495.html" title="R 语言数据接口"><img class="cover" src="/images/cover/r_data_interface.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-01-21</div><div class="title">R 语言数据接口</div></div></a></div><div><a href="/posts/dd734f1bc020.html" title="R 语言教程"><img class="cover" src="/images/cover/r_course.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-01-18</div><div class="title">R 语言教程</div></div></a></div><div><a href="/posts/8d9b83ec68a2.html" title="Front-matter"><img class="cover" src="/images/cover/front-matter.svg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-01-02</div><div class="title">Front-matter</div></div></a></div><div><a href="/posts/a0d8f49a1662.html" title="Hello Hexo"><img class="cover" src="/images/user/background.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-01-01</div><div class="title">Hello Hexo</div></div></a></div><div><a href="/posts/a45d2f68fa5a.html" title="在 Hexo 中插入 Chart 动态图表"><img class="cover" src="/images/cover/hexo_chartjs.svg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-01-04</div><div class="title">在 Hexo 中插入 Chart 动态图表</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" src="/images/user/avatar.png" onerror="this.onerror=null;this.src='/images/sys/friend_404.gif'" alt="avatar"/><div class="author-info__name">Huang Yuhang</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">13</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">8</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Empty-HYH"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Empty-HYH" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:empty-hyh@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">Hello Empty</div></div><div class="card-widget card_history"><div class="card-content"><div class="item-headline"><i class="fas fa-clock fa-spin"></i><span>那年今天</span></div><div id="history-news" style="height:100px;overflow:hidden"><div id="history-card"></div></div></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B9%B3%E5%9D%87%E5%80%BC"><span class="toc-number">2.</span> <span class="toc-text">平均值</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%AD%E6%B3%95"><span class="toc-number">2.1.</span> <span class="toc-text">语法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BA%94%E7%94%A8-trim-%E9%80%89%E9%A1%B9"><span class="toc-number">2.2.</span> <span class="toc-text">应用 trim 选项</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BA%94%E7%94%A8-NA-%E9%80%89%E9%A1%B9"><span class="toc-number">2.3.</span> <span class="toc-text">应用 NA 选项</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%AD%E4%BD%8D%E6%95%B0"><span class="toc-number">3.</span> <span class="toc-text">中位数</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%AD%E6%B3%95-1"><span class="toc-number">3.1.</span> <span class="toc-text">语法</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BC%97%E6%95%B0"><span class="toc-number">4.</span> <span class="toc-text">众数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92"><span class="toc-number">5.</span> <span class="toc-text">线性回归</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#LM-%E5%87%BD%E6%95%B0"><span class="toc-number">5.1.</span> <span class="toc-text">LM()函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#predict-%E5%87%BD%E6%95%B0"><span class="toc-number">5.2.</span> <span class="toc-text">predict()函数</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A4%9A%E5%85%83%E5%9B%9E%E5%BD%92"><span class="toc-number">6.</span> <span class="toc-text">多元回归</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BD%93%E6%88%91%E4%BB%AC%E6%89%A7%E8%A1%8C%E4%B8%8A%E9%9D%A2%E7%9A%84%E4%BB%A3%E7%A0%81%EF%BC%8C%E5%AE%83%E4%BA%A7%E7%94%9F%E4%BB%A5%E4%B8%8B%E7%BB%93%E6%9E%9C%EF%BC%9A"><span class="toc-number">7.</span> <span class="toc-text">当我们执行上面的代码，它产生以下结果：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Create-the-relationship-model"><span class="toc-number">8.</span> <span class="toc-text">Create the relationship model.</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Show-the-model"><span class="toc-number">9.</span> <span class="toc-text">Show the model.</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Get-the-Intercept-and-coefficients-as-vector-elements"><span class="toc-number">10.</span> <span class="toc-text">Get the Intercept and coefficients as vector elements.</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BD%93%E6%88%91%E4%BB%AC%E6%89%A7%E8%A1%8C%E4%B8%8A%E9%9D%A2%E7%9A%84%E4%BB%A3%E7%A0%81%EF%BC%8C%E5%AE%83%E4%BA%A7%E7%94%9F%E4%BB%A5%E4%B8%8B%E7%BB%93%E6%9E%9C%EF%BC%9A-1"><span class="toc-number">11.</span> <span class="toc-text">当我们执行上面的代码，它产生以下结果：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#The-Coefficient-Values"><span class="toc-number">12.</span> <span class="toc-text"># # # The Coefficient Values # #</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92"><span class="toc-number">13.</span> <span class="toc-text">逻辑回归</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Select-some-columns-form-mtcars"><span class="toc-number">14.</span> <span class="toc-text">Select some columns form mtcars.</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BD%93%E6%88%91%E4%BB%AC%E6%89%A7%E8%A1%8C%E4%B8%8A%E9%9D%A2%E7%9A%84%E4%BB%A3%E7%A0%81%EF%BC%8C%E5%AE%83%E4%BA%A7%E7%94%9F%E4%BB%A5%E4%B8%8B%E7%BB%93%E6%9E%9C%EF%BC%9A-2"><span class="toc-number">15.</span> <span class="toc-text">当我们执行上面的代码，它产生以下结果：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BD%93%E6%88%91%E4%BB%AC%E6%89%A7%E8%A1%8C%E4%B8%8A%E9%9D%A2%E7%9A%84%E4%BB%A3%E7%A0%81%EF%BC%8C%E5%AE%83%E4%BA%A7%E7%94%9F%E4%BB%A5%E4%B8%8B%E7%BB%93%E6%9E%9C%EF%BC%9A-3"><span class="toc-number">16.</span> <span class="toc-text">当我们执行上面的代码，它产生以下结果：</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#wt-9-14947-4-15332-2-203-0-0276"><span class="toc-number">16.1.</span> <span class="toc-text">wt          -9.14947    4.15332  -2.203   0.0276 *</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Create-a-sequence-of-numbers-between-10-and-10-incrementing-by-0-1"><span class="toc-number">17.</span> <span class="toc-text">Create a sequence of numbers between -10 and 10 incrementing by 0.1.</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Choose-the-mean-as-2-5-and-standard-deviation-as-0-5"><span class="toc-number">18.</span> <span class="toc-text">Choose the mean as 2.5 and standard deviation as 0.5.</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Give-the-chart-file-a-name"><span class="toc-number">19.</span> <span class="toc-text">Give the chart file a name.</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Save-the-file"><span class="toc-number">20.</span> <span class="toc-text">Save the file.</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BD%93%E6%88%91%E4%BB%AC%E6%89%A7%E8%A1%8C%E4%B8%8A%E9%9D%A2%E7%9A%84%E4%BB%A3%E7%A0%81%EF%BC%8C%E5%AE%83%E4%BA%A7%E7%94%9F%E4%BB%A5%E4%B8%8B%E7%BB%93%E6%9E%9C%EF%BC%9A-4"><span class="toc-number">21.</span> <span class="toc-text">当我们执行上面的代码，它产生以下结果：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Create-a-sequence-of-numbers-between-10-and-10-incrementing-by-0-2"><span class="toc-number">22.</span> <span class="toc-text">Create a sequence of numbers between -10 and 10 incrementing by 0.2.</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Choose-the-mean-as-2-5-and-standard-deviation-as-2"><span class="toc-number">23.</span> <span class="toc-text">Choose the mean as 2.5 and standard deviation as 2.</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Give-the-chart-file-a-name-1"><span class="toc-number">24.</span> <span class="toc-text">Give the chart file a name.</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Plot-the-graph"><span class="toc-number">25.</span> <span class="toc-text">Plot the graph.</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Save-the-file-1"><span class="toc-number">26.</span> <span class="toc-text">Save the file.</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BD%93%E6%88%91%E4%BB%AC%E6%89%A7%E8%A1%8C%E4%B8%8A%E9%9D%A2%E7%9A%84%E4%BB%A3%E7%A0%81%EF%BC%8C%E5%AE%83%E4%BA%A7%E7%94%9F%E4%BB%A5%E4%B8%8B%E7%BB%93%E6%9E%9C%EF%BC%9A-5"><span class="toc-number">27.</span> <span class="toc-text">当我们执行上面的代码，它产生以下结果：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Create-a-sequence-of-probability-values-incrementing-by-0-02"><span class="toc-number">28.</span> <span class="toc-text">Create a sequence of probability values incrementing by 0.02.</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Choose-the-mean-as-2-and-standard-deviation-as-3"><span class="toc-number">29.</span> <span class="toc-text">Choose the mean as 2 and standard deviation as 3.</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Give-the-chart-file-a-name-2"><span class="toc-number">30.</span> <span class="toc-text">Give the chart file a name.</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Plot-the-graph-1"><span class="toc-number">31.</span> <span class="toc-text">Plot the graph.</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Save-the-file-2"><span class="toc-number">32.</span> <span class="toc-text">Save the file.</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BD%93%E6%88%91%E4%BB%AC%E6%89%A7%E8%A1%8C%E4%B8%8A%E9%9D%A2%E7%9A%84%E4%BB%A3%E7%A0%81%EF%BC%8C%E5%AE%83%E4%BA%A7%E7%94%9F%E4%BB%A5%E4%B8%8B%E7%BB%93%E6%9E%9C%EF%BC%9A-6"><span class="toc-number">33.</span> <span class="toc-text">当我们执行上面的代码，它产生以下结果：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Create-a-sample-of-50-numbers-which-are-normally-distributed"><span class="toc-number">34.</span> <span class="toc-text">Create a sample of 50 numbers which are normally distributed.</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Give-the-chart-file-a-name-3"><span class="toc-number">35.</span> <span class="toc-text">Give the chart file a name.</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Plot-the-histogram-for-this-sample"><span class="toc-number">36.</span> <span class="toc-text">Plot the histogram for this sample.</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Save-the-file-3"><span class="toc-number">37.</span> <span class="toc-text">Save the file.</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BD%93%E6%88%91%E4%BB%AC%E6%89%A7%E8%A1%8C%E4%B8%8A%E9%9D%A2%E7%9A%84%E4%BB%A3%E7%A0%81%EF%BC%8C%E5%AE%83%E4%BA%A7%E7%94%9F%E4%BB%A5%E4%B8%8B%E7%BB%93%E6%9E%9C%EF%BC%9A-7"><span class="toc-number">38.</span> <span class="toc-text">当我们执行上面的代码，它产生以下结果：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%E9%A1%B9%E5%88%86%E5%B8%83"><span class="toc-number">39.</span> <span class="toc-text">二项分布</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Create-a-sample-of-50-numbers-which-are-incremented-by-1"><span class="toc-number">40.</span> <span class="toc-text">Create a sample of 50 numbers which are incremented by 1.</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Create-the-binomial-distribution"><span class="toc-number">41.</span> <span class="toc-text">Create the binomial distribution.</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Give-the-chart-file-a-name-4"><span class="toc-number">42.</span> <span class="toc-text">Give the chart file a name.</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Plot-the-graph-for-this-sample"><span class="toc-number">43.</span> <span class="toc-text">Plot the graph for this sample.</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Save-the-file-4"><span class="toc-number">44.</span> <span class="toc-text">Save the file.</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BD%93%E6%88%91%E4%BB%AC%E6%89%A7%E8%A1%8C%E4%B8%8A%E9%9D%A2%E7%9A%84%E4%BB%A3%E7%A0%81%EF%BC%8C%E5%AE%83%E4%BA%A7%E7%94%9F%E4%BB%A5%E4%B8%8B%E7%BB%93%E6%9E%9C%EF%BC%9A-8"><span class="toc-number">45.</span> <span class="toc-text">当我们执行上面的代码，它产生以下结果：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Probability-of-getting-26-or-less-heads-from-a-51-tosses-of-a-coin"><span class="toc-number">46.</span> <span class="toc-text">Probability of getting 26 or less heads from a 51 tosses of a coin.</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BD%93%E6%88%91%E4%BB%AC%E6%89%A7%E8%A1%8C%E4%B8%8A%E9%9D%A2%E7%9A%84%E4%BB%A3%E7%A0%81%EF%BC%8C%E5%AE%83%E4%BA%A7%E7%94%9F%E4%BB%A5%E4%B8%8B%E7%BB%93%E6%9E%9C%EF%BC%9A-9"><span class="toc-number">47.</span> <span class="toc-text">当我们执行上面的代码，它产生以下结果：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#How-many-heads-will-have-a-probability-of-0-25-will-come-out-when-a-coin-is-tossed-51-times"><span class="toc-number">48.</span> <span class="toc-text">How many heads will have a probability of 0.25 will come out when a coin is tossed 51 times.</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BD%93%E6%88%91%E4%BB%AC%E6%89%A7%E8%A1%8C%E4%B8%8A%E9%9D%A2%E7%9A%84%E4%BB%A3%E7%A0%81%EF%BC%8C%E5%AE%83%E4%BA%A7%E7%94%9F%E4%BB%A5%E4%B8%8B%E7%BB%93%E6%9E%9C%EF%BC%9A-10"><span class="toc-number">49.</span> <span class="toc-text">当我们执行上面的代码，它产生以下结果：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Find-8-random-values-from-a-sample-of-150-with-probability-of-0-4"><span class="toc-number">50.</span> <span class="toc-text">Find 8 random values from a sample of 150 with probability of 0.4.</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BD%93%E6%88%91%E4%BB%AC%E6%89%A7%E8%A1%8C%E4%B8%8A%E9%9D%A2%E7%9A%84%E4%BB%A3%E7%A0%81%EF%BC%8C%E5%AE%83%E4%BA%A7%E7%94%9F%E4%BB%A5%E4%B8%8B%E7%BB%93%E6%9E%9C%EF%BC%9A-11"><span class="toc-number">51.</span> <span class="toc-text">当我们执行上面的代码，它产生以下结果：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B3%8A%E6%9D%BE%E5%9B%9E%E5%BD%92"><span class="toc-number">52.</span> <span class="toc-text">泊松回归</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BD%93%E6%88%91%E4%BB%AC%E6%89%A7%E8%A1%8C%E4%B8%8A%E9%9D%A2%E7%9A%84%E4%BB%A3%E7%A0%81%EF%BC%8C%E5%AE%83%E4%BA%A7%E7%94%9F%E4%BB%A5%E4%B8%8B%E7%BB%93%E6%9E%9C%EF%BC%9A-12"><span class="toc-number">53.</span> <span class="toc-text">当我们执行上面的代码，它产生以下结果：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BD%93%E6%88%91%E4%BB%AC%E6%89%A7%E8%A1%8C%E4%B8%8A%E9%9D%A2%E7%9A%84%E4%BB%A3%E7%A0%81%EF%BC%8C%E5%AE%83%E4%BA%A7%E7%94%9F%E4%BB%A5%E4%B8%8B%E7%BB%93%E6%9E%9C%EF%BC%9A-13"><span class="toc-number">54.</span> <span class="toc-text">当我们执行上面的代码，它产生以下结果：</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#tensionH-0-51849-0-06396-8-107-5-21e-16"><span class="toc-number">54.1.</span> <span class="toc-text">tensionH    -0.51849    0.06396  -8.107 5.21e-16 *</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8D%8F%E6%96%B9%E5%B7%AE%E5%88%86%E6%9E%90"><span class="toc-number">55.</span> <span class="toc-text">协方差分析</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BD%93%E6%88%91%E4%BB%AC%E6%89%A7%E8%A1%8C%E4%B8%8A%E9%9D%A2%E7%9A%84%E4%BB%A3%E7%A0%81%EF%BC%8C%E5%AE%83%E4%BA%A7%E7%94%9F%E4%BB%A5%E4%B8%8B%E7%BB%93%E6%9E%9C%EF%BC%9A-14"><span class="toc-number">56.</span> <span class="toc-text">当我们执行上面的代码，它产生以下结果：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Get-the-dataset"><span class="toc-number">57.</span> <span class="toc-text">Get the dataset.</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Create-the-regression-model"><span class="toc-number">58.</span> <span class="toc-text">Create the regression model.</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BD%93%E6%88%91%E4%BB%AC%E6%89%A7%E8%A1%8C%E4%B8%8A%E9%9D%A2%E7%9A%84%E4%BB%A3%E7%A0%81%EF%BC%8C%E5%AE%83%E4%BA%A7%E7%94%9F%E4%BB%A5%E4%B8%8B%E7%BB%93%E6%9E%9C%EF%BC%9A-15"><span class="toc-number">59.</span> <span class="toc-text">当我们执行上面的代码，它产生以下结果：</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Residuals-28-245-4-8-8"><span class="toc-number">59.1.</span> <span class="toc-text">Residuals   28  245.4     8.8                     </span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Get-the-dataset-1"><span class="toc-number">60.</span> <span class="toc-text">Get the dataset.</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Create-the-regression-model-1"><span class="toc-number">61.</span> <span class="toc-text">Create the regression model.</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BD%93%E6%88%91%E4%BB%AC%E6%89%A7%E8%A1%8C%E4%B8%8A%E9%9D%A2%E7%9A%84%E4%BB%A3%E7%A0%81%EF%BC%8C%E5%AE%83%E4%BA%A7%E7%94%9F%E4%BB%A5%E4%B8%8B%E7%BB%93%E6%9E%9C%EF%BC%9A-16"><span class="toc-number">62.</span> <span class="toc-text">当我们执行上面的代码，它产生以下结果：</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Residuals-29-245-4-8-5"><span class="toc-number">62.1.</span> <span class="toc-text">Residuals   29  245.4     8.5                     </span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Get-the-dataset-2"><span class="toc-number">63.</span> <span class="toc-text">Get the dataset.</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Create-the-regression-models"><span class="toc-number">64.</span> <span class="toc-text">Create the regression models.</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Compare-the-two-models"><span class="toc-number">65.</span> <span class="toc-text">Compare the two models.</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BD%93%E6%88%91%E4%BB%AC%E6%89%A7%E8%A1%8C%E4%B8%8A%E9%9D%A2%E7%9A%84%E4%BB%A3%E7%A0%81%EF%BC%8C%E5%AE%83%E4%BA%A7%E7%94%9F%E4%BB%A5%E4%B8%8B%E7%BB%93%E6%9E%9C%EF%BC%9A-17"><span class="toc-number">66.</span> <span class="toc-text">当我们执行上面的代码，它产生以下结果：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E5%88%86%E6%9E%90"><span class="toc-number">67.</span> <span class="toc-text">时间序列分析</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Get-the-data-points-in-form-of-a-R-vector"><span class="toc-number">68.</span> <span class="toc-text">Get the data points in form of a R vector.</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Convert-it-to-a-time-series-object"><span class="toc-number">69.</span> <span class="toc-text">Convert it to a time series object.</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Print-the-timeseries-data"><span class="toc-number">70.</span> <span class="toc-text">Print the timeseries data.</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Give-the-chart-file-a-name-5"><span class="toc-number">71.</span> <span class="toc-text">Give the chart file a name.</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Plot-a-graph-of-the-time-series"><span class="toc-number">72.</span> <span class="toc-text">Plot a graph of the time series.</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Save-the-file-5"><span class="toc-number">73.</span> <span class="toc-text">Save the file.</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Get-the-data-points-in-form-of-a-R-vector-1"><span class="toc-number">74.</span> <span class="toc-text">Get the data points in form of a R vector.</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Convert-them-to-a-matrix"><span class="toc-number">75.</span> <span class="toc-text">Convert them to a matrix.</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Convert-it-to-a-time-series-object-1"><span class="toc-number">76.</span> <span class="toc-text">Convert it to a time series object.</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Print-the-timeseries-data-1"><span class="toc-number">77.</span> <span class="toc-text">Print the timeseries data.</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Give-the-chart-file-a-name-6"><span class="toc-number">78.</span> <span class="toc-text">Give the chart file a name.</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Plot-a-graph-of-the-time-series-1"><span class="toc-number">79.</span> <span class="toc-text">Plot a graph of the time series.</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Save-the-file-6"><span class="toc-number">80.</span> <span class="toc-text">Save the file.</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%9D%9E%E7%BA%BF%E6%80%A7%E6%9C%80%E5%B0%8F%E4%BA%8C%E4%B9%98"><span class="toc-number">81.</span> <span class="toc-text">非线性最小二乘</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Give-the-chart-file-a-name-7"><span class="toc-number">82.</span> <span class="toc-text">Give the chart file a name.</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Plot-these-values"><span class="toc-number">83.</span> <span class="toc-text">Plot these values.</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Take-the-assumed-values-and-fit-into-the-model"><span class="toc-number">84.</span> <span class="toc-text">Take the assumed values and fit into the model.</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Plot-the-chart-with-new-data-by-fitting-it-to-a-prediction-from-100-data-points"><span class="toc-number">85.</span> <span class="toc-text">Plot the chart with new data by fitting it to a prediction from 100 data points.</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Save-the-file-7"><span class="toc-number">86.</span> <span class="toc-text">Save the file.</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Get-the-sum-of-the-squared-residuals"><span class="toc-number">87.</span> <span class="toc-text">Get the sum of the squared residuals.</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Get-the-confidence-intervals-on-the-chosen-values-of-the-coefficients"><span class="toc-number">88.</span> <span class="toc-text">Get the confidence intervals on the chosen values of the coefficients.</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BD%93%E6%88%91%E4%BB%AC%E6%89%A7%E8%A1%8C%E4%B8%8A%E9%9D%A2%E7%9A%84%E4%BB%A3%E7%A0%81%EF%BC%8C%E5%AE%83%E4%BA%A7%E7%94%9F%E4%BB%A5%E4%B8%8B%E7%BB%93%E6%9E%9C%EF%BC%9A-18"><span class="toc-number">89.</span> <span class="toc-text">当我们执行上面的代码，它产生以下结果：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%86%B3%E7%AD%96%E6%A0%91"><span class="toc-number">90.</span> <span class="toc-text">决策树</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Load-the-party-package-It-will-automatically-load-other-dependent-packages"><span class="toc-number">91.</span> <span class="toc-text">Load the party package. It will automatically load other dependent packages.</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Print-some-records-from-data-set-readingSkills"><span class="toc-number">92.</span> <span class="toc-text">Print some records from data set readingSkills.</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Load-the-party-package-It-will-automatically-load-other-dependent-packages-1"><span class="toc-number">93.</span> <span class="toc-text">Load the party package. It will automatically load other dependent packages.</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Create-the-input-data-frame"><span class="toc-number">94.</span> <span class="toc-text">Create the input data frame.</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Give-the-chart-file-a-name-8"><span class="toc-number">95.</span> <span class="toc-text">Give the chart file a name.</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Create-the-tree"><span class="toc-number">96.</span> <span class="toc-text">Create the tree.</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Plot-the-tree"><span class="toc-number">97.</span> <span class="toc-text">Plot the tree.</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Save-the-file-8"><span class="toc-number">98.</span> <span class="toc-text">Save the file.</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BD%93%E6%88%91%E4%BB%AC%E6%89%A7%E8%A1%8C%E4%B8%8A%E9%9D%A2%E7%9A%84%E4%BB%A3%E7%A0%81%EF%BC%8C%E5%AE%83%E4%BA%A7%E7%94%9F%E4%BB%A5%E4%B8%8B%E7%BB%93%E6%9E%9C%EF%BC%9A-19"><span class="toc-number">99.</span> <span class="toc-text">当我们执行上面的代码，它产生以下结果：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97"><span class="toc-number">100.</span> <span class="toc-text">随机森林</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Load-the-party-package-It-will-automatically-load-other-required-packages"><span class="toc-number">101.</span> <span class="toc-text">Load the party package. It will automatically load other required packages.</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Print-some-records-from-data-set-readingSkills-1"><span class="toc-number">102.</span> <span class="toc-text">Print some records from data set readingSkills.</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Load-the-party-package-It-will-automatically-load-other-required-packages-1"><span class="toc-number">103.</span> <span class="toc-text">Load the party package. It will automatically load other required packages.</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Create-the-forest"><span class="toc-number">104.</span> <span class="toc-text">Create the forest.</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#View-the-forest-results"><span class="toc-number">105.</span> <span class="toc-text">View the forest results.</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Importance-of-each-predictor"><span class="toc-number">106.</span> <span class="toc-text">Importance of each predictor.</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BD%93%E6%88%91%E4%BB%AC%E6%89%A7%E8%A1%8C%E4%B8%8A%E9%9D%A2%E7%9A%84%E4%BB%A3%E7%A0%81%EF%BC%8C%E5%AE%83%E4%BA%A7%E7%94%9F%E4%BB%A5%E4%B8%8B%E7%BB%93%E6%9E%9C%EF%BC%9A-20"><span class="toc-number">107.</span> <span class="toc-text">当我们执行上面的代码，它产生以下结果：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%94%9F%E5%AD%98%E5%88%86%E6%9E%90"><span class="toc-number">108.</span> <span class="toc-text">生存分析</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Load-the-library"><span class="toc-number">109.</span> <span class="toc-text">Load the library.</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Print-first-few-rows"><span class="toc-number">110.</span> <span class="toc-text">Print first few rows.</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Load-the-library-1"><span class="toc-number">111.</span> <span class="toc-text">Load the library.</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Create-the-survival-object"><span class="toc-number">112.</span> <span class="toc-text">Create the survival object.</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Give-the-chart-file-a-name-9"><span class="toc-number">113.</span> <span class="toc-text">Give the chart file a name.</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Plot-the-graph-2"><span class="toc-number">114.</span> <span class="toc-text">Plot the graph.</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Save-the-file-9"><span class="toc-number">115.</span> <span class="toc-text">Save the file.</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8D%A1%E6%96%B9%E6%A3%80%E9%AA%8C"><span class="toc-number">116.</span> <span class="toc-text">卡方检验</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BD%93%E6%88%91%E4%BB%AC%E6%89%A7%E8%A1%8C%E4%B8%8A%E9%9D%A2%E7%9A%84%E4%BB%A3%E7%A0%81%EF%BC%8C%E5%AE%83%E4%BA%A7%E7%94%9F%E4%BB%A5%E4%B8%8B%E7%BB%93%E6%9E%9C%EF%BC%9A-21"><span class="toc-number">117.</span> <span class="toc-text">当我们执行上面的代码，它产生以下结果：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Load-the-library-2"><span class="toc-number">118.</span> <span class="toc-text">Load the library.</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Create-a-data-frame-from-the-main-data-set"><span class="toc-number">119.</span> <span class="toc-text">Create a data frame from the main data set.</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Create-a-table-with-the-needed-variables"><span class="toc-number">120.</span> <span class="toc-text">Create a table with the needed variables.</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Perform-the-Chi-Square-test"><span class="toc-number">121.</span> <span class="toc-text">Perform the Chi-Square test.</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BD%93%E6%88%91%E4%BB%AC%E6%89%A7%E8%A1%8C%E4%B8%8A%E9%9D%A2%E7%9A%84%E4%BB%A3%E7%A0%81%EF%BC%8C%E5%AE%83%E4%BA%A7%E7%94%9F%E4%BB%A5%E4%B8%8B%E7%BB%93%E6%9E%9C%EF%BC%9A-22"><span class="toc-number">122.</span> <span class="toc-text">当我们执行上面的代码，它产生以下结果：</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/40f4a302ee92.html" title="R 语言统计分析"><img src="/images/cover/r_statistics.jpg" onerror="this.onerror=null;this.src='/images/sys/404.jpg'" alt="R 语言统计分析"/></a><div class="content"><a class="title" href="/posts/40f4a302ee92.html" title="R 语言统计分析">R 语言统计分析</a><time datetime="2021-01-22T02:10:41.000Z" title="发表于 2021-01-22 10:10:41">2021-01-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/63c85d3a2495.html" title="R 语言数据接口"><img src="/images/cover/r_data_interface.png" onerror="this.onerror=null;this.src='/images/sys/404.jpg'" alt="R 语言数据接口"/></a><div class="content"><a class="title" href="/posts/63c85d3a2495.html" title="R 语言数据接口">R 语言数据接口</a><time datetime="2021-01-21T05:52:32.000Z" title="发表于 2021-01-21 13:52:32">2021-01-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/4cc96057705e.html" title="R 语言图表"><img src="/images/cover/r_chart.jpg" onerror="this.onerror=null;this.src='/images/sys/404.jpg'" alt="R 语言图表"/></a><div class="content"><a class="title" href="/posts/4cc96057705e.html" title="R 语言图表">R 语言图表</a><time datetime="2021-01-20T08:04:45.000Z" title="发表于 2021-01-20 16:04:45">2021-01-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/dd734f1bc020.html" title="R 语言教程"><img src="/images/cover/r_course.png" onerror="this.onerror=null;this.src='/images/sys/404.jpg'" alt="R 语言教程"/></a><div class="content"><a class="title" href="/posts/dd734f1bc020.html" title="R 语言教程">R 语言教程</a><time datetime="2021-01-18T08:20:11.000Z" title="发表于 2021-01-18 16:20:11">2021-01-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/a4e7cc3968dd.html" title="MySQL 优化"><img src="/images/cover/mysql_optimization.jpg" onerror="this.onerror=null;this.src='/images/sys/404.jpg'" alt="MySQL 优化"/></a><div class="content"><a class="title" href="/posts/a4e7cc3968dd.html" title="MySQL 优化">MySQL 优化</a><time datetime="2021-01-14T05:32:11.000Z" title="发表于 2021-01-14 13:32:11">2021-01-14</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url(/images/cover/r_statistics.jpg)"><div id="footer-wrap"><div class="copyright">&copy;2021 By Huang Yuhang</div><div class="footer_custom_text">Hello Empty</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="font-plus" type="button" title="放大字体"><i class="fas fa-plus"></i></button><button id="font-minus" type="button" title="缩小字体"><i class="fas fa-minus"></i></button><button id="translateLink" type="button" title="简繁转换">简</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>if (document.getElementsByClassName('mermaid').length) {
+  if (window.mermaidJsLoad) mermaid.init()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js').then(() => {
+      window.mermaidJsLoad = true
+      mermaid.initialize({
+        theme: 'dark',
+      })
+      true && mermaid.init()
+    })
+  }
+}</script><script src="https://cdn.jsdelivr.net/gh/empty-hyh/cdn/hexo/js/Valine.min.js"></script><script>var requestSetting = function (from,set) {
+  var from = from
+  var setting = set.split(',').filter(function(item){
+  return from.indexOf(item) > -1
+  });
+  setting = setting.length == 0 ? from :setting;
+  return setting
+}
+
+var guestInfo = requestSetting(['nick','mail','link'],'nick,mail,link')
+var requiredFields = requestSetting(['nick','mail','link'],'nick,mail')
+let friends = ''.split(',')
+let master = '3cce14e42c3756e8a9ca784526e0e0ac,82ffb938e98aeace8c012d577e81ff8f'.split(',')
+let tagMeta = '博主,小伙伴,访客'.split(',')
+
+function loadValine () {
+  function initValine () {
+    window.valine = new Valine({
+      el: '#vcomment',
+      appId: 'APQCu0az4KS9PHRmzaJQHL8I-gzGzoHsz',
+      appKey: 'EB41UWlheIFq59gynGojd54Y',
+      placeholder: '请留下您的昵称和邮箱，我会尽快回复...',
+      avatar: 'monsterid',
+      meta: 'nick,mail,link'.split(','),
+      pageSize: '10',
+      lang: 'zh-CN',
+      recordIP: true,
+      serverURLs: 'https://apqcu0az.lc-cn-n1-shared.com',
+      emojiCDN: 'https://cdn.jsdelivr.net/gh/empty-hyh/cdn/hexo/valine/',
+      emojiMaps: {"1":"bilibiliHotKey/1.jpg","2":"bilibiliHotKey/2.jpg","3":"bilibiliHotKey/3.jpg","4":"bilibiliHotKey/4.jpg","5":"bilibiliHotKey/5.jpg","6":"bilibiliHotKey/6.jpg","7":"bilibiliHotKey/7.jpg","8":"bilibiliHotKey/8.jpg","9":"bilibiliHotKey/9.jpg","10":"lengtu/10.gif","11":"lengtu/11.gif","12":"lengtu/12.gif","13":"lengtu/13.gif","14":"lengtu/14.gif","15":"lengtu/15.gif","16":"lengtu/16.gif","17":"lengtu/17.gif","18":"lengtu/18.gif","19":"lengtu/19.gif","20":"lengtu/20.gif","21":"lengtu/21.gif","22":"lengtu/22.gif","23":"lengtu/23.gif","24":"lengtu/24.gif","25":"lengtu/25.gif","26":"lengtu/26.gif","27":"lengtu/27.gif","28":"lengtu/28.gif","29":"lengtu/29.gif","30":"lengtu/30.gif","31":"lengtu/31.gif","32":"lengtu/32.gif","33":"lengtu/33.gif","34":"lengtu/34.gif","35":"lengtu/35.gif","36":"lengtu/36.gif","37":"lengtu/37.gif","38":"lengtu/38.gif","39":"lengtu/39.gif","40":"lengtu/40.gif","41":"lengtu/41.gif","42":"lengtu/42.gif","43":"lengtu/43.gif","44":"lengtu/44.gif","45":"lengtu/45.gif","46":"lengtu/46.gif","47":"lengtu/47.gif","48":"lengtu/48.gif","不出所料":"alu/不出所料.png","不说话":"alu/不说话.png","不高兴":"alu/不高兴.png","中刀":"alu/中刀.png","中指":"alu/中指.png","中枪":"alu/中枪.png","亲亲":"alu/亲亲.png","便便":"alu/便便.png","内伤":"alu/内伤.png","击掌":"alu/击掌.png","口水":"alu/口水.png","吐":"alu/吐.png","吐舌":"alu/吐舌.png","吐血倒地":"alu/吐血倒地.png","呲牙":"alu/呲牙.png","咽气":"alu/咽气.png","哭泣":"alu/哭泣.png","喜极而泣":"alu/喜极而泣.png","喷水":"alu/喷水.png","喷血":"alu/喷血.png","坐等":"alu/坐等.png","害羞":"alu/害羞.png","小眼睛":"alu/小眼睛.png","尴尬":"alu/尴尬.png","得意":"alu/得意.png","惊喜":"alu/惊喜.png","想一想":"alu/想一想.png","愤怒":"alu/愤怒.png","扇耳光":"alu/扇耳光.png","投降":"alu/投降.png","抠鼻":"alu/抠鼻.png","抽烟":"alu/抽烟.png","无奈":"alu/无奈.png","无所谓":"alu/无所谓.png","无语":"alu/无语.png","暗地观察":"alu/暗地观察.png","期待":"alu/期待.png","欢呼":"alu/欢呼.png","汗":"alu/汗.png","深思":"alu/深思.png","狂汗":"alu/狂汗.png","献花":"alu/献花.png","献黄瓜":"alu/献黄瓜.png","皱眉":"alu/皱眉.png","看不见":"alu/看不见.png","看热闹":"alu/看热闹.png","瞅你":"alu/瞅你.png","肿包":"alu/肿包.png","脸红":"alu/脸红.png","蜡烛":"alu/蜡烛.png","装大款":"alu/装大款.png","观察":"alu/观察.png","赞一个":"alu/赞一个.png","邪恶":"alu/邪恶.png","锁眉":"alu/锁眉.png","长草":"alu/长草.png","阴暗":"alu/阴暗.png","高兴":"alu/高兴.png","黑线":"alu/黑线.png","鼓掌":"alu/鼓掌.png","01":"lengtu/01.gif","02":"lengtu/02.gif","03":"lengtu/03.gif","04":"lengtu/04.gif","05":"lengtu/05.gif","06":"lengtu/06.gif","07":"lengtu/07.gif","08":"lengtu/08.gif","09":"lengtu/09.gif","[2233娘_卖萌]":"bilibili2233/[2233娘_卖萌].png","[2233娘_吃惊]":"bilibili2233/[2233娘_吃惊].png","[2233娘_吐魂]":"bilibili2233/[2233娘_吐魂].png","[2233娘_喝水]":"bilibili2233/[2233娘_喝水].png","[2233娘_困惑]":"bilibili2233/[2233娘_困惑].png","[2233娘_大哭]":"bilibili2233/[2233娘_大哭].png","[2233娘_大笑]":"bilibili2233/[2233娘_大笑].png","[2233娘_委屈]":"bilibili2233/[2233娘_委屈].png","[2233娘_怒]":"bilibili2233/[2233娘_怒].png","[2233娘_无言]":"bilibili2233/[2233娘_无言].png","[2233娘_汗]":"bilibili2233/[2233娘_汗].png","[2233娘_疑问]":"bilibili2233/[2233娘_疑问].png","[2233娘_第一]":"bilibili2233/[2233娘_第一].png","[2233娘_耶]":"bilibili2233/[2233娘_耶].png","[2233娘_郁闷]":"bilibili2233/[2233娘_郁闷].png","[tv_doge]":"bilibilitv/[tv_doge].png","[tv_亲亲]":"bilibilitv/[tv_亲亲].png","[tv_偷笑]":"bilibilitv/[tv_偷笑].png","[tv_再见]":"bilibilitv/[tv_再见].png","[tv_冷漠]":"bilibilitv/[tv_冷漠].png","[tv_发怒]":"bilibilitv/[tv_发怒].png","[tv_发财]":"bilibilitv/[tv_发财].png","[tv_可爱]":"bilibilitv/[tv_可爱].png","[tv_吐血]":"bilibilitv/[tv_吐血].png","[tv_呆]":"bilibilitv/[tv_呆].png","[tv_呕吐]":"bilibilitv/[tv_呕吐].png","[tv_困]":"bilibilitv/[tv_困].png","[tv_坏笑]":"bilibilitv/[tv_坏笑].png","[tv_大佬]":"bilibilitv/[tv_大佬].png","[tv_大哭]":"bilibilitv/[tv_大哭].png","[tv_委屈]":"bilibilitv/[tv_委屈].png","[tv_害羞]":"bilibilitv/[tv_害羞].png","[tv_尴尬]":"bilibilitv/[tv_尴尬].png","[tv_微笑]":"bilibilitv/[tv_微笑].png","[tv_思考]":"bilibilitv/[tv_思考].png","[tv_惊吓]":"bilibilitv/[tv_惊吓].png","[tv_打脸]":"bilibilitv/[tv_打脸].png","[tv_抓狂]":"bilibilitv/[tv_抓狂].png","[tv_抠鼻]":"bilibilitv/[tv_抠鼻].png","[tv_斜眼笑]":"bilibilitv/[tv_斜眼笑].png","[tv_无奈]":"bilibilitv/[tv_无奈].png","[tv_晕]":"bilibilitv/[tv_晕].png","[tv_流汗]":"bilibilitv/[tv_流汗].png","[tv_流泪]":"bilibilitv/[tv_流泪].png","[tv_流鼻血]":"bilibilitv/[tv_流鼻血].png","[tv_点赞]":"bilibilitv/[tv_点赞].png","[tv_生气]":"bilibilitv/[tv_生气].png","[tv_生病]":"bilibilitv/[tv_生病].png","[tv_疑问]":"bilibilitv/[tv_疑问].png","[tv_白眼]":"bilibilitv/[tv_白眼].png","[tv_皱眉]":"bilibilitv/[tv_皱眉].png","[tv_目瞪口呆]":"bilibilitv/[tv_目瞪口呆].png","[tv_睡着]":"bilibilitv/[tv_睡着].png","[tv_笑哭]":"bilibilitv/[tv_笑哭].png","[tv_腼腆]":"bilibilitv/[tv_腼腆].png","[tv_色]":"bilibilitv/[tv_色].png","[tv_调侃]":"bilibilitv/[tv_调侃].png","[tv_调皮]":"bilibilitv/[tv_调皮].png","[tv_鄙视]":"bilibilitv/[tv_鄙视].png","[tv_闭嘴]":"bilibilitv/[tv_闭嘴].png","[tv_难过]":"bilibilitv/[tv_难过].png","[tv_馋]":"bilibilitv/[tv_馋].png","[tv_鬼脸]":"bilibilitv/[tv_鬼脸].png","[tv_黑人问号]":"bilibilitv/[tv_黑人问号].png","[tv_鼓掌]":"bilibilitv/[tv_鼓掌].png","001":"Yurui-Neko/001.png","002":"Yurui-Neko/002.png","003":"Yurui-Neko/003.png","004":"Yurui-Neko/004.png","005":"Yurui-Neko/005.png","006":"Yurui-Neko/006.png","007":"Yurui-Neko/007.png","008":"Yurui-Neko/008.png","009":"Yurui-Neko/009.png","010":"Yurui-Neko/010.png","011":"Yurui-Neko/011.png","012":"Yurui-Neko/012.png","013":"Yurui-Neko/013.png","014":"Yurui-Neko/014.png","015":"Yurui-Neko/015.png","016":"Yurui-Neko/016.png","017":"Yurui-Neko/017.png","018":"Yurui-Neko/018.png","019":"Yurui-Neko/019.png","020":"Yurui-Neko/020.png","021":"Yurui-Neko/021.png","022":"Yurui-Neko/022.png","023":"Yurui-Neko/023.png","024":"Yurui-Neko/024.png","025":"Yurui-Neko/025.png","026":"Yurui-Neko/026.png","027":"Yurui-Neko/027.png","028":"Yurui-Neko/028.png","029":"Yurui-Neko/029.png","030":"Yurui-Neko/030.png","031":"Yurui-Neko/031.png","032":"Yurui-Neko/032.png","033":"Yurui-Neko/033.png","034":"Yurui-Neko/034.png","035":"Yurui-Neko/035.png","036":"Yurui-Neko/036.png","037":"Yurui-Neko/037.png","038":"Yurui-Neko/038.png","039":"Yurui-Neko/039.png","040":"Yurui-Neko/040.png","coolapk_emotion_100_qqdoge":"Coolapk/coolapk_emotion_100_qqdoge.png","coolapk_emotion_1010":"Coolapk/coolapk_emotion_1010.png","coolapk_emotion_1011":"Coolapk/coolapk_emotion_1011.png","coolapk_emotion_1012":"Coolapk/coolapk_emotion_1012.png","coolapk_emotion_1013":"Coolapk/coolapk_emotion_1013.png","coolapk_emotion_1014":"Coolapk/coolapk_emotion_1014.png","coolapk_emotion_1015":"Coolapk/coolapk_emotion_1015.png","coolapk_emotion_1016":"Coolapk/coolapk_emotion_1016.png","coolapk_emotion_1017":"Coolapk/coolapk_emotion_1017.png","coolapk_emotion_1018":"Coolapk/coolapk_emotion_1018.png","coolapk_emotion_1019":"Coolapk/coolapk_emotion_1019.png","coolapk_emotion_101_pyjiaoyi":"Coolapk/coolapk_emotion_101_pyjiaoyi.png","coolapk_emotion_1020":"Coolapk/coolapk_emotion_1020.png","coolapk_emotion_1021":"Coolapk/coolapk_emotion_1021.png","coolapk_emotion_102_fadai":"Coolapk/coolapk_emotion_102_fadai.png","coolapk_emotion_103_nb":"Coolapk/coolapk_emotion_103_nb.png","coolapk_emotion_104":"Coolapk/coolapk_emotion_104.png","coolapk_emotion_105":"Coolapk/coolapk_emotion_105.png","coolapk_emotion_106":"Coolapk/coolapk_emotion_106.png","coolapk_emotion_107":"Coolapk/coolapk_emotion_107.png","coolapk_emotion_108":"Coolapk/coolapk_emotion_108.png","coolapk_emotion_109":"Coolapk/coolapk_emotion_109.png","coolapk_emotion_10_aoman":"Coolapk/coolapk_emotion_10_aoman.png","coolapk_emotion_11_yiwen":"Coolapk/coolapk_emotion_11_yiwen.png","coolapk_emotion_12_wuyu":"Coolapk/coolapk_emotion_12_wuyu.png","coolapk_emotion_13_huaixiao":"Coolapk/coolapk_emotion_13_huaixiao.png","coolapk_emotion_14_bishi":"Coolapk/coolapk_emotion_14_bishi.png","coolapk_emotion_15_fanu":"Coolapk/coolapk_emotion_15_fanu.png","coolapk_emotion_16_tuosai":"Coolapk/coolapk_emotion_16_tuosai.png","coolapk_emotion_17_tushe":"Coolapk/coolapk_emotion_17_tushe.png","coolapk_emotion_18_han":"Coolapk/coolapk_emotion_18_han.png","coolapk_emotion_19_koubi":"Coolapk/coolapk_emotion_19_koubi.png","coolapk_emotion_1_hahaha":"Coolapk/coolapk_emotion_1_hahaha.png","coolapk_emotion_20_qinqin":"Coolapk/coolapk_emotion_20_qinqin.png","coolapk_emotion_21_penxue":"Coolapk/coolapk_emotion_21_penxue.png","coolapk_emotion_22_xiaoyan":"Coolapk/coolapk_emotion_22_xiaoyan.png","coolapk_emotion_23_shui":"Coolapk/coolapk_emotion_23_shui.png","coolapk_emotion_24_wuzuixiao":"Coolapk/coolapk_emotion_24_wuzuixiao.png","coolapk_emotion_25_zaijian":"Coolapk/coolapk_emotion_25_zaijian.png","coolapk_emotion_26_kelian":"Coolapk/coolapk_emotion_26_kelian.png","coolapk_emotion_27_qiang":"Coolapk/coolapk_emotion_27_qiang.png","coolapk_emotion_28_ruo":"Coolapk/coolapk_emotion_28_ruo.png","coolapk_emotion_29_baoquan":"Coolapk/coolapk_emotion_29_baoquan.png","coolapk_emotion_2_jingya":"Coolapk/coolapk_emotion_2_jingya.png","coolapk_emotion_30_ok":"Coolapk/coolapk_emotion_30_ok.png","coolapk_emotion_31_xiaoku":"Coolapk/coolapk_emotion_31_xiaoku.png","coolapk_emotion_32_heiha":"Coolapk/coolapk_emotion_32_heiha.png","coolapk_emotion_33_wulian":"Coolapk/coolapk_emotion_33_wulian.png","coolapk_emotion_34_jizhi":"Coolapk/coolapk_emotion_34_jizhi.png","coolapk_emotion_35_ye":"Coolapk/coolapk_emotion_35_ye.png","coolapk_emotion_36_ku":"Coolapk/coolapk_emotion_36_ku.png","coolapk_emotion_37_doge":"Coolapk/coolapk_emotion_37_doge.png","coolapk_emotion_38_wozuimei":"Coolapk/coolapk_emotion_38_wozuimei.png","coolapk_emotion_39_caidao":"Coolapk/coolapk_emotion_39_caidao.png","coolapk_emotion_3_ciya":"Coolapk/coolapk_emotion_3_ciya.png","coolapk_emotion_40_aixin":"Coolapk/coolapk_emotion_40_aixin.png","coolapk_emotion_41_meigui":"Coolapk/coolapk_emotion_41_meigui.png","coolapk_emotion_42_diaoxie":"Coolapk/coolapk_emotion_42_diaoxie.png","coolapk_emotion_43_heixian":"Coolapk/coolapk_emotion_43_heixian.png","coolapk_emotion_44_pen":"Coolapk/coolapk_emotion_44_pen.png","coolapk_emotion_45_yinxian":"Coolapk/coolapk_emotion_45_yinxian.png","coolapk_emotion_46_nanguo":"Coolapk/coolapk_emotion_46_nanguo.png","coolapk_emotion_47_weiqu":"Coolapk/coolapk_emotion_47_weiqu.png","coolapk_emotion_48_weiweiyixiao":"Coolapk/coolapk_emotion_48_weiweiyixiao.png","coolapk_emotion_49_huanhu":"Coolapk/coolapk_emotion_49_huanhu.png","coolapk_emotion_4_liulei":"Coolapk/coolapk_emotion_4_liulei.png","coolapk_emotion_50_xinsui":"Coolapk/coolapk_emotion_50_xinsui.png","coolapk_emotion_51_chigua":"Coolapk/coolapk_emotion_51_chigua.png","coolapk_emotion_52_hejiu":"Coolapk/coolapk_emotion_52_hejiu.png","coolapk_emotion_53_pu":"Coolapk/coolapk_emotion_53_pu.png","coolapk_emotion_54_hongyaowan":"Coolapk/coolapk_emotion_54_hongyaowan.png","coolapk_emotion_55_lvyaowan":"Coolapk/coolapk_emotion_55_lvyaowan.png","coolapk_emotion_56_dogexiaoku":"Coolapk/coolapk_emotion_56_dogexiaoku.png","coolapk_emotion_57_dogehechi":"Coolapk/coolapk_emotion_57_dogehechi.png","coolapk_emotion_58_dogeyuanliangta":"Coolapk/coolapk_emotion_58_dogeyuanliangta.png","coolapk_emotion_59_erha":"Coolapk/coolapk_emotion_59_erha.png","coolapk_emotion_5_keai":"Coolapk/coolapk_emotion_5_keai.png","coolapk_emotion_60_kuan":"Coolapk/coolapk_emotion_60_kuan.png","coolapk_emotion_61_lvmao":"Coolapk/coolapk_emotion_61_lvmao.png","coolapk_emotion_62_huaji":"Coolapk/coolapk_emotion_62_huaji.png","coolapk_emotion_63_liuhanhuaji":"Coolapk/coolapk_emotion_63_liuhanhuaji.png","coolapk_emotion_64_shounuehuaji":"Coolapk/coolapk_emotion_64_shounuehuaji.png","coolapk_emotion_65_coshuaji":"Coolapk/coolapk_emotion_65_coshuaji.png","coolapk_emotion_66_doujiyanhuaji":"Coolapk/coolapk_emotion_66_doujiyanhuaji.png","coolapk_emotion_67_mojinghuaji":"Coolapk/coolapk_emotion_67_mojinghuaji.png","coolapk_emotion_68":"Coolapk/coolapk_emotion_68.png","coolapk_emotion_69":"Coolapk/coolapk_emotion_69.png","coolapk_emotion_6_weixiao":"Coolapk/coolapk_emotion_6_weixiao.png","coolapk_emotion_70":"Coolapk/coolapk_emotion_70.png","coolapk_emotion_71":"Coolapk/coolapk_emotion_71.png","coolapk_emotion_72":"Coolapk/coolapk_emotion_72.png","coolapk_emotion_73":"Coolapk/coolapk_emotion_73.png","coolapk_emotion_74":"Coolapk/coolapk_emotion_74.png","coolapk_emotion_75":"Coolapk/coolapk_emotion_75.png","coolapk_emotion_76":"Coolapk/coolapk_emotion_76.png","coolapk_emotion_77":"Coolapk/coolapk_emotion_77.png","coolapk_emotion_78":"Coolapk/coolapk_emotion_78.png","coolapk_emotion_79":"Coolapk/coolapk_emotion_79.png","coolapk_emotion_7_hehe":"Coolapk/coolapk_emotion_7_hehe.png","coolapk_emotion_80":"Coolapk/coolapk_emotion_80.png","coolapk_emotion_81_naikezui":"Coolapk/coolapk_emotion_81_naikezui.png","coolapk_emotion_82_miaomiao":"Coolapk/coolapk_emotion_82_miaomiao.png","coolapk_emotion_83_huoba":"Coolapk/coolapk_emotion_83_huoba.png","coolapk_emotion_84_baiyan":"Coolapk/coolapk_emotion_84_baiyan.png","coolapk_emotion_85":"Coolapk/coolapk_emotion_85.png","coolapk_emotion_86":"Coolapk/coolapk_emotion_86.png","coolapk_emotion_87":"Coolapk/coolapk_emotion_87.png","coolapk_emotion_88":"Coolapk/coolapk_emotion_88.png","coolapk_emotion_89":"Coolapk/coolapk_emotion_89.png","coolapk_emotion_8_piezui":"Coolapk/coolapk_emotion_8_piezui.png","coolapk_emotion_90":"Coolapk/coolapk_emotion_90.png","coolapk_emotion_91":"Coolapk/coolapk_emotion_91.png","coolapk_emotion_92":"Coolapk/coolapk_emotion_92.png","coolapk_emotion_93":"Coolapk/coolapk_emotion_93.png","coolapk_emotion_94":"Coolapk/coolapk_emotion_94.png","coolapk_emotion_95_erhading":"Coolapk/coolapk_emotion_95_erhading.png","coolapk_emotion_96_kuanlvmao":"Coolapk/coolapk_emotion_96_kuanlvmao.png","coolapk_emotion_97_haixiu":"Coolapk/coolapk_emotion_97_haixiu.png","coolapk_emotion_98_wunai":"Coolapk/coolapk_emotion_98_wunai.png","coolapk_emotion_99_zhoumei":"Coolapk/coolapk_emotion_99_zhoumei.png","coolapk_emotion_9_se":"Coolapk/coolapk_emotion_9_se.png","c_coolb":"Coolapk/c_coolb.png","c_fived":"Coolapk/c_fived.png","c_fivef":"Coolapk/c_fivef.png","c_fivem":"Coolapk/c_fivem.png","c_fiveo":"Coolapk/c_fiveo.png","c_fivey":"Coolapk/c_fivey.png","c_fy":"Coolapk/c_fy.png","c_oned":"Coolapk/c_oned.png","c_onef":"Coolapk/c_onef.png","c_onem":"Coolapk/c_onem.png","c_oneo":"Coolapk/c_oneo.png","c_oney":"Coolapk/c_oney.png","c_oy":"Coolapk/c_oy.png","c_teny":"Coolapk/c_teny.png","c_twod":"Coolapk/c_twod.png","c_twof":"Coolapk/c_twof.png","c_twom":"Coolapk/c_twom.png","c_twoo":"Coolapk/c_twoo.png","c_twoy":"Coolapk/c_twoy.png","c_ty":"Coolapk/c_ty.png","emotion_001":"dingtalk/emotion_001.png","emotion_002":"dingtalk/emotion_002.png","emotion_003":"dingtalk/emotion_003.png","emotion_004":"dingtalk/emotion_004.png","emotion_005":"dingtalk/emotion_005.png","emotion_006":"dingtalk/emotion_006.png","emotion_007":"dingtalk/emotion_007.png","emotion_008":"dingtalk/emotion_008.png","emotion_009":"dingtalk/emotion_009.png","emotion_010":"dingtalk/emotion_010.png","emotion_011":"dingtalk/emotion_011.png","emotion_012":"dingtalk/emotion_012.png","emotion_013":"dingtalk/emotion_013.png","emotion_014":"dingtalk/emotion_014.png","emotion_015":"dingtalk/emotion_015.png","emotion_016":"dingtalk/emotion_016.png","emotion_017":"dingtalk/emotion_017.png","emotion_018":"dingtalk/emotion_018.png","emotion_019":"dingtalk/emotion_019.png","emotion_020":"dingtalk/emotion_020.png","emotion_021":"dingtalk/emotion_021.png","emotion_022":"dingtalk/emotion_022.png","emotion_023":"dingtalk/emotion_023.png","emotion_024":"dingtalk/emotion_024.png","emotion_025":"dingtalk/emotion_025.png","emotion_026":"dingtalk/emotion_026.png","emotion_027":"dingtalk/emotion_027.png","emotion_028":"dingtalk/emotion_028.png","emotion_029":"dingtalk/emotion_029.png","emotion_030":"dingtalk/emotion_030.png","emotion_031":"dingtalk/emotion_031.png","emotion_032":"dingtalk/emotion_032.png","emotion_033":"dingtalk/emotion_033.png","emotion_034":"dingtalk/emotion_034.png","emotion_035":"dingtalk/emotion_035.png","emotion_036":"dingtalk/emotion_036.png","emotion_037":"dingtalk/emotion_037.png","emotion_038":"dingtalk/emotion_038.png","emotion_039":"dingtalk/emotion_039.png","emotion_040":"dingtalk/emotion_040.png","emotion_041":"dingtalk/emotion_041.png","emotion_042":"dingtalk/emotion_042.png","emotion_043":"dingtalk/emotion_043.png","emotion_044":"dingtalk/emotion_044.png","emotion_045":"dingtalk/emotion_045.png","emotion_046":"dingtalk/emotion_046.png","emotion_047":"dingtalk/emotion_047.png","emotion_048":"dingtalk/emotion_048.png","emotion_049":"dingtalk/emotion_049.png","emotion_050":"dingtalk/emotion_050.png","emotion_051":"dingtalk/emotion_051.png","emotion_052":"dingtalk/emotion_052.png","emotion_053":"dingtalk/emotion_053.png","emotion_054":"dingtalk/emotion_054.png","emotion_055":"dingtalk/emotion_055.png","emotion_056":"dingtalk/emotion_056.png","emotion_057":"dingtalk/emotion_057.png","emotion_058":"dingtalk/emotion_058.png","emotion_059":"dingtalk/emotion_059.png","emotion_060":"dingtalk/emotion_060.png","emotion_061":"dingtalk/emotion_061.png","emotion_063":"dingtalk/emotion_063.png","emotion_064":"dingtalk/emotion_064.png","emotion_066":"dingtalk/emotion_066.png","emotion_067":"dingtalk/emotion_067.png","emotion_068":"dingtalk/emotion_068.png","emotion_069":"dingtalk/emotion_069.png","emotion_070":"dingtalk/emotion_070.png","emotion_071":"dingtalk/emotion_071.png","emotion_072":"dingtalk/emotion_072.png","emotion_073":"dingtalk/emotion_073.png","emotion_074":"dingtalk/emotion_074.png","emotion_075":"dingtalk/emotion_075.png","emotion_076":"dingtalk/emotion_076.png","emotion_077":"dingtalk/emotion_077.png","emotion_078":"dingtalk/emotion_078.png","emotion_079":"dingtalk/emotion_079.png","emotion_080":"dingtalk/emotion_080.png","emotion_081":"dingtalk/emotion_081.png","emotion_082":"dingtalk/emotion_082.png","emotion_083":"dingtalk/emotion_083.png","emotion_084":"dingtalk/emotion_084.png","emotion_085":"dingtalk/emotion_085.png","emotion_086":"dingtalk/emotion_086.png","emotion_087":"dingtalk/emotion_087.png","emotion_088":"dingtalk/emotion_088.png","emotion_089":"dingtalk/emotion_089.png","emotion_090":"dingtalk/emotion_090.png","emotion_091":"dingtalk/emotion_091.png","emotion_092":"dingtalk/emotion_092.png","emotion_093":"dingtalk/emotion_093.png","emotion_094":"dingtalk/emotion_094.png","emotion_095":"dingtalk/emotion_095.png","emotion_096":"dingtalk/emotion_096.png","emotion_097":"dingtalk/emotion_097.png","emotion_098":"dingtalk/emotion_098.png","emotion_099":"dingtalk/emotion_099.png","emotion_100":"dingtalk/emotion_100.png","emotion_101":"dingtalk/emotion_101.png","emotion_102":"dingtalk/emotion_102.png","emotion_103":"dingtalk/emotion_103.png","emotion_104":"dingtalk/emotion_104.png","emotion_105":"dingtalk/emotion_105.png","emotion_106":"dingtalk/emotion_106.png","emotion_107":"dingtalk/emotion_107.png","emotion_108":"dingtalk/emotion_108.png","emotion_109":"dingtalk/emotion_109.png","emotion_110":"dingtalk/emotion_110.png","emotion_111":"dingtalk/emotion_111.png","emotion_112":"dingtalk/emotion_112.png","emotion_113":"dingtalk/emotion_113.png","emotion_114":"dingtalk/emotion_114.png","emotion_115":"dingtalk/emotion_115.png","emotion_116":"dingtalk/emotion_116.png","emotion_117":"dingtalk/emotion_117.png","emotion_119":"dingtalk/emotion_119.png","emotion_120":"dingtalk/emotion_120.png","emotion_121":"dingtalk/emotion_121.png","emotion_122":"dingtalk/emotion_122.png","emotion_123":"dingtalk/emotion_123.png","emotion_124":"dingtalk/emotion_124.png","emotion_125":"dingtalk/emotion_125.png","emotion_126":"dingtalk/emotion_126.png","emotion_127":"dingtalk/emotion_127.png","emotion_128":"dingtalk/emotion_128.png","emotion_130":"dingtalk/emotion_130.png","emotion_131":"dingtalk/emotion_131.png","emotion_132":"dingtalk/emotion_132.png","emotion_133":"dingtalk/emotion_133.png","emotion_134":"dingtalk/emotion_134.png","emotion_135":"dingtalk/emotion_135.png","emotion_136":"dingtalk/emotion_136.png","emotion_137":"dingtalk/emotion_137.png","emotion_138":"dingtalk/emotion_138.png","emotion_139":"dingtalk/emotion_139.png","emotion_140":"dingtalk/emotion_140.png","emotion_141":"dingtalk/emotion_141.png","emotion_142":"dingtalk/emotion_142.png","emotion_143":"dingtalk/emotion_143.png","emotion_144":"dingtalk/emotion_144.png","emotion_145":"dingtalk/emotion_145.png","emotion_146":"dingtalk/emotion_146.png","emotion_148":"dingtalk/emotion_148.png","emotion_149":"dingtalk/emotion_149.png","emotion_150":"dingtalk/emotion_150.png","emotion_151":"dingtalk/emotion_151.png","emotion_152":"dingtalk/emotion_152.png","emotion_153":"dingtalk/emotion_153.png","emotion_154":"dingtalk/emotion_154.png","emotion_155":"dingtalk/emotion_155.png","emotion_156":"dingtalk/emotion_156.png","emotion_157":"dingtalk/emotion_157.png","emotion_158":"dingtalk/emotion_158.png","emotion_159":"dingtalk/emotion_159.png","emotion_160":"dingtalk/emotion_160.png","emotion_161":"dingtalk/emotion_161.png","emotion_162":"dingtalk/emotion_162.png","emotion_163":"dingtalk/emotion_163.png","emotion_164":"dingtalk/emotion_164.png","emotion_165":"dingtalk/emotion_165.png","emotion_166":"dingtalk/emotion_166.png","emotion_167":"dingtalk/emotion_167.png","emotion_168":"dingtalk/emotion_168.png","emotion_169":"dingtalk/emotion_169.png","emotion_170":"dingtalk/emotion_170.png","emotion_171":"dingtalk/emotion_171.png","emotion_172":"dingtalk/emotion_172.png","emotion_173":"dingtalk/emotion_173.png","emotion_174":"dingtalk/emotion_174.png","emotion_175":"dingtalk/emotion_175.png","emotion_176":"dingtalk/emotion_176.png","emotion_177":"dingtalk/emotion_177.png","emotion_178":"dingtalk/emotion_178.png","emotion_179":"dingtalk/emotion_179.png","emotion_180":"dingtalk/emotion_180.png","emotion_181":"dingtalk/emotion_181.png","emotion_182":"dingtalk/emotion_182.png","emotion_184":"dingtalk/emotion_184.png","emotion_185":"dingtalk/emotion_185.png","emotion_186":"dingtalk/emotion_186.png","emotion_187":"dingtalk/emotion_187.png","emotion_188":"dingtalk/emotion_188.png","emotion_189":"dingtalk/emotion_189.png","emotion_191":"dingtalk/emotion_191.png","emotion_192":"dingtalk/emotion_192.png","一群坏坏":"Little-Bad/一群坏坏.jpg","中坏坏":"Little-Bad/中坏坏.jpg","发火的坏坏":"Little-Bad/发火的坏坏.jpg","坏坏坏":"Little-Bad/坏坏坏.jpg","大坏坏":"Little-Bad/大坏坏.jpg","天使一般的坏坏":"Little-Bad/天使一般的坏坏.jpg","害羞坏":"Little-Bad/害羞坏.jpg","小坏蛋":"Little-Bad/小坏蛋.jpg","我们一起做坏坏的事":"Little-Bad/我们一起做坏坏的事.jpg","敲板子的坏坏":"Little-Bad/敲板子的坏坏.gif","比地球还大的坏坏":"Little-Bad/比地球还大的坏坏.jpg","流泪的坏坏":"Little-Bad/流泪的坏坏.jpg","热炸的坏坏":"Little-Bad/热炸的坏坏.jpg","aini":"QQ/aini.gif","aixin":"QQ/aixin.gif","aoman":"QQ/aoman.gif","baiyan":"QQ/baiyan.gif","bangbangtang":"QQ/bangbangtang.gif","baojin":"QQ/baojin.gif","baoquan":"QQ/baoquan.gif","bishi":"QQ/bishi.gif","bizui":"QQ/bizui.gif","cahan":"QQ/cahan.gif","caidao":"QQ/caidao.gif","chi":"QQ/chi.gif","ciya":"QQ/ciya.gif","dabing":"QQ/dabing.gif","daku":"QQ/daku.gif","dan":"QQ/dan.gif","deyi":"QQ/deyi.gif","doge":"QQ/doge.gif","fadai":"QQ/fadai.gif","fanu":"QQ/fanu.gif","fendou":"QQ/fendou.gif","ganga":"QQ/ganga.gif","gouyin":"QQ/gouyin.gif","guzhang":"QQ/guzhang.gif","haixiu":"QQ/haixiu.gif","hanxiao":"QQ/hanxiao.gif","haobang":"QQ/haobang.gif","haqian":"QQ/haqian.gif","hecai":"QQ/hecai.gif","hexie":"QQ/hexie.gif","huaixiao":"QQ/huaixiao.gif","jie":"QQ/jie.gif","jingkong":"QQ/jingkong.gif","jingxi":"QQ/jingxi.gif","jingya":"QQ/jingya.gif","juhua":"QQ/juhua.gif","keai":"QQ/keai.gif","kelian":"QQ/kelian.gif","koubi":"QQ/koubi.gif","ku":"QQ/ku.gif","kuaikule":"QQ/kuaikule.gif","kulou":"QQ/kulou.gif","kun":"QQ/kun.gif","lanqiu":"QQ/lanqiu.gif","leiben":"QQ/leiben.gif","lenghan":"QQ/lenghan.gif","liuhan":"QQ/liuhan.gif","liulei":"QQ/liulei.gif","nanguo":"QQ/nanguo.gif","OK":"QQ/OK.gif","penxue":"QQ/penxue.gif","piezui":"QQ/piezui.gif","pijiu":"QQ/pijiu.gif","qiang":"QQ/qiang.gif","qiaoda":"QQ/qiaoda.gif","qinqin":"QQ/qinqin.gif","qiudale":"QQ/qiudale.gif","quantou":"QQ/quantou.gif","saorao":"QQ/saorao.gif","se":"QQ/se.gif","shengli":"QQ/shengli.gif","shouqiang":"QQ/shouqiang.gif","shuai":"QQ/shuai.gif","shui":"QQ/shui.gif","tiaopi":"QQ/tiaopi.gif","touxiao":"QQ/touxiao.gif","tu":"QQ/tu.gif","tuosai":"QQ/tuosai.gif","weiqu":"QQ/weiqu.gif","weixiao":"QQ/weixiao.gif","woshou":"QQ/woshou.gif","wozuimei":"QQ/wozuimei.gif","wunai":"QQ/wunai.gif","xia":"QQ/xia.gif","xiaojiujie":"QQ/xiaojiujie.gif","xiaoku":"QQ/xiaoku.gif","xiaoyanger":"QQ/xiaoyanger.gif","xieyanxiao":"QQ/xieyanxiao.gif","xigua":"QQ/xigua.gif","xu":"QQ/xu.gif","yangtuo":"QQ/yangtuo.gif","yinxian":"QQ/yinxian.gif","yiwen":"QQ/yiwen.gif","youhengheng":"QQ/youhengheng.gif","youling":"QQ/youling.gif","yun":"QQ/yun.gif","zaijian":"QQ/zaijian.gif","zhayanjian":"QQ/zhayanjian.gif","zhemo":"QQ/zhemo.gif","zhouma":"QQ/zhouma.gif","zhuakuang":"QQ/zhuakuang.gif","zuohengheng":"QQ/zuohengheng.gif","i_f01":"Tieba/i_f01.png","i_f02":"Tieba/i_f02.png","i_f03":"Tieba/i_f03.png","i_f04":"Tieba/i_f04.png","i_f05":"Tieba/i_f05.png","i_f06":"Tieba/i_f06.png","i_f07":"Tieba/i_f07.png","i_f08":"Tieba/i_f08.png","i_f09":"Tieba/i_f09.png","i_f10":"Tieba/i_f10.png","i_f11":"Tieba/i_f11.png","i_f12":"Tieba/i_f12.png","i_f13":"Tieba/i_f13.png","i_f14":"Tieba/i_f14.png","i_f15":"Tieba/i_f15.png","i_f16":"Tieba/i_f16.png","i_f17":"Tieba/i_f17.png","i_f18":"Tieba/i_f18.png","i_f19":"Tieba/i_f19.png","i_f20":"Tieba/i_f20.png","i_f21":"Tieba/i_f21.png","i_f22":"Tieba/i_f22.png","i_f23":"Tieba/i_f23.png","i_f24":"Tieba/i_f24.png","i_f25":"Tieba/i_f25.png","i_f26":"Tieba/i_f26.png","i_f27":"Tieba/i_f27.png","i_f28":"Tieba/i_f28.png","i_f29":"Tieba/i_f29.png","i_f30":"Tieba/i_f30.png","i_f31":"Tieba/i_f31.png","i_f32":"Tieba/i_f32.png","i_f33":"Tieba/i_f33.png","image_emoticon":"Tieba-New/image_emoticon.png","image_emoticon10":"Tieba-New/image_emoticon10.png","image_emoticon100":"Tieba-New/image_emoticon100.png","image_emoticon101":"Tieba-New/image_emoticon101.png","image_emoticon102":"Tieba-New/image_emoticon102.png","image_emoticon103":"Tieba-New/image_emoticon103.png","image_emoticon104":"Tieba-New/image_emoticon104.png","image_emoticon105":"Tieba-New/image_emoticon105.png","image_emoticon106":"Tieba-New/image_emoticon106.png","image_emoticon107":"Tieba-New/image_emoticon107.png","image_emoticon108":"Tieba-New/image_emoticon108.png","image_emoticon109":"Tieba-New/image_emoticon109.png","image_emoticon11":"Tieba-New/image_emoticon11.png","image_emoticon110":"Tieba-New/image_emoticon110.png","image_emoticon111":"Tieba-New/image_emoticon111.png","image_emoticon112":"Tieba-New/image_emoticon112.png","image_emoticon113":"Tieba-New/image_emoticon113.png","image_emoticon114":"Tieba-New/image_emoticon114.png","image_emoticon115":"Tieba-New/image_emoticon115.png","image_emoticon116":"Tieba-New/image_emoticon116.png","image_emoticon117":"Tieba-New/image_emoticon117.png","image_emoticon118":"Tieba-New/image_emoticon118.png","image_emoticon119":"Tieba-New/image_emoticon119.png","image_emoticon12":"Tieba-New/image_emoticon12.png","image_emoticon120":"Tieba-New/image_emoticon120.png","image_emoticon121":"Tieba-New/image_emoticon121.png","image_emoticon122":"Tieba-New/image_emoticon122.png","image_emoticon123":"Tieba-New/image_emoticon123.png","image_emoticon124":"Tieba-New/image_emoticon124.png","image_emoticon13":"Tieba-New/image_emoticon13.png","image_emoticon14":"Tieba-New/image_emoticon14.png","image_emoticon15":"Tieba-New/image_emoticon15.png","image_emoticon16":"Tieba-New/image_emoticon16.png","image_emoticon17":"Tieba-New/image_emoticon17.png","image_emoticon18":"Tieba-New/image_emoticon18.png","image_emoticon19":"Tieba-New/image_emoticon19.png","image_emoticon2":"Tieba-New/image_emoticon2.png","image_emoticon20":"Tieba-New/image_emoticon20.png","image_emoticon21":"Tieba-New/image_emoticon21.png","image_emoticon22":"Tieba-New/image_emoticon22.png","image_emoticon23":"Tieba-New/image_emoticon23.png","image_emoticon24":"Tieba-New/image_emoticon24.png","image_emoticon25":"Tieba-New/image_emoticon25.png","image_emoticon26":"Tieba-New/image_emoticon26.png","image_emoticon27":"Tieba-New/image_emoticon27.png","image_emoticon28":"Tieba-New/image_emoticon28.png","image_emoticon29":"Tieba-New/image_emoticon29.png","image_emoticon3":"Tieba-New/image_emoticon3.png","image_emoticon30":"Tieba-New/image_emoticon30.png","image_emoticon31":"Tieba-New/image_emoticon31.png","image_emoticon32":"Tieba-New/image_emoticon32.png","image_emoticon33":"Tieba-New/image_emoticon33.png","image_emoticon34":"Tieba-New/image_emoticon34.png","image_emoticon35":"Tieba-New/image_emoticon35.png","image_emoticon36":"Tieba-New/image_emoticon36.png","image_emoticon37":"Tieba-New/image_emoticon37.png","image_emoticon38":"Tieba-New/image_emoticon38.png","image_emoticon39":"Tieba-New/image_emoticon39.png","image_emoticon4":"Tieba-New/image_emoticon4.png","image_emoticon40":"Tieba-New/image_emoticon40.png","image_emoticon41":"Tieba-New/image_emoticon41.png","image_emoticon42":"Tieba-New/image_emoticon42.png","image_emoticon43":"Tieba-New/image_emoticon43.png","image_emoticon44":"Tieba-New/image_emoticon44.png","image_emoticon45":"Tieba-New/image_emoticon45.png","image_emoticon46":"Tieba-New/image_emoticon46.png","image_emoticon47":"Tieba-New/image_emoticon47.png","image_emoticon48":"Tieba-New/image_emoticon48.png","image_emoticon49":"Tieba-New/image_emoticon49.png","image_emoticon5":"Tieba-New/image_emoticon5.png","image_emoticon50":"Tieba-New/image_emoticon50.png","image_emoticon6":"Tieba-New/image_emoticon6.png","image_emoticon66":"Tieba-New/image_emoticon66.png","image_emoticon67":"Tieba-New/image_emoticon67.png","image_emoticon68":"Tieba-New/image_emoticon68.png","image_emoticon69":"Tieba-New/image_emoticon69.png","image_emoticon7":"Tieba-New/image_emoticon7.png","image_emoticon70":"Tieba-New/image_emoticon70.png","image_emoticon71":"Tieba-New/image_emoticon71.png","image_emoticon72":"Tieba-New/image_emoticon72.png","image_emoticon73":"Tieba-New/image_emoticon73.png","image_emoticon74":"Tieba-New/image_emoticon74.png","image_emoticon75":"Tieba-New/image_emoticon75.png","image_emoticon76":"Tieba-New/image_emoticon76.png","image_emoticon77":"Tieba-New/image_emoticon77.png","image_emoticon78":"Tieba-New/image_emoticon78.png","image_emoticon79":"Tieba-New/image_emoticon79.png","image_emoticon8":"Tieba-New/image_emoticon8.png","image_emoticon80":"Tieba-New/image_emoticon80.png","image_emoticon81":"Tieba-New/image_emoticon81.png","image_emoticon82":"Tieba-New/image_emoticon82.png","image_emoticon83":"Tieba-New/image_emoticon83.png","image_emoticon84":"Tieba-New/image_emoticon84.png","image_emoticon85":"Tieba-New/image_emoticon85.png","image_emoticon86":"Tieba-New/image_emoticon86.png","image_emoticon87":"Tieba-New/image_emoticon87.png","image_emoticon88":"Tieba-New/image_emoticon88.png","image_emoticon89":"Tieba-New/image_emoticon89.png","image_emoticon9":"Tieba-New/image_emoticon9.png","image_emoticon90":"Tieba-New/image_emoticon90.png","image_emoticon91":"Tieba-New/image_emoticon91.png","image_emoticon92":"Tieba-New/image_emoticon92.png","image_emoticon93":"Tieba-New/image_emoticon93.png","image_emoticon94":"Tieba-New/image_emoticon94.png","image_emoticon95":"Tieba-New/image_emoticon95.png","image_emoticon96":"Tieba-New/image_emoticon96.png","image_emoticon97":"Tieba-New/image_emoticon97.png","image_emoticon98":"Tieba-New/image_emoticon98.png","image_emoticon99":"Tieba-New/image_emoticon99.png","d_aoteman":"weibo/d_aoteman.png","d_baibai":"weibo/d_baibai.png","d_baobao":"weibo/d_baobao.png","d_beishang":"weibo/d_beishang.png","d_bingbujiandan":"weibo/d_bingbujiandan.png","d_bishi":"weibo/d_bishi.png","d_bizui":"weibo/d_bizui.png","d_chanzui":"weibo/d_chanzui.png","d_chigua":"weibo/d_chigua.png","d_chijing":"weibo/d_chijing.png","d_dahaqi":"weibo/d_dahaqi.png","d_dalian":"weibo/d_dalian.png","d_ding":"weibo/d_ding.png","d_doge":"weibo/d_doge.png","d_erha":"weibo/d_erha.png","d_feijie":"weibo/d_feijie.png","d_feizao":"weibo/d_feizao.png","d_ganmao":"weibo/d_ganmao.png","d_guile":"weibo/d_guile.png","d_guzhang":"weibo/d_guzhang.png","d_haha":"weibo/d_haha.png","d_haixiu":"weibo/d_haixiu.png","d_han":"weibo/d_han.png","d_hehe":"weibo/d_hehe.png","d_heiheihei":"weibo/d_heiheihei.png","d_heixian":"weibo/d_heixian.png","d_heng":"weibo/d_heng.png","d_huaixiao":"weibo/d_huaixiao.png","d_huaxin":"weibo/d_huaxin.png","d_jiyan":"weibo/d_jiyan.png","d_keai":"weibo/d_keai.png","d_kelian":"weibo/d_kelian.png","d_ku":"weibo/d_ku.png","d_kulou":"weibo/d_kulou.png","d_kun":"weibo/d_kun.png","d_landelini":"weibo/d_landelini.png","d_lang":"weibo/d_lang.png","d_lei":"weibo/d_lei.png","d_miao":"weibo/d_miao.png","d_nanhaier":"weibo/d_nanhaier.png","d_nu":"weibo/d_nu.png","d_numa":"weibo/d_numa.png","d_nvhaier":"weibo/d_nvhaier.png","d_qian":"weibo/d_qian.png","d_qinqin":"weibo/d_qinqin.png","d_shayan":"weibo/d_shayan.png","d_shengbing":"weibo/d_shengbing.png","d_shenshou":"weibo/d_shenshou.png","d_shiwang":"weibo/d_shiwang.png","d_shuai":"weibo/d_shuai.png","d_shuijiao":"weibo/d_shuijiao.png","d_sikao":"weibo/d_sikao.png","d_taikaixin":"weibo/d_taikaixin.png","d_tanshou":"weibo/d_tanshou.png","d_tian":"weibo/d_tian.png","d_touxiao":"weibo/d_touxiao.png","d_tu":"weibo/d_tu.png","d_tuzi":"weibo/d_tuzi.png","d_wabishi":"weibo/d_wabishi.png","d_weiqu":"weibo/d_weiqu.png","d_wu":"weibo/d_wu.png","d_xiaoku":"weibo/d_xiaoku.png","d_xingxingyan":"weibo/d_xingxingyan.png","d_xiongmao":"weibo/d_xiongmao.png","d_xixi":"weibo/d_xixi.png","d_xu":"weibo/d_xu.png","d_yinxian":"weibo/d_yinxian.png","d_yiwen":"weibo/d_yiwen.png","d_youhengheng":"weibo/d_youhengheng.png","d_yun":"weibo/d_yun.png","d_yunbei":"weibo/d_yunbei.png","d_zhuakuang":"weibo/d_zhuakuang.png","d_zhutou":"weibo/d_zhutou.png","d_zuiyou":"weibo/d_zuiyou.png","emoji_0x1f31f":"weibo/emoji_0x1f31f.png","emoji_0x1f349":"weibo/emoji_0x1f349.png","emoji_0x1f357":"weibo/emoji_0x1f357.png","emoji_0x1f384":"weibo/emoji_0x1f384.png","emoji_0x1f44f":"weibo/emoji_0x1f44f.png","emoji_0x1f47b":"weibo/emoji_0x1f47b.png","emoji_0x1f47f":"weibo/emoji_0x1f47f.png","emoji_0x1f48a":"weibo/emoji_0x1f48a.png","emoji_0x1f4a3":"weibo/emoji_0x1f4a3.png","emoji_0x1f4a9":"weibo/emoji_0x1f4a9.png","emoji_0x1f631":"weibo/emoji_0x1f631.png","emoji_0x1f643":"weibo/emoji_0x1f643.png","emoji_0x1f645":"weibo/emoji_0x1f645.png","emoji_0x1f648":"weibo/emoji_0x1f648.png","emoji_0x1f649":"weibo/emoji_0x1f649.png","emoji_0x1f64a":"weibo/emoji_0x1f64a.png","emoji_0x1f64b":"weibo/emoji_0x1f64b.png","emoji_0x1f64f":"weibo/emoji_0x1f64f.png","emoji_0x1f913":"weibo/emoji_0x1f913.png","emoji_0x1f917":"weibo/emoji_0x1f917.png","emoji_0x26a1":"weibo/emoji_0x26a1.png","h_buyao":"weibo/h_buyao.png","h_good":"weibo/h_good.png","h_haha":"weibo/h_haha.png","h_jiayou":"weibo/h_jiayou.png","h_lai":"weibo/h_lai.png","h_ok":"weibo/h_ok.png","h_quantou":"weibo/h_quantou.png","h_ruo":"weibo/h_ruo.png","h_woshou":"weibo/h_woshou.png","h_ye":"weibo/h_ye.png","h_zan":"weibo/h_zan.png","h_zuoyi":"weibo/h_zuoyi.png"},
+      enableQQ: true,
+      path: window.location.pathname,
+      master: master,
+      friends: friends,
+      tagMeta: tagMeta,
+      metaPlaceholder: {"nick":"昵称/QQ号(必填)","mail":"邮箱(必填)","link":"网址(https://)"}
+    });
+    if ('nick,mail') { valine.config.requiredFields= 'nick,mail'.split(',') }
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/gh/empty-hyh/cdn/hexo/js/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !true) {
+  if (true) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.17.0/js/md5.min.js"></script><script>window.addEventListener('load', () => {
+  const changeContent = (content) => {
+    if (content === '') return content
+
+    content = content.replace(/<[^>]+>/g,"") // remove html tag
+    content = content.replace(/(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|jpeg|gif|png|webp)/g, '') // remove image link
+    content = content.replace(/(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/gi, '') // remove url
+
+    if (content.length > 150) {
+      content = content.substring(0,150) + '...'
+    }
+    return content
+  }
+
+  const getIcon = (icon, mail) => {
+    if (icon) return icon
+    
+    let defaultIcon = '?d=monsterid'
+    let iconUrl = `https://gravatar.loli.net/avatar/${md5(mail.toLowerCase()) + defaultIcon}`
+    return iconUrl
+  }
+
+  const generateHtml = array => {
+    let result = ''
+
+    if (array.length) {
+      for (let i = 0; i < array.length; i++) {
+        result += '<div class=\'aside-list-item\'>'
+
+        if (true) {
+          let name = 'src'
+          if(false) {
+            name = 'data-lazy-src'
+          }
+          result += `<a href='${array[i].url}' class="thumbnail"><img ${name}='${getIcon(array[i].avatar, array[i].mail)}' alt='${array[i].nick}'></a>`
+        }
+
+        result += `<div class='content'>
+        <a class='comment' href='${array[i].url}'>${array[i].content}</a>
+        <div class='name'><span>${array[i].nick}</span><time> / ${btf.diffDate(array[i].date, true)}</time></div>
+        </div></div>`
+      }
+    } else {
+      result += '没有评论'
+    }
+
+    let $dom = document.querySelector('#card-newest-comments .aside-list')
+    $dom.innerHTML= result
+    window.lazyLoadInstance && window.lazyLoadInstance.update()
+    window.pjax && window.pjax.refresh($dom)
+  }
+
+  const getComment = () => {
+      let serverURL = ''
+      if (true) {
+        serverURL = 'https://apqcu0az.lc-cn-n1-shared.com'
+      } else {
+        serverURL = 'https://APQCu0az.api.lncldglobal.com'
+      }
+
+    var settings = {
+      "method": "GET",
+      "headers": {
+        "X-LC-Id": 'APQCu0az4KS9PHRmzaJQHL8I-gzGzoHsz',
+        "X-LC-Key": 'EB41UWlheIFq59gynGojd54Y',
+        "Content-Type": "application/json"
+      },
+    }
+
+    fetch(`${serverURL}/1.1/classes/Comment?limit=6&order=-createdAt`,settings)
+      .then(response => response.json())
+      .then(data => {
+        const valineArray = data.results.map(function (e) {
+          return {
+            'avatar': e.QQAvatar,
+            'content': changeContent(e.comment),
+            'mail': e.mail,
+            'nick': e.nick,
+            'url': e.url + '#' + e.objectId,
+            'date': e.createdAt,
+          }
+        })
+        saveToLocal.set('leancloud-newest-comments', JSON.stringify(valineArray), 10/(60*24))
+        generateHtml(valineArray)
+      }).catch(e => {
+        const $dom = document.querySelector('#card-newest-comments .aside-list')
+        $dom.innerHTML= "无法获取评论，请确认相关配置是否正确"
+      }) 
+  }
+
+  const newestCommentInit = () => {
+    if (document.querySelector('#card-newest-comments .aside-list')) {
+      const data = saveToLocal.get('leancloud-newest-comments')
+      if (data) {
+        generateHtml(JSON.parse(data))
+      } else {
+        getComment()
+      }
+    }
+  }
+
+  newestCommentInit()
+  document.addEventListener('pjax:complete', newestCommentInit)
+})</script><script data-pjax src="/js/custom.js"></script><script data-pjax src="/js/history.js"></script><script data-pjax src="/js/historyroll.js"></script><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-fluttering-ribbon.min.js"></script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-nest.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/gh/metowolf/MetingJS@1.2/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = [
+  'title',
+  '#config_change',
+  '#body-wrap',
+  '#rightside-config-hide',
+  '#rightside-config-show',
+  '.js-pjax'
+]
+
+if (false) {
+  pjaxSelectors.unshift('meta[property="og:image"]', 'meta[property="og:title"]', 'meta[property="og:url"]')
+}
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"]):not([href="/about/"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  if (typeof gtag === 'function') {
+    gtag('config', '', {'page_path': window.location.pathname});
+  }
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // Analytics
+  if (false) {
+    MtaH5.pgv()
+  }
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+
+document.addEventListener('pjax:send', function () {
+  typeof preloader === 'object' && preloader.initLoading()
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+})</script><script>(function(){
+  const bp = document.createElement('script');
+  const curProtocol = window.location.protocol.split(':')[0];
+  if (curProtocol === 'https') {
+    bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+  }
+  else{
+    bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+  }
+  bp.dataset.pjax = ''
+  const s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(bp, s);
+})()</script></div></body></html>
