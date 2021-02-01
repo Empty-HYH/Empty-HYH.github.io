@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Empty</title><meta name="author" content="Huang Yuhang,empty-hyh@qq.com"><meta name="copyright" content="Huang Yuhang"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><meta property="og:type" content="website">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Empty</title><meta name="author" content="Huang Yuhang,empty-hyh@qq.com"><meta name="copyright" content="Huang Yuhang"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta property="og:type" content="website">
 <meta property="og:title" content="Empty">
 <meta property="og:url" content="https://empty-hyh.gitee.io/index.html">
 <meta property="og:site_name" content="Empty">
@@ -6,14 +6,14 @@
 <meta property="og:image" content="https://empty-hyh.gitee.io/images/user/avatar.png">
 <meta property="article:author" content="Huang Yuhang">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://empty-hyh.gitee.io/images/user/avatar.png"><link rel="shortcut icon" href="/images/user/favicon.png"><link rel="canonical" href="https://empty-hyh.gitee.io/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="preconnect" href="//zz.bdstatic.com"/><meta name="google-site-verification" content="N2wcnlAQOlJ2jspDYyibhqUqCHHOCpvSlbVkhZG9fZw"/><meta name="msvalidate.01" content="F299EA4E7AD0E2B28FDF4E0EA94879BA"/><meta name="baidu-site-verification" content="code-EvNTQv5FqO"/><meta name="360-site-verification" content="82885fa1c62057f33a080b43ac12456c"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+<meta name="twitter:image" content="https://empty-hyh.gitee.io/images/user/avatar.png"><link rel="shortcut icon" href="/images/user/favicon.png"><link rel="canonical" href="https://empty-hyh.gitee.io/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="google-site-verification" content="N2wcnlAQOlJ2jspDYyibhqUqCHHOCpvSlbVkhZG9fZw"/><meta name="msvalidate.01" content="F299EA4E7AD0E2B28FDF4E0EA94879BA"/><meta name="baidu-site-verification" content="code-EvNTQv5FqO"/><meta name="360-site-verification" content="82885fa1c62057f33a080b43ac12456c"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
 (function() {
   var hm = document.createElement("script");
   hm.src = "https://hm.baidu.com/hm.js?fe4b6fd58b051190a1e0890917094ccc";
   var s = document.getElementsByTagName("script")[0]; 
   s.parentNode.insertBefore(hm, s);
 })();
-</script><script>var GLOBAL_CONFIG = { 
+</script><script>const GLOBAL_CONFIG = { 
   root: '/',
   algolia: undefined,
   localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
@@ -54,55 +54,12 @@
   isPhotoFigcaption: false,
   islazyload: false,
   isanchor: true
-};
-
-var saveToLocal = {
-  set: function setWithExpiry(key, value, ttl) {
-    const now = new Date()
-    const expiryDay = ttl * 86400000
-    const item = {
-      value: value,
-      expiry: now.getTime() + expiryDay,
-    }
-    localStorage.setItem(key, JSON.stringify(item))
-  },
-
-  get: function getWithExpiry(key) {
-    const itemStr = localStorage.getItem(key)
-
-    if (!itemStr) {
-      return undefined
-    }
-    const item = JSON.parse(itemStr)
-    const now = new Date()
-
-    if (now.getTime() > item.expiry) {
-      localStorage.removeItem(key)
-      return undefined
-    }
-    return item.value
-  }
-}
-
-// https://stackoverflow.com/questions/16839698/jquery-getscript-alternative-in-native-javascript
-const getScript = url => new Promise((resolve, reject) => {
-  const script = document.createElement('script')
-  script.src = url
-  script.async = true
-  script.onerror = reject
-  script.onload = script.onreadystatechange = function() {
-    const loadState = this.readyState
-    if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
-    script.onload = script.onreadystatechange = null
-    resolve()
-  }
-  document.head.appendChild(script)
-})</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = { 
   isPost: false,
   isHome: true,
   isHighlightShrink: false,
   isToc: false,
-  postUpdate: '2021-01-27 19:57:12'
+  postUpdate: '2021-02-01 09:31:19'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -115,62 +72,81 @@ const getScript = url => new Promise((resolve, reject) => {
   #post-meta time {
     display: inline !important
   }
-</style></noscript><script>(function () {  window.activateDarkMode = function () {
-    document.documentElement.setAttribute('data-theme', 'dark')
-    if (document.querySelector('meta[name="theme-color"]') !== null) {
-      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
-    }
-  }
-  window.activateLightMode = function () {
-    document.documentElement.setAttribute('data-theme', 'light')
-   if (document.querySelector('meta[name="theme-color"]') !== null) {
-      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
-    }
-  }
-  const autoChangeMode = 'false'
-  const t = saveToLocal.get('theme')
-  if (autoChangeMode === '1') {
-    const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
-    const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
-    const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
-    const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
-    if (t === undefined) {
-      if (isLightMode) activateLightMode()
-      else if (isDarkMode) activateDarkMode()
-      else if (isNotSpecified || hasNoSupport) {
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
         const now = new Date()
-        const hour = now.getHours()
-        const isNight = hour <= 6 || hour >= 18
-        isNight ? activateDarkMode() : activateLightMode()
-      }
-      window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
-        if (saveToLocal.get('theme') === undefined) {
-          e.matches ? activateDarkMode() : activateLightMode()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
         }
-      })
-    } else if (t === 'light') activateLightMode()
-    else activateDarkMode()
-  } else if (autoChangeMode === '2') {
-    const now = new Date()
-    const hour = now.getHours()
-    const isNight = hour <= 6 || hour >= 18
-    if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
-    else if (t === 'light') activateLightMode()
-    else activateDarkMode()
-  } else {
-    if (t === 'dark') activateDarkMode()
-    else if (t === 'light') activateLightMode()
-  }const asideStatus = saveToLocal.get('aside-status')
-if (asideStatus !== undefined) {
-   if (asideStatus === 'hide') {
-     document.documentElement.classList.add('hide-aside')
-   } else {
-     document.documentElement.classList.remove('hide-aside')
-   }
-}const fontSizeVal = saveToLocal.get('global-font-size')
-if (fontSizeVal !== undefined) {
-  document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
-}})()</script><link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.15.10/styles/dracula.min.css"><link rel="stylesheet" href="/css/custom.css"><meta name="generator" content="Hexo 5.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="/images/user/avatar.png" onerror="onerror=null;src='/images/sys/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">13</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">8</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 娱乐</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/books/"><i class="fa-fw fas fa-book"></i><span> 书籍</span></a></li><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/images/"><i class="fa-fw fas fa-images"></i><span> 图库</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li><li><a class="site-page" href="/games/"><i class="fa-fw fas fa-gamepad"></i><span> 游戏</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url(/images/user/background.png)"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Empty</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 娱乐</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/books/"><i class="fa-fw fas fa-book"></i><span> 书籍</span></a></li><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/images/"><i class="fa-fw fas fa-images"></i><span> 图库</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li><li><a class="site-page" href="/games/"><i class="fa-fw fas fa-gamepad"></i><span> 游戏</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">Empty</h1><div id="site-subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="https://github.com/Empty-HYH" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:empty-hyh@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left_radius"><a href="/posts/7773a71649aa.html" title="大数据精选清单">     <img class="post_bg" src="/images/cover/bigdata_list.jpg" onerror="this.onerror=null;this.src='/images/sys/404.jpg'" alt="大数据精选清单"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/7773a71649aa.html" title="大数据精选清单">大数据精选清单</a><div class="article-meta-wrap"><span class="article-meta"><i class="fas fa-thumbtack article-meta__icon sticky"></i><span class="sticky">置顶</span><span class="article-meta__separator">|</span></span><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-01-07T02:35:46.000Z" title="发表于 2021-01-07 10:35:46">2021-01-07</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a><i class="fas fa-angle-right"></i><a class="article-meta__categories" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/%E6%96%87%E6%A1%A3/">文档</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag article-meta__icon"></i><a class="article-meta__tags" href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a><span class="article-meta__link">•</span><a class="article-meta__tags" href="/tags/%E6%96%87%E6%A1%A3/">文档</a></span></div><div class="content">前言精选的大数据工具、框架、资源和其他清单。
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const fontSizeVal = saveToLocal.get('global-font-size')
+    if (fontSizeVal !== undefined) {
+      document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
+    }
+    })(window)</script><link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.15.10/styles/dracula.min.css"><link rel="stylesheet" href="/css/custom.css"><meta name="generator" content="Hexo 5.3.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="/images/user/avatar.png" onerror="onerror=null;src='/images/sys/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">13</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">8</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 娱乐</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/books/"><i class="fa-fw fas fa-book"></i><span> 书籍</span></a></li><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/images/"><i class="fa-fw fas fa-images"></i><span> 图库</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li><li><a class="site-page" href="/games/"><i class="fa-fw fas fa-gamepad"></i><span> 游戏</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url('/images/user/background.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Empty</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 娱乐</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/books/"><i class="fa-fw fas fa-book"></i><span> 书籍</span></a></li><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/images/"><i class="fa-fw fas fa-images"></i><span> 图库</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li><li><a class="site-page" href="/games/"><i class="fa-fw fas fa-gamepad"></i><span> 游戏</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">Empty</h1><div id="site-subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="https://github.com/Empty-HYH" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:empty-hyh@foxmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item" style="height:auto;width:100%;padding:0px;"><div id="categoryBar"><ul class="categoryBar-list"><li class="categoryBar-list-item"><a class="categoryBar-list-link" href="/categories/Hexo/">Hexo</a><span class="categoryBar-list-count">4</span></li><li class="categoryBar-list-item"><a class="categoryBar-list-link" href="/categories/Markdown/">Markdown</a><span class="categoryBar-list-count">1</span></li><li class="categoryBar-list-item"><a class="categoryBar-list-link" href="/categories/R/">R</a><span class="categoryBar-list-count">4</span></li><li class="categoryBar-list-item"><a class="categoryBar-list-link" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a><span class="categoryBar-list-count">1</span></li><li class="categoryBar-list-item"><a class="categoryBar-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a><span class="categoryBar-list-count">3</span></li></ul></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/posts/7773a71649aa.html" title="大数据精选清单">     <img class="post_bg" src="/images/cover/bigdata_list.jpg" onerror="this.onerror=null;this.src='/images/sys/404.jpg'" alt="大数据精选清单"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/7773a71649aa.html" title="大数据精选清单">大数据精选清单</a><div class="article-meta-wrap"><span class="article-meta"><i class="fas fa-thumbtack sticky"></i><span class="sticky">置顶</span><span class="article-meta__separator">|</span></span><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-01-07T02:35:46.000Z" title="发表于 2021-01-07 10:35:46">2021-01-07</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a><i class="fas fa-angle-right"></i><a class="article-meta__categories" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/%E6%96%87%E6%A1%A3/">文档</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a><span class="article-meta__link">•</span><a class="article-meta__tags" href="/tags/%E6%96%87%E6%A1%A3/">文档</a></span></div><div class="content">前言精选的大数据工具、框架、资源和其他清单。
 
 本文翻译自：Awesome Big Data
 灵感来自：awesome-php &amp; awesome-python &amp; awesome-ruby &amp; hadoopecosystemtable &amp; big-data
@@ -184,10 +160,10 @@ Teradata - 高性能 MPP 数据仓库平台。
 框架
 Bistro - 用于批处理和流分析的通用数据处理引擎。它基于一种新的数据模型，该模型通过函数来表示数据，并通过列操作来处理数据，而不仅仅使用 MapReduce 或 SQL 等传统方法来设置操作。
 IBM Streams - 分布式处理和实时分析平台。可以和大数据生态系统中的许多流行技术（Kafka、HDFS、Spark 等）集成。
-Apache Hadoop - 分布式处理框架。集成了 MapReduce（并行处理）、YARN（作业调度）和 HDFS（分布式文件 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/posts/40f4a302ee92.html" title="R 语言统计分析">     <img class="post_bg" src="/images/cover/r_statistics.jpg" onerror="this.onerror=null;this.src='/images/sys/404.jpg'" alt="R 语言统计分析"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/40f4a302ee92.html" title="R 语言统计分析">R 语言统计分析</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-01-22T02:10:41.000Z" title="发表于 2021-01-22 10:10:41">2021-01-22</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/R/">R</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag article-meta__icon"></i><a class="article-meta__tags" href="/tags/%E6%95%99%E7%A8%8B/">教程</a><span class="article-meta__link">•</span><a class="article-meta__tags" href="/tags/R/">R</a></span></div><div class="content">前言R中的统计分析通过使用许多内置函数来执行。这些函数大多数是R基础包的一部分。这些函数将R向量作为输入和参数，并给出结果。
+Apache Hadoop - 分布式处理框架。集成了 MapReduce（并行处理）、YARN（作业调度）和 HDFS（分布式文件 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/posts/40f4a302ee92.html" title="R 语言统计分析">     <img class="post_bg" src="/images/cover/r_statistics.jpg" onerror="this.onerror=null;this.src='/images/sys/404.jpg'" alt="R 语言统计分析"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/40f4a302ee92.html" title="R 语言统计分析">R 语言统计分析</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-01-22T02:10:41.000Z" title="发表于 2021-01-22 10:10:41">2021-01-22</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/R/">R</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E6%95%99%E7%A8%8B/">教程</a><span class="article-meta__link">•</span><a class="article-meta__tags" href="/tags/R/">R</a></span></div><div class="content">前言R 中的统计分析通过使用许多内置函数来执行。这些函数大多数是 R 基础包的一部分。这些函数将 R 向量作为输入和参数，并给出结果。
 平均值通过求出数据集的和再除以求和数的总量得到平均值
 函数 mean() 用于在 R 语言中计算平均值。
-语法用于计算R中的平均值的基本语法是：
+语法用于计算 R 中的平均值的基本语法是：
 1mean(x, trim = 0, na.rm = FALSE, ...)
 
 以下是所使用的参数的说明：
@@ -199,12 +175,11 @@ na.rm 用于从输入向量中删除缺失值。
 12345678910# Create a vector. x &lt;- c(12, 7, 3, 4.2, 18, 2, 54, -21, 8, -5)# Find Mean.result.mean &lt;- mean(x)print(result.mean)# 当我们执行上面的代码，它产生以下结果：[1] 8.22
 
 应用 trim 选项当提供 trim 参数时，向量中的值被排序，然后从计算平均值中减去所需的观察值。
-当 trim = 0.3 时，来自每端的 3 个值将从计算中减去以找到均值。
- ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/posts/63c85d3a2495.html" title="R 语言数据接口">     <img class="post_bg" src="/images/cover/r_data_interface.png" onerror="this.onerror=null;this.src='/images/sys/404.jpg'" alt="R 语言数据接口"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/63c85d3a2495.html" title="R 语言数据接口">R 语言数据接口</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-01-21T05:52:32.000Z" title="发表于 2021-01-21 13:52:32">2021-01-21</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/R/">R</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag article-meta__icon"></i><a class="article-meta__tags" href="/tags/%E6%95%99%E7%A8%8B/">教程</a><span class="article-meta__link">•</span><a class="article-meta__tags" href="/tags/R/">R</a></span></div><div class="content">前言R 语言处理的数据一般从外部导入，因此需要数据接口来读取各种格式化的数据。
+当 trim = 0.3 时，来自每端的 3 个值将从计算中减去 ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/posts/63c85d3a2495.html" title="R 语言数据接口">     <img class="post_bg" src="/images/cover/r_data_interface.png" onerror="this.onerror=null;this.src='/images/sys/404.jpg'" alt="R 语言数据接口"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/63c85d3a2495.html" title="R 语言数据接口">R 语言数据接口</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-01-21T05:52:32.000Z" title="发表于 2021-01-21 13:52:32">2021-01-21</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/R/">R</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E6%95%99%E7%A8%8B/">教程</a><span class="article-meta__link">•</span><a class="article-meta__tags" href="/tags/R/">R</a></span></div><div class="content">前言R 语言处理的数据一般从外部导入，因此需要数据接口来读取各种格式化的数据。
 在 R 语言中，我们可以从存储在 R 语言环境外的文件中读取数据。我们还可以将数据写入将被操作系统存储和访问的文件。R 语言可以读取和写入各种文件格式，如​ CSV​，​Excel​，XML，JSON ​等。
 CSV 文件本章节学习从​ CSV 文件读取数据，然后将数据写入 CSV ​文件。该文件应该存在于当前工作目录中，以便 R 语言可以读取它。当然我们也可以设置我们自己的目录并从那里读取文件。
 获取和设置工作目录您可以使用 ​getwd()​ 函数检查R 语言工作区指向的目录。您还可以使用 setwd()​ 函数设置新的工作目录。
-12345678910111213# Get and print current working directory.print(getwd())# Set current working directory.setwd(&quot;E:/data&quot;)# Get and print current working directory.print(getwd())#  ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/posts/4cc96057705e.html" title="R 语言图表">     <img class="post_bg" src="/images/cover/r_chart.jpg" onerror="this.onerror=null;this.src='/images/sys/404.jpg'" alt="R 语言图表"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/4cc96057705e.html" title="R 语言图表">R 语言图表</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-01-20T08:04:45.000Z" title="发表于 2021-01-20 16:04:45">2021-01-20</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/R/">R</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag article-meta__icon"></i><a class="article-meta__tags" href="/tags/%E6%95%99%E7%A8%8B/">教程</a><span class="article-meta__link">•</span><a class="article-meta__tags" href="/tags/R/">R</a></span></div><div class="content">前言R 提供了非常丰富的绘图功能，可以通过命令：demo(graphics)（二维图表） 或者 demo(persp)（三维图表）来体验 R 绘图功能的强大。
+12345678910111213# Get and print current working directory.print(getwd())# Set current working directory.setwd(&quot;E:/data&quot;)# Get and print current working directory.print(getwd())#  ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/posts/4cc96057705e.html" title="R 语言图表">     <img class="post_bg" src="/images/cover/r_chart.jpg" onerror="this.onerror=null;this.src='/images/sys/404.jpg'" alt="R 语言图表"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/4cc96057705e.html" title="R 语言图表">R 语言图表</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-01-20T08:04:45.000Z" title="发表于 2021-01-20 16:04:45">2021-01-20</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/R/">R</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E6%95%99%E7%A8%8B/">教程</a><span class="article-meta__link">•</span><a class="article-meta__tags" href="/tags/R/">R</a></span></div><div class="content">前言R 提供了非常丰富的绘图功能，可以通过命令：demo(graphics)（二维图表） 或者 demo(persp)（三维图表）来体验 R 绘图功能的强大。
 图形工具是 R 环境的一个重要组成部分。R 提供了多种绘图相关的命令，分成三类：
 
 高级绘图命令：在图形设备上产生一个新的图区，它可能包括坐标轴，标签，标题等等。
@@ -221,7 +196,7 @@ CSV 文件本章节学习从​ CSV 文件读取数据，然后将数据写入 C
 H 是包含在条形图中使用的数值的向量或矩阵。
 xlab 是 x 轴的标签。
 ylab 是 y 轴的标签。
-main 是条形图的 ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/posts/dd734f1bc020.html" title="R 语言教程">     <img class="post_bg" src="/images/cover/r_course.png" onerror="this.onerror=null;this.src='/images/sys/404.jpg'" alt="R 语言教程"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/dd734f1bc020.html" title="R 语言教程">R 语言教程</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-01-18T08:20:11.000Z" title="发表于 2021-01-18 16:20:11">2021-01-18</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/R/">R</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag article-meta__icon"></i><a class="article-meta__tags" href="/tags/%E6%95%99%E7%A8%8B/">教程</a><span class="article-meta__link">•</span><a class="article-meta__tags" href="/tags/R/">R</a></span></div><div class="content">概述R 的简介
+main 是条形图的 ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/posts/dd734f1bc020.html" title="R 语言教程">     <img class="post_bg" src="/images/cover/r_course.png" onerror="this.onerror=null;this.src='/images/sys/404.jpg'" alt="R 语言教程"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/dd734f1bc020.html" title="R 语言教程">R 语言教程</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-01-18T08:20:11.000Z" title="发表于 2021-01-18 16:20:11">2021-01-18</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/R/">R</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E6%95%99%E7%A8%8B/">教程</a><span class="article-meta__link">•</span><a class="article-meta__tags" href="/tags/R/">R</a></span></div><div class="content">概述R 的简介
 R 语言是用于统计分析，图形表示和报告的编程语言和软件环境。R 语言由 Ross Ihaka 和 Robert Gentleman 在新西兰奥克兰大学创建，目前由 R 语言开发核心团队开发。
 R 语言的核心是解释计算机语言，其允许分支和循环以及使用函数的模块化编程。R 语言允许与以 C，C ++，.Net，Python 或 FORTRAN 语言编写的过程集成以提高效率。
 R 语言在 GNU 通用公共许可证下免费提供，并为各种操作系统（如 Linux，Windows 和 Mac）提供预编译的二进制版本。
@@ -232,7 +207,7 @@ R 的演变R 语言最初是由新西兰奥克兰奥克兰大学统计系的 Ros
 一大群人通过发送代码和错误报告对 R 做出了贡献。
 自 1997 年年中以来，已经有一个核心组（R 核心团队）可以修改 R 源代码归档。
 
-R 的特点如前所述，R 语言是用于统计分析，图形表示和报告的编程语言和软件环境。以 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/posts/a4e7cc3968dd.html" title="MySQL 优化">     <img class="post_bg" src="/images/cover/mysql_optimization.jpg" onerror="this.onerror=null;this.src='/images/sys/404.jpg'" alt="MySQL 优化"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/a4e7cc3968dd.html" title="MySQL 优化">MySQL 优化</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-01-14T05:32:11.000Z" title="发表于 2021-01-14 13:32:11">2021-01-14</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag article-meta__icon"></i><a class="article-meta__tags" href="/tags/%E6%95%99%E7%A8%8B/">教程</a><span class="article-meta__link">•</span><a class="article-meta__tags" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a><span class="article-meta__link">•</span><a class="article-meta__tags" href="/tags/MySQL/">MySQL</a></span></div><div class="content">优化三大方向
+R 的特点如前所述，R 语言是用于统计分析，图形表示和报告的编程语言和软件环境。以 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/posts/a4e7cc3968dd.html" title="MySQL 优化">     <img class="post_bg" src="/images/cover/mysql_optimization.jpg" onerror="this.onerror=null;this.src='/images/sys/404.jpg'" alt="MySQL 优化"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/a4e7cc3968dd.html" title="MySQL 优化">MySQL 优化</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-01-14T05:32:11.000Z" title="发表于 2021-01-14 13:32:11">2021-01-14</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E6%95%99%E7%A8%8B/">教程</a><span class="article-meta__link">•</span><a class="article-meta__tags" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a><span class="article-meta__link">•</span><a class="article-meta__tags" href="/tags/MySQL/">MySQL</a></span></div><div class="content">优化三大方向
 优化 MySQL 所在服务器内核（此优化一般由运维人员完成）。
 对 MySQL 配置参数进行优化（my.cnf）此优化需要进行压力测试来进行参数调整。
 对 SQL 语句以及表优化。
@@ -259,7 +234,7 @@ MySQL 默认的最大连接数为 100，可以在 mysql 命令提示窗口使用
 使用 EXPLAIN 关键字检测查询
 只要一行数据时使用 LIMIT 1
 为搜索字段建立索引
-在 JOIN 表的时 ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/posts/6d5525a3e63a.html" title="MySQL 常用命令行">     <img class="post_bg" src="/images/cover/mysql_command.png" onerror="this.onerror=null;this.src='/images/sys/404.jpg'" alt="MySQL 常用命令行"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/6d5525a3e63a.html" title="MySQL 常用命令行">MySQL 常用命令行</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-01-13T01:24:44.000Z" title="发表于 2021-01-13 09:24:44">2021-01-13</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag article-meta__icon"></i><a class="article-meta__tags" href="/tags/%E6%95%99%E7%A8%8B/">教程</a><span class="article-meta__link">•</span><a class="article-meta__tags" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a><span class="article-meta__link">•</span><a class="article-meta__tags" href="/tags/MySQL/">MySQL</a></span></div><div class="content">连接 MySQL1mysql -h主机地址 -u用户名 -p用户密码
+在 JOIN 表的时 ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/posts/6d5525a3e63a.html" title="MySQL 常用命令行">     <img class="post_bg" src="/images/cover/mysql_command.png" onerror="this.onerror=null;this.src='/images/sys/404.jpg'" alt="MySQL 常用命令行"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/6d5525a3e63a.html" title="MySQL 常用命令行">MySQL 常用命令行</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-01-13T01:24:44.000Z" title="发表于 2021-01-13 09:24:44">2021-01-13</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E6%95%99%E7%A8%8B/">教程</a><span class="article-meta__link">•</span><a class="article-meta__tags" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a><span class="article-meta__link">•</span><a class="article-meta__tags" href="/tags/MySQL/">MySQL</a></span></div><div class="content">连接 MySQL1mysql -h主机地址 -u用户名 -p用户密码
 
 连接到本机上的MySQL首先打开 DOS 窗口，然后进入目录 mysql\bin ，再键入命令 mysql -u root -p 回车后提示你输密码。注意用户名前可以有空格也可以没有空格，但是密码前必须没有空格，否则让你重新输入密码。
 如果刚安装好 MySQL，超级用户 root 是没有密码的。直接回车即可进入到 MySQL 中了，MySQL 的提示符是： mysql&gt;
@@ -273,7 +248,7 @@ MySQL 默认的最大连接数为 100，可以在 mysql 命令提示窗口使用
 
 
 给 root 加个密码 ab12。
- 首先在 DOS 下进入目录 mysql\bin。然后键入以下命令 mysqladmin -u ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/posts/c4c9e18a584e.html" title="MySQL 教程">     <img class="post_bg" src="/images/cover/mysql_course.jpg" onerror="this.onerror=null;this.src='/images/sys/404.jpg'" alt="MySQL 教程"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/c4c9e18a584e.html" title="MySQL 教程">MySQL 教程</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-01-09T02:35:46.000Z" title="发表于 2021-01-09 10:35:46">2021-01-09</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag article-meta__icon"></i><a class="article-meta__tags" href="/tags/%E6%95%99%E7%A8%8B/">教程</a><span class="article-meta__link">•</span><a class="article-meta__tags" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a><span class="article-meta__link">•</span><a class="article-meta__tags" href="/tags/MySQL/">MySQL</a></span></div><div class="content">术语
+ 首先在 DOS 下进入目录 mysql\bin。然后键入以下命令 mysqladmin -u ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/posts/c4c9e18a584e.html" title="MySQL 教程">     <img class="post_bg" src="/images/cover/mysql_course.jpg" onerror="this.onerror=null;this.src='/images/sys/404.jpg'" alt="MySQL 教程"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/c4c9e18a584e.html" title="MySQL 教程">MySQL 教程</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-01-09T02:35:46.000Z" title="发表于 2021-01-09 10:35:46">2021-01-09</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E6%95%99%E7%A8%8B/">教程</a><span class="article-meta__link">•</span><a class="article-meta__tags" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a><span class="article-meta__link">•</span><a class="article-meta__tags" href="/tags/MySQL/">MySQL</a></span></div><div class="content">术语
 数据库: 数据库是一些关联表的集合。
 数据表: 表是数据的矩阵。在一个数据库中的表看起来像一个简单的电子表格。
 列: 一列（数据元素）包含了相同类型的数据, 例如邮政编码的数据。
@@ -285,7 +260,7 @@ MySQL 默认的最大连接数为 100，可以在 mysql 命令提示窗口使用
 索引：使用索引可快速访问数据库表中的特定信息。索引是对数据库表中一列或多列的值进行排序的一种结构。类似于书籍的目录。
 参照完整性: 参照的完整性要求关系中不允许引用不存在的实体。与实体完整性是关系模型必须满足的完整性约束条件，目的是保证数据的一致性。
 
-数据库MySQL 是一个关系型数据库管理系统（RDBMS），由瑞典 MySQL AB 公司开发，目前属于 Oracle 公司。MySQL 是一种关联数据库管理系统，关联数据库将数据保存在不同的表中，而不是将所有数据放在一个大仓库内，这样就增加了速度并提高了灵 ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/posts/41402bdb8db2.html" title="在 Hexo 中插入 ECharts 动态图表">     <img class="post_bg" src="/images/cover/hexo_echarts.png" onerror="this.onerror=null;this.src='/images/sys/404.jpg'" alt="在 Hexo 中插入 ECharts 动态图表"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/41402bdb8db2.html" title="在 Hexo 中插入 ECharts 动态图表">在 Hexo 中插入 ECharts 动态图表</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-01-05T03:51:01.000Z" title="发表于 2021-01-05 11:51:01">2021-01-05</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/Hexo/">Hexo</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag article-meta__icon"></i><a class="article-meta__tags" href="/tags/Hexo/">Hexo</a><span class="article-meta__link">•</span><a class="article-meta__tags" href="/tags/%E6%95%99%E7%A8%8B/">教程</a></span></div><div class="content">
+数据库MySQL 是一个关系型数据库管理系统（RDBMS），由瑞典 MySQL AB 公司开发，目前属于 Oracle 公司。MySQL 是一种关联数据库管理系统，关联数据库将数据保存在不同的表中，而不是将所有数据放在一个大仓库内，这样就增加了速度并提高了灵 ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/posts/41402bdb8db2.html" title="在 Hexo 中插入 ECharts 动态图表">     <img class="post_bg" src="/images/cover/hexo_echarts.png" onerror="this.onerror=null;this.src='/images/sys/404.jpg'" alt="在 Hexo 中插入 ECharts 动态图表"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/41402bdb8db2.html" title="在 Hexo 中插入 ECharts 动态图表">在 Hexo 中插入 ECharts 动态图表</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-01-05T03:51:01.000Z" title="发表于 2021-01-05 11:51:01">2021-01-05</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Hexo/">Hexo</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Hexo/">Hexo</a><span class="article-meta__link">•</span><a class="article-meta__tags" href="/tags/%E6%95%99%E7%A8%8B/">教程</a></span></div><div class="content">
 
 
 ECharts 简介ECharts 是一个使用 JavaScript 实现的开源可视化库，可以流畅的运行在 PC 和移动设备上，兼容当前绝大部分浏览器（Chrome，Firefox，Safari，IE8/9/10/11等），底层依赖矢量图形库 ZRender，提供直观，交互丰富，可高度个性化定制的数据可视化图表。它提供了常规的折线图、柱状图、散点图、饼图、K线图，用于统计的盒形图，用于地理数据可视化的地图、热力图、线图，用于关系数据可视化的关系图、treemap、旭日图，多维数据可视化的平行坐标，还有用于 BI 的漏斗图，仪表盘，并且支持图与图之间的混搭。
@@ -300,7 +275,7 @@ hexo-tag-echarts3
 
 
 hexo-tag-echarts4
-自动引入 https://cdn.bootcss.com/echarts ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/posts/a45d2f68fa5a.html" title="在 Hexo 中插入 Chart 动态图表">     <img class="post_bg" src="/images/cover/hexo_chartjs.svg" onerror="this.onerror=null;this.src='/images/sys/404.jpg'" alt="在 Hexo 中插入 Chart 动态图表"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/a45d2f68fa5a.html" title="在 Hexo 中插入 Chart 动态图表">在 Hexo 中插入 Chart 动态图表</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-01-04T01:38:32.000Z" title="发表于 2021-01-04 09:38:32">2021-01-04</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/Hexo/">Hexo</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag article-meta__icon"></i><a class="article-meta__tags" href="/tags/Hexo/">Hexo</a><span class="article-meta__link">•</span><a class="article-meta__tags" href="/tags/%E6%95%99%E7%A8%8B/">教程</a></span></div><div class="content">文章来源：
+自动引入 https://cdn.bootcss.com/echarts ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/posts/a45d2f68fa5a.html" title="在 Hexo 中插入 Chart 动态图表">     <img class="post_bg" src="/images/cover/hexo_chartjs.svg" onerror="this.onerror=null;this.src='/images/sys/404.jpg'" alt="在 Hexo 中插入 Chart 动态图表"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/a45d2f68fa5a.html" title="在 Hexo 中插入 Chart 动态图表">在 Hexo 中插入 Chart 动态图表</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-01-04T01:38:32.000Z" title="发表于 2021-01-04 09:38:32">2021-01-04</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Hexo/">Hexo</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Hexo/">Hexo</a><span class="article-meta__link">•</span><a class="article-meta__tags" href="/tags/%E6%95%99%E7%A8%8B/">教程</a></span></div><div class="content">文章来源：
   作者: Shen-Yu
   链接: https://shen-yu.gitee.io/2020/chartjs/
   来源: 岛
@@ -312,10 +287,14 @@ Hexo 中的 Chartjs为了方便在 Hexo 中使用这么漂亮的图表库，我�
 1npm install hexo-tag-chart --save
 
 之后在文章内使用 chart 的 tag 就可以了
-123&#123;% chart 90% 300 %&# ...</div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" src="/images/user/avatar.png" onerror="this.onerror=null;this.src='/images/sys/friend_404.gif'" alt="avatar"/><div class="author-info__name">Huang Yuhang</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">13</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">8</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Empty-HYH"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Empty-HYH" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:empty-hyh@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">Hello Empty</div></div><div class="card-widget card_history"><div class="card-content"><div class="item-headline"><i class="fas fa-clock fa-spin"></i><span>那年今天</span></div><div id="history-news" style="height:100px;overflow:hidden"><div id="history-card"></div></div></div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/40f4a302ee92.html" title="R 语言统计分析"><img src="/images/cover/r_statistics.jpg" onerror="this.onerror=null;this.src='/images/sys/404.jpg'" alt="R 语言统计分析"/></a><div class="content"><a class="title" href="/posts/40f4a302ee92.html" title="R 语言统计分析">R 语言统计分析</a><time datetime="2021-01-22T02:10:41.000Z" title="发表于 2021-01-22 10:10:41">2021-01-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/63c85d3a2495.html" title="R 语言数据接口"><img src="/images/cover/r_data_interface.png" onerror="this.onerror=null;this.src='/images/sys/404.jpg'" alt="R 语言数据接口"/></a><div class="content"><a class="title" href="/posts/63c85d3a2495.html" title="R 语言数据接口">R 语言数据接口</a><time datetime="2021-01-21T05:52:32.000Z" title="发表于 2021-01-21 13:52:32">2021-01-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/4cc96057705e.html" title="R 语言图表"><img src="/images/cover/r_chart.jpg" onerror="this.onerror=null;this.src='/images/sys/404.jpg'" alt="R 语言图表"/></a><div class="content"><a class="title" href="/posts/4cc96057705e.html" title="R 语言图表">R 语言图表</a><time datetime="2021-01-20T08:04:45.000Z" title="发表于 2021-01-20 16:04:45">2021-01-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/dd734f1bc020.html" title="R 语言教程"><img src="/images/cover/r_course.png" onerror="this.onerror=null;this.src='/images/sys/404.jpg'" alt="R 语言教程"/></a><div class="content"><a class="title" href="/posts/dd734f1bc020.html" title="R 语言教程">R 语言教程</a><time datetime="2021-01-18T08:20:11.000Z" title="发表于 2021-01-18 16:20:11">2021-01-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/a4e7cc3968dd.html" title="MySQL 优化"><img src="/images/cover/mysql_optimization.jpg" onerror="this.onerror=null;this.src='/images/sys/404.jpg'" alt="MySQL 优化"/></a><div class="content"><a class="title" href="/posts/a4e7cc3968dd.html" title="MySQL 优化">MySQL 优化</a><time datetime="2021-01-14T05:32:11.000Z" title="发表于 2021-01-14 13:32:11">2021-01-14</time></div></div></div></div><div class="card-widget" id="card-newest-comments"><div class="item-headline"><i class="fas fa-bolt"></i><span>最新评论</span></div><div class="aside-list"><span>正在加载中...</span></div></div><div class="card-widget card-categories"><div class="item-headline"><i class="fas fa-folder-open"></i><span>分类</span></div><ul class="card-category-list" id="aside-cat-list">
-            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Hexo/"><span class="card-category-list-name">Hexo</span><span class="card-category-list-count">4</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Markdown/"><span class="card-category-list-name">Markdown</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/R/"><span class="card-category-list-name">R</span><span class="card-category-list-count">4</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/"><span class="card-category-list-name">大数据</span><span class="card-category-list-count">1</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/%E6%96%87%E6%A1%A3/"><span class="card-category-list-name">文档</span><span class="card-category-list-count">1</span></a></li></ul></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"><span class="card-category-list-name">数据库</span><span class="card-category-list-count">3</span></a></li>
+123&#123;% chart 90% 300 %&# ...</div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" src="/images/user/avatar.png" onerror="this.onerror=null;this.src='/images/sys/friend_404.gif'" alt="avatar"/><div class="author-info__name">Huang Yuhang</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">13</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">8</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Empty-HYH"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Empty-HYH" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:empty-hyh@foxmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">Hello Empty</div></div><div class="card-widget card_history"><div class="card-content"><div class="item-headline"><i class="fas fa-clock fa-spin"></i><span>那年今天</span></div><div id="history-news" style="height:100px;overflow:hidden"><div id="history-card"></div></div></div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/40f4a302ee92.html" title="R 语言统计分析"><img src="/images/cover/r_statistics.jpg" onerror="this.onerror=null;this.src='/images/sys/404.jpg'" alt="R 语言统计分析"/></a><div class="content"><a class="title" href="/posts/40f4a302ee92.html" title="R 语言统计分析">R 语言统计分析</a><time datetime="2021-01-22T02:10:41.000Z" title="发表于 2021-01-22 10:10:41">2021-01-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/63c85d3a2495.html" title="R 语言数据接口"><img src="/images/cover/r_data_interface.png" onerror="this.onerror=null;this.src='/images/sys/404.jpg'" alt="R 语言数据接口"/></a><div class="content"><a class="title" href="/posts/63c85d3a2495.html" title="R 语言数据接口">R 语言数据接口</a><time datetime="2021-01-21T05:52:32.000Z" title="发表于 2021-01-21 13:52:32">2021-01-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/4cc96057705e.html" title="R 语言图表"><img src="/images/cover/r_chart.jpg" onerror="this.onerror=null;this.src='/images/sys/404.jpg'" alt="R 语言图表"/></a><div class="content"><a class="title" href="/posts/4cc96057705e.html" title="R 语言图表">R 语言图表</a><time datetime="2021-01-20T08:04:45.000Z" title="发表于 2021-01-20 16:04:45">2021-01-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/dd734f1bc020.html" title="R 语言教程"><img src="/images/cover/r_course.png" onerror="this.onerror=null;this.src='/images/sys/404.jpg'" alt="R 语言教程"/></a><div class="content"><a class="title" href="/posts/dd734f1bc020.html" title="R 语言教程">R 语言教程</a><time datetime="2021-01-18T08:20:11.000Z" title="发表于 2021-01-18 16:20:11">2021-01-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/a4e7cc3968dd.html" title="MySQL 优化"><img src="/images/cover/mysql_optimization.jpg" onerror="this.onerror=null;this.src='/images/sys/404.jpg'" alt="MySQL 优化"/></a><div class="content"><a class="title" href="/posts/a4e7cc3968dd.html" title="MySQL 优化">MySQL 优化</a><time datetime="2021-01-14T05:32:11.000Z" title="发表于 2021-01-14 13:32:11">2021-01-14</time></div></div></div></div><div class="card-widget" id="card-newest-comments"><div class="item-headline"><i class="fas fa-bolt"></i><span>最新评论</span></div><div class="aside-list"><span>正在加载中...</span></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
             
-            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/Hexo/" style="font-size: 1.37em; color: rgb(162, 76, 166)">Hexo</a><a href="/tags/%E6%95%99%E7%A8%8B/" style="font-size: 1.5em; color: rgb(66, 193, 104)">教程</a><a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 1.23em; color: rgb(22, 114, 163)">数据库</a><a href="/tags/MySQL/" style="font-size: 1.23em; color: rgb(40, 26, 120)">MySQL</a><a href="/tags/Markdown/" style="font-size: 1.1em; color: rgb(161, 67, 55)">Markdown</a><a href="/tags/R/" style="font-size: 1.37em; color: rgb(198, 104, 133)">R</a><a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" style="font-size: 1.1em; color: rgb(108, 197, 169)">大数据</a><a href="/tags/%E6%96%87%E6%A1%A3/" style="font-size: 1.1em; color: rgb(44, 128, 109)">文档</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/01/"><span class="card-archive-list-date">一月 2021</span><span class="card-archive-list-count">13</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">13</div></div><div class="webinfo-item"><div class="item-name">已运行时间 :</div><div class="item-count" id="runtimeshow" data-publishDate="2020-12-31T16:00:00.000Z"></div></div><div class="webinfo-item"><div class="item-name">本站总字数 :</div><div class="item-count">95.6k</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2021-01-27T11:57:09.887Z"></div></div></div></div></div></div></main><footer id="footer" style="background-image: url(/images/user/background.png)"><div id="footer-wrap"><div class="copyright">&copy;2021 By Huang Yuhang</div><div class="footer_custom_text">Hello Empty</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="font-plus" type="button" title="放大字体"><i class="fas fa-plus"></i></button><button id="font-minus" type="button" title="缩小字体"><i class="fas fa-minus"></i></button><button id="translateLink" type="button" title="简繁转换">简</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>function subtitleType () {
+            </div>
+            <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Hexo/"><span class="card-category-list-name">Hexo</span><span class="card-category-list-count">4</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Markdown/"><span class="card-category-list-name">Markdown</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/R/"><span class="card-category-list-name">R</span><span class="card-category-list-count">4</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/"><span class="card-category-list-name">大数据</span><span class="card-category-list-count">1</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/%E6%96%87%E6%A1%A3/"><span class="card-category-list-name">文档</span><span class="card-category-list-count">1</span></a></li></ul></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"><span class="card-category-list-name">数据库</span><span class="card-category-list-count">3</span></a></li>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/Hexo/" style="font-size: 1.37em; color: rgb(43, 119, 124)">Hexo</a><a href="/tags/%E6%95%99%E7%A8%8B/" style="font-size: 1.5em; color: rgb(68, 57, 90)">教程</a><a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 1.23em; color: rgb(57, 151, 123)">数据库</a><a href="/tags/MySQL/" style="font-size: 1.23em; color: rgb(54, 86, 137)">MySQL</a><a href="/tags/Markdown/" style="font-size: 1.1em; color: rgb(88, 165, 157)">Markdown</a><a href="/tags/R/" style="font-size: 1.37em; color: rgb(73, 137, 129)">R</a><a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" style="font-size: 1.1em; color: rgb(149, 156, 46)">大数据</a><a href="/tags/%E6%96%87%E6%A1%A3/" style="font-size: 1.1em; color: rgb(49, 122, 56)">文档</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/01/"><span class="card-archive-list-date">一月 2021</span><span class="card-archive-list-count">13</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">13</div></div><div class="webinfo-item"><div class="item-name">已运行时间 :</div><div class="item-count" id="runtimeshow" data-publishDate="2020-12-31T16:00:00.000Z"></div></div><div class="webinfo-item"><div class="item-name">本站总字数 :</div><div class="item-count">96.2k</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2021-02-01T01:31:17.456Z"></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2021 By Huang Yuhang</div><div class="footer_custom_text"><p id="badges"><a target="_blank" href="https://hexo.io/" rel="external nofollow noopener noreferrer" style="margin-inline: 5px;" one-link-mark="yes"><img title="博客框架Hexo" class="entered loaded" src="https://img.shields.io/badge/Frame-Hexo-blue?style=flat&amp;logo=hexo" data-ll-status="loaded"></a><a target="_blank" href="https://butterfly.js.org/" rel="external nofollow noopener noreferrer" style="margin-inline: 5px;" one-link-mark="yes"><img title="博客主题Butterfly" class="entered loaded" src="https://img.shields.io/badge/Theme-Butterfly-6513df?style=flat&amp;logo=bitdefender" data-ll-status="loaded"></a><a target="_blank" href="https://www.jsdelivr.com/" rel="external nofollow noopener noreferrer" style="margin-inline: 5px;" one-link-mark="yes"><img title="本站使用JsDelivr为静态资源提供CDN加速" class="entered loaded" src="https://img.shields.io/badge/CDN-jsDelivr-orange?style=flat&amp;logo=jsDelivr" data-ll-status="loaded"></a><a target="_blank" href="https://github.com/" rel="external nofollow noopener noreferrer" style="margin-inline: 5px;" one-link-mark="yes"><img title="本站项目由GitHub托管" class="entered loaded" src="https://img.shields.io/badge/Source-Github-d021d6?style=flat&amp;logo=GitHub" data-ll-status="loaded"></a><a target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noopener noreferrer" style="margin-inline: 5px;" one-link-mark="yes"><img title="本站采用创作共用-署名-非商业性-相同方式共享4.0版国际许可协议" class="entered loaded" src="https://img.shields.io/badge/Copyright-BY--NC--SA%204.0-d42328?style=flat&amp;logo=Claris" data-ll-status="loaded"></a></p></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="font-plus" type="button" title="放大字体"><i class="fas fa-plus"></i></button><button id="font-minus" type="button" title="缩小字体"><i class="fas fa-minus"></i></button><button id="translateLink" type="button" title="简繁转换">简</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>function subtitleType () {
   getScript('https://sdk.jinrishici.com/v2/browser/jinrishici.js').then(() => {
     jinrishici.load(function (result) {
       if (false) {
@@ -356,13 +335,14 @@ if (false) {
       true && mermaid.init()
     })
   }
-}</script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.17.0/js/md5.min.js"></script><script>window.addEventListener('load', () => {
+}</script></div><script>window.addEventListener('load', () => {
   const changeContent = (content) => {
     if (content === '') return content
 
+    content = content.replace(/<img.*?src="(.*?)"?[^\>]+>/ig, '[图片]') // replace image link
+    content = content.replace(/<a[^>]+?href=["']?([^"']+)["']?[^>]*>([^<]+)<\/a>/gi, '[链接]') // replace url
+    content = content.replace(/<pre><code>.*?<\/pre>/gi, '[代码]') // replace code
     content = content.replace(/<[^>]+>/g,"") // remove html tag
-    content = content.replace(/(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|jpeg|gif|png|webp)/g, '') // remove image link
-    content = content.replace(/(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/gi, '') // remove url
 
     if (content.length > 150) {
       content = content.substring(0,150) + '...'
@@ -370,12 +350,37 @@ if (false) {
     return content
   }
 
-  const getIcon = (icon, mail) => {
-    if (icon) return icon
-    
-    let defaultIcon = '?d=monsterid'
-    let iconUrl = `https://gravatar.loli.net/avatar/${md5(mail.toLowerCase()) + defaultIcon}`
-    return iconUrl
+  const getComment = () => {
+    const runTwikoo = () => {
+      twikoo.getRecentComments({
+        envId: 'twikoo-8g3bxox957905a8c',
+        region: '',
+        pageSize: 6,
+        includeReply: true
+      }).then(function (res) {
+        const twikooArray = res.map(e => {
+          return {
+            'content': changeContent(e.comment),
+            'avatar': e.avatar,
+            'nick': e.nick,
+            'url': e.url + '#' + e.id,
+            'date': new Date(e.created).toISOString()
+          }
+        })
+
+        saveToLocal.set('twikoo-newest-comments', JSON.stringify(twikooArray), 10/(60*24))
+        generateHtml(twikooArray)
+      }).catch(function (err) {
+        const $dom = document.querySelector('#card-newest-comments .aside-list')
+        $dom.innerHTML= "无法获取评论，请确认相关配置是否正确"
+      })
+    }
+
+    if (typeof twikoo === 'object') {
+      runTwikoo()
+    } else {
+      getScript('https://cdn.jsdelivr.net/npm/twikoo/dist/twikoo.all.min.js').then(runTwikoo)
+    }
   }
 
   const generateHtml = array => {
@@ -386,16 +391,13 @@ if (false) {
         result += '<div class=\'aside-list-item\'>'
 
         if (true) {
-          let name = 'src'
-          if(false) {
-            name = 'data-lazy-src'
-          }
-          result += `<a href='${array[i].url}' class="thumbnail"><img ${name}='${getIcon(array[i].avatar, array[i].mail)}' alt='${array[i].nick}'></a>`
+          const name = 'src'
+          result += `<a href='${array[i].url}' class='thumbnail'><img ${name}='${array[i].avatar}' alt='${array[i].nick}'></a>`
         }
-
+        
         result += `<div class='content'>
         <a class='comment' href='${array[i].url}'>${array[i].content}</a>
-        <div class='name'><span>${array[i].nick}</span><time> / ${btf.diffDate(array[i].date, true)}</time></div>
+        <div class='name'><span>${array[i].nick} / </span><time datetime="${array[i].date}">${btf.diffDate(array[i].date, true)}</time></div>
         </div></div>`
       }
     } else {
@@ -408,47 +410,9 @@ if (false) {
     window.pjax && window.pjax.refresh($dom)
   }
 
-  const getComment = () => {
-      let serverURL = ''
-      if (true) {
-        serverURL = 'https://apqcu0az.lc-cn-n1-shared.com'
-      } else {
-        serverURL = 'https://APQCu0az.api.lncldglobal.com'
-      }
-
-    var settings = {
-      "method": "GET",
-      "headers": {
-        "X-LC-Id": 'APQCu0az4KS9PHRmzaJQHL8I-gzGzoHsz',
-        "X-LC-Key": 'EB41UWlheIFq59gynGojd54Y',
-        "Content-Type": "application/json"
-      },
-    }
-
-    fetch(`${serverURL}/1.1/classes/Comment?limit=6&order=-createdAt`,settings)
-      .then(response => response.json())
-      .then(data => {
-        const valineArray = data.results.map(function (e) {
-          return {
-            'avatar': e.QQAvatar,
-            'content': changeContent(e.comment),
-            'mail': e.mail,
-            'nick': e.nick,
-            'url': e.url + '#' + e.objectId,
-            'date': e.createdAt,
-          }
-        })
-        saveToLocal.set('leancloud-newest-comments', JSON.stringify(valineArray), 10/(60*24))
-        generateHtml(valineArray)
-      }).catch(e => {
-        const $dom = document.querySelector('#card-newest-comments .aside-list')
-        $dom.innerHTML= "无法获取评论，请确认相关配置是否正确"
-      }) 
-  }
-
   const newestCommentInit = () => {
     if (document.querySelector('#card-newest-comments .aside-list')) {
-      const data = saveToLocal.get('leancloud-newest-comments')
+      const data = saveToLocal.get('twikoo-newest-comments')
       if (data) {
         generateHtml(JSON.parse(data))
       } else {
@@ -459,9 +423,9 @@ if (false) {
 
   newestCommentInit()
   document.addEventListener('pjax:complete', newestCommentInit)
-})</script><script data-pjax src="/js/custom.js"></script><script data-pjax src="/js/history.js"></script><script data-pjax src="/js/historyroll.js"></script><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-fluttering-ribbon.min.js"></script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-nest.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/gh/metowolf/MetingJS@1.2/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = [
+})</script><script data-pjax src="/js/custom.js"></script><script data-pjax src="/js/history.js"></script><script data-pjax src="/js/historyroll.js"></script><script async src="/js/fontsvg.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/gh/metowolf/MetingJS@1.2/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = [
   'title',
-  '#config_change',
+  '#config-diff',
   '#body-wrap',
   '#rightside-config-hide',
   '#rightside-config-show',
@@ -531,17 +495,254 @@ document.addEventListener('pjax:send', function () {
   const $bodyClassList = document.body.classList
   $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
 
-})</script><script>(function(){
-  const bp = document.createElement('script');
-  const curProtocol = window.location.protocol.split(':')[0];
-  if (curProtocol === 'https') {
-    bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
   }
-  else{
-    bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script>var gitcalendar = new Vue({
+  el: '#gitcalendar',
+  data: {
+    simplemode: false,
+    user: 'Empty-HYH',
+    fixed: 'fixed',
+    px: 'px',
+    x: '',
+    y: '',
+    span1: '',
+    span2: '',
+    month: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'],
+    monthchange: [],
+    oneyearbeforeday: '',
+    thisday: '',
+    amonthago: '',
+    aweekago: '',
+    weekdatacore: 0,
+    datacore: 0,
+    total: 0,
+    datadate: '',
+    data: [],
+    positionplusdata: [],
+    firstweek: [],
+    lastweek: [],
+    beforeweek: [],
+    thisweekdatacore: 0,
+    mounthbeforeday: 0,
+    mounthfirstindex: 0,
+    crispedges: 'crispedges',
+    thisdayindex: 0,
+    amonthagoindex: 0,
+    amonthagoweek: [],
+    firstdate: [],
+    first2date: [],
+    montharrbefore: [],
+    monthindex: 0,
+    color: ['#ebedf0', '#fdcdec', '#fc9bd9', '#fa6ac5', '#f838b2', '#f5089f', '#c4067e', '#92055e', '#540336', '#48022f', '#30021f']
+  },
+  methods: {
+    selectStyle(data, event) {
+      document.querySelector('.angle-wrapper').style.display = 'block'
+      this.span1 = data.date;
+      this.span2 = data.count;
+      this.x = event.clientX - 100;
+      this.y = event.clientY - 60
+    },
+    outStyle() {
+      document.querySelector('.angle-wrapper').style.display = 'none'
+    },
+    thiscolor(x) {
+      if (x === 0) {
+        let i = parseInt(x / 2);
+        return this.color[0]
+      } else if (x < 2) {
+        return this.color[1]
+      } else if (x < 20) {
+        let i = parseInt(x / 2);
+        return this.color[i]
+      } else {
+        return this.color[9]
+      }
+    },
   }
-  bp.dataset.pjax = ''
-  const s = document.getElementsByTagName("script")[0];
-  s.parentNode.insertBefore(bp, s);
-})()</script></div><script>'use strict';'serviceWorker'in navigator&&navigator.serviceWorker.register('service-worker.js').then(function(a){a.onupdatefound=function(){var b=a.installing;b.onstatechange=function(){switch(b.state){case'installed':navigator.serviceWorker.controller?console.log('New or updated content is available.'):console.log('Content is now available offline!');break;case'redundant':console.error('The installing service worker became redundant.');}}}}).catch(function(a){console.error('Error during service worker registration:',a)});
+});
+var apiurl = 'https://github-calendar-python-api.vercel.app/api?' ? 'https://github-calendar-python-api.vercel.app/api?' : 'https://githubapi.ryanchristian.dev/user/'
+var githubapiurl = apiurl + gitcalendar.user;
+//canvas绘图
+function responsiveChart() {
+  let c = document.getElementById("gitcanvas");
+  if (c) {
+    let cmessage = document.getElementById("gitmessage");
+    let ctx = c.getContext("2d");
+    c.width = document.getElementById("gitcalendarcanvasbox").offsetWidth;
+    let linemaxwitdh = 0.96 * c.width / gitcalendar.data.length;
+    c.height = 9 * linemaxwitdh;
+    let lineminwitdh = 0.8 * linemaxwitdh;
+    let setposition = {
+      x: 0.02 * c.width,
+      y: 0.025 * c.width
+    };
+    for (let week in gitcalendar.data) {
+      weekdata = gitcalendar.data[week];
+      for (let day in weekdata) {
+        let dataitem = {
+          date: "",
+          count: "",
+          x: 0,
+          y: 0
+        };
+        gitcalendar.positionplusdata.push(dataitem);
+        ctx.fillStyle = gitcalendar.thiscolor(weekdata[day].count);
+        setposition.y = Math.round(setposition.y * 100) / 100;
+        dataitem.date = weekdata[day].date;
+        dataitem.count = weekdata[day].count;
+        dataitem.x = setposition.x;
+        dataitem.y = setposition.y;
+        ctx.fillRect(setposition.x, setposition.y, lineminwitdh, lineminwitdh);
+        setposition.y = setposition.y + linemaxwitdh
+      };
+      setposition.y = 0.025 * c.width;
+      setposition.x = setposition.x + linemaxwitdh
+    };
+    ctx.font = "600  Arial";
+    ctx.fillStyle = '#aaa';
+    ctx.fillText("日", 0, 1.9 * linemaxwitdh);
+    ctx.fillText("二", 0, 3.9 * linemaxwitdh);
+    ctx.fillText("四", 0, 5.9 * linemaxwitdh);
+    ctx.fillText("六", 0, 7.9 * linemaxwitdh);
+    let monthindexlist = c.width / 24;
+    for (let index in gitcalendar.monthchange) {
+      ctx.fillText(gitcalendar.monthchange[index], monthindexlist, 0.7 * linemaxwitdh);
+      monthindexlist = monthindexlist + c.width / 12
+    };
+    cmessage.onmousemove = function(event) {
+      document.querySelector('.angle-wrapper').style.display = 'none'
+    };
+    c.onmousemove = function(event) {
+      document.querySelector('.angle-wrapper').style.display = 'none'
+      getMousePos(c, event);
+    };
+
+    function getMousePos(canvas, event) {
+      var rect = canvas.getBoundingClientRect();
+      var x = event.clientX - rect.left * (canvas.width / rect.width);
+      var y = event.clientY - rect.top * (canvas.height / rect.height);
+      //console.log("x:"+x+",y:"+y);
+      for (let item of gitcalendar.positionplusdata) {
+        let lenthx = x - item.x;
+        let lenthy = y - item.y;
+        //console.log(lenthx,lenthy);
+        if (0 < lenthx && lenthx < lineminwitdh) {
+          if (0 < lenthy && lenthy < lineminwitdh) {
+            //console.log(item.date,item.count)
+            document.querySelector('.angle-wrapper').style.display = 'block'
+            gitcalendar.span1 = item.date;
+            gitcalendar.span2 = item.count;
+            gitcalendar.x = event.clientX - 100;
+            gitcalendar.y = event.clientY - 60
+          }
+        }
+        //if(0< x - item.x <lineminwitdh&&0< y - item.y <lineminwitdh){
+        //console.log(item.count,item.date);
+        //}
+      }
+    }
+  }
+}
+//数据统计算法
+function addlastmonth() {
+  if (gitcalendar.thisdayindex === 0) {
+    thisweekcore(52);
+    thisweekcore(51);
+    thisweekcore(50);
+    thisweekcore(49);
+    thisweekcore(48);
+    gitcalendar.thisweekdatacore += gitcalendar.firstdate[6].count;
+    gitcalendar.amonthago = gitcalendar.firstdate[6].date
+  } else {
+    thisweekcore(52);
+    thisweekcore(51);
+    thisweekcore(50);
+    thisweekcore(49);
+    thisweek2core();
+    gitcalendar.amonthago = gitcalendar.first2date[gitcalendar.thisdayindex - 1].date
+  }
+};
+
+function thisweek2core() {
+  for (let i = gitcalendar.thisdayindex - 1; i < gitcalendar.first2date.length; i++) {
+    gitcalendar.thisweekdatacore += gitcalendar.first2date[i].count
+  }
+};
+
+function thisweekcore(index) {
+  for (let item of gitcalendar.data[index]) {
+    gitcalendar.thisweekdatacore += item.count
+  }
+};
+
+function addlastweek() {
+  for (let item of gitcalendar.lastweek) {
+    gitcalendar.weekdatacore += item.count
+  }
+};
+
+function addbeforeweek() {
+  for (let i = gitcalendar.thisdayindex; i < gitcalendar.beforeweek.length; i++) {
+    gitcalendar.weekdatacore += gitcalendar.beforeweek[i].count
+  }
+};
+
+function addweek(data) {
+  if (gitcalendar.thisdayindex === 6) {
+    gitcalendar.aweekago = gitcalendar.lastweek[0].date;
+    addlastweek()
+  } else {
+    lastweek = data.contributions[51];
+    gitcalendar.aweekago = lastweek[gitcalendar.thisdayindex + 1].date;
+    addlastweek();
+    addbeforeweek()
+  }
+}
+
+fetch(githubapiurl)
+  .then(data => data.json())
+  .then(data => {
+    gitcalendar.data = data.contributions;
+    gitcalendar.total = data.total;
+    gitcalendar.first2date = gitcalendar.data[48];
+    gitcalendar.firstdate = gitcalendar.data[47];
+    gitcalendar.firstweek = data.contributions[0];
+    gitcalendar.lastweek = data.contributions[52];
+    gitcalendar.beforeweek = data.contributions[51];
+    gitcalendar.thisdayindex = gitcalendar.lastweek.length - 1;
+    gitcalendar.thisday = gitcalendar.lastweek[gitcalendar.thisdayindex].date;
+    gitcalendar.oneyearbeforeday = gitcalendar.firstweek[0].date;
+    gitcalendar.monthindex = gitcalendar.thisday.substring(5, 7) * 1;
+    gitcalendar.montharrbefore = gitcalendar.month.splice(gitcalendar.monthindex, 12 - gitcalendar.monthindex);
+    gitcalendar.monthchange = gitcalendar.montharrbefore.concat(gitcalendar.month);
+    addweek(data);
+    addlastmonth();
+    responsiveChart();
+  })
+  .catch(function(error) {
+    console.log(error);
+  });
+
+//手机版更换为svg绘制
+//- if (document.getElementById("gitcalendarcanvasbox").offsetWidth < 500) {
+//-   gitcalendar.simplemode = false
+//- }
+
+//当改变窗口大小时重新绘制canvas
+window.onresize = function() {
+  if (gitcalendar.simplemode) responsiveChart()
+}
+
+//解决滚动滑轮时出现的标签显示
+window.onscroll = function() {
+  if (document.querySelector('.angle-wrapper')) {
+    document.querySelector('.angle-wrapper').style.display = 'none'
+  }
+};</script></div><script>'use strict';'serviceWorker'in navigator&&navigator.serviceWorker.register('service-worker.js').then(function(a){a.onupdatefound=function(){var b=a.installing;b.onstatechange=function(){switch(b.state){case'installed':navigator.serviceWorker.controller?console.log('New or updated content is available.'):console.log('Content is now available offline!');break;case'redundant':console.error('The installing service worker became redundant.');}}}}).catch(function(a){console.error('Error during service worker registration:',a)});
 </script></body></html>

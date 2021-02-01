@@ -1,26 +1,24 @@
 body {
-	cursor: url(/images/user/default.cur),auto;
+	cursor: url(/images/user/default.cur), auto !important;
 }
 
-body a:hover,a i:hover, button:hover, button i:hover, #footer-wrap a:hover {
-	cursor: url(/images/user/pointer.cur),auto !important;
-}
-
-a, img, svg, canvas, li::before, .fancybox-content, i.expand, i.copy-button, .post-reward .reward-button, #pagination .page-number:hover {
+a, img, svg, canvas {
 	cursor: url(/images/user/pointer.cur), auto !important;
 }
 
-.hexo-douban-active {
-	background: #cacaca !important;
+/* 文章 */
+.reward-button, #pagination .page-number:hover {
+	cursor: url(/images/user/pointer.cur), auto !important;
 }
 
-hr:before {
-	content: '\f197'
+/* 图片预览 */
+.fancybox, .fancybox-button, .fancybox-content {
+	cursor: url(/images/user/pointer.cur), auto !important;
 }
 
 /* 评论与回复 */
-.vcol * , .v[data-class=v] .vicon, .v[data-class=v] .vbtn, .vat {
-	cursor: url(/images/user/pointer.cur), auto;
+.switch-btn, .vcol * , .v[data-class=v] .vicon, .v[data-class=v] .vbtn, .vat, .vemojis *, .vcontent.expand {
+	cursor: url(/images/user/pointer.cur), auto !important;
 }
 
 .v[data-class=v] .vwrap .vheader .vinput {
@@ -41,41 +39,28 @@ hr:before {
 	transition: all 0.3s;
 }
 
-/* 设置评论框 */
-.vcard, .tk-comment {
-	box-shadow: 2px 2px 5px #bbb;
-	background: rgba(255, 255, 255, 0.3);
-	border-radius: 8px;
-	padding: 30px;
-	margin: 30px 0px 0px 0px;
+.hexo-douban-active {
+  background: var(--btn-bg) !important;
+  color: var(--btn-color) !important;
 }
 
-/* 取消子评论框 */
-.vquote .vcard, .tk-replies .tk-comment {
-	box-shadow: 2px 2px 5px transparent;
-	background: rgba(255, 255, 255, 0.0);
-	padding: 0px;
+.hexo-douban-button:hover {
+  background: var(--btn-bg) !important;
+  color: var(--btn-color) !important;
 }
 
-/* 评论区代码块 */
-#vcomments code {
-	color: #c7254e;
-	background-color: #F9F2F4;
+hr:before {
+	content: '\f197'
 }
 
 #web_bg {
-  /* background-image: url("/images/user/background_mask.png"), linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35)), url("/images/user/background.png"); */
-}
-
-/* 所有背景（包括首页卡片、文章页、页面页等） */
-#aside_content .card-widget, #recent-posts>.recent-post-item, .layout_page>div:first-child:not(.recent-posts), .layout_post>#page,.layout_post>#post,.read-mode .layout_post>#post {
-	/* background: var(--global-bg); */
-}[data-theme=dark] #nav,[data-theme=dark] .layout_page>div:first-child:not(.recent-posts),[data-theme=dark] .layout_post>#post {
-	/* background-color: var(--global-bg); */
-}
-
-.cover {
-	background: var(--global-bg);
+  /* 背景图像的地址（url括号里） */
+	background-image: url('/images/user/background.png');
+	background-repeat: no-repeat;
+  /* 背景图像不重复 */
+	background-repeat: no-repeat;
+  /* 背景图像大小 */
+	background-size: cover;
 }
 
 /* 旋转标题 before */
@@ -89,15 +74,15 @@ hr:before {
 
 /* 分页器的三个点(...) */
 .space {
-	/* color: #00c4b6; */
-}
-
-.card-info-avatar:hover {
-	/* background: url(/images/user/avatar_hover.gif) */
+	color: var(--btn-bg)
 }
 
 #vcomment textarea {
 	/* background: url(/images/user/textarea.png) 100% 100% no-repeat */
+}
+
+.v[data-class=v] .vcards .vcard .vh .vmeta .vat {
+	color: var(--btn-bg) !important;
 }
 
 .hide-block>a.hide-button.open,.hide-inline>a.hide-button.open {
@@ -120,12 +105,12 @@ hr:before {
 
 ::-webkit-scrollbar-track {
 	border-radius: 2em;
-	background-color: #ffffff;
+	background-color: var(--card-bg);
 }
 
 ::-webkit-scrollbar-thumb {
 	border-radius: 1em;
-	background-color: #49b1f5;
+	background-color: var(--btn-bg);
 	background-image: -webkit-linear-gradient(45deg,rgba(255,255,255,.4) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.4) 50%,rgba(255,255,255,.4) 75%,transparent 75%,transparent);
 }
 
@@ -134,34 +119,61 @@ hr:before {
 }
 
 ::-moz-selection {
-	background-color: #49b1f5;
+	background-color: var(--btn-bg);
 	color: #fff;
 }
 
-/* 页脚 */
+/* 页脚透明 */
 #footer {
-  /* background: transparent !important; */
+	background: transparent !important;
+}
+
+/* 页头图片透明 */
+#page-header {
+  background: 0 0 !important;
 }
 
 #footer #footer-wrap {
-	padding: 1rem 1rem;
+	color: #ffffff !important;
+	padding: 0.5rem 1rem;
 }
 
-#footer #footer-wrap a {
-	/* color: #333; */
+/* 所有背景（包括首页卡片、文章页、页面页等） */
+#aside_content .card-widget, #recent-posts>.recent-post-item, .layout_page>div:first-child:not(.recent-posts), .layout_post>#page,.layout_post>#post,.read-mode .layout_post>#post, .cover, .gallery-group-img {
+	background: var(--card-bg);
+}
+
+[data-theme=dark] #nav,[data-theme=dark] .layout_page>div:first-child:not(.recent-posts),[data-theme=dark] .layout_post>#post {
+	background-color: var(--card-bg);
+}
+
+[data-theme="dark"]
+  .read-mode #aside_content .card-widget {
+	background: rgba(0, 0, 0, 0.5) !important;
+	color: #ffffff;
+}
+
+[data-theme="dark"]
+  .read-mode div#post {
+	background: rgba(0, 0, 0, 0.5) !important;
+	color: #ffffff;
 }
 
 /* 阅读模式 */
 .read-mode #article-container pre *, .read-mode #article-container .highlight:not(.js-file-line-container) * {
-	color: rgba(238,255,255,0.5) !important;
+	color: rgba(255, 255, 255, 0.7) !important;
 }
 
-.read-mode #article-container a {
-	color: #49b1f5;
+.read-mode #aside_content .card-widget {
+	background: rgba(60, 100, 40, 0.4) !important;
+}
+
+.read-mode div#post {
+	background: rgba(60, 100, 40, 0.4) !important;
 }
 
 table th, table td {
-	border: 1px solid #d6d6d6;
+	border: 1px solid var(--font-color);
 }
 
 .table-wrap {
