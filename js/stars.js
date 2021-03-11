@@ -11,7 +11,7 @@ function render (data, name) {
   let li = ''
   for (let i = 0; i < data.length; i++) {
     li +=
-      '<div class="card-star" title="' + data[i].content + '" onclick="window.open(\'' + data[i].site + '\')">' +
+      '<div class="card-star" title="' + data[i].content + '" onclick="window.open(\'' + data[i].site + '\')" >' +
       '<div class="star-header">' + '<div>' + data[i].nickname + '</div>' + '</div>' +
       '<div class="star-content">' + '<div>' + data[i].content + '</div>' + '</div>' +
       '</div>'
