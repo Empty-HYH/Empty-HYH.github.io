@@ -1,5 +1,5 @@
 @import url("https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.1.6/css/swiper.min.css");
-@import url("https://unpkg.com/swiper/swiper-bundle.min.css");
+@import url("https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css");
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 html {
   line-height: 1.15;
@@ -3432,6 +3432,9 @@ blockquote footer cite:before {
   -ms-flex-align: start;
   -webkit-align-items: flex-start;
   align-items: flex-start;
+}
+#history-baidu .blog-slider__pagination {
+  display: none;
 }
 .history_slide_time {
   color: #90a4ae;
