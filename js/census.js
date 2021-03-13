@@ -1,8 +1,8 @@
-const cheerio = require('cheerio')
-const moment = require('moment')
-const fetch = require('node-fetch')
+btf.isJqueryLoad(() => {
+  init()
+})
 
-async function init() {
+async function init () {
   const source = $('#sources-chart')
   const trend = $('#trends-chart')
   const map = $('#map-chart')
@@ -18,6 +18,7 @@ async function init() {
     if (map.length > 0 && $('#mapChart').length === 0) {
       map.after(await mapChart())
     }
+  }
 }
 
 const apiKey = 'oTe3eg0Ggy1AKYBTmNIrO0Cm'
@@ -30,6 +31,21 @@ const siteId = '16265874'
 const siteUrl = 'https://openapi.baidu.com/rest/2.0/tongji/config/getSiteList?access_token=' + accessToken;
 const dataUrl = 'https://openapi.baidu.com/rest/2.0/tongji/report/getData?access_token=' + accessToken + '&site_id=' + siteId;
 const tokenUrl = 'http://openapi.baidu.com/oauth/2.0/token?grant_type=authorization_code&code=' + authCode + '&client_id=' + apiKey + '&client_secret=' + secretKey + '&redirect_uri=' + redirectUri;
+
+function getToday () {
+  var now = new Date();
+  var year = now.getFullYear();       //年
+  var month = now.getMonth() + 1;     //月
+  var day = now.getDate();            //日
+  var clock = year;
+  if (month < 10)
+    clock += "0";
+  clock += month;
+  if (day < 10)
+    clock += "0";
+  clock += day;
+  return clock;
+}
 
 // 浏览器打开链接通过身份验证，获取AuthCode
 function getAuthCode () {
@@ -66,7 +82,7 @@ function getSiteId () {
 // 访问次数（PV）月份趋势
 function trendsChart () {
   return new Promise(resolve => {
-    const paramUrl = '&start_date=20210101&end_date=' + moment().format('YYYYMMDD') + '&metrics=pv_count&method=trend/time/a&gran=month'
+    const paramUrl = '&start_date=20210101&end_date=' + getToday() + '&metrics=pv_count&method=trend/time/a&gran=month'
     fetch(dataUrl + paramUrl)
       .then(data => data.json())
       .then(data => {
@@ -188,7 +204,7 @@ function trendsChart () {
 // 访问次数（PV）来源
 function sourcesChart () {
   return new Promise(resolve => {
-    const paramUrl = '&start_date=20210101&end_date=' + moment().format('YYYYMMDD') + '&metrics=pv_count&method=source/all/a';
+    const paramUrl = '&start_date=20210101&end_date=' + getToday() + '&metrics=pv_count&method=source/all/a';
     fetch(dataUrl + paramUrl)
       .then(data => data.json())
       .then(data => {
@@ -257,7 +273,7 @@ function sourcesChart () {
 // 访问次数（PV）来源
 function mapChart () {
   return new Promise(resolve => {
-    const paramUrl = '&start_date=20210101&end_date=' + moment().format('YYYYMMDD') + '&metrics=pv_count&method=visit/district/a';
+    const paramUrl = '&start_date=20210101&end_date=' + getToday() + '&metrics=pv_count&method=visit/district/a';
     fetch(dataUrl + paramUrl)
       .then(data => data.json())
       .then(data => {
