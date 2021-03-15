@@ -32,6 +32,11 @@ const siteUrl = 'https://openapi.baidu.com/rest/2.0/tongji/config/getSiteList?ac
 const dataUrl = 'https://openapi.baidu.com/rest/2.0/tongji/report/getData?access_token=' + accessToken + '&site_id=' + siteId;
 const tokenUrl = 'http://openapi.baidu.com/oauth/2.0/token?grant_type=authorization_code&code=' + authCode + '&client_id=' + apiKey + '&client_secret=' + secretKey + '&redirect_uri=' + redirectUri;
 
+let myHeaders = new Headers({
+  'Access-Control-Allow-Origin': '*',
+  'Content-Type': 'text/plain'
+});
+
 function getToday () {
   var now = new Date();
   var year = now.getFullYear();       //年
@@ -55,7 +60,7 @@ function getAuthCode () {
 
 // 获取AccessToken
 function getAccessToken () {
-  fetch(tokenUrl)
+  $.cors(tokenUrl)
     .then(data => data.json())
     .then(data => {
       console.log(data);
@@ -66,7 +71,7 @@ function getAccessToken () {
 
 // 获取网站Id
 function getSiteId () {
-  fetch(siteUrl)
+  $.cors(siteUrl)
     .then(data => data.json())
     .then(data => {
       for (let i = 0; i < data.list.length; i++) {
@@ -83,7 +88,11 @@ function getSiteId () {
 function trendsChart () {
   return new Promise(resolve => {
     const paramUrl = '&start_date=20210101&end_date=' + getToday() + '&metrics=pv_count&method=trend/time/a&gran=month'
-    fetch(dataUrl + paramUrl)
+    $.cors(dataUrl + paramUrl, {
+      method: 'GET',
+      headers: myHeaders,
+      mode: 'cors'
+    })
       .then(data => data.json())
       .then(data => {
         // const monthArr = ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月']
@@ -205,8 +214,11 @@ function trendsChart () {
 function sourcesChart () {
   return new Promise(resolve => {
     const paramUrl = '&start_date=20210101&end_date=' + getToday() + '&metrics=pv_count&method=source/all/a';
-    fetch(dataUrl + paramUrl)
-      .then(data => data.json())
+    $.cors(dataUrl + paramUrl, {
+      method: 'GET', headers: myHeaders,
+      mode: 'cors'
+    })
+      .then(data => console.log(data))
       .then(data => {
         monthArr = [];
         let sourcesName = data.result.items[0]
@@ -274,7 +286,10 @@ function sourcesChart () {
 function mapChart () {
   return new Promise(resolve => {
     const paramUrl = '&start_date=20210101&end_date=' + getToday() + '&metrics=pv_count&method=visit/district/a';
-    fetch(dataUrl + paramUrl)
+    $.cors(dataUrl + paramUrl, {
+      method: 'GET', headers: myHeaders,
+      mode: 'cors'
+    })
       .then(data => data.json())
       .then(data => {
         monthArr = [];
