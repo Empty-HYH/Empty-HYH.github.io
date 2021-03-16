@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.eurkon.com/link/index.html</loc>
+    
+    <lastmod>2021-03-16</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.eurkon.com/census/index.html</loc>
     
     <lastmod>2021-03-16</lastmod>
@@ -220,13 +227,6 @@
   
   <url>
     <loc>https://blog.eurkon.com/tags/index.html</loc>
-    
-    <lastmod>2021-01-27</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.eurkon.com/link/index.html</loc>
     
     <lastmod>2021-01-27</lastmod>
     
