@@ -1,0 +1,27 @@
+User-agent: *
+Allow: /
+Allow: /about/
+Allow: /archives/
+Allow: /books/
+Allow: /categories/
+Allow: /census/
+Allow: /charts/
+Allow: /fcircle/
+Allow: /games/
+Allow: /link/
+Allow: /movies/
+Allow: /music/
+Allow: /page/
+Allow: /post/
+Allow: /random/
+Allow: /stars/
+Allow: /tags/
+Disallow: /js/
+Disallow: /css/
+Disallow: /json/
+Disallow: /assets/
+Disallow: /img/
+Disallow: /images/
+
+Sitemap: https://blog.eurkon.com/sitemap.xml
+Sitemap: https://blog.eurkon.com/baidusitemap.xml
