@@ -18,13 +18,13 @@
   var s = document.getElementsByTagName("script")[0]; 
   s.parentNode.insertBefore(hm, s);
 })();
-</script><script>const GLOBAL_CONFIG = { 
+</script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
   root: '/',
   algolia: undefined,
   localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
   translate: {"defaultEncoding":1,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
   noticeOutdate: undefined,
-  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":250},
+  highlight: {"plugin":"prismjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":250},
   copy: {
     success: '复制成功',
     error: '复制错误',
@@ -44,7 +44,7 @@
   },
   copyright: {"limitCount":50,"languages":{"author":"作者: Eurkon","link":"链接: ","source":"来源: Eurkon","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
   lightbox: 'fancybox',
-  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#121212","position":"bottom-left"},
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#121212","position":"bottom-center"},
   source: {
     jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
     justifiedGallery: {
@@ -151,7 +151,7 @@
     if (fontSizeVal !== undefined) {
       document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
     }
-    })(window)</script><link rel="stylesheet" href="/css/custom.css"><link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.15.10/styles/dracula.min.css"><script data-pjax src="https://cdn.jsdelivr.net/npm/echarts@4.7.0/dist/echarts.min.js"></script><script data-pjax src="https://cdn.jsdelivr.net/npm/echarts@4.7.0/map/js/china.js"></script><meta name="generator" content="Hexo 5.3.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" data-lazy-src="https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/avatar.jpg" onerror="onerror=null;src='https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">22</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">20</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-copy"></i><span> 文章</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-link"></i><span> 链接</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-address-card"></i><span> 友链</span></a></li><li><a class="site-page child" href="/stars/"><i class="fa-fw fas fa-star"></i><span> 收藏</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 娱乐</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/books/"><i class="fa-fw fas fa-book"></i><span> 书籍</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/images/"><i class="fa-fw fas fa-images"></i><span> 图库</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li><li><a class="site-page child" href="/games/"><i class="fa-fw fas fa-gamepad"></i><span> 游戏</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-bug"></i><span> 实验室</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/fcircle/"><i class="fa-fw fas fa-heartbeat"></i><span> 朋友圈</span></a></li><li><a class="site-page child" href="/census/"><i class="fa-fw fas fa-chart-line"></i><span> 博客统计</span></a></li><li><a class="site-page child" href="/charts/"><i class="fa-fw fas fa-chart-bar"></i><span> 文章统计</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/random/"><i class="fa-fw fas fa-random"></i><span> 随便看看</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-info-circle"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/images/cover/markdown_grammar.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Eurkon</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-copy"></i><span> 文章</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-link"></i><span> 链接</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-address-card"></i><span> 友链</span></a></li><li><a class="site-page child" href="/stars/"><i class="fa-fw fas fa-star"></i><span> 收藏</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 娱乐</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/books/"><i class="fa-fw fas fa-book"></i><span> 书籍</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/images/"><i class="fa-fw fas fa-images"></i><span> 图库</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li><li><a class="site-page child" href="/games/"><i class="fa-fw fas fa-gamepad"></i><span> 游戏</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-bug"></i><span> 实验室</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/fcircle/"><i class="fa-fw fas fa-heartbeat"></i><span> 朋友圈</span></a></li><li><a class="site-page child" href="/census/"><i class="fa-fw fas fa-chart-line"></i><span> 博客统计</span></a></li><li><a class="site-page child" href="/charts/"><i class="fa-fw fas fa-chart-bar"></i><span> 文章统计</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/random/"><i class="fa-fw fas fa-random"></i><span> 随便看看</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-info-circle"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Markdown 基本语法</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-01-03T06:14:53.000Z" title="发表于 2021-01-03 14:14:53">2021-01-03</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-03-18T09:08:27.043Z" title="更新于 2021-03-18 17:08:27">2021-03-18</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%F0%9F%93%96%E6%95%99%E7%A8%8B%E7%AC%94%E8%AE%B0/">📖教程笔记</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">3,913</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>16分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Markdown 基本语法"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span><span class="post-meta-separator">|</span><span class="post-meta-commentcount"><i class="far fa-comments fa-fw post-meta-icon"></i><span class="post-meta-label">评论数:</span><a href="/post/c894e39a.html#post-comment"><span id="twikoo-count"></span></a></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="Markdown-应用"><a href="#Markdown-应用" class="headerlink" title="Markdown 应用"></a>Markdown 应用</h1><ul>
+    })(window)</script><link rel="stylesheet" href="/css/custom.css"><link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.15.10/styles/dracula.min.css"><script data-pjax src="https://cdn.jsdelivr.net/npm/echarts@4.7.0/dist/echarts.min.js"></script><script data-pjax src="https://cdn.jsdelivr.net/npm/echarts@4.7.0/map/js/china.js"></script><meta name="generator" content="Hexo 5.3.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" data-lazy-src="https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/avatar.jpg" onerror="onerror=null;src='https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">31</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">20</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-copy"></i><span> 文章</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-link"></i><span> 链接</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-address-card"></i><span> 友链</span></a></li><li><a class="site-page child" href="/stars/"><i class="fa-fw fas fa-star"></i><span> 收藏</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 娱乐</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/books/"><i class="fa-fw fas fa-book"></i><span> 书籍</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/images/"><i class="fa-fw fas fa-images"></i><span> 图库</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li><li><a class="site-page child" href="/games/"><i class="fa-fw fas fa-gamepad"></i><span> 游戏</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-bug"></i><span> 实验室</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/fcircle/"><i class="fa-fw fas fa-heartbeat"></i><span> 朋友圈</span></a></li><li><a class="site-page child" href="/census/"><i class="fa-fw fas fa-chart-line"></i><span> 博客统计</span></a></li><li><a class="site-page child" href="/charts/"><i class="fa-fw fas fa-chart-bar"></i><span> 文章统计</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/random/"><i class="fa-fw fas fa-random"></i><span> 随便看看</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-info-circle"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/images/cover/markdown_grammar.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Eurkon</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-copy"></i><span> 文章</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-link"></i><span> 链接</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-address-card"></i><span> 友链</span></a></li><li><a class="site-page child" href="/stars/"><i class="fa-fw fas fa-star"></i><span> 收藏</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 娱乐</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/books/"><i class="fa-fw fas fa-book"></i><span> 书籍</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/images/"><i class="fa-fw fas fa-images"></i><span> 图库</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li><li><a class="site-page child" href="/games/"><i class="fa-fw fas fa-gamepad"></i><span> 游戏</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-bug"></i><span> 实验室</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/fcircle/"><i class="fa-fw fas fa-heartbeat"></i><span> 朋友圈</span></a></li><li><a class="site-page child" href="/census/"><i class="fa-fw fas fa-chart-line"></i><span> 博客统计</span></a></li><li><a class="site-page child" href="/charts/"><i class="fa-fw fas fa-chart-bar"></i><span> 文章统计</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/random/"><i class="fa-fw fas fa-random"></i><span> 随便看看</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-info-circle"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Markdown 基本语法</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-01-03T06:14:53.000Z" title="发表于 2021-01-03 14:14:53">2021-01-03</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-03-18T09:08:27.043Z" title="更新于 2021-03-18 17:08:27">2021-03-18</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%F0%9F%93%96%E6%95%99%E7%A8%8B%E7%AC%94%E8%AE%B0/">📖教程笔记</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">3,688</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>15分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Markdown 基本语法"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span><span class="post-meta-separator">|</span><span class="post-meta-commentcount"><i class="far fa-comments fa-fw post-meta-icon"></i><span class="post-meta-label">评论数:</span><a href="/post/c894e39a.html#post-comment"><span id="twikoo-count"></span></a></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="Markdown-应用"><a href="#Markdown-应用" class="headerlink" title="Markdown 应用"></a>Markdown 应用</h1><ul>
 <li>Markdown 是一种轻量级标记语言，它允许人们使用易读易写的纯文本格式编写文档。</li>
 <li>Markdown 语言在 2004 由约翰·格鲁伯（英语：John Gruber）创建。</li>
 <li>Markdown 编写的文档可以导出 HTML、Word、图像、PDF、Epub 等多种格式的文档。</li>
@@ -163,7 +163,11 @@
 <ol>
 <li><p>使用 <code>=</code> 和 <code>-</code> 标记一级和二级标题</p>
 <p>= 和 - 标记语法格式如下：</p>
-<p><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs markdown">一级标题<br>=======<br><br>二级标题<br>-------<br></code></pre></td></tr></table></figure>
+<p><pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown"><span class="token title important">一级标题
+<span class="token punctuation">=======</span></span>
+
+<span class="token title important">二级标题
+<span class="token punctuation">-------</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </p>
 <p><!-- 显示效果如下所示：
 
@@ -175,7 +179,12 @@
 </li>
 <li><p>使用 <code>#</code> 号标记</p>
 <p>使用 <code>#</code> 号克表示 1-6 级标题，一级标题对应一个 <code>#</code> 号，二级标题对应两个 <code>#</code> 号，以此类推。</p>
-<p> <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs markdown"><span class="hljs-section"># 一级标题</span><br><span class="hljs-section">## 二级标题</span><br><span class="hljs-section">### 三级标题</span><br><span class="hljs-section">#### 四级标题</span><br><span class="hljs-section">##### 五级标题</span><br><span class="hljs-section">###### 六级标题</span><br></code></pre></td></tr></table></figure>
+<p> <pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown"><span class="token title important"><span class="token punctuation">#</span> 一级标题</span>
+<span class="token title important"><span class="token punctuation">##</span> 二级标题</span>
+<span class="token title important"><span class="token punctuation">###</span> 三级标题</span>
+<span class="token title important"><span class="token punctuation">####</span> 四级标题</span>
+<span class="token title important"><span class="token punctuation">#####</span> 五级标题</span>
+<span class="token title important"><span class="token punctuation">######</span> 六级标题</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </p>
 <p> <!-- 显示效果如下所示：
 
@@ -189,10 +198,13 @@
 </li>
 </ol>
 <h1 id="Markdown-段落"><a href="#Markdown-段落" class="headerlink" title="Markdown 段落"></a>Markdown 段落</h1><h2 id="段落"><a href="#段落" class="headerlink" title="段落"></a>段落</h2><p>Markdown 段落没有特殊的格式，直接编写文字就好，段落的换行是使用两个空格以上加上回车。</p>
-<p><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs markdown">Markdown[<span class="hljs-string">空格</span>][<span class="hljs-symbol">空格</span>][<span class="hljs-string">回车</span>]<br>Markdown<br></code></pre></td></tr></table></figure>
+<p><pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown">Markdown<span class="token url">[<span class="token content">空格</span>][<span class="token variable">空格</span>]</span>[回车]
+Markdown<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 </p>
 <p>当然也可以在段落后面使用一个空行表示重新开始一个段落</p>
-<p><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs markdown">Markdown<br>[空行]<br>Markdown<br></code></pre></td></tr></table></figure>
+<p><pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown">Markdown
+[空行]
+Markdown<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 </p>
 <p>还可以使用 <code>&lt;br/&gt;</code> 实现强制换行</p>
 <p>显示效果如下所示：</p>
@@ -200,7 +212,14 @@
 <p>Markdown<br>Markdown</p>
 </blockquote>
 <h2 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h2><p>Markdown 可以使用以下几种字体：</p>
-<p><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs markdown"><span class="hljs-emphasis">*斜体文本*</span><br><span class="hljs-emphasis">_斜体文本_</span><br><br><span class="hljs-strong">**粗体文本**</span><br><span class="hljs-strong">__粗体文本__</span><br><br><span class="hljs-strong">**<span class="hljs-emphasis">*斜粗体文本<span class="hljs-strong">**<span class="hljs-emphasis">*</span></span></span></span><br><span class="hljs-strong"><span class="hljs-emphasis"><span class="hljs-strong"><span class="hljs-emphasis"><span class="hljs-strong">__<span class="hljs-emphasis">_斜粗体文本<span class="hljs-strong">__<span class="hljs-emphasis">_</span></span></span></span></span></span></span></span><br></code></pre></td></tr></table></figure>
+<p><pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown"><span class="token italic"><span class="token punctuation">*</span><span class="token content">斜体文本</span><span class="token punctuation">*</span></span>
+<span class="token italic"><span class="token punctuation">_</span><span class="token content">斜体文本</span><span class="token punctuation">_</span></span>
+
+<span class="token bold"><span class="token punctuation">**</span><span class="token content">粗体文本</span><span class="token punctuation">**</span></span>
+<span class="token bold"><span class="token punctuation">__</span><span class="token content">粗体文本</span><span class="token punctuation">__</span></span>
+
+<span class="token bold"><span class="token punctuation">**</span><span class="token content"><span class="token italic"><span class="token punctuation">*</span><span class="token content">斜粗体文本</span><span class="token punctuation">*</span></span></span><span class="token punctuation">**</span></span>
+<span class="token bold"><span class="token punctuation">__</span><span class="token content"><span class="token italic"><span class="token punctuation">_</span><span class="token content">斜粗体文本</span><span class="token punctuation">_</span></span></span><span class="token punctuation">__</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </p>
 <p>显示效果如下所示：</p>
 <blockquote>
@@ -209,7 +228,12 @@
 <p><strong><em>斜粗体文本</em></strong><br><strong><em>斜粗体文本</em></strong></p>
 </blockquote>
 <h2 id="分隔线"><a href="#分隔线" class="headerlink" title="分隔线"></a>分隔线</h2><p>可以在一行中使用三个以上的星号 <code>*</code>、减号 <code>-</code>、底线 <code>_</code> 来建立一个分隔线，行内不能有其他东西，也可以在星号 <code>*</code>、减号 <code>-</code>、底线 <code>_</code> 中间插入空格。下面每种写法都可以建立分隔线：</p>
-<p><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs markdown">---<br><span class="hljs-strong">**<span class="hljs-emphasis">*</span></span><br><span class="hljs-strong"><span class="hljs-emphasis"><span class="hljs-strong">__<span class="hljs-emphasis">_</span></span></span></span><br><span class="hljs-strong"><span class="hljs-emphasis"><span class="hljs-strong"><span class="hljs-emphasis">- - -</span></span></span></span><br><span class="hljs-strong"><span class="hljs-emphasis"><span class="hljs-strong"><span class="hljs-emphasis">* * *</span></span></span></span><br><span class="hljs-strong"><span class="hljs-emphasis"><span class="hljs-strong"><span class="hljs-emphasis">_</span> <span class="hljs-emphasis">_ _</span></span></span></span><br></code></pre></td></tr></table></figure>
+<p><pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown"><span class="token hr punctuation">---</span>
+<span class="token hr punctuation">***</span>
+___
+<span class="token hr punctuation">- - -</span>
+<span class="token hr punctuation">* * *</span>
+<span class="token italic"><span class="token punctuation">_</span><span class="token content"> </span><span class="token punctuation">_</span></span> _<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </p>
 <p>显示效果如下所示：</p>
 <blockquote>
@@ -221,21 +245,25 @@
 <hr>
 </blockquote>
 <h2 id="删除线"><a href="#删除线" class="headerlink" title="删除线"></a>删除线</h2><p>如果段落上的文字要添加删除线，只需要在文字的两端加上两个波浪线 <code>~~</code> 即可：</p>
-<p><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs markdown">正常文本<br>~~删除文本~~<br></code></pre></td></tr></table></figure>
+<p><pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown">正常文本
+<span class="token strike"><span class="token punctuation">~~</span><span class="token content">删除文本</span><span class="token punctuation">~~</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 </p>
 <p>显示效果如下所示：</p>
 <blockquote>
 <p>正常文本<br><del>删除文本</del></p>
 </blockquote>
 <h2 id="下划线"><a href="#下划线" class="headerlink" title="下划线"></a>下划线</h2><p>下划线可以通过 HTML 的 <code>&lt;u&gt;</code> 标签来实现：</p>
-<p><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs markdown"><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">u</span>&gt;</span></span>下划线文本<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">u</span>&gt;</span></span><br></code></pre></td></tr></table></figure>
+<p><pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>u</span><span class="token punctuation">></span></span>下划线文本<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>u</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 </p>
 <p>显示效果如下所示：</p>
 <blockquote>
 <p><u>下划线文本</u></p>
 </blockquote>
 <h2 id="脚注"><a href="#脚注" class="headerlink" title="脚注"></a>脚注</h2><p>脚注是对文本的补充说明，Markdown 脚注的格式如下：</p>
-<p><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs markdown">[^ 要脚注的文本]<br>Markdown[^ Markdown]  <br><br>[^ Markdown ]：一种轻量级标记语言<br></code></pre></td></tr></table></figure>
+<p><pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown">[^ 要脚注的文本]
+Markdown[^ Markdown]  
+
+[^ Markdown ]：一种轻量级标记语言<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 </p>
 <p>显示效果如下所示：</p>
 <blockquote>
@@ -246,7 +274,17 @@
 </blockquote>
 <h1 id="Markdown-列表"><a href="#Markdown-列表" class="headerlink" title="Markdown 列表"></a>Markdown 列表</h1><p>Markdown 支持有序列表和无序列表。</p>
 <p>无序列表使用星号 <code>*</code>、加号 <code>+</code>、减号 <code>-</code> 作为列表标记，这些标记后面都要添加一个空格，然后再填写内容：</p>
-<p><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs markdown"><span class="hljs-bullet">*</span> 第一项<br><span class="hljs-bullet">*</span> 第二项<br><span class="hljs-bullet">*</span> 第三项<br><br><span class="hljs-bullet">+</span> 第一项<br><span class="hljs-bullet">+</span> 第二项<br><span class="hljs-bullet">+</span> 第三项<br><br><span class="hljs-bullet">-</span> 第一项<br><span class="hljs-bullet">-</span> 第二项<br><span class="hljs-bullet">-</span> 第三项<br></code></pre></td></tr></table></figure>
+<p><pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown"><span class="token list punctuation">*</span> 第一项
+<span class="token list punctuation">*</span> 第二项
+<span class="token list punctuation">*</span> 第三项
+
+<span class="token list punctuation">+</span> 第一项
+<span class="token list punctuation">+</span> 第二项
+<span class="token list punctuation">+</span> 第三项
+
+<span class="token list punctuation">-</span> 第一项
+<span class="token list punctuation">-</span> 第二项
+<span class="token list punctuation">-</span> 第三项<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </p>
 <p>显示效果如下所示：</p>
 <blockquote>
@@ -267,7 +305,9 @@
 </ul>
 </blockquote>
 <p>有序列表使用数字并加上 <code>.</code> 号来表示，如：</p>
-<p><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs markdown"><span class="hljs-bullet">1.</span> 第一项<br><span class="hljs-bullet">2.</span> 第二项<br><span class="hljs-bullet">3.</span> 第三项<br></code></pre></td></tr></table></figure>
+<p><pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown"><span class="token list punctuation">1.</span> 第一项
+<span class="token list punctuation">2.</span> 第二项
+<span class="token list punctuation">3.</span> 第三项<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 </p>
 <p>显示效果如下所示：</p>
 <blockquote>
@@ -278,7 +318,12 @@
 </ol>
 </blockquote>
 <p>列表嵌套只需要在子列表中的选项前面添加四个空格即可：</p>
-<p><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs markdown"><span class="hljs-bullet">1.</span> 第一项：<br><span class="hljs-bullet">  -</span> 第一项嵌套的第一个元素<br><span class="hljs-bullet">  -</span> 第一项嵌套的第二个元素<br><span class="hljs-bullet">2.</span> 第二项：<br><span class="hljs-bullet">  1.</span> 第二项嵌套的第一个元素<br><span class="hljs-bullet">  2.</span> 第二项嵌套的第二个元素<br></code></pre></td></tr></table></figure>
+<p><pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown"><span class="token list punctuation">1.</span> 第一项：
+  <span class="token list punctuation">-</span> 第一项嵌套的第一个元素
+  <span class="token list punctuation">-</span> 第一项嵌套的第二个元素
+<span class="token list punctuation">2.</span> 第二项：
+  <span class="token list punctuation">1.</span> 第二项嵌套的第一个元素
+  <span class="token list punctuation">2.</span> 第二项嵌套的第二个元素<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </p>
 <p>显示效果如下所示：</p>
 <blockquote>
@@ -296,14 +341,16 @@
 </ol>
 </blockquote>
 <h1 id="Markdown-区块"><a href="#Markdown-区块" class="headerlink" title="Markdown 区块"></a>Markdown 区块</h1><p>Markdown 区块引用是在段落开头使用 <code>&gt;</code> 符号，然后后面紧跟一个空格符号：</p>
-<p><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs markdown"><span class="hljs-quote">&gt; 区块引用</span><br></code></pre></td></tr></table></figure>
+<p><pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown"><span class="token blockquote punctuation">></span> 区块引用<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 </p>
 <p>显示效果如下所示：</p>
 <blockquote>
 <p>区块引用</p>
 </blockquote>
 <p>另外区块是可以嵌套的，一个 <code>&gt;</code> 符号是最外层，两个 <code>&gt;</code> 符号是第一层嵌套，以此类推：</p>
-<p><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs markdown"><span class="hljs-quote">&gt; 最外层</span><br><span class="hljs-quote">&gt; &gt; 第一层嵌套</span><br><span class="hljs-quote">&gt; &gt; &gt; 第二层嵌套</span><br></code></pre></td></tr></table></figure>
+<p><pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown"><span class="token blockquote punctuation">></span> 最外层
+<span class="token blockquote punctuation">> ></span> 第一层嵌套
+<span class="token blockquote punctuation">> > ></span> 第二层嵌套<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 </p>
 <p>显示效果如下所示：</p>
 <blockquote>
@@ -318,7 +365,12 @@
 <p><br></p>
 <p><strong>区块中使用列表</strong></p>
 <p>区块中使用列表实例如下：</p>
-<p><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs markdown"><span class="hljs-quote">&gt; 区块中使用列表</span><br><span class="hljs-quote">&gt; 1. 第一项</span><br><span class="hljs-quote">&gt; 2. 第二项</span><br><span class="hljs-quote">&gt; + 第一项</span><br><span class="hljs-quote">&gt; + 第二项</span><br><span class="hljs-quote">&gt; + 第三项</span><br></code></pre></td></tr></table></figure>
+<p><pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown"><span class="token blockquote punctuation">></span> 区块中使用列表
+<span class="token blockquote punctuation">></span> <span class="token list punctuation">1.</span> 第一项
+<span class="token blockquote punctuation">></span> <span class="token list punctuation">2.</span> 第二项
+<span class="token blockquote punctuation">></span> <span class="token list punctuation">+</span> 第一项
+<span class="token blockquote punctuation">></span> <span class="token list punctuation">+</span> 第二项
+<span class="token blockquote punctuation">></span> <span class="token list punctuation">+</span> 第三项<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </p>
 <p>显示效果如下所示：</p>
 <blockquote>
@@ -337,7 +389,9 @@
 <p><strong>列表中使用区块</strong></p>
 <p>如果要在列表项目内放进区块，那么就需要在 <code>&gt;</code> 前添加四个空格的缩进。</p>
 <p>区块中使用列表实例如下：</p>
-<p><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs markdown"><span class="hljs-bullet">*</span> 第一项<br><span class="hljs-code">    &gt; 列表中使用区块</span><br><span class="hljs-code">* 第二项</span><br></code></pre></td></tr></table></figure>
+<p><pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown"><span class="token list punctuation">*</span> 第一项
+    > 列表中使用区块
+<span class="token list punctuation">*</span> 第二项<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 </p>
 <p>显示效果如下所示：</p>
 <ul>
@@ -348,7 +402,8 @@
 <li>第二项</li>
 </ul>
 <h1 id="Markdown-代码"><a href="#Markdown-代码" class="headerlink" title="Markdown 代码"></a>Markdown 代码</h1><p>如果是段落上的一个函数或片段的代码可以用反引号 <code>` </code> 或用三个反引号 <code>``` </code> 把它包起来例如：</p>
-<p><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs markdown"><span class="hljs-code">` print `</span> 函数<br><span class="hljs-code">``` print ``` </span>函数<br></code></pre></td></tr></table></figure>
+<p><pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown"><span class="token code keyword">` print `</span> 函数
+<span class="token code keyword">``` print ``</span>` 函数<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 </p>
 <p>显示效果如下所示：</p>
 <blockquote>
@@ -357,22 +412,31 @@
 <p><br></p>
 <p><strong>代码区块</strong></p>
 <p>代码区块使用 4 个空格或者一个制表符（Tab 键）：</p>
-<p><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs markdown">[<span class="hljs-string">空格</span>][<span class="hljs-symbol">空格</span>][<span class="hljs-string">空格</span>][<span class="hljs-symbol">空格</span>]print(&quot;Hello&quot;);<br>[Tab]print(&quot;World&quot;);<br></code></pre></td></tr></table></figure>
+<p><pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown"><span class="token url">[<span class="token content">空格</span>][<span class="token variable">空格</span>]</span><span class="token url">[<span class="token content">空格</span>][<span class="token variable">空格</span>]</span>print("Hello");
+[Tab]print("World");<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 </p>
 <p>显示效果如下所示：</p>
 <blockquote>
 <p>   print(&quot;Hello&quot;);<br>   print(&quot;World&quot;);</p>
 </blockquote>
 <p>你也可以用 <code>``` </code> 包裹一段代码，并指定一种语言（也可以不指定）：</p>
-<p><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs markdown">[<span class="hljs-string">```</span>][<span class="hljs-symbol">javascript</span>]<br>$(document).ready(function () &#123;<br><span class="hljs-code">    alert(&#x27;Hello World&#x27;);</span><br><span class="hljs-code">&#125;);</span><br><span class="hljs-code">[```]</span><br></code></pre></td></tr></table></figure>
+<p><pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown"><span class="token url">[<span class="token content">```</span>][<span class="token variable">javascript</span>]</span>
+$(document).ready(function () &#123;
+    alert('Hello World');
+&#125;);
+[```]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </p>
 <p>显示效果如下所示：</p>
 <blockquote>
-<p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs javascript">$(<span class="hljs-built_in">document</span>).ready(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;<br>    alert(<span class="hljs-string">&#x27;Hello World&#x27;</span>);<br>&#125;);<br></code></pre></td></tr></table></figure>
+<p><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token function">$</span><span class="token punctuation">(</span>document<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">ready</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">'Hello World'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 </p>
 <h1 id="Markdown-链接"><a href="#Markdown-链接" class="headerlink" title="Markdown 链接"></a>Markdown 链接</h1></blockquote>
 <p>链接语法格式如下：</p>
-<p><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs markdown">[<span class="hljs-string">链接名称</span>](<span class="hljs-link">链接地址</span>)<br>或者<br>&lt;链接地址&gt;<br></code></pre></td></tr></table></figure>
+<p><pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown"><span class="token url">[<span class="token content">链接名称</span>](链接地址)</span>
+或者
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>链接地址</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 </p>
 <p>显示效果如下所示：</p>
 <blockquote>
@@ -381,7 +445,9 @@
 <p><br></p>
 <p><strong>高级链接</strong></p>
 <p>我们可以通过变量来设置一个链接，变量赋值在文档末尾进行：</p>
-<p><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs markdown">这个链接用 Google 作为网址变量 [<span class="hljs-string">Google</span>][<span class="hljs-symbol">Google</span>]<br>然后在文档的结尾为变量赋值（网址）<br>[<span class="hljs-symbol">Google</span>]: <span class="hljs-link">http://www.google.com/</span><br></code></pre></td></tr></table></figure>
+<p><pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown">这个链接用 Google 作为网址变量 <span class="token url">[<span class="token content">Google</span>][<span class="token variable">Google</span>]</span>
+然后在文档的结尾为变量赋值（网址）
+<span class="token url-reference url"><span class="token punctuation">[</span><span class="token variable">Google</span><span class="token punctuation">]</span><span class="token punctuation">:</span> http://www.google.com/</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 </p>
 <p>显示效果如下所示：</p>
 <blockquote>
@@ -389,7 +455,8 @@
 <p>  [Google]: <a target="_blank" rel="noopener" href="http://www.google.com/">http://www.google.com/</a></p>
 </blockquote>
 <h1 id="Markdown-图片"><a href="#Markdown-图片" class="headerlink" title="Markdown 图片"></a>Markdown 图片</h1><p>Markdown 图片语法格式如下：</p>
-<p><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs markdown">![<span class="hljs-string">alt 属性文本</span>](<span class="hljs-link">图片地址</span>)<br>![<span class="hljs-string">alt 属性文本</span>](<span class="hljs-link">图片地址 &quot;可选标题&quot;</span>)<br></code></pre></td></tr></table></figure>
+<p><pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown"><span class="token url">![<span class="token content">alt 属性文本</span>](图片地址)</span>
+<span class="token url">![<span class="token content">alt 属性文本</span>](图片地址 <span class="token string">"可选标题"</span>)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 </p>
 <ul>
 <li>开头一个感叹号 <code>!</code></li>
@@ -397,14 +464,18 @@
 <li>接着一个普通括号，里面放上图片的网址，最后还可以用引号包住并加上选择性的 <code>title</code> 属性的文字。</li>
 </ul>
 <p>使用实例：</p>
-<p><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs markdown">![<span class="hljs-string">图标</span>](<span class="hljs-link">https://www.baidu.com/img/flexible/logo/pc/result.png</span>)<br>![<span class="hljs-string">图标</span>](<span class="hljs-link">https://www.baidu.com/img/flexible/logo/pc/result.png &quot;Baidu&quot;</span>)<br></code></pre></td></tr></table></figure>
+<p><pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown"><span class="token url">![<span class="token content">图标</span>](https://www.baidu.com/img/flexible/logo/pc/result.png)</span>
+<span class="token url">![<span class="token content">图标</span>](https://www.baidu.com/img/flexible/logo/pc/result.png <span class="token string">"Baidu"</span>)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 </p>
 <p>显示效果如下所示：</p>
 <blockquote>
 <p><img src= "https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/loading.gif" data-lazy-src="https://www.baidu.com/img/flexible/logo/pc/result.png" alt="图标"><br><img src= "https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/loading.gif" data-lazy-src="https://www.baidu.com/img/flexible/logo/pc/result.png" alt="图标" title="Baidu"></p>
 </blockquote>
 <p>当然，也可以像网址那样对图片网址使用变量:</p>
-<p><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs markdown">这个链接用 Baidu 作为网址变量 [<span class="hljs-string">Baidu</span>][<span class="hljs-symbol">Baidu</span>]。<br>然后在文档的结尾为变量赋值（网址）<br><br>[<span class="hljs-symbol">Baidu</span>]: <span class="hljs-link">https://www.baidu.com/img/flexible/logo/pc/result.png</span><br></code></pre></td></tr></table></figure>
+<p><pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown">这个链接用 Baidu 作为网址变量 <span class="token url">[<span class="token content">Baidu</span>][<span class="token variable">Baidu</span>]</span>。
+然后在文档的结尾为变量赋值（网址）
+
+<span class="token url-reference url"><span class="token punctuation">[</span><span class="token variable">Baidu</span><span class="token punctuation">]</span><span class="token punctuation">:</span> https://www.baidu.com/img/flexible/logo/pc/result.png</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 </p>
 <p>显示效果如下所示：</p>
 <blockquote>
@@ -412,7 +483,7 @@
 <p>[Baidu]: <a target="_blank" rel="noopener" href="https://www.baidu.com/img/flexible/logo/pc/result.png">https://www.baidu.com/img/flexible/logo/pc/result.png</a></p>
 </blockquote>
 <p>Markdown 还没有办法指定图片的高度与宽度，如果你需要的话，你可以使用普通的 <code>&lt;img&gt;</code> 标签。</p>
-<p><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs markdown"><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://www.baidu.com/img/flexible/logo/pc/result.png&quot;</span> <span class="hljs-attr">width</span>=<span class="hljs-string">&quot;30%&quot;</span>&gt;</span></span><br></code></pre></td></tr></table></figure>
+<p><pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://www.baidu.com/img/flexible/logo/pc/result.png<span class="token punctuation">"</span></span> <span class="token attr-name">width</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>30%<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 </p>
 <p>显示效果如下所示：</p>
 <blockquote>
@@ -420,7 +491,10 @@
 </blockquote>
 <h1 id="Markdown-表格"><a href="#Markdown-表格" class="headerlink" title="Markdown 表格"></a>Markdown 表格</h1><p>Markdown 制作表格使用 <code>|</code> 来分隔不同的单元格，使用 <code>-</code> 来分隔表头和其他行。</p>
 <p>语法格式如下：</p>
-<p><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs markdown">| 表头 | 表头 |<br>| ---- | ---- |<br>| 单元格 | 单元格 |<br>| 单元格 | 单元格 |<br></code></pre></td></tr></table></figure>
+<p><pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown"><span class="token table"><span class="token table-header-row"><span class="token punctuation">|</span><span class="token table-header important"> 表头 </span><span class="token punctuation">|</span><span class="token table-header important"> 表头 </span><span class="token punctuation">|</span>
+</span><span class="token table-line"><span class="token punctuation">|</span> <span class="token punctuation">----</span> <span class="token punctuation">|</span> <span class="token punctuation">----</span> <span class="token punctuation">|</span>
+</span><span class="token table-data-rows"><span class="token punctuation">|</span><span class="token table-data"> 单元格 </span><span class="token punctuation">|</span><span class="token table-data"> 单元格 </span><span class="token punctuation">|</span>
+<span class="token punctuation">|</span><span class="token table-data"> 单元格 </span><span class="token punctuation">|</span><span class="token table-data"> 单元格 </span><span class="token punctuation">|</span></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 </p>
 <p>显示效果如下所示：</p>
 <blockquote>
@@ -454,7 +528,10 @@
 <li><code>:-:</code> 设置内容和标题栏居中对齐。</li>
 </ul>
 <p>实例如下：</p>
-<p><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs markdown">| 左对齐 | 居中对齐 | 右对齐 |<br>| :-----| :----: | ----: |<br>| 单元格 | 单元格 | 单元格 |<br>| 单元格 | 单元格 | 单元格 |<br></code></pre></td></tr></table></figure>
+<p><pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown"><span class="token table"><span class="token table-header-row"><span class="token punctuation">|</span><span class="token table-header important"> 左对齐 </span><span class="token punctuation">|</span><span class="token table-header important"> 居中对齐 </span><span class="token punctuation">|</span><span class="token table-header important"> 右对齐 </span><span class="token punctuation">|</span>
+</span><span class="token table-line"><span class="token punctuation">|</span> <span class="token punctuation">:-----</span><span class="token punctuation">|</span> <span class="token punctuation">:----:</span> <span class="token punctuation">|</span> <span class="token punctuation">----:</span> <span class="token punctuation">|</span>
+</span><span class="token table-data-rows"><span class="token punctuation">|</span><span class="token table-data"> 单元格 </span><span class="token punctuation">|</span><span class="token table-data"> 单元格 </span><span class="token punctuation">|</span><span class="token table-data"> 单元格 </span><span class="token punctuation">|</span>
+<span class="token punctuation">|</span><span class="token table-data"> 单元格 </span><span class="token punctuation">|</span><span class="token table-data"> 单元格 </span><span class="token punctuation">|</span><span class="token table-data"> 单元格 </span><span class="token punctuation">|</span></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 </p>
 <p>显示效果如下所示：</p>
 <blockquote>
@@ -484,24 +561,44 @@
 </blockquote>
 <h1 id="Markdown-高级技巧"><a href="#Markdown-高级技巧" class="headerlink" title="Markdown 高级技巧"></a>Markdown 高级技巧</h1><h2 id="支持的-HTML-元素"><a href="#支持的-HTML-元素" class="headerlink" title="支持的 HTML 元素"></a>支持的 HTML 元素</h2><p>不在 Markdown 涵盖范围之内的标签，都可以直接在文档里面用 HTML 撰写。</p>
 <p>目前支持的 HTML 元素有：<code>&lt;kbd&gt;</code> <code>&lt;b&gt;</code> <code>&lt;i&gt;</code> <code>&lt;em&gt;</code> <code>&lt;sup&gt;</code> <code>&lt;sub&gt;</code> <code>&lt;br&gt;</code> 等 ，如：</p>
-<p><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs markdown">普通文本：使用 Ctrl+Alt+Del 重启电脑<br>HTML文本：使用 <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">kbd</span>&gt;</span></span>Ctrl<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">kbd</span>&gt;</span></span>+<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">kbd</span>&gt;</span></span>Alt<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">kbd</span>&gt;</span></span>+<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">kbd</span>&gt;</span></span>Del<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">kbd</span>&gt;</span></span> 重启电脑<br></code></pre></td></tr></table></figure>
+<p><pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown">普通文本：使用 Ctrl+Alt+Del 重启电脑
+HTML文本：使用 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>kbd</span><span class="token punctuation">></span></span>Ctrl<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>kbd</span><span class="token punctuation">></span></span>+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>kbd</span><span class="token punctuation">></span></span>Alt<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>kbd</span><span class="token punctuation">></span></span>+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>kbd</span><span class="token punctuation">></span></span>Del<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>kbd</span><span class="token punctuation">></span></span> 重启电脑<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 </p>
 <p>显示效果如下所示：</p>
 <blockquote>
 <p>普通文本：使用 Ctrl+Alt+Del 重启电脑<br>HTML文本：使用 <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>Del</kbd> 重启电脑</p>
 </blockquote>
 <h2 id="转义"><a href="#转义" class="headerlink" title="转义"></a>转义</h2><p>Markdown 使用了很多特殊符号来表示特定的意义，如果需要显示特定的符号则需要使用转义字符，Markdown 使用反斜杠转义特殊字符：</p>
-<p><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs markdown"><span class="hljs-strong">**文本加粗**</span> <br>\<span class="hljs-emphasis">*\*</span> 正常显示星号 \<span class="hljs-emphasis">*\*</span><br></code></pre></td></tr></table></figure>
+<p><pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown"><span class="token bold"><span class="token punctuation">**</span><span class="token content">文本加粗</span><span class="token punctuation">**</span></span> 
+\*\* 正常显示星号 \*\*<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 </p>
 <p>显示效果如下所示：</p>
 <blockquote>
 <p><strong>文本加粗</strong><br>** 正常显示星号 **</p>
 </blockquote>
 <p>Markdown 支持以下这些符号前面加上反斜杠来帮助插入普通的符号：</p>
-<p><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs markdown">\   反斜线<br>`   反引号<br><span class="hljs-bullet">*</span>   星号<br><span class="hljs-emphasis">_   下划线</span><br><span class="hljs-emphasis">&#123;&#125;  花括号</span><br><span class="hljs-emphasis">[]  方括号</span><br><span class="hljs-emphasis">()  小括号</span><br><span class="hljs-emphasis">#   井字号</span><br><span class="hljs-emphasis">+   加号</span><br><span class="hljs-emphasis">-   减号</span><br><span class="hljs-emphasis">.   英文句点</span><br><span class="hljs-emphasis">!   感叹号</span><br></code></pre></td></tr></table></figure>
+<p><pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown">\   反斜线
+`   反引号
+<span class="token list punctuation">*</span>   星号
+_   下划线
+&#123;&#125;  花括号
+[]  方括号
+()  小括号
+<span class="token title important"><span class="token punctuation">#</span>   井字号</span>
+<span class="token list punctuation">+</span>   加号
+<span class="token list punctuation">-</span>   减号
+.   英文句点
+!   感叹号<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </p>
 <h2 id="公式"><a href="#公式" class="headerlink" title="公式"></a>公式</h2><p>当你需要在编辑器中插入数学公式时，可以使用两个美元符号<code>$$</code>包裹 <code>TeX</code> 或 <code>LaTeX</code> 格式的数学公式来实现。提交后，问答和文章页会根据需要加载 <code>Mathjax</code> 对数学公式进行渲染。如：</p>
-<p><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs markdown">$$<br>\mathbf&#123;V&#125;<span class="hljs-emphasis">_1 \times \mathbf&#123;V&#125;_</span>2 =  \begin&#123;vmatrix&#125; <br>\mathbf&#123;i&#125; &amp; \mathbf&#123;j&#125; &amp; \mathbf&#123;k&#125; \\<br>\frac&#123;\partial X&#125;&#123;\partial u&#125; &amp;  \frac&#123;\partial Y&#125;&#123;\partial u&#125; &amp; 0 \\<br>\frac&#123;\partial X&#125;&#123;\partial v&#125; &amp;  \frac&#123;\partial Y&#125;&#123;\partial v&#125; &amp; 0 \\<br>\end&#123;vmatrix&#125;<br>$&#123;$tep1&#125;&#123;\style&#123;visibility:hidden&#125;&#123;(x+1)(x+1)&#125;&#125;<br>$$<br></code></pre></td></tr></table></figure>
+<p><pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown">$$
+\mathbf&#123;V&#125;_1 \times \mathbf&#123;V&#125;_2 =  \begin&#123;vmatrix&#125; 
+\mathbf&#123;i&#125; &amp; \mathbf&#123;j&#125; &amp; \mathbf&#123;k&#125; \\
+\frac&#123;\partial X&#125;&#123;\partial u&#125; &amp;  \frac&#123;\partial Y&#125;&#123;\partial u&#125; &amp; 0 \\
+\frac&#123;\partial X&#125;&#123;\partial v&#125; &amp;  \frac&#123;\partial Y&#125;&#123;\partial v&#125; &amp; 0 \\
+\end&#123;vmatrix&#125;
+$&#123;$tep1&#125;&#123;\style&#123;visibility:hidden&#125;&#123;(x+1)(x+1)&#125;&#125;
+$$<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </p>
 <p>显示效果如下所示：</p>
 <blockquote>
@@ -514,7 +611,14 @@
 ${$tep1}{\style{visibility:hidden}{(x+1)(x+1)}}</script></blockquote>
 <h2 id="流程图"><a href="#流程图" class="headerlink" title="流程图"></a>流程图</h2><ol>
 <li><p>横向流程图源码格式：</p>
-<p><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs markdown">[<span class="hljs-string">```</span>][<span class="hljs-symbol">mermaid</span>]<br>graph LR<br>A[方形] --&gt;B(圆角)<br><span class="hljs-code">    B --&gt; C&#123;条件a&#125;</span><br><span class="hljs-code">    C --&gt;|a=1| D[结果1]</span><br><span class="hljs-code">    C --&gt;|a=2| E[结果2]</span><br><span class="hljs-code">    F[横向流程图]</span><br><span class="hljs-code">[```]</span><br></code></pre></td></tr></table></figure>
+<p><pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown"><span class="token url">[<span class="token content">```</span>][<span class="token variable">mermaid</span>]</span>
+graph LR
+A[方形] -->B(圆角)
+    B --> C&#123;条件a&#125;
+    C -->|a=1| D[结果1]
+    C -->|a=2| E[结果2]
+    F[横向流程图]
+[```]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </p>
 <p>显示效果如下所示：</p>
 <p><pre class="mermaid">  graph LR
@@ -526,7 +630,14 @@ A[方形] -->B(圆角)
 </p>
 </li>
 <li><p>竖向流程图源码格式：</p>
-<p><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs markdown">[<span class="hljs-string">```</span>][<span class="hljs-symbol">mermaid</span>]<br>graph TD<br>A[方形] --&gt; B(圆角)<br><span class="hljs-code">    B --&gt; C&#123;条件a&#125;</span><br><span class="hljs-code">    C --&gt; |a=1| D[结果1]</span><br><span class="hljs-code">    C --&gt; |a=2| E[结果2]</span><br><span class="hljs-code">    F[竖向流程图]</span><br><span class="hljs-code">[```]</span><br></code></pre></td></tr></table></figure>
+<p><pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown"><span class="token url">[<span class="token content">```</span>][<span class="token variable">mermaid</span>]</span>
+graph TD
+A[方形] --> B(圆角)
+    B --> C&#123;条件a&#125;
+    C --> |a=1| D[结果1]
+    C --> |a=2| E[结果2]
+    F[竖向流程图]
+[```]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </p>
 <p>显示效果如下所示：</p>
 <p><pre class="mermaid">  graph TD
@@ -538,14 +649,34 @@ A[方形] --> B(圆角)
 </p>
 </li>
 <li><p>标准流程图源码格式：</p>
-<p><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs markdown">[<span class="hljs-string">```</span>][<span class="hljs-symbol">flow</span>]<br>st=&gt;start: 开始框<br>op=&gt;operation: 处理框<br>cond=&gt;condition: 判断框(是或否?)<br>sub1=&gt;subroutine: 子流程<br>io=&gt;inputoutput: 输入输出框<br>e=&gt;end: 结束框<br>st-&gt;op-&gt;cond<br>cond(yes)-&gt;io-&gt;e<br>cond(no)-&gt;sub1(right)-&gt;op<br>[<span class="hljs-code">```]</span><br></code></pre></td></tr></table></figure>
+<p><pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown"><span class="token url">[<span class="token content">```</span>][<span class="token variable">flow</span>]</span>
+st=>start: 开始框
+op=>operation: 处理框
+cond=>condition: 判断框(是或否?)
+sub1=>subroutine: 子流程
+io=>inputoutput: 输入输出框
+e=>end: 结束框
+st->op->cond
+cond(yes)->io->e
+cond(no)->sub1(right)->op
+[```]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </p>
 <p>显示效果如下所示：</p>
 <p><div id="flowchart-0" class="flow-chart"></div>
 </p>
 </li>
 <li><p>标准流程图源码格式（横向）：</p>
-<p><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs markdown">[<span class="hljs-string">```</span>][<span class="hljs-symbol">flow</span>]<br>st=&gt;start: 开始框<br>op=&gt;operation: 处理框<br>cond=&gt;condition: 判断框(是或否?)<br>sub1=&gt;subroutine: 子流程<br>io=&gt;inputoutput: 输入输出框<br>e=&gt;end: 结束框<br>st(right)-&gt;op(right)-&gt;cond<br>cond(yes)-&gt;io(bottom)-&gt;e<br>cond(no)-&gt;sub1(right)-&gt;op<br>[<span class="hljs-code">```]</span><br></code></pre></td></tr></table></figure>
+<p><pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown"><span class="token url">[<span class="token content">```</span>][<span class="token variable">flow</span>]</span>
+st=>start: 开始框
+op=>operation: 处理框
+cond=>condition: 判断框(是或否?)
+sub1=>subroutine: 子流程
+io=>inputoutput: 输入输出框
+e=>end: 结束框
+st(right)->op(right)->cond
+cond(yes)->io(bottom)->e
+cond(no)->sub1(right)->op
+[```]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </p>
 <p>显示效果如下所示：</p>
 <p><div id="flowchart-1" class="flow-chart"></div>
@@ -555,21 +686,52 @@ A[方形] --> B(圆角)
 </ol>
 <h2 id="时序图-顺序图"><a href="#时序图-顺序图" class="headerlink" title="时序图(顺序图)"></a>时序图(顺序图)</h2><ol>
 <li><p>UML时序图源码样例：</p>
-<p><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs markdown">[<span class="hljs-string">```</span>][<span class="hljs-symbol">sequence</span>]<br>对象A-&gt;对象B: 对象B你好吗?（请求）<br>Note right of 对象B: 对象B的描述<br>Note left of 对象A: 对象A的描述(提示)<br>对象B--&gt;对象A: 我很好(响应)<br>对象A-&gt;对象B: 你真的好吗？<br>[<span class="hljs-code">```]</span><br></code></pre></td></tr></table></figure>
+<p><pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown"><span class="token url">[<span class="token content">```</span>][<span class="token variable">sequence</span>]</span>
+对象A->对象B: 对象B你好吗?（请求）
+Note right of 对象B: 对象B的描述
+Note left of 对象A: 对象A的描述(提示)
+对象B-->对象A: 我很好(响应)
+对象A->对象B: 你真的好吗？
+[```]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </p>
 <p>显示效果如下所示：</p>
 <p><div id="sequence-0"></div>
 </p>
 </li>
 <li><p>UML时序图源码复杂样例：</p>
-<p><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs markdown">[<span class="hljs-string">```</span>][<span class="hljs-symbol">sequence</span>]<br>Title: 标题：复杂使用<br>对象A-&gt;对象B: 对象B你好吗?（请求）<br>Note right of 对象B: 对象B的描述<br>Note left of 对象A: 对象A的描述(提示)<br>对象B--&gt;对象A: 我很好(响应)<br>对象B-&gt;小三: 你好吗<br>小三--&gt;&gt;对象A: 对象B找我了<br>对象A-&gt;对象B: 你真的好吗？<br>Note over 小三, 对象B: 我们是朋友<br>participant C<br>Note right of C: 没人陪我玩<br>[<span class="hljs-code">```]</span><br></code></pre></td></tr></table></figure>
+<p><pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown"><span class="token url">[<span class="token content">```</span>][<span class="token variable">sequence</span>]</span>
+Title: 标题：复杂使用
+对象A->对象B: 对象B你好吗?（请求）
+Note right of 对象B: 对象B的描述
+Note left of 对象A: 对象A的描述(提示)
+对象B-->对象A: 我很好(响应)
+对象B->小三: 你好吗
+小三-->>对象A: 对象B找我了
+对象A->对象B: 你真的好吗？
+Note over 小三, 对象B: 我们是朋友
+participant C
+Note right of C: 没人陪我玩
+[```]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </p>
 <p>显示效果如下所示：</p>
 <p><div id="sequence-1"></div>
 </p>
 </li>
 <li><p>UML标准时序图样例：</p>
-<p><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs markdown">[<span class="hljs-string">```</span>][<span class="hljs-symbol">mermaid</span>]<br>%% 时序图例子，-&gt; 直线，--&gt;虚线，-&gt;&gt;实线箭头<br>  sequenceDiagram<br><span class="hljs-code">    participant 张三</span><br><span class="hljs-code">    participant 李四</span><br><span class="hljs-code">    张三-&gt;王五: 王五你好吗？</span><br><span class="hljs-code">    loop 健康检查</span><br><span class="hljs-code">        王五-&gt;王五: 与疾病战斗</span><br><span class="hljs-code">    end</span><br><span class="hljs-code">    Note right of 王五: 合理 食物 &lt;br/&gt;看医生...</span><br><span class="hljs-code">    李四--&gt;&gt;张三: 很好!</span><br><span class="hljs-code">    王五-&gt;李四: 你怎么样?</span><br><span class="hljs-code">    李四--&gt;王五: 很好!</span><br><span class="hljs-code">[```]</span><br></code></pre></td></tr></table></figure>
+<p><pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown"><span class="token url">[<span class="token content">```</span>][<span class="token variable">mermaid</span>]</span>
+%% 时序图例子，-> 直线，-->虚线，->>实线箭头
+  sequenceDiagram
+    participant 张三
+    participant 李四
+    张三->王五: 王五你好吗？
+    loop 健康检查
+        王五->王五: 与疾病战斗
+    end
+    Note right of 王五: 合理 食物 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span><span class="token punctuation">/></span></span>看医生...
+    李四-->>张三: 很好!
+    王五->李四: 你怎么样?
+    李四-->王五: 很好!
+[```]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </p>
 <p>显示效果如下所示：</p>
 <p><pre class="mermaid">  %% 时序图例子，-> 直线，-->虚线，->>实线箭头
@@ -589,7 +751,27 @@ A[方形] --> B(圆角)
 </li>
 </ol>
 <h2 id="甘特图"><a href="#甘特图" class="headerlink" title="甘特图"></a>甘特图</h2><p>甘特图样例：</p>
-<p><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs markdown">[<span class="hljs-string">```</span>][<span class="hljs-symbol">mermaid</span>]<br>%% 语法示例<br>  gantt<br>  dateFormat YYYY-MM-DD<br>  title 软件开发甘特图<br>  section 设计<br><span class="hljs-code">    需求: done, des1, 2014-01-06, 2014-01-08</span><br><span class="hljs-code">    原型: active, des2, 2014-01-09, 3d</span><br><span class="hljs-code">    UI设计: des3, after des2, 5d</span><br><span class="hljs-code">    未来任务: des4, after des3, 5d</span><br><span class="hljs-code">  section 开发</span><br><span class="hljs-code">    理解需求: crit, done, 2014-01-06, 24h</span><br><span class="hljs-code">    设计框架: crit, done, after des2, 2d</span><br><span class="hljs-code">    开发: crit, active, 3d</span><br><span class="hljs-code">    未来任务: crit, 5d</span><br><span class="hljs-code">    玩耍: 2d</span><br><span class="hljs-code">  section 测试</span><br><span class="hljs-code">    功能测试: active, a1, after des3, 3d</span><br><span class="hljs-code">    压力测试: after a1, 20h</span><br><span class="hljs-code">    测试报告: 48h</span><br><span class="hljs-code">[```]</span><br></code></pre></td></tr></table></figure>
+<p><pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown"><span class="token url">[<span class="token content">```</span>][<span class="token variable">mermaid</span>]</span>
+%% 语法示例
+  gantt
+  dateFormat YYYY-MM-DD
+  title 软件开发甘特图
+  section 设计
+    需求: done, des1, 2014-01-06, 2014-01-08
+    原型: active, des2, 2014-01-09, 3d
+    UI设计: des3, after des2, 5d
+    未来任务: des4, after des3, 5d
+  section 开发
+    理解需求: crit, done, 2014-01-06, 24h
+    设计框架: crit, done, after des2, 2d
+    开发: crit, active, 3d
+    未来任务: crit, 5d
+    玩耍: 2d
+  section 测试
+    功能测试: active, a1, after des3, 3d
+    压力测试: after a1, 20h
+    测试报告: 48h
+[```]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </p>
 <p>显示效果如下所示：</p>
 <p><code>mermaid
@@ -642,7 +824,7 @@ A[方形] --> B(圆角)
   Note over 小三, 对象B: 我们是朋友
   participant C
   Note right of C: 没人陪我玩</textarea><textarea id="sequence-1-options" style="display: none">{"theme":"simple","scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("sequence-1-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("sequence-1-options").value));  var diagram = Diagram.parse(code);  diagram.drawSVG("sequence-1", options);</script></p>
-</article><div class="post-copyright"><div class="post-copyright__title"><span class="post-copyright-info"><h>Markdown 基本语法</h></span></div><div class="post-copyright__type"><span class="post-copyright-info"><a href="https://blog.eurkon.com/post/c894e39a.html">https://blog.eurkon.com/post/c894e39a.html</a></span></div><div class="post-copyright-m"><div class="post-copyright-m-info"><div class="post-copyright-a"><h>作者</h><div class="post-copyright-cc-info"><h>Eurkon</h></div></div><div class="post-copyright-p"><h>发布于</h><div class="post-copyright-cc-info"><h>2021-01-03</h></div></div><div class="post-copyright-u"><h>更新于</h><div class="post-copyright-cc-info"><h>2021-03-18</h></div></div><div class="post-copyright-c"><h>许可协议</h><div class="post-copyright-cc-info"><a class="icon" title="Creative Commons" target="_blank" rel="noopener" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a><a title="CC BY-NC-SA 4.0" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></div></div></div></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%F0%9F%93%83Markdown/">📃Markdown</a></div><div class="post_share"><div class="social-share" data-image="/images/cover/markdown_grammar.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button button--animated"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/wechat.jpg" target="_blank"><img class="post-qr-code-img" data-lazy-src="https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/wechat.jpg" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/alipay.jpg" target="_blank"><img class="post-qr-code-img" data-lazy-src="https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/alipay.jpg" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/post/a6e75a2b.html"><img class="prev-cover" data-lazy-src="/images/cover/hexo_chartjs.svg" onerror="onerror=null;src='https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">在 Hexo 中插入 Chart 动态图表</div></div></a></div><div class="next-post pull-right"><a href="/post/31e4c77c.html"><img class="next-cover" data-lazy-src="/images/cover/front-matter.svg" onerror="onerror=null;src='https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Front-matter</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" data-lazy-src="https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/avatar.jpg" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/friend_404.gif'" alt="avatar"/><div class="author-info__name">Eurkon</div><div class="author-info__description">不只是代码的搬运工</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">22</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">20</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Eurkon"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Eurkon" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:eurkon@foxmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">Hello Eurkon</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Markdown-%E5%BA%94%E7%94%A8"><span class="toc-number">1.</span> <span class="toc-text">Markdown 应用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Markdown-%E6%A0%87%E9%A2%98"><span class="toc-number">2.</span> <span class="toc-text">Markdown 标题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Markdown-%E6%AE%B5%E8%90%BD"><span class="toc-number">3.</span> <span class="toc-text">Markdown 段落</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AE%B5%E8%90%BD"><span class="toc-number">3.1.</span> <span class="toc-text">段落</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%97%E4%BD%93"><span class="toc-number">3.2.</span> <span class="toc-text">字体</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E9%9A%94%E7%BA%BF"><span class="toc-number">3.3.</span> <span class="toc-text">分隔线</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E7%BA%BF"><span class="toc-number">3.4.</span> <span class="toc-text">删除线</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8B%E5%88%92%E7%BA%BF"><span class="toc-number">3.5.</span> <span class="toc-text">下划线</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%84%9A%E6%B3%A8"><span class="toc-number">3.6.</span> <span class="toc-text">脚注</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Markdown-%E5%88%97%E8%A1%A8"><span class="toc-number">4.</span> <span class="toc-text">Markdown 列表</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Markdown-%E5%8C%BA%E5%9D%97"><span class="toc-number">5.</span> <span class="toc-text">Markdown 区块</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Markdown-%E4%BB%A3%E7%A0%81"><span class="toc-number">6.</span> <span class="toc-text">Markdown 代码</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Markdown-%E9%93%BE%E6%8E%A5"><span class="toc-number">7.</span> <span class="toc-text">Markdown 链接</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Markdown-%E5%9B%BE%E7%89%87"><span class="toc-number">8.</span> <span class="toc-text">Markdown 图片</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Markdown-%E8%A1%A8%E6%A0%BC"><span class="toc-number">9.</span> <span class="toc-text">Markdown 表格</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Markdown-%E9%AB%98%E7%BA%A7%E6%8A%80%E5%B7%A7"><span class="toc-number">10.</span> <span class="toc-text">Markdown 高级技巧</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%94%AF%E6%8C%81%E7%9A%84-HTML-%E5%85%83%E7%B4%A0"><span class="toc-number">10.1.</span> <span class="toc-text">支持的 HTML 元素</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BD%AC%E4%B9%89"><span class="toc-number">10.2.</span> <span class="toc-text">转义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AC%E5%BC%8F"><span class="toc-number">10.3.</span> <span class="toc-text">公式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%81%E7%A8%8B%E5%9B%BE"><span class="toc-number">10.4.</span> <span class="toc-text">流程图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%B6%E5%BA%8F%E5%9B%BE-%E9%A1%BA%E5%BA%8F%E5%9B%BE"><span class="toc-number">10.5.</span> <span class="toc-text">时序图(顺序图)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%98%E7%89%B9%E5%9B%BE"><span class="toc-number">10.6.</span> <span class="toc-text">甘特图</span></a></li></ol></li></ol></div></div><div class="card-widget card-clock"><div id="clock"><img v-if="clockshow == &quot;false&quot;" alt="" src="/assets/weather/loading.gif" height="120px" width="100%"/><table class="clock" v-if="clockshow"><tbody><tr><td class="clockdate">{{date}}</td><td class="weatherimg"><img id="weatherimg" :src="weatherimg" alt=""/></td><td class="temperature">{{temperature}}</td><td class="humidityimg"><img id="humidityimg" :src="humidityimg" alt=""/></td><td class="humidity">{{humidity}}</td></tr><tr class="time"><td colspan="5">{{time}}</td></tr><tr><td class="usaqi" colspan="1"><span>{{ip}}</span></td><td class="city" colspan="2">{{city}}</td><td class="daylight" colspan="2">{{daylight}}</td></tr></tbody></table></div></div><script defer="defer" data-pjax="data-pjax" src="/js/card_clock.js"></script><div class="card-widget card-history"><div class="card-content"><div class="item-headline"><i class="fas fa-clock fa-spin"></i><span>那年今日</span></div><div id="history-baidu" style="height: 100px; overflow: hidden;"><div class="history_swiper-container" id="history-container" style="width: 100%; height: 100%;"><div class="swiper-wrapper" id="history_container_wrapper" style="height:20px"></div></div></div></div></div><script defer="defer" data-pjax="data-pjax" src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script><script defer="defer" data-pjax="data-pjax" src="/js/card_history.js"></script><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/post/7e24cf66.html" title="大数据面试题解析"><img data-lazy-src="/images/cover/bigdata_interview.png" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/404.jpg'" alt="大数据面试题解析"/></a><div class="content"><a class="title" href="/post/7e24cf66.html" title="大数据面试题解析">大数据面试题解析</a><time datetime="2021-03-24T01:25:14.000Z" title="发表于 2021-03-24 09:25:14">2021-03-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/d2aef718.html" title="Java 面试题解析"><img data-lazy-src="/images/cover/java_interview.jpg" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/404.jpg'" alt="Java 面试题解析"/></a><div class="content"><a class="title" href="/post/d2aef718.html" title="Java 面试题解析">Java 面试题解析</a><time datetime="2021-03-20T01:38:32.000Z" title="发表于 2021-03-20 09:38:32">2021-03-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/735e5788.html" title="排序算法"><img data-lazy-src="/images/cover/sort_algorithm.jpg" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/404.jpg'" alt="排序算法"/></a><div class="content"><a class="title" href="/post/735e5788.html" title="排序算法">排序算法</a><time datetime="2021-03-15T05:16:02.000Z" title="发表于 2021-03-15 13:16:02">2021-03-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/65795b97.html" title="HTML 特殊符号编码对照表"><img data-lazy-src="/images/cover/html_symbols.jpg" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/404.jpg'" alt="HTML 特殊符号编码对照表"/></a><div class="content"><a class="title" href="/post/65795b97.html" title="HTML 特殊符号编码对照表">HTML 特殊符号编码对照表</a><time datetime="2021-03-12T07:54:12.000Z" title="发表于 2021-03-12 15:54:12">2021-03-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/73bb9016.html" title="特殊符号"><img data-lazy-src="/images/cover/special_symbols.jpg" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/404.jpg'" alt="特殊符号"/></a><div class="content"><a class="title" href="/post/73bb9016.html" title="特殊符号">特殊符号</a><time datetime="2021-03-10T02:23:12.000Z" title="发表于 2021-03-10 10:23:12">2021-03-10</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2021 By Eurkon</div><div class="footer_custom_text"><p id="badges"><a target="_blank" href="https://hexo.io/" rel="external nofollow noopener noreferrer" style="margin-inline: 5px;" one-link-mark="yes"><img title="博客框架Hexo" class="entered loaded" src="https://img.shields.io/badge/Frame-Hexo-blue?style=flat&amp;logo=hexo" data-ll-status="loaded"></a><a target="_blank" href="https://butterfly.js.org/" rel="external nofollow noopener noreferrer" style="margin-inline: 5px;" one-link-mark="yes"><img title="博客主题Butterfly" class="entered loaded" src="https://img.shields.io/badge/Theme-Butterfly-6513df?style=flat&amp;logo=bitdefender" data-ll-status="loaded"></a><a target="_blank" href="https://www.jsdelivr.com/" rel="external nofollow noopener noreferrer" style="margin-inline: 5px;" one-link-mark="yes"><img title="本站使用JsDelivr为静态资源提供CDN加速" class="entered loaded" src="https://img.shields.io/badge/CDN-jsDelivr-orange?style=flat&amp;logo=jsDelivr" data-ll-status="loaded"></a><a target="_blank" href="https://vercel.com/" rel="external nofollow noopener noreferrer" style="margin-inline: 5px;" one-link-mark="yes"><img title="本站部署托管于Vercel" class="entered loading" src="https://img.shields.io/badge/Hosted-Vercel-brightgreen?style=flat&amp;logo=Vercel" data-ll-status="loaded" ></a><a target="_blank" href="https://github.com/" rel="external nofollow noopener noreferrer" style="margin-inline: 5px;" one-link-mark="yes"><img title="本站项目由GitHub托管" class="entered loaded" src="https://img.shields.io/badge/Source-Github-d021d6?style=flat&amp;logo=GitHub" data-ll-status="loaded"></a><a target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noopener noreferrer" style="margin-inline: 5px;" one-link-mark="yes"><img title="本站采用创作共用-署名-非商业性-相同方式共享4.0版国际许可协议" class="entered loaded" src="https://img.shields.io/badge/Copyright-BY--NC--SA%204.0-d42328?style=flat&amp;logo=Claris" data-ll-status="loaded"></a></p></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="font-plus" type="button" title="放大字体"><i class="fas fa-plus"></i></button><button id="font-minus" type="button" title="缩小字体"><i class="fas fa-minus"></i></button><button id="translateLink" type="button" title="简繁转换">简</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+</article><div class="post-copyright"><div class="post-copyright__title"><span class="post-copyright-info"><h>Markdown 基本语法</h></span></div><div class="post-copyright__type"><span class="post-copyright-info"><a href="https://blog.eurkon.com/post/c894e39a.html">https://blog.eurkon.com/post/c894e39a.html</a></span></div><div class="post-copyright-m"><div class="post-copyright-m-info"><div class="post-copyright-a"><h>作者</h><div class="post-copyright-cc-info"><h>Eurkon</h></div></div><div class="post-copyright-p"><h>发布于</h><div class="post-copyright-cc-info"><h>2021-01-03</h></div></div><div class="post-copyright-u"><h>更新于</h><div class="post-copyright-cc-info"><h>2021-03-18</h></div></div><div class="post-copyright-c"><h>许可协议</h><div class="post-copyright-cc-info"><a class="icon" title="Creative Commons" target="_blank" rel="noopener" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a><a title="CC BY-NC-SA 4.0" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></div></div></div></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%F0%9F%93%83Markdown/">📃Markdown</a></div><div class="post_share"><div class="social-share" data-image="/images/cover/markdown_grammar.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button button--animated"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/wechat.jpg" target="_blank"><img class="post-qr-code-img" data-lazy-src="https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/wechat.jpg" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/alipay.jpg" target="_blank"><img class="post-qr-code-img" data-lazy-src="https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/alipay.jpg" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/post/a6e75a2b.html"><img class="prev-cover" data-lazy-src="/images/cover/hexo_chartjs.svg" onerror="onerror=null;src='https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">在 Hexo 中插入 Chart 动态图表</div></div></a></div><div class="next-post pull-right"><a href="/post/31e4c77c.html"><img class="next-cover" data-lazy-src="/images/cover/front-matter.svg" onerror="onerror=null;src='https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Front-matter</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" data-lazy-src="https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/avatar.jpg" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/friend_404.gif'" alt="avatar"/><div class="author-info__name">Eurkon</div><div class="author-info__description">不只是代码的搬运工</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">31</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">20</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Eurkon"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Eurkon" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:eurkon@foxmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">Hello Eurkon</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Markdown-%E5%BA%94%E7%94%A8"><span class="toc-number">1.</span> <span class="toc-text">Markdown 应用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Markdown-%E6%A0%87%E9%A2%98"><span class="toc-number">2.</span> <span class="toc-text">Markdown 标题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Markdown-%E6%AE%B5%E8%90%BD"><span class="toc-number">3.</span> <span class="toc-text">Markdown 段落</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AE%B5%E8%90%BD"><span class="toc-number">3.1.</span> <span class="toc-text">段落</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%97%E4%BD%93"><span class="toc-number">3.2.</span> <span class="toc-text">字体</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E9%9A%94%E7%BA%BF"><span class="toc-number">3.3.</span> <span class="toc-text">分隔线</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E7%BA%BF"><span class="toc-number">3.4.</span> <span class="toc-text">删除线</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8B%E5%88%92%E7%BA%BF"><span class="toc-number">3.5.</span> <span class="toc-text">下划线</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%84%9A%E6%B3%A8"><span class="toc-number">3.6.</span> <span class="toc-text">脚注</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Markdown-%E5%88%97%E8%A1%A8"><span class="toc-number">4.</span> <span class="toc-text">Markdown 列表</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Markdown-%E5%8C%BA%E5%9D%97"><span class="toc-number">5.</span> <span class="toc-text">Markdown 区块</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Markdown-%E4%BB%A3%E7%A0%81"><span class="toc-number">6.</span> <span class="toc-text">Markdown 代码</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Markdown-%E9%93%BE%E6%8E%A5"><span class="toc-number">7.</span> <span class="toc-text">Markdown 链接</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Markdown-%E5%9B%BE%E7%89%87"><span class="toc-number">8.</span> <span class="toc-text">Markdown 图片</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Markdown-%E8%A1%A8%E6%A0%BC"><span class="toc-number">9.</span> <span class="toc-text">Markdown 表格</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Markdown-%E9%AB%98%E7%BA%A7%E6%8A%80%E5%B7%A7"><span class="toc-number">10.</span> <span class="toc-text">Markdown 高级技巧</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%94%AF%E6%8C%81%E7%9A%84-HTML-%E5%85%83%E7%B4%A0"><span class="toc-number">10.1.</span> <span class="toc-text">支持的 HTML 元素</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BD%AC%E4%B9%89"><span class="toc-number">10.2.</span> <span class="toc-text">转义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AC%E5%BC%8F"><span class="toc-number">10.3.</span> <span class="toc-text">公式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%81%E7%A8%8B%E5%9B%BE"><span class="toc-number">10.4.</span> <span class="toc-text">流程图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%B6%E5%BA%8F%E5%9B%BE-%E9%A1%BA%E5%BA%8F%E5%9B%BE"><span class="toc-number">10.5.</span> <span class="toc-text">时序图(顺序图)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%98%E7%89%B9%E5%9B%BE"><span class="toc-number">10.6.</span> <span class="toc-text">甘特图</span></a></li></ol></li></ol></div></div><div class="card-widget card-clock"><div id="clock"><img v-if="clockshow == &quot;false&quot;" alt="" src="/assets/weather/loading.gif" height="120px" width="100%"/><table class="clock" v-if="clockshow"><tbody><tr><td class="clockdate">{{date}}</td><td class="weatherimg"><img id="weatherimg" :src="weatherimg" alt=""/></td><td class="temperature">{{temperature}}</td><td class="humidityimg"><img id="humidityimg" :src="humidityimg" alt=""/></td><td class="humidity">{{humidity}}</td></tr><tr class="time"><td colspan="5">{{time}}</td></tr><tr><td class="usaqi" colspan="1"><span>{{ip}}</span></td><td class="city" colspan="2">{{city}}</td><td class="daylight" colspan="2">{{daylight}}</td></tr></tbody></table></div></div><script defer="defer" data-pjax="data-pjax" src="/js/card_clock.js"></script><div class="card-widget card-history"><div class="card-content"><div class="item-headline"><i class="fas fa-clock fa-spin"></i><span>那年今日</span></div><div id="history-baidu" style="height: 100px; overflow: hidden;"><div class="history_swiper-container" id="history-container" style="width: 100%; height: 100%;"><div class="swiper-wrapper" id="history_container_wrapper" style="height:20px"></div></div></div></div></div><script defer="defer" data-pjax="data-pjax" src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script><script defer="defer" data-pjax="data-pjax" src="/js/card_history.js"></script><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/post/7e24cf66.html" title="大数据面试题解析"><img data-lazy-src="/images/cover/bigdata_interview.png" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/404.jpg'" alt="大数据面试题解析"/></a><div class="content"><a class="title" href="/post/7e24cf66.html" title="大数据面试题解析">大数据面试题解析</a><time datetime="2021-03-25T01:00:00.000Z" title="发表于 2021-03-25 09:00:00">2021-03-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/d2aef718.html" title="Java 面试题解析"><img data-lazy-src="/images/cover/java_interview.jpg" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/404.jpg'" alt="Java 面试题解析"/></a><div class="content"><a class="title" href="/post/d2aef718.html" title="Java 面试题解析">Java 面试题解析</a><time datetime="2021-03-24T01:00:00.000Z" title="发表于 2021-03-24 09:00:00">2021-03-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/dc04fa32.html" title="Java 面试题解析（Java EE）"><img data-lazy-src="/images/cover/java_interview.jpg" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/404.jpg'" alt="Java 面试题解析（Java EE）"/></a><div class="content"><a class="title" href="/post/dc04fa32.html" title="Java 面试题解析（Java EE）">Java 面试题解析（Java EE）</a><time datetime="2021-03-23T01:00:00.000Z" title="发表于 2021-03-23 09:00:00">2021-03-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/d24a315e.html" title="Java 面试题解析（Java Web）"><img data-lazy-src="/images/cover/java_interview.jpg" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/404.jpg'" alt="Java 面试题解析（Java Web）"/></a><div class="content"><a class="title" href="/post/d24a315e.html" title="Java 面试题解析（Java Web）">Java 面试题解析（Java Web）</a><time datetime="2021-03-22T01:00:00.000Z" title="发表于 2021-03-22 09:00:00">2021-03-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/1cfbd3b3.html" title="Java 面试题解析（设计模式）"><img data-lazy-src="/images/cover/java_interview.jpg" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/404.jpg'" alt="Java 面试题解析（设计模式）"/></a><div class="content"><a class="title" href="/post/1cfbd3b3.html" title="Java 面试题解析（设计模式）">Java 面试题解析（设计模式）</a><time datetime="2021-03-21T04:00:00.000Z" title="发表于 2021-03-21 12:00:00">2021-03-21</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2021 By Eurkon</div><div class="footer_custom_text"><p id="badges"><a target="_blank" href="https://hexo.io/" rel="external nofollow noopener noreferrer" style="margin-inline: 5px;" one-link-mark="yes"><img title="博客框架Hexo" class="entered loaded" src="https://img.shields.io/badge/Frame-Hexo-blue?style=flat&amp;logo=hexo" data-ll-status="loaded"></a><a target="_blank" href="https://butterfly.js.org/" rel="external nofollow noopener noreferrer" style="margin-inline: 5px;" one-link-mark="yes"><img title="博客主题Butterfly" class="entered loaded" src="https://img.shields.io/badge/Theme-Butterfly-6513df?style=flat&amp;logo=bitdefender" data-ll-status="loaded"></a><a target="_blank" href="https://www.jsdelivr.com/" rel="external nofollow noopener noreferrer" style="margin-inline: 5px;" one-link-mark="yes"><img title="本站使用JsDelivr为静态资源提供CDN加速" class="entered loaded" src="https://img.shields.io/badge/CDN-jsDelivr-orange?style=flat&amp;logo=jsDelivr" data-ll-status="loaded"></a><a target="_blank" href="https://vercel.com/" rel="external nofollow noopener noreferrer" style="margin-inline: 5px;" one-link-mark="yes"><img title="本站部署托管于Vercel" class="entered loading" src="https://img.shields.io/badge/Hosted-Vercel-brightgreen?style=flat&amp;logo=Vercel" data-ll-status="loaded" ></a><a target="_blank" href="https://github.com/" rel="external nofollow noopener noreferrer" style="margin-inline: 5px;" one-link-mark="yes"><img title="本站项目由GitHub托管" class="entered loaded" src="https://img.shields.io/badge/Source-Github-d021d6?style=flat&amp;logo=GitHub" data-ll-status="loaded"></a><a target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noopener noreferrer" style="margin-inline: 5px;" one-link-mark="yes"><img title="本站采用创作共用-署名-非商业性-相同方式共享4.0版国际许可协议" class="entered loaded" src="https://img.shields.io/badge/Copyright-BY--NC--SA%204.0-d42328?style=flat&amp;logo=Claris" data-ll-status="loaded"></a></p></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="font-plus" type="button" title="放大字体"><i class="fas fa-plus"></i></button><button id="font-minus" type="button" title="缩小字体"><i class="fas fa-minus"></i></button><button id="translateLink" type="button" title="简繁转换">简</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
   window.MathJax = {
     loader: {
       source: {
@@ -829,7 +1011,7 @@ A[方形] --> B(圆角)
 
   newestCommentInit()
   document.addEventListener('pjax:complete', newestCommentInit)
-})</script><script data-pjax src="/js/custom.js"></script><script data-pjax src="https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/js/gitcalendar.js"></script><script data-pjax async src="//at.alicdn.com/t/font_2358265_expoyqe85d4.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/gh/metowolf/MetingJS@1.2/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = [
+})</script><script data-pjax src="/js/custom.js"></script><script data-pjax src="https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/js/gitcalendar.js"></script><script data-pjax async src="//at.alicdn.com/t/font_2358265_expoyqe85d4.js"></script><script data-pjax src="https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/js/smooth-scrolling.js"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/gh/metowolf/MetingJS@1.2/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = [
   'title',
   '#config-diff',
   '#body-wrap',
@@ -853,7 +1035,7 @@ var pjax = new Pjax({
 document.addEventListener('pjax:complete', function () {
   window.refreshFn()
 
-  document.querySelectorAll('script[data-pjax]').forEach(item => {
+  document.querySelectorAll('script[data-pjax], .pjax-reload script').forEach(item => {
     const newScript = document.createElement('script')
     const content = item.text || item.textContent || item.innerHTML || ""
     Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
@@ -909,4 +1091,20 @@ document.addEventListener('pjax:error', (e) => {
   if (e.request.status === 404) {
     pjax.loadUrl('/404.html')
   }
-})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><script async>window.onload=function(){var a=document.createElement('script'),b=document.getElementsByTagName('script')[0];a.type='text/javascript',a.async=!0,a.src='/sw-register.js?v='+Date.now(),b.parentNode.insertBefore(a,b)};</script></body></html>
+})</script><div class="pjax-reload"><script async="async">var arr = document.getElementsByClassName('recent-post-item');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__zoomIn');
+    arr[i].setAttribute('data-wow-duration', '');
+    arr[i].setAttribute('data-wow-delay', '');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script><script async="async">var arr = document.getElementsByClassName('card-widget');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__zoomIn');
+    arr[i].setAttribute('data-wow-duration', '');
+    arr[i].setAttribute('data-wow-delay', '');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script></div><script defer="defer" src="https://cdn.jsdelivr.net/gh/graingert/wow@1.3.0/dist/wow.min.js"></script><script defer="defer" src="https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/js/wow_init.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><script async>window.onload=function(){var a=document.createElement('script'),b=document.getElementsByTagName('script')[0];a.type='text/javascript',a.async=!0,a.src='/sw-register.js?v='+Date.now(),b.parentNode.insertBefore(a,b)};</script></body></html>
