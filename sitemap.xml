@@ -445,13 +445,6 @@
   </url>
   
   <url>
-    <loc>https://blog.eurkon.com/tags/%E2%98%95Java/</loc>
-    <lastmod>2021-03-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.eurkon.com/tags/%F0%9F%91%A8%E2%80%8D%F0%9F%92%BB%E5%A4%A7%E6%95%B0%E6%8D%AE/</loc>
     <lastmod>2021-03-27</lastmod>
     <changefreq>daily</changefreq>
@@ -460,6 +453,13 @@
   
   <url>
     <loc>https://blog.eurkon.com/tags/%F0%9F%90%98Hadoop/</loc>
+    <lastmod>2021-03-27</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.eurkon.com/tags/%E2%98%95Java/</loc>
     <lastmod>2021-03-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>

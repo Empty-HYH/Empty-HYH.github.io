@@ -166,72 +166,72 @@
 </ul>
 <h1 id="cat"><a href="#cat" class="headerlink" title="cat"></a>cat</h1><ul>
 <li><p><strong>使用方法</strong>：</p>
-<p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">hadoop fs -cat URI <span class="token punctuation">[</span>URI …<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></p>
+<p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">hadoop fs -cat URI [URI …]<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></p>
 </li>
 <li><p><strong>说明</strong>：将路径指定文件的内容输出到 <code>stdout</code>。</p>
 </li>
 <li><p><strong>示例</strong>：</p>
-<p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">hadoop fs -cat hdfs://host1:port1/file1 hdfs://host2:port2/file2
-hadoop fs -cat file:///file3 /user/hadoop/file4<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></p>
+<p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">hadoop fs -cat hdfs:&#x2F;&#x2F;host1:port1&#x2F;file1 hdfs:&#x2F;&#x2F;host2:port2&#x2F;file2
+hadoop fs -cat file:&#x2F;&#x2F;&#x2F;file3 &#x2F;user&#x2F;hadoop&#x2F;file4<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></p>
 </li>
 <li><strong>返回值</strong>：成功返回 <code>0</code>，失败返回 <code>-1</code>。</li>
 </ul>
 <h1 id="chgrp"><a href="#chgrp" class="headerlink" title="chgrp"></a>chgrp</h1><ul>
 <li><p><strong>使用方法</strong>：</p>
-<p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">hadoop fs -chgrp <span class="token punctuation">[</span>-R<span class="token punctuation">]</span> GROUP URI <span class="token punctuation">[</span>URI …<span class="token punctuation">]</span>`<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></p>
+<p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">hadoop fs -chgrp [-R] GROUP URI [URI …]&#96;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></p>
 </li>
 <li><strong>说明</strong>：改变文件所属的组。使用 <code>-R</code> 将使改变在目录结构下递归进行。命令的使用者必须是文件的所有者或者超级用户。</li>
 </ul>
 <h1 id="chmod"><a href="#chmod" class="headerlink" title="chmod"></a>chmod</h1><ul>
 <li><p><strong>使用方法</strong>：</p>
-<p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">hadoop fs -chmod <span class="token punctuation">[</span>-R<span class="token punctuation">]</span> <span class="token operator">&lt;</span>MODE<span class="token punctuation">[</span>,MODE<span class="token punctuation">]</span><span class="token punctuation">..</span>. <span class="token operator">|</span> OCTALMODE<span class="token operator">></span> URI <span class="token punctuation">[</span>URI …<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></p>
+<p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">hadoop fs -chmod [-R] &lt;MODE[,MODE]... | OCTALMODE&gt; URI [URI …]<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></p>
 </li>
 <li><strong>说明</strong>：改变文件的权限。使用 <code>-R</code> 将使改变在目录结构下递归进行。命令的使用者必须是文件的所有者或者超级用户。</li>
 </ul>
 <h1 id="chown"><a href="#chown" class="headerlink" title="chown"></a>chown</h1><ul>
 <li><p><strong>使用方法</strong>：</p>
-<p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">hadoop fs -chown <span class="token punctuation">[</span>-R<span class="token punctuation">]</span> <span class="token punctuation">[</span>OWNER<span class="token punctuation">]</span><span class="token punctuation">[</span>:<span class="token punctuation">[</span>GROUP<span class="token punctuation">]</span><span class="token punctuation">]</span> URI <span class="token punctuation">[</span>URI <span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></p>
+<p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">hadoop fs -chown [-R] [OWNER][:[GROUP]] URI [URI ]<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></p>
 </li>
 <li><strong>说明</strong>：改变文件的拥有者。使用 <code>-R</code> 将使改变在目录结构下递归进行。命令的使用者必须是超级用户。</li>
 </ul>
 <h1 id="copyFromLocal"><a href="#copyFromLocal" class="headerlink" title="copyFromLocal"></a>copyFromLocal</h1><ul>
 <li><p><strong>使用方法</strong>：</p>
-<p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">hadoop fs -copyFromLocal <span class="token operator">&lt;</span>localsrc<span class="token operator">></span> URI<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></p>
+<p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">hadoop fs -copyFromLocal &lt;localsrc&gt; URI<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></p>
 </li>
 <li><strong>说明</strong>：除了限定源路径是一个本地文件外，和 <a href="#put">put</a> 命令相似。</li>
 </ul>
 <h1 id="copyToLocal"><a href="#copyToLocal" class="headerlink" title="copyToLocal"></a>copyToLocal</h1><ul>
 <li><p><strong>使用方法</strong>：</p>
-<p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">hadoop fs -copyToLocal <span class="token punctuation">[</span>-ignorecrc<span class="token punctuation">]</span> <span class="token punctuation">[</span>-crc<span class="token punctuation">]</span> URI <span class="token operator">&lt;</span>localdst<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></p>
+<p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">hadoop fs -copyToLocal [-ignorecrc] [-crc] URI &lt;localdst&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></p>
 </li>
 <li><strong>说明</strong>：除了限定目标路径是一个本地文件外，和 <a href="#get">get</a> 命令类似。</li>
 </ul>
 <h1 id="cp"><a href="#cp" class="headerlink" title="cp"></a>cp</h1><ul>
 <li><p><strong>使用方法</strong>：</p>
-<p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">hadoop fs -cp URI <span class="token punctuation">[</span>URI …<span class="token punctuation">]</span> <span class="token operator">&lt;</span>dest<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></p>
+<p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">hadoop fs -cp URI [URI …] &lt;dest&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></p>
 </li>
 <li><p><strong>说明</strong>：将文件从源路径复制到目标路径。这个命令允许有多个源路径，此时目标路径必须是一个目录。</p>
 </li>
 <li><p><strong>示例</strong>：</p>
-<p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">hadoop fs -cp /user/hadoop/file1 /user/hadoop/file2
-hadoop fs -cp /user/hadoop/file1 /user/hadoop/file2 /user/hadoop/dir<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></p>
+<p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">hadoop fs -cp &#x2F;user&#x2F;hadoop&#x2F;file1 &#x2F;user&#x2F;hadoop&#x2F;file2
+hadoop fs -cp &#x2F;user&#x2F;hadoop&#x2F;file1 &#x2F;user&#x2F;hadoop&#x2F;file2 &#x2F;user&#x2F;hadoop&#x2F;dir<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></p>
 </li>
 <li><strong>返回值</strong>：成功返回 <code>0</code>，失败返回 <code>-1</code>。</li>
 </ul>
 <h1 id="du"><a href="#du" class="headerlink" title="du"></a>du</h1><ul>
 <li><p><strong>使用方法</strong>：</p>
-<p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">hadoop fs -du URI <span class="token punctuation">[</span>URI …<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></p>
+<p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">hadoop fs -du URI [URI …]<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></p>
 </li>
 <li><p><strong>说明</strong>：显示目录中所有文件的大小，或者当只指定一个文件时，显示此文件的大小。</p>
 </li>
 <li><p><strong>示例</strong>：</p>
-<p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">hadoop fs -du /user/hadoop/dir1 /user/hadoop/file1 hdfs://host:port/user/hadoop/dir1<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></p>
+<p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">hadoop fs -du &#x2F;user&#x2F;hadoop&#x2F;dir1 &#x2F;user&#x2F;hadoop&#x2F;file1 hdfs:&#x2F;&#x2F;host:port&#x2F;user&#x2F;hadoop&#x2F;dir1<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></p>
 </li>
 <li><strong>返回值</strong>：成功返回 <code>0</code>，失败返回 <code>-1</code>。</li>
 </ul>
 <h1 id="dus"><a href="#dus" class="headerlink" title="dus"></a>dus</h1><ul>
 <li><p><strong>使用方法</strong>：</p>
-<p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">hadoop fs -dus <span class="token operator">&lt;</span>args<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></p>
+<p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">hadoop fs -dus &lt;args&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></p>
 </li>
 <li><strong>说明</strong>：显示文件的大小。</li>
 </ul>
@@ -243,25 +243,25 @@ hadoop fs -cp /user/hadoop/file1 /user/hadoop/file2 /user/hadoop/dir<span aria-h
 </ul>
 <h1 id="get"><a href="#get" class="headerlink" title="get"></a>get</h1><ul>
 <li><p><strong>使用方法</strong>：</p>
-<p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">hadoop fs -get <span class="token punctuation">[</span>-ignorecrc<span class="token punctuation">]</span> <span class="token punctuation">[</span>-crc<span class="token punctuation">]</span> <span class="token operator">&lt;</span>src<span class="token operator">></span> <span class="token operator">&lt;</span>localdst<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></p>
+<p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">hadoop fs -get [-ignorecrc] [-crc] &lt;src&gt; &lt;localdst&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></p>
 </li>
 <li><p><strong>说明</strong>：复制文件到本地文件系统。可用 <code>-ignorecrc</code> 选项复制 CRC 校验失败的文件。使用 <code>-crc</code> 选项复制文件以及 CRC 信息。</p>
 </li>
 <li><p><strong>示例</strong>：</p>
-<p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">hadoop fs -get /user/hadoop/file localfile
-hadoop fs -get hdfs://host:port/user/hadoop/file localfile<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></p>
+<p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">hadoop fs -get &#x2F;user&#x2F;hadoop&#x2F;file localfile
+hadoop fs -get hdfs:&#x2F;&#x2F;host:port&#x2F;user&#x2F;hadoop&#x2F;file localfile<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></p>
 </li>
 <li><strong>返回值</strong>：成功返回 <code>0</code>，失败返回 <code>-1</code>。</li>
 </ul>
 <h1 id="getmerge"><a href="#getmerge" class="headerlink" title="getmerge"></a>getmerge</h1><ul>
 <li><p><strong>使用方法</strong>：</p>
-<p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">hadoop fs -getmerge <span class="token operator">&lt;</span>src<span class="token operator">></span> <span class="token operator">&lt;</span>localdst<span class="token operator">></span> <span class="token punctuation">[</span>addnl<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></p>
+<p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">hadoop fs -getmerge &lt;src&gt; &lt;localdst&gt; [addnl]<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></p>
 </li>
 <li><strong>说明</strong>：接受一个源目录和一个目标文件作为输入，并且将源目录中所有的文件连接成本地目标文件。<code>addnl</code> 是可选的，用于指定在每个文件结尾添加一个换行符。</li>
 </ul>
 <h1 id="ls"><a href="#ls" class="headerlink" title="ls"></a>ls</h1><ul>
 <li><p><strong>使用方法</strong>：</p>
-<p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">hadoop fs -ls <span class="token operator">&lt;</span>args<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></p>
+<p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">hadoop fs -ls &lt;args&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></p>
 </li>
 <li><p><strong>说明</strong>：</p>
 <ul>
@@ -274,97 +274,97 @@ hadoop fs -get hdfs://host:port/user/hadoop/file localfile<span aria-hidden="tru
 </ul>
 </li>
 <li><p><strong>示例</strong>：</p>
-<p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">hadoop fs -ls /user/hadoop/file1 /user/hadoop/file2 hdfs://host:port/user/hadoop/dir1 /nonexistentfile<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></p>
+<p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">hadoop fs -ls &#x2F;user&#x2F;hadoop&#x2F;file1 &#x2F;user&#x2F;hadoop&#x2F;file2 hdfs:&#x2F;&#x2F;host:port&#x2F;user&#x2F;hadoop&#x2F;dir1 &#x2F;nonexistentfile<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></p>
 </li>
 <li><strong>返回值</strong>：成功返回 <code>0</code>，失败返回 <code>-1</code>。</li>
 </ul>
 <h1 id="lsr"><a href="#lsr" class="headerlink" title="lsr"></a>lsr</h1><ul>
 <li><p><strong>使用方法</strong>：</p>
-<p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">hadoop fs -lsr <span class="token operator">&lt;</span>args<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></p>
+<p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">hadoop fs -lsr &lt;args&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></p>
 </li>
 <li><strong>说明</strong>：<a href="#ls">ls</a> 命令的递归版本。类似于 Unix 中的 <code>ls -R</code>。</li>
 </ul>
 <h1 id="mkdir"><a href="#mkdir" class="headerlink" title="mkdir"></a>mkdir</h1><ul>
 <li><p><strong>使用方法</strong>：</p>
-<p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">hadoop fs -mkdir <span class="token operator">&lt;</span>paths<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></p>
+<p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">hadoop fs -mkdir &lt;paths&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></p>
 </li>
 <li><p><strong>说明</strong>：接受路径指定的 <code>URI</code> 作为参数，创建这些目录。其行为类似于 Unix 的 <code>mkdir -p</code>，它会创建路径中的各级父目录。</p>
 </li>
 <li><p><strong>示例</strong>：</p>
-<p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">hadoop fs -mkdir /user/hadoop/dir1 /user/hadoop/dir2
-hadoop fs -mkdir hdfs://host1:port1/user/hadoop/dir hdfs://host2:port2/user/hadoop/dir<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></p>
+<p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">hadoop fs -mkdir &#x2F;user&#x2F;hadoop&#x2F;dir1 &#x2F;user&#x2F;hadoop&#x2F;dir2
+hadoop fs -mkdir hdfs:&#x2F;&#x2F;host1:port1&#x2F;user&#x2F;hadoop&#x2F;dir hdfs:&#x2F;&#x2F;host2:port2&#x2F;user&#x2F;hadoop&#x2F;dir<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></p>
 </li>
 <li><strong>返回值</strong>：成功返回 <code>0</code>，失败返回 <code>-1</code>。</li>
 </ul>
 <h1 id="movefromLocal"><a href="#movefromLocal" class="headerlink" title="movefromLocal"></a>movefromLocal</h1><ul>
 <li><p><strong>使用方法</strong>：</p>
-<p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">dfs -moveFromLocal <span class="token operator">&lt;</span>src<span class="token operator">></span> <span class="token operator">&lt;</span>dst<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></p>
+<p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">dfs -moveFromLocal &lt;src&gt; &lt;dst&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></p>
 </li>
 <li><strong>说明</strong>：输出一个 <code>not implemented</code> 信息。</li>
 </ul>
 <h1 id="mv"><a href="#mv" class="headerlink" title="mv"></a>mv</h1><ul>
 <li><p><strong>使用方法</strong>：</p>
-<p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">hadoop fs -mv URI <span class="token punctuation">[</span>URI …<span class="token punctuation">]</span> <span class="token operator">&lt;</span>dest<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></p>
+<p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">hadoop fs -mv URI [URI …] &lt;dest&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></p>
 </li>
 <li><p><strong>说明</strong>：将文件从源路径移动到目标路径。这个命令允许有多个源路径，此时目标路径必须是一个目录。不允许在不同的文件系统间移动文件。</p>
 </li>
 <li><p><strong>示例</strong>：</p>
-<p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">hadoop fs -mv /user/hadoop/file1 /user/hadoop/file2
-hadoop fs -mv hdfs://host:port/file1 hdfs://host:port/file2 hdfs://host:port/file3 hdfs://host:port/dir1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></p>
+<p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">hadoop fs -mv &#x2F;user&#x2F;hadoop&#x2F;file1 &#x2F;user&#x2F;hadoop&#x2F;file2
+hadoop fs -mv hdfs:&#x2F;&#x2F;host:port&#x2F;file1 hdfs:&#x2F;&#x2F;host:port&#x2F;file2 hdfs:&#x2F;&#x2F;host:port&#x2F;file3 hdfs:&#x2F;&#x2F;host:port&#x2F;dir1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></p>
 </li>
 <li><strong>返回值</strong>：成功返回 <code>0</code>，失败返回 <code>-1</code>。</li>
 </ul>
 <h1 id="put"><a href="#put" class="headerlink" title="put"></a>put</h1><ul>
 <li><p><strong>使用方法</strong>：</p>
-<p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">hadoop fs -put <span class="token operator">&lt;</span>localsrc<span class="token operator">></span> <span class="token punctuation">..</span>. <span class="token operator">&lt;</span>dst<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></p>
+<p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">hadoop fs -put &lt;localsrc&gt; ... &lt;dst&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></p>
 </li>
 <li><p><strong>说明</strong>：从本地文件系统中复制单个或多个源路径到目标文件系统。也支持从标准输入中读取输入写入目标文件系统。</p>
 </li>
 <li><p><strong>示例</strong>：</p>
-<p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">hadoop fs -put localfile /user/hadoop/hadoopfile
-hadoop fs -put localfile1 localfile2 /user/hadoop/hadoopdir
-hadoop fs -put localfile hdfs://host:port/hadoop/hadoopfile
-hadoop fs -put - hdfs://host:port/hadoop/hadoopfile<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></p>
+<p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">hadoop fs -put localfile &#x2F;user&#x2F;hadoop&#x2F;hadoopfile
+hadoop fs -put localfile1 localfile2 &#x2F;user&#x2F;hadoop&#x2F;hadoopdir
+hadoop fs -put localfile hdfs:&#x2F;&#x2F;host:port&#x2F;hadoop&#x2F;hadoopfile
+hadoop fs -put - hdfs:&#x2F;&#x2F;host:port&#x2F;hadoop&#x2F;hadoopfile<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></p>
 </li>
 <li><strong>返回值</strong>：成功返回 <code>0</code>，失败返回 <code>-1</code>。</li>
 </ul>
 <h1 id="rm"><a href="#rm" class="headerlink" title="rm"></a>rm</h1><ul>
 <li><p><strong>使用方法</strong>：</p>
-<p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">hadoop fs -rm URI <span class="token punctuation">[</span>URI …<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></p>
+<p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">hadoop fs -rm URI [URI …]<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></p>
 </li>
 <li><p><strong>说明</strong>：删除指定的文件。只删除非空目录和文件。请参考 <a href="#rmr">rmr</a> 命令了解递归删除。</p>
 </li>
 <li><p><strong>示例</strong>：</p>
-<p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">hadoop fs -rm hdfs://host:port/file /user/hadoop/emptydir<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></p>
+<p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">hadoop fs -rm hdfs:&#x2F;&#x2F;host:port&#x2F;file &#x2F;user&#x2F;hadoop&#x2F;emptydir<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></p>
 </li>
 <li><strong>返回值</strong>：成功返回 <code>0</code>，失败返回 <code>-1</code>。</li>
 </ul>
 <h1 id="rmr"><a href="#rmr" class="headerlink" title="rmr"></a>rmr</h1><ul>
 <li><p><strong>使用方法</strong>：</p>
-<p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">hadoop fs -rmr URI <span class="token punctuation">[</span>URI …<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></p>
+<p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">hadoop fs -rmr URI [URI …]<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></p>
 </li>
 <li><p><strong>说明</strong>：<a href="#rm">rm</a> 命令的递归版本。</p>
 </li>
 <li><p><strong>示例</strong>：</p>
-<p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">hadoop fs -rmr /user/hadoop/dir
-hadoop fs -rmr hdfs://host:port/user/hadoop/dir<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></p>
+<p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">hadoop fs -rmr &#x2F;user&#x2F;hadoop&#x2F;dir
+hadoop fs -rmr hdfs:&#x2F;&#x2F;host:port&#x2F;user&#x2F;hadoop&#x2F;dir<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></p>
 </li>
 <li><strong>返回值</strong>：成功返回 <code>0</code>，失败返回 <code>-1</code>。</li>
 </ul>
 <h1 id="setrep"><a href="#setrep" class="headerlink" title="setrep"></a>setrep</h1><ul>
 <li><p><strong>使用方法</strong>：</p>
-<p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">hadoop fs -setrep <span class="token punctuation">[</span>-R<span class="token punctuation">]</span> <span class="token operator">&lt;</span>path<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></p>
+<p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">hadoop fs -setrep [-R] &lt;path&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></p>
 </li>
 <li><p><strong>说明</strong>：改变一个文件的副本系数。<code>-R</code> 选项用于递归改变目录下所有文件的副本系数。</p>
 </li>
 <li><p><strong>示例</strong>：</p>
-<p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">hadoop fs -setrep -w <span class="token number">3</span> -R /user/hadoop/dir1<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></p>
+<p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">hadoop fs -setrep -w 3 -R &#x2F;user&#x2F;hadoop&#x2F;dir1<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></p>
 </li>
 <li><strong>返回值</strong>：成功返回 <code>0</code>，失败返回 <code>-1</code>。</li>
 </ul>
 <h1 id="stat"><a href="#stat" class="headerlink" title="stat"></a>stat</h1><ul>
 <li><p><strong>使用方法</strong>：</p>
-<p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">hadoop fs -stat URI <span class="token punctuation">[</span>URI …<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></p>
+<p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">hadoop fs -stat URI [URI …]<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></p>
 </li>
 <li><p><strong>说明</strong>：返回指定路径的统计信息。</p>
 </li>
@@ -375,7 +375,7 @@ hadoop fs -rmr hdfs://host:port/user/hadoop/dir<span aria-hidden="true" class="l
 </ul>
 <h1 id="tail"><a href="#tail" class="headerlink" title="tail"></a>tail</h1><ul>
 <li><p><strong>使用方法</strong>：</p>
-<p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">hadoop fs -tail <span class="token punctuation">[</span>-f<span class="token punctuation">]</span> URI<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></p>
+<p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">hadoop fs -tail [-f] URI<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></p>
 </li>
 <li><p><strong>说明</strong>：将文件尾部 1K 字节的内容输出到 <code>stdout</code>。支持 <code>-f</code> 选项，行为和 Unix 中一致。</p>
 </li>
@@ -386,7 +386,7 @@ hadoop fs -rmr hdfs://host:port/user/hadoop/dir<span aria-hidden="true" class="l
 </ul>
 <h1 id="test"><a href="#test" class="headerlink" title="test"></a>test</h1><ul>
 <li><p><strong>使用方法</strong>：</p>
-<p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">hadoop fs -test -<span class="token punctuation">[</span>ezd<span class="token punctuation">]</span> URI<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></p>
+<p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">hadoop fs -test -[ezd] URI<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></p>
 </li>
 <li><p><strong>说明</strong>：</p>
 <ul>
@@ -402,13 +402,13 @@ hadoop fs -rmr hdfs://host:port/user/hadoop/dir<span aria-hidden="true" class="l
 </ul>
 <h1 id="text"><a href="#text" class="headerlink" title="text"></a>text</h1><ul>
 <li><p><strong>使用方法</strong>：</p>
-<p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">hadoop fs -text <span class="token operator">&lt;</span>src<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></p>
+<p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">hadoop fs -text &lt;src&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></p>
 </li>
 <li><strong>说明</strong>：将源文件输出为文本格式。允许的格式是 <code>zip</code> 和 <code>TextRecordInputStream</code>。</li>
 </ul>
 <h1 id="touchz"><a href="#touchz" class="headerlink" title="touchz"></a>touchz</h1><ul>
 <li><p><strong>使用方法</strong>：</p>
-<p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">hadoop fs -touchz URI <span class="token punctuation">[</span>URI …<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></p>
+<p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">hadoop fs -touchz URI [URI …]<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></p>
 </li>
 <li><p><strong>说明</strong>：创建一个 0 字节的空文件。</p>
 </li>
@@ -659,7 +659,6 @@ for(var i = 0;i<arr.length;i++){
     <script data-pjax>
     if (document.getElementById('catalog_magnet')) {
       document.getElementById('catalog_magnet').innerHTML = '<div class="magnet_item"><a class="magnet_link" href="https://blog.eurkon.com/categories/💬生活随记/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">💬 Eurkonの生活随记 (1)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="https://blog.eurkon.com/categories/📖教程笔记/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">📖 Eurkonの教程笔记 (29)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="https://blog.eurkon.com/categories/🖥️作品案例/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">🖥️ Eurkonの作品案例 (1)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item" style="visibility: hidden"></div><a class="magnet_link_more"  href="https://blog.eurkon.com/categories" style="flex:1;text-align: center;margin-bottom: 10px;">查看更多...</a>'
-      console.log('已挂载magnet')
     }
     </script>
     </script><style>#catalog_magnet{flex-wrap: wrap;display: flex;width:100%;justify-content:space-between;padding: 10px 10px 0 10px;align-content: flex-start;}.magnet_item{flex-basis: calc(50% - 5px);background: var(--card-bg);margin-bottom: 10px;border-radius: 8px;transition: all 0.2s ease-in-out;}.magnet_item:hover{background: var(--btn-bg)}.magnet_link_more{color:#555}.magnet_link{color:var(--font-color)}.magnet_link:hover{color: #fff}@media screen and (max-width: 600px) {.magnet_item {flex-basis: 100%;}}.magnet_link_context{display:flex;padding: 10px;font-size:16px;transition: all 0.2s ease-in-out;}.magnet_link_context:hover{padding: 10px 20px;}</style>
