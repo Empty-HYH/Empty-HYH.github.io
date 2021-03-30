@@ -1,0 +1,483 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Kafka 面试题解析 | Eurkon</title><meta name="keywords" content="📫Kafka"><meta name="author" content="Eurkon,eurkon@foxmail.com"><meta name="copyright" content="Eurkon"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="1、Kafka 都有哪些特点？   高吞吐量、低延迟：Kafka 每秒可以处理几十万条消息，它的延迟最低只有几毫秒，每个 topic 可以分多个 partition, consumer group 对 partition 进行 consume 操作。 可扩展性：Kafka 集群支持热扩展。 持久性、可靠性：消息被持久化到本地磁盘，并且支持数据备份防止数据丢失。 容错性：允许集群中节点失败（若副本">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Kafka 面试题解析">
+<meta property="og:url" content="https://blog.eurkon.com/post/89cabcb1.html">
+<meta property="og:site_name" content="Eurkon">
+<meta property="og:description" content="1、Kafka 都有哪些特点？   高吞吐量、低延迟：Kafka 每秒可以处理几十万条消息，它的延迟最低只有几毫秒，每个 topic 可以分多个 partition, consumer group 对 partition 进行 consume 操作。 可扩展性：Kafka 集群支持热扩展。 持久性、可靠性：消息被持久化到本地磁盘，并且支持数据备份防止数据丢失。 容错性：允许集群中节点失败（若副本">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://blog.eurkon.com/images/cover/bigdata_interview.png">
+<meta property="article:published_time" content="2021-03-30T01:00:00.000Z">
+<meta property="article:modified_time" content="2021-03-30T09:30:19.270Z">
+<meta property="article:author" content="Eurkon">
+<meta property="article:tag" content="📫Kafka">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.eurkon.com/images/cover/bigdata_interview.png"><link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/favicon.png"><link rel="canonical" href="https://blog.eurkon.com/post/89cabcb1"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="google-site-verification" content="rClKrjtCYPsDaynvUNmfe2YGPxb7ehnuwEF9aMdG7no"/><meta name="msvalidate.01" content="F299EA4E7AD0E2B28FDF4E0EA94879BA"/><meta name="baidu-site-verification" content="code-GmAI2TORJk"/><meta name="360-site-verification" content="ac410c1012e6f0acc65b5c0805c91f01"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?ca4902422e728abe0603d52ce2e7757a";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":1,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"prismjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":250},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: Eurkon","link":"链接: ","source":"来源: Eurkon","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#121212","position":"top-center"},
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isanchor: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2021-03-30 17:30:19'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const fontSizeVal = saveToLocal.get('global-font-size')
+    if (fontSizeVal !== undefined) {
+      document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
+    }
+    })(window)</script><link rel="stylesheet" href="/css/custom.css"><script data-pjax src="https://cdn.jsdelivr.net/npm/echarts@4.7.0/dist/echarts.min.js"></script><script data-pjax src="https://cdn.jsdelivr.net/npm/echarts@4.7.0/map/js/china.js"></script><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.1.6/css/swiper.min.css"><style>@import url("https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600,700,800");*{box-sizing:border-box}.blog-slider{width:100%;position:relative;border-radius:12px 8px 8px 12px;margin:auto;background:var(--global-bg) padding:10px;transition:all .3s}@media screen and (max-width:768px){.blog-slider{min-height:350px;height:auto;margin-top:110px;margin-bottom:10px}}@media screen and (max-height:500px) and (min-width:992px){.blog-slider{height:350px}}.blog-slider__item{display:flex;align-items:center}@media screen and (max-width:768px){.blog-slider__item{flex-direction:column}}.blog-slider__item.swiper-slide-active .blog-slider__img img{opacity:1;transition-delay:.3s}.blog-slider__item.swiper-slide-active .blog-slider__content>*{opacity:1;transform:none}.blog-slider__item.swiper-slide-active .blog-slider__content>*:nth-child(1){transition-delay:.3s}.blog-slider__item.swiper-slide-active .blog-slider__content>*:nth-child(2){transition-delay:.4s}.blog-slider__item.swiper-slide-active .blog-slider__content>*:nth-child(3){transition-delay:.5s}.blog-slider__item.swiper-slide-active .blog-slider__content>*:nth-child(4){transition-delay:.6s}.blog-slider__item.swiper-slide-active .blog-slider__content>*:nth-child(5){transition-delay:.7s}.blog-slider__item.swiper-slide-active .blog-slider__content>*:nth-child(6){transition-delay:.8s}.blog-slider__item.swiper-slide-active .blog-slider__content>*:nth-child(7){transition-delay:.9s}.blog-slider__item.swiper-slide-active .blog-slider__content>*:nth-child(8){transition-delay:1s}.blog-slider__item.swiper-slide-active .blog-slider__content>*:nth-child(9){transition-delay:1.1s}.blog-slider__item.swiper-slide-active .blog-slider__content>*:nth-child(10){transition-delay:1.2s}.blog-slider__item.swiper-slide-active .blog-slider__content>*:nth-child(11){transition-delay:1.3s}.blog-slider__item.swiper-slide-active .blog-slider__content>*:nth-child(12){transition-delay:1.4s}.blog-slider__item.swiper-slide-active .blog-slider__content>*:nth-child(13){transition-delay:1.5s}.blog-slider__item.swiper-slide-active .blog-slider__content>*:nth-child(14){transition-delay:1.6s}.blog-slider__item.swiper-slide-active .blog-slider__content>*:nth-child(15){transition-delay:1.7s}.blog-slider__img{width:200px;flex-shrink:0;height:200px;padding:10px;border-radius:5px;transform:translateX(0px);overflow:hidden}.blog-slider__img:after{content:'';position:absolute;top:0;left:0;width:100%;height:100%;border-radius:5px;opacity:.8}.blog-slider__img img{width:100%;height:100%;object-fit:cover;display:block;opacity:0;border-radius:5px;transition:all .3s}@media screen and (max-width:768px){.blog-slider__img{transform:translateY(-50%);width:90%}}@media screen and (max-width:576px){.blog-slider__img{width:95%}}@media screen and (max-height:500px) and (min-width:992px){.blog-slider__img{height:270px}}.blog-slider__content{padding-right:50px;padding-left:50px}@media screen and (max-width:768px){.blog-slider__content{margin-top:-80px;text-align:center;padding:0 30px}}@media screen and (max-width:576px){.blog-slider__content{padding-left:10px;padding-right:10px}}.blog-slider__content>*{opacity:0;transform:translateY(25px);transition:all .4s}.blog-slider__code{color:var(--font-color);margin-bottom:0;display:block;font-weight:500}.blog-slider__title{font-size:18px;font-weight:700;color:var(--font-color);margin-bottom:15px;-webkit-line-clamp:1;display:-webkit-box;overflow:hidden;-webkit-box-orient:vertical}.blog-slider__text{color:var(--font-color);-webkit-line-clamp:1;display:-webkit-box;overflow:hidden;-webkit-box-orient:vertical;margin-bottom:15px;line-height:1.5em}.blog-slider__button{display:inline-flex;background-color:var(--btn-bg);padding:4px 14px;border-radius:8px;color:var(--btn-color);text-decoration:none;font-weight:500;justify-content:center;text-align:center;letter-spacing:1px}.blog-slider__button:hover{background-color:var(--btn-hover-color);color:var(--btn-color)}@media screen and (max-width:576px){.blog-slider__button{width:100%;width:100%}}.blog-slider .swiper-container-horizontal>.swiper-pagination-bullets,.blog-slider .swiper-pagination-custom,.blog-slider .swiper-pagination-fraction{bottom:10px;left:0;width:100%}.blog-slider__pagination{position:absolute;z-index:21;right:20px;width:11px!important;text-align:center;left:auto!important;top:50%;bottom:auto!important;transform:translateY(-50%)}@media screen and (max-width:768px){.blog-slider__pagination{transform:translateX(-50%);left:50%!important;top:320px;width:100%!important;display:flex;justify-content:center;align-items:center}}.blog-slider__pagination.swiper-pagination-bullets .swiper-pagination-bullet{margin:8px 0 !important}@media screen and (max-width:768px){.blog-slider__pagination.swiper-pagination-bullets .swiper-pagination-bullet{margin:0 5px}}.blog-slider__pagination .swiper-pagination-bullet{width:11px;height:11px;display:block;border-radius:10px;background:#858585;opacity:.2;transition:all .3s}.blog-slider__pagination .swiper-pagination-bullet-active{opacity:1;background:var(--btn-bg);height:30px} @media screen and (max-width:768px){.blog-slider__pagination .swiper-pagination-bullet-active{height:11px;width:30px}}.blog-slider__button{display:none}@media screen and (max-width:768px){.blog-slider__button{display:inline-flex}.blog-slider__text{margin-bottom:40px}}</style><!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.3.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" data-lazy-src="https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">35</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">20</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-copy"></i><span> 文章</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-link"></i><span> 链接</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-address-card"></i><span> 友链</span></a></li><li><a class="site-page child" href="/stars/"><i class="fa-fw fas fa-star"></i><span> 收藏</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 娱乐</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/books/"><i class="fa-fw fas fa-book"></i><span> 书籍</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/images/"><i class="fa-fw fas fa-images"></i><span> 图库</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li><li><a class="site-page child" href="/games/"><i class="fa-fw fas fa-gamepad"></i><span> 游戏</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-bug"></i><span> 实验室</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/fcircle/"><i class="fa-fw fas fa-heartbeat"></i><span> 朋友圈</span></a></li><li><a class="site-page child" href="/census/"><i class="fa-fw fas fa-chart-line"></i><span> 博客统计</span></a></li><li><a class="site-page child" href="/charts/"><i class="fa-fw fas fa-chart-bar"></i><span> 文章统计</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/random/"><i class="fa-fw fas fa-random"></i><span> 随便看看</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-info-circle"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/images/cover/bigdata_interview.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Eurkon</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-copy"></i><span> 文章</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-link"></i><span> 链接</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-address-card"></i><span> 友链</span></a></li><li><a class="site-page child" href="/stars/"><i class="fa-fw fas fa-star"></i><span> 收藏</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 娱乐</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/books/"><i class="fa-fw fas fa-book"></i><span> 书籍</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/images/"><i class="fa-fw fas fa-images"></i><span> 图库</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li><li><a class="site-page child" href="/games/"><i class="fa-fw fas fa-gamepad"></i><span> 游戏</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-bug"></i><span> 实验室</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/fcircle/"><i class="fa-fw fas fa-heartbeat"></i><span> 朋友圈</span></a></li><li><a class="site-page child" href="/census/"><i class="fa-fw fas fa-chart-line"></i><span> 博客统计</span></a></li><li><a class="site-page child" href="/charts/"><i class="fa-fw fas fa-chart-bar"></i><span> 文章统计</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/random/"><i class="fa-fw fas fa-random"></i><span> 随便看看</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-info-circle"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Kafka 面试题解析</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-03-30T01:00:00.000Z" title="发表于 2021-03-30 09:00:00">2021-03-30</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-03-30T09:30:19.270Z" title="更新于 2021-03-30 17:30:19">2021-03-30</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%F0%9F%93%96%E6%95%99%E7%A8%8B%E7%AC%94%E8%AE%B0/">📖教程笔记</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">819</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>3分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Kafka 面试题解析"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span><span class="post-meta-separator">|</span><span class="post-meta-commentcount"><i class="far fa-comments fa-fw post-meta-icon"></i><span class="post-meta-label">评论数:</span><a href="/post/89cabcb1.html#post-comment"><span id="twikoo-count"></span></a></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><blockquote>
+<p>1、Kafka 都有哪些特点？</p>
+</blockquote>
+<ul>
+<li>高吞吐量、低延迟：Kafka 每秒可以处理几十万条消息，它的延迟最低只有几毫秒，每个 topic 可以分多个 partition, consumer group 对 partition 进行 consume 操作。</li>
+<li>可扩展性：Kafka 集群支持热扩展。</li>
+<li>持久性、可靠性：消息被持久化到本地磁盘，并且支持数据备份防止数据丢失。</li>
+<li>容错性：允许集群中节点失败（若副本数量为 n，则允许 n-1 个节点失败）。</li>
+<li>高并发：支持数千个客户端同时读写。</li>
+</ul>
+<blockquote>
+<p>2、请简述下你在哪些场景下会选择 Kafka？</p>
+</blockquote>
+<ul>
+<li>日志收集：一个公司可以用 Kafka 收集各种服务的 log，通过 Kafka 以统一接口服务的方式开放给各种 consumer，例如 Hadoop、HBase、Solr 等。</li>
+<li>消息系统：解耦和生产者和消费者、缓存消息等。</li>
+<li>用户活动跟踪：Kafka 经常被用来记录 web 用户或者 app 用户的各种活动，如浏览网页、搜索、点击等活动，这些活动信息被各个服务器发布到 Kafka 的 topic 中，然后订阅者通过订阅这些 topic 来做实时的监控分析，或者装载到 Hadoop、数据仓库中做离线分析和挖掘。</li>
+<li>运营指标：Kafka 也经常用来记录运营监控数据，包括收集各种分布式应用的数据，生产各种操作的集中反馈，比如报警和报告。</li>
+<li>流式处理：比如 Spark streaming 和 Flink。</li>
+</ul>
+<blockquote>
+<p>3、Kafka 的设计架构？</p>
+</blockquote>
+<ul>
+<li>简单架构</li>
+</ul>
+<p><img src= "https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/loading.gif" data-lazy-src="/images/post/bigdata_interview/kafka_simple.png" alt></p>
+<ul>
+<li>详细架构如下：</li>
+</ul>
+<p><img src= "https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/loading.gif" data-lazy-src="/images/post/bigdata_interview/kafka_architecture.png" alt></p>
+<p>Kafka 架构分为以下几个部分：</p>
+<ul>
+<li>Producer：消息生产者，就是向 Kafka broker 发消息的客户端。</li>
+<li>Consumer：消息消费者，向 Kafka broker 取消息的客户端。</li>
+<li>Topic：可以理解为一个队列，一个 Topic 又分为一个或多个分区。</li>
+<li>Consumer Group：这是 Kafka 用来实现一个 topic 消息的广播（发给所有的 consumer）和单播（发给任意一个 consumer）的手段。一个 topic 可以有多个 Consumer Group。</li>
+<li>Broker：一台 Kafka 服务器就是一个 broker。一个集群由多个 broker 组成。一个 broker 可以容纳多个 topic。</li>
+<li>Partition：为了实现扩展性，一个非常大的 topic 可以分布到多个 broker上，每个 partition 是一个有序的队列。partition 中的每条消息都会被分配一个有序的 id（offset）。将消息发给 consumer，Kafka 只保证按一个 partition 中的消息的顺序，不保证一个 topic 的整体（多个 partition 间）的顺序。</li>
+<li>Offset：Kafka 的存储文件都是按照 <code>offset.kafka</code> 来命名，用 offset 做名字的好处是方便查找。例如你想找位于 2049 的位置，只要找到 <code>2048.kafka</code> 的文件即可。当然 the first offset 就是 <code>00000000000.kafka</code>。</li>
+</ul>
+<blockquote>
+<p>4、Kafka 分区的目的？</p>
+</blockquote>
+<p>分区对于 Kafka 集群的好处是：实现负载均衡。分区对于消费者来说，可以提高并发度，提高效率。</p>
+<blockquote>
+<p>5、Kafka 是如何做到消息的有序性？</p>
+</blockquote>
+<p>kafka 中的每个 partition 中的消息在写入时都是有序的，而且单独一个 partition 只能由一个消费者去消费，可以在里面保证消息的顺序性。但是分区之间的消息是不保证有序的。</p>
+</article><div class="post-copyright"><div class="post-copyright__title"><span class="post-copyright-info"><h>Kafka 面试题解析</h></span></div><div class="post-copyright__type"><span class="post-copyright-info"><a href="https://blog.eurkon.com/post/89cabcb1.html">https://blog.eurkon.com/post/89cabcb1.html</a></span></div><div class="post-copyright-m"><div class="post-copyright-m-info"><div class="post-copyright-a"><h>作者</h><div class="post-copyright-cc-info"><h>Eurkon</h></div></div><div class="post-copyright-p"><h>发布于</h><div class="post-copyright-cc-info"><h>2021-03-30</h></div></div><div class="post-copyright-u"><h>更新于</h><div class="post-copyright-cc-info"><h>2021-03-30</h></div></div><div class="post-copyright-c"><h>许可协议</h><div class="post-copyright-cc-info"><a class="icon" title="Creative Commons" target="_blank" rel="noopener" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a><a title="CC BY-NC-SA 4.0" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></div></div></div></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%F0%9F%93%ABKafka/">📫Kafka</a></div><div class="post_share"><div class="social-share" data-image="/images/cover/bigdata_interview.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button button--animated"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/wechat.jpg" target="_blank"><img class="post-qr-code-img" data-lazy-src="https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/wechat.jpg" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/alipay.jpg" target="_blank"><img class="post-qr-code-img" data-lazy-src="https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/alipay.jpg" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/post/5a2a12a6.html"><img class="next-cover" data-lazy-src="/images/cover/bigdata_interview.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Flume 面试题解析</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts-list"><div><a href="/post/7e24cf66.html" title="大数据面试题解析"><img class="cover" data-lazy-src="/images/cover/bigdata_interview.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-03-25</div><div class="title">大数据面试题解析</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" data-lazy-src="https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">Eurkon</div><div class="author-info__description">不只是代码的搬运工</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">35</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">20</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Eurkon"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Eurkon" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:eurkon@foxmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">Hello Eurkon</div></div><div class="sticky_layout"><div class="card-widget card-clock"><div class="card-glass"><div class="card-background"><div class="card-content"><div id="electric_clock"><img id="card-clock-loading" src="https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/clock_loading.gif" data-ll-status="loading" style="height:'120px'; width:'100%';"/></div></div></div></div></div><script defer="defer" data-pjax="data-pjax" src="https://pv.sohu.com/cityjson?ie=utf-8"></script><script defer="defer" data-pjax="data-pjax" src="/js/card_clock.js"></script><div class="card-widget card-history"><div class="card-content"><div class="item-headline"><i class="fas fa-clock fa-spin"></i><span>那年今日</span></div><div id="history-baidu" style="height: 100px; overflow: hidden;"><div class="history_swiper-container" id="history-container" style="width: 100%; height: 100%;"><div class="swiper-wrapper" id="history_container_wrapper" style="height: 20px;"></div></div></div></div></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" media="print" onload="this.media='all'"/><script defer="defer" data-pjax="data-pjax" src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script><script defer="defer" data-pjax="data-pjax" src="/js/card_history.js"></script><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/post/89cabcb1.html" title="Kafka 面试题解析"><img data-lazy-src="/images/cover/bigdata_interview.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Kafka 面试题解析"/></a><div class="content"><a class="title" href="/post/89cabcb1.html" title="Kafka 面试题解析">Kafka 面试题解析</a><time datetime="2021-03-30T01:00:00.000Z" title="发表于 2021-03-30 09:00:00">2021-03-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/5a2a12a6.html" title="Flume 面试题解析"><img data-lazy-src="/images/cover/bigdata_interview.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Flume 面试题解析"/></a><div class="content"><a class="title" href="/post/5a2a12a6.html" title="Flume 面试题解析">Flume 面试题解析</a><time datetime="2021-03-29T01:00:00.000Z" title="发表于 2021-03-29 09:00:00">2021-03-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/2f1ea7f2.html" title="Zookeeper 面试题解析"><img data-lazy-src="/images/cover/bigdata_interview.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Zookeeper 面试题解析"/></a><div class="content"><a class="title" href="/post/2f1ea7f2.html" title="Zookeeper 面试题解析">Zookeeper 面试题解析</a><time datetime="2021-03-27T01:00:00.000Z" title="发表于 2021-03-27 09:00:00">2021-03-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/2b822834.html" title="Hadoop 面试题解析"><img data-lazy-src="/images/cover/bigdata_interview.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hadoop 面试题解析"/></a><div class="content"><a class="title" href="/post/2b822834.html" title="Hadoop 面试题解析">Hadoop 面试题解析</a><time datetime="2021-03-26T01:00:00.000Z" title="发表于 2021-03-26 09:00:00">2021-03-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/7e24cf66.html" title="大数据面试题解析"><img data-lazy-src="/images/cover/bigdata_interview.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="大数据面试题解析"/></a><div class="content"><a class="title" href="/post/7e24cf66.html" title="大数据面试题解析">大数据面试题解析</a><time datetime="2021-03-25T01:00:00.000Z" title="发表于 2021-03-25 09:00:00">2021-03-25</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2021 By Eurkon</div><div class="footer_custom_text"><p id="badges"><a target="_blank" href="https://hexo.io/" rel="external nofollow noopener noreferrer" style="margin-inline: 5px;" one-link-mark="yes"><img title="博客框架Hexo" class="entered loaded" src="https://img.shields.io/badge/Frame-Hexo-blue?style=flat&amp;logo=hexo" data-ll-status="loaded"></a><a target="_blank" href="https://butterfly.js.org/" rel="external nofollow noopener noreferrer" style="margin-inline: 5px;" one-link-mark="yes"><img title="博客主题Butterfly" class="entered loaded" src="https://img.shields.io/badge/Theme-Butterfly-6513df?style=flat&amp;logo=bitdefender" data-ll-status="loaded"></a><a target="_blank" href="https://www.jsdelivr.com/" rel="external nofollow noopener noreferrer" style="margin-inline: 5px;" one-link-mark="yes"><img title="本站使用JsDelivr为静态资源提供CDN加速" class="entered loaded" src="https://img.shields.io/badge/CDN-jsDelivr-orange?style=flat&amp;logo=jsDelivr" data-ll-status="loaded"></a><a target="_blank" href="https://vercel.com/" rel="external nofollow noopener noreferrer" style="margin-inline: 5px;" one-link-mark="yes"><img title="本站部署托管于Vercel" class="entered loading" src="https://img.shields.io/badge/Hosted-Vercel-brightgreen?style=flat&amp;logo=Vercel" data-ll-status="loaded" ></a><a target="_blank" href="https://github.com/" rel="external nofollow noopener noreferrer" style="margin-inline: 5px;" one-link-mark="yes"><img title="本站项目由GitHub托管" class="entered loaded" src="https://img.shields.io/badge/Source-Github-d021d6?style=flat&amp;logo=GitHub" data-ll-status="loaded"></a><a target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noopener noreferrer" style="margin-inline: 5px;" one-link-mark="yes"><img title="本站采用创作共用-署名-非商业性-相同方式共享4.0版国际许可协议" class="entered loaded" src="https://img.shields.io/badge/Copyright-BY--NC--SA%204.0-d42328?style=flat&amp;logo=Claris" data-ll-status="loaded"></a></p></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="font-plus" type="button" title="放大字体"><i class="fas fa-plus"></i></button><button id="font-minus" type="button" title="缩小字体"><i class="fas fa-minus"></i></button><button id="translateLink" type="button" title="简繁转换">简</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>if (document.getElementsByClassName('mermaid').length) {
+  if (window.mermaidJsLoad) mermaid.init()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js').then(() => {
+      window.mermaidJsLoad = true
+      mermaid.initialize({
+        theme: 'dark',
+      })
+      true && mermaid.init()
+    })
+  }
+}</script><script>(()=>{
+  const $countDom = document.getElementById('twikoo-count')
+  const init = () => {
+    twikoo.init(Object.assign({
+      el: '#twikoo-wrap',
+      envId: 'twikoo-7gsa2rc0c087a562',
+      region: ''
+    }, null))
+  }
+
+  const getCount = () => {
+    twikoo.getCommentsCount({
+      envId: 'twikoo-7gsa2rc0c087a562',
+      region: '',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(function (res) {
+      $countDom.innerText = res[0].count
+    }).catch(function (err) {
+      console.error(err);
+    });
+  }
+
+  const loadTwikoo = (bool = false) => {
+    if (typeof twikoo === 'object') {
+      init()
+      bool && $countDom && setTimeout(getCount,0)
+    } else {
+      getScript('https://cdn.jsdelivr.net/npm/twikoo/dist/twikoo.all.min.js').then(()=> {
+        init()
+        bool && $countDom && setTimeout(getCount,0)
+      })
+    }
+  }
+
+  if ('Twikoo' === 'Twikoo' || !false) {
+    if (false) btf.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else loadTwikoo(true)
+  } else {
+    window.loadOtherComment = () => {
+      loadTwikoo()
+    }
+  }
+})()</script></div><script>window.addEventListener('load', () => {
+  const changeContent = (content) => {
+    if (content === '') return content
+
+    content = content.replace(/<img.*?src="(.*?)"?[^\>]+>/ig, '[图片]') // replace image link
+    content = content.replace(/<a[^>]+?href=["']?([^"']+)["']?[^>]*>([^<]+)<\/a>/gi, '[链接]') // replace url
+    content = content.replace(/<pre><code>.*?<\/pre>/gi, '[代码]') // replace code
+    content = content.replace(/<[^>]+>/g,"") // remove html tag
+
+    if (content.length > 150) {
+      content = content.substring(0,150) + '...'
+    }
+    return content
+  }
+
+  const getComment = () => {
+    const runTwikoo = () => {
+      twikoo.getRecentComments({
+        envId: 'twikoo-7gsa2rc0c087a562',
+        region: '',
+        pageSize: 6,
+        includeReply: true
+      }).then(function (res) {
+        const twikooArray = res.map(e => {
+          return {
+            'content': changeContent(e.comment),
+            'avatar': e.avatar,
+            'nick': e.nick,
+            'url': e.url + '#' + e.id,
+            'date': new Date(e.created).toISOString()
+          }
+        })
+
+        saveToLocal.set('twikoo-newest-comments', JSON.stringify(twikooArray), 10/(60*24))
+        generateHtml(twikooArray)
+      }).catch(function (err) {
+        const $dom = document.querySelector('#card-newest-comments .aside-list')
+        $dom.innerHTML= "无法获取评论，请确认相关配置是否正确"
+      })
+    }
+
+    if (typeof twikoo === 'object') {
+      runTwikoo()
+    } else {
+      getScript('https://cdn.jsdelivr.net/npm/twikoo/dist/twikoo.all.min.js').then(runTwikoo)
+    }
+  }
+
+  const generateHtml = array => {
+    let result = ''
+
+    if (array.length) {
+      for (let i = 0; i < array.length; i++) {
+        result += '<div class=\'aside-list-item\'>'
+
+        if (true) {
+          const name = 'data-lazy-src'
+          result += `<a href='${array[i].url}' class='thumbnail'><img ${name}='${array[i].avatar}' alt='${array[i].nick}'></a>`
+        }
+        
+        result += `<div class='content'>
+        <a class='comment' href='${array[i].url}'>${array[i].content}</a>
+        <div class='name'><span>${array[i].nick} / </span><time datetime="${array[i].date}">${btf.diffDate(array[i].date, true)}</time></div>
+        </div></div>`
+      }
+    } else {
+      result += '没有评论'
+    }
+
+    let $dom = document.querySelector('#card-newest-comments .aside-list')
+    $dom.innerHTML= result
+    window.lazyLoadInstance && window.lazyLoadInstance.update()
+    window.pjax && window.pjax.refresh($dom)
+  }
+
+  const newestCommentInit = () => {
+    if (document.querySelector('#card-newest-comments .aside-list')) {
+      const data = saveToLocal.get('twikoo-newest-comments')
+      if (data) {
+        generateHtml(JSON.parse(data))
+      } else {
+        getComment()
+      }
+    }
+  }
+
+  newestCommentInit()
+  document.addEventListener('pjax:complete', newestCommentInit)
+})</script><script data-pjax src="/js/custom.js"></script><script data-pjax src="https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/js/gitcalendar.js"></script><script data-pjax async src="//at.alicdn.com/t/font_2358265_expoyqe85d4.js"></script><script data-pjax src="https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/js/smooth-scrolling.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/gh/metowolf/MetingJS@1.2/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = [
+  'title',
+  '#config-diff',
+  '#body-wrap',
+  '#rightside-config-hide',
+  '#rightside-config-show',
+  '.js-pjax'
+]
+
+if (false) {
+  pjaxSelectors.unshift('meta[property="og:image"]', 'meta[property="og:title"]', 'meta[property="og:url"]')
+}
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"]):not([href="/census/"]):not([href="/charts/"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax], .pjax-reload script').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // Analytics
+  if (false) {
+    MtaH5.pgv()
+  }
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+
+document.addEventListener('pjax:send', function () {
+  typeof preloader === 'object' && preloader.initLoading()
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><div class="pjax-reload"><script async="async">var arr = document.getElementsByClassName('recent-post-item');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__zoomIn');
+    arr[i].setAttribute('data-wow-duration', '');
+    arr[i].setAttribute('data-wow-delay', '');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script><script async="async">var arr = document.getElementsByClassName('card-widget');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__zoomIn');
+    arr[i].setAttribute('data-wow-duration', '');
+    arr[i].setAttribute('data-wow-delay', '');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script></div><script defer="defer" src="https://cdn.jsdelivr.net/gh/graingert/wow@1.3.0/dist/wow.min.js"></script><script defer="defer" src="https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/js/wow_init.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><!-- hexo injector body_end start -->
+    <script data-pjax>
+    if (document.getElementById('catalog_magnet')) {
+      document.getElementById('catalog_magnet').innerHTML = '<div class="magnet_item"><a class="magnet_link" href="https://blog.eurkon.com/categories/💬生活随记/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">💬 Eurkonの生活随记 (1)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="https://blog.eurkon.com/categories/📖教程笔记/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">📖 Eurkonの教程笔记 (33)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="https://blog.eurkon.com/categories/🖥️作品案例/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">🖥️ Eurkonの作品案例 (1)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item" style="visibility: hidden"></div><a class="magnet_link_more"  href="https://blog.eurkon.com/categories" style="flex:1;text-align: center;margin-bottom: 10px;">查看更多...</a>'
+    }
+    </script>
+    </script><style>#catalog_magnet{flex-wrap: wrap;display: flex;width:100%;justify-content:space-between;padding: 10px 10px 0 10px;align-content: flex-start;}.magnet_item{flex-basis: calc(50% - 5px);background: var(--card-bg);margin-bottom: 10px;border-radius: 8px;transition: all 0.2s ease-in-out;}.magnet_item:hover{background: var(--btn-bg)}.magnet_link_more{color:#555}.magnet_link{color:var(--font-color)}.magnet_link:hover{color: #fff}@media screen and (max-width: 600px) {.magnet_item {flex-basis: 100%;}}.magnet_link_context{display:flex;padding: 10px;font-size:16px;transition: all 0.2s ease-in-out;}.magnet_link_context:hover{padding: 10px 20px;}</style>
+      <script data-pjax>
+        if(document.getElementById('swiper_container')){
+          document.getElementById('swiper_container').innerHTML = '<div class="blog-slider__wrp swiper-wrapper" style="transition-duration: 0ms"><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms"><div class="blog-slider__img"><img src="/images/cover/bigdata_list.jpg" alt="/images/cover/bigdata_list.jpg"/></div><div class="blog-slider__content"><span class="blog-slider__code">2021-01-07</span><a class="blog-slider__title" href="post/fc3d946f.html">大数据精选清单</a><div class="blog-slider__text">有关大数据资料的精选清单</div><a class="blog-slider__button" href="post/fc3d946f.html">详情</a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms"><div class="blog-slider__img"><img src="/images/cover/bigdata_interview.png" alt="/images/cover/bigdata_interview.png"/></div><div class="blog-slider__content"><span class="blog-slider__code">2021-03-25</span><a class="blog-slider__title" href="post/7e24cf66.html">大数据面试题解析</a><div class="blog-slider__text">大数据面试题解析</div><a class="blog-slider__button" href="post/7e24cf66.html">详情</a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms"><div class="blog-slider__img"><img src="/images/cover/java_interview.jpg" alt="/images/cover/java_interview.jpg"/></div><div class="blog-slider__content"><span class="blog-slider__code">2021-03-15</span><a class="blog-slider__title" href="post/d2aef718.html">Java 面试题解析</a><div class="blog-slider__text">Java 面试题解析</div><a class="blog-slider__button" href="post/d2aef718.html">详情</a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms"><div class="blog-slider__img"><img src="/images/cover/markdown_grammar.jpg" alt="/images/cover/markdown_grammar.jpg"/></div><div class="blog-slider__content"><span class="blog-slider__code">2021-01-03</span><a class="blog-slider__title" href="post/c894e39a.html">Markdown 基本语法</a><div class="blog-slider__text">Markdown 基本语法</div><a class="blog-slider__button" href="post/c894e39a.html">详情</a></div></div></div><div class="blog-slider__pagination swiper-pagination-clickable swiper-pagination-bullets"></div>'
+        }
+        </script>
+      <script data-pjax src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.1.6/js/swiper.min.js"></script>
+      <script data-pjax>
+        var swiper = new Swiper('.blog-slider', {
+          passiveListeners: true,
+          spaceBetween: 30,
+          effect: 'fade',
+          loop: true,
+          autoplay: {
+            disableOnInteraction: true,
+            delay: 3000
+          },
+          observer: true,//修改swiper自己或子元素时，自动初始化swiper
+          observeParents: true,//修改swiper的父元素时，自动初始化swiper
+          mousewheel: false,
+          // autoHeight: true,
+          pagination: {
+            el: '.blog-slider__pagination',
+            clickable: true,
+          }
+        });
+        
+        if (document.getElementById('swiper_container')) {
+          var comtainer = document.getElementById('swiper_container');
+          comtainer.onmouseenter = function () {
+            swiper.autoplay.stop();
+          };
+          comtainer.onmouseleave = function () {
+            swiper.autoplay.start();
+          }
+        }
+      </script><!-- hexo injector body_end end --><script async>window.onload=function(){var a=document.createElement('script'),b=document.getElementsByTagName('script')[0];a.type='text/javascript',a.async=!0,a.src='/sw-register.js?v='+Date.now(),b.parentNode.insertBefore(a,b)};</script></body></html>
