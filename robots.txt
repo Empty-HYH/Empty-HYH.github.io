@@ -16,10 +16,12 @@ Allow: /post/
 Allow: /random/
 Allow: /stars/
 Allow: /tags/
-Disallow: /js/
-Disallow: /css/
-Disallow: /json/
+
 Disallow: /assets/
+Disallow: /css/
+Disallow: /fonts/
+Disallow: /js/
+Disallow: /json/
 Disallow: /img/
 Disallow: /images/
 
