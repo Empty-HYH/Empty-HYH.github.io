@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.eurkon.com/post/1213ef82.html</loc>
+    
+    <lastmod>2021-04-01</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.eurkon.com/post/ef1da941.html</loc>
     
     <lastmod>2021-04-01</lastmod>
@@ -16,7 +23,7 @@
   </url>
   
   <url>
-    <loc>https://blog.eurkon.com/post/1213ef82.html</loc>
+    <loc>https://blog.eurkon.com/charts/index.html</loc>
     
     <lastmod>2021-04-01</lastmod>
     
@@ -24,13 +31,6 @@
   
   <url>
     <loc>https://blog.eurkon.com/post/a1751c09.html</loc>
-    
-    <lastmod>2021-03-31</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.eurkon.com/charts/index.html</loc>
     
     <lastmod>2021-03-31</lastmod>
     
