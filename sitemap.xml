@@ -494,13 +494,6 @@
   </url>
   
   <url>
-    <loc>https://blog.eurkon.com/tags/%F0%9F%92%AC%E7%94%9F%E6%B4%BB%E9%9A%8F%E8%AE%B0/</loc>
-    <lastmod>2021-04-06</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.eurkon.com/tags/%F0%9F%91%A8%E2%80%8D%F0%9F%92%BB%E5%A4%A7%E6%95%B0%E6%8D%AE/</loc>
     <lastmod>2021-04-06</lastmod>
     <changefreq>daily</changefreq>
@@ -529,14 +522,14 @@
   </url>
   
   <url>
-    <loc>https://blog.eurkon.com/tags/%F0%9F%93%91%E6%96%87%E6%A1%A3/</loc>
+    <loc>https://blog.eurkon.com/tags/%F0%9F%90%98Hadoop/</loc>
     <lastmod>2021-04-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://blog.eurkon.com/tags/%F0%9F%90%98Hadoop/</loc>
+    <loc>https://blog.eurkon.com/tags/%F0%9F%93%91%E6%96%87%E6%A1%A3/</loc>
     <lastmod>2021-04-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -592,6 +585,13 @@
   </url>
   
   <url>
+    <loc>https://blog.eurkon.com/tags/%F0%9F%92%AC%E7%94%9F%E6%B4%BB%E9%9A%8F%E8%AE%B0/</loc>
+    <lastmod>2021-04-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.eurkon.com/tags/%F0%9F%92%A0git/</loc>
     <lastmod>2021-04-06</lastmod>
     <changefreq>daily</changefreq>
@@ -636,14 +636,14 @@
   </url>
   
   <url>
-    <loc>https://blog.eurkon.com/categories/%F0%9F%92%AC%E7%94%9F%E6%B4%BB%E9%9A%8F%E8%AE%B0/</loc>
+    <loc>https://blog.eurkon.com/categories/%F0%9F%93%96%E6%95%99%E7%A8%8B%E7%AC%94%E8%AE%B0/</loc>
     <lastmod>2021-04-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://blog.eurkon.com/categories/%F0%9F%93%96%E6%95%99%E7%A8%8B%E7%AC%94%E8%AE%B0/</loc>
+    <loc>https://blog.eurkon.com/categories/%F0%9F%92%AC%E7%94%9F%E6%B4%BB%E9%9A%8F%E8%AE%B0/</loc>
     <lastmod>2021-04-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
