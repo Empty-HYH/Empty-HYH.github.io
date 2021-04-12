@@ -1297,7 +1297,7 @@ canvas:not(#ribbon-canvas),
   }
 }
 :root {
-  --global-font-size: 14px;
+  --global-font-size: 15px;
   --global-bg: #fff;
   --font-color: #4c4948;
   --hr-border: #a4d8fa;
@@ -4429,7 +4429,7 @@ _:future,
   text-decoration: none;
 }
 #post .post-copyright__title {
-  font-size: 1.57em;
+  font-size: 1.5em;
 }
 #post .post-copyright-m-info .post-copyright-a,
 #post .post-copyright-m-info .post-copyright-p,
@@ -5586,7 +5586,7 @@ details {
   margin: 1em 0;
   border-radius: 4px;
   background: #fff;
-  font-size: 14px;
+  font-size: 15px;
   -webkit-transition: all 0.28s ease;
   -moz-transition: all 0.28s ease;
   -o-transition: all 0.28s ease;
@@ -6843,7 +6843,7 @@ p.p.right {
 }
 span.p.small,
 p.p.small {
-  font-size: 14px;
+  font-size: 15px;
 }
 span.p.large,
 p.p.large {
