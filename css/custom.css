@@ -460,13 +460,24 @@ b, strong {
 
 ::-webkit-scrollbar-track {
 	border-radius: 2em;
-	background-color: var(--card-bg);
+	background-color: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
 	border-radius: 1em;
 	background-color: var(--btn-bg);
 	background-image: -webkit-linear-gradient(45deg,rgba(255,255,255,.4) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.4) 50%,rgba(255,255,255,.4) 75%,transparent 75%,transparent);
+}
+
+::-webkit-scrollbar-thumb:hover{
+	opacity: 1;
+	display: block !important;
+	background-color: var(--btn-hover-color);
+	background-image: none;
+}
+
+html {
+	overflow-y: overlay;
 }
 
 /* 首页头图透明 */
