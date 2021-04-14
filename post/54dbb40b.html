@@ -1,0 +1,1134 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MySQL 面试题解析 | Eurkon</title><meta name="keywords" content="👨‍💻大数据,🐬MySQL"><meta name="author" content="Eurkon,eurkon@foxmail.com"><meta name="copyright" content="Eurkon"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="CHAR、VARCHAR 的区别是什么？  CHAR 的特点 CHAR 表示定长字符串，长度是固定的； 如果插入数据的长度小于 CHAR 的固定长度时，则用空格填充； 因为长度固定，所以存取速度要比 VARCHAR 快很多，甚至能快 50%，但正因为其长度固定，所以会占据多余的空间，是空间换时间的做法； 对于 CHAR 来说，最多能存放的字符个数为 255，和编码无关。   VARCHAR 的特">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MySQL 面试题解析">
+<meta property="og:url" content="https://blog.eurkon.com/post/54dbb40b.html">
+<meta property="og:site_name" content="Eurkon">
+<meta property="og:description" content="CHAR、VARCHAR 的区别是什么？  CHAR 的特点 CHAR 表示定长字符串，长度是固定的； 如果插入数据的长度小于 CHAR 的固定长度时，则用空格填充； 因为长度固定，所以存取速度要比 VARCHAR 快很多，甚至能快 50%，但正因为其长度固定，所以会占据多余的空间，是空间换时间的做法； 对于 CHAR 来说，最多能存放的字符个数为 255，和编码无关。   VARCHAR 的特">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://blog.eurkon.com/images/cover/bigdata_interview.png">
+<meta property="article:published_time" content="2021-04-14T01:00:00.000Z">
+<meta property="article:modified_time" content="2021-04-14T05:59:43.256Z">
+<meta property="article:author" content="Eurkon">
+<meta property="article:tag" content="👨‍💻大数据">
+<meta property="article:tag" content="🐬MySQL">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.eurkon.com/images/cover/bigdata_interview.png"><link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/favicon.png"><link rel="canonical" href="https://blog.eurkon.com/post/54dbb40b"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="google-site-verification" content="rClKrjtCYPsDaynvUNmfe2YGPxb7ehnuwEF9aMdG7no"/><meta name="msvalidate.01" content="F299EA4E7AD0E2B28FDF4E0EA94879BA"/><meta name="baidu-site-verification" content="code-GmAI2TORJk"/><meta name="360-site-verification" content="ac410c1012e6f0acc65b5c0805c91f01"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?ca4902422e728abe0603d52ce2e7757a";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":1,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"prismjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":250},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: Eurkon","link":"链接: ","source":"来源: Eurkon","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#121212","position":"top-center"},
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isanchor: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-04-14 13:59:43'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const fontSizeVal = saveToLocal.get('global-font-size')
+    if (fontSizeVal !== undefined) {
+      document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
+    }
+    })(window)</script><link rel="stylesheet" href="/css/custom.css" media="defer" onload="this.media='all'"><script data-pjax src="https://cdn.jsdelivr.net/npm/echarts@4.7.0/dist/echarts.min.js"></script><script data-pjax src="https://cdn.jsdelivr.net/npm/echarts@4.7.0/map/js/china.js"></script><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.1.6/css/swiper.min.css"><style>@import url("https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600,700,800");*{box-sizing:border-box}.blog-slider{width:100%;position:relative;border-radius:12px 8px 8px 12px;margin:auto;background:var(--global-bg) padding:10px;transition:all .3s}@media screen and (max-width:768px){.blog-slider{min-height:350px;height:auto;margin-top:110px;margin-bottom:10px}}@media screen and (max-height:500px) and (min-width:992px){.blog-slider{height:350px}}.blog-slider__item{display:flex;align-items:center}@media screen and (max-width:768px){.blog-slider__item{flex-direction:column}}.blog-slider__item.swiper-slide-active .blog-slider__img img{opacity:1;transition-delay:.3s}.blog-slider__item.swiper-slide-active .blog-slider__content>*{opacity:1;transform:none}.blog-slider__item.swiper-slide-active .blog-slider__content>*:nth-child(1){transition-delay:.3s}.blog-slider__item.swiper-slide-active .blog-slider__content>*:nth-child(2){transition-delay:.4s}.blog-slider__item.swiper-slide-active .blog-slider__content>*:nth-child(3){transition-delay:.5s}.blog-slider__item.swiper-slide-active .blog-slider__content>*:nth-child(4){transition-delay:.6s}.blog-slider__item.swiper-slide-active .blog-slider__content>*:nth-child(5){transition-delay:.7s}.blog-slider__item.swiper-slide-active .blog-slider__content>*:nth-child(6){transition-delay:.8s}.blog-slider__item.swiper-slide-active .blog-slider__content>*:nth-child(7){transition-delay:.9s}.blog-slider__item.swiper-slide-active .blog-slider__content>*:nth-child(8){transition-delay:1s}.blog-slider__item.swiper-slide-active .blog-slider__content>*:nth-child(9){transition-delay:1.1s}.blog-slider__item.swiper-slide-active .blog-slider__content>*:nth-child(10){transition-delay:1.2s}.blog-slider__item.swiper-slide-active .blog-slider__content>*:nth-child(11){transition-delay:1.3s}.blog-slider__item.swiper-slide-active .blog-slider__content>*:nth-child(12){transition-delay:1.4s}.blog-slider__item.swiper-slide-active .blog-slider__content>*:nth-child(13){transition-delay:1.5s}.blog-slider__item.swiper-slide-active .blog-slider__content>*:nth-child(14){transition-delay:1.6s}.blog-slider__item.swiper-slide-active .blog-slider__content>*:nth-child(15){transition-delay:1.7s}.blog-slider__img{width:200px;flex-shrink:0;height:200px;padding:10px;border-radius:5px;transform:translateX(0px);overflow:hidden}.blog-slider__img:after{content:'';position:absolute;top:0;left:0;width:100%;height:100%;border-radius:5px;opacity:.8}.blog-slider__img img{width:100%;height:100%;object-fit:cover;display:block;opacity:0;border-radius:5px;transition:all .3s}@media screen and (max-width:768px){.blog-slider__img{transform:translateY(-50%);width:90%}}@media screen and (max-width:576px){.blog-slider__img{width:95%}}@media screen and (max-height:500px) and (min-width:992px){.blog-slider__img{height:270px}}.blog-slider__content{padding-right:50px;padding-left:50px}@media screen and (max-width:768px){.blog-slider__content{margin-top:-80px;text-align:center;padding:0 30px}}@media screen and (max-width:576px){.blog-slider__content{padding-left:10px;padding-right:10px}}.blog-slider__content>*{opacity:0;transform:translateY(25px);transition:all .4s}.blog-slider__code{color:var(--font-color);margin-bottom:0;display:block;font-weight:500}.blog-slider__title{font-size:18px;font-weight:700;color:var(--font-color);margin-bottom:15px;-webkit-line-clamp:1;display:-webkit-box;overflow:hidden;-webkit-box-orient:vertical}.blog-slider__text{color:var(--font-color);-webkit-line-clamp:1;display:-webkit-box;overflow:hidden;-webkit-box-orient:vertical;margin-bottom:15px;line-height:1.5em}.blog-slider__button{display:inline-flex;background-color:var(--btn-bg);padding:4px 14px;border-radius:8px;color:var(--btn-color);text-decoration:none;font-weight:500;justify-content:center;text-align:center;letter-spacing:1px}.blog-slider__button:hover{background-color:var(--btn-hover-color);color:var(--btn-color)}@media screen and (max-width:576px){.blog-slider__button{width:100%;width:100%}}.blog-slider .swiper-container-horizontal>.swiper-pagination-bullets,.blog-slider .swiper-pagination-custom,.blog-slider .swiper-pagination-fraction{bottom:10px;left:0;width:100%}.blog-slider__pagination{position:absolute;z-index:21;right:20px;width:11px!important;text-align:center;left:auto!important;top:50%;bottom:auto!important;transform:translateY(-50%)}@media screen and (max-width:768px){.blog-slider__pagination{transform:translateX(-50%);left:50%!important;top:320px;width:100%!important;display:flex;justify-content:center;align-items:center}}.blog-slider__pagination.swiper-pagination-bullets .swiper-pagination-bullet{margin:8px 0 !important}@media screen and (max-width:768px){.blog-slider__pagination.swiper-pagination-bullets .swiper-pagination-bullet{margin:0 5px}}.blog-slider__pagination .swiper-pagination-bullet{width:11px;height:11px;display:block;border-radius:10px;background:#858585;opacity:.2;transition:all .3s}.blog-slider__pagination .swiper-pagination-bullet-active{opacity:1;background:var(--btn-bg);height:30px} @media screen and (max-width:768px){.blog-slider__pagination .swiper-pagination-bullet-active{height:11px;width:30px}}.blog-slider__button{display:none}@media screen and (max-width:768px){.blog-slider__button{display:inline-flex}.blog-slider__text{margin-bottom:40px}}</style><!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.3.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" data-lazy-src="https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">42</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">21</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-book-open"></i><span> 文章</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-link"></i><span> 链接</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-address-card"></i><span> 友链</span></a></li><li><a class="site-page child" href="/stars/"><i class="fa-fw fas fa-star"></i><span> 收藏</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 娱乐</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/books/"><i class="fa-fw fas fa-book"></i><span> 书籍</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/images/"><i class="fa-fw fas fa-images"></i><span> 图库</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li><li><a class="site-page child" href="/games/"><i class="fa-fw fas fa-gamepad"></i><span> 游戏</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-bug"></i><span> 实验室</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/fcircle/"><i class="fa-fw fas fa-heartbeat"></i><span> 朋友圈</span></a></li><li><a class="site-page child" href="/census/"><i class="fa-fw fas fa-chart-line"></i><span> 博客统计</span></a></li><li><a class="site-page child" href="/charts/"><i class="fa-fw fas fa-chart-bar"></i><span> 文章统计</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/random/"><i class="fa-fw fas fa-random"></i><span> 随便看看</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-info-circle"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/images/cover/bigdata_interview.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Eurkon</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-book-open"></i><span> 文章</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-link"></i><span> 链接</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-address-card"></i><span> 友链</span></a></li><li><a class="site-page child" href="/stars/"><i class="fa-fw fas fa-star"></i><span> 收藏</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 娱乐</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/books/"><i class="fa-fw fas fa-book"></i><span> 书籍</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/images/"><i class="fa-fw fas fa-images"></i><span> 图库</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li><li><a class="site-page child" href="/games/"><i class="fa-fw fas fa-gamepad"></i><span> 游戏</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-bug"></i><span> 实验室</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/fcircle/"><i class="fa-fw fas fa-heartbeat"></i><span> 朋友圈</span></a></li><li><a class="site-page child" href="/census/"><i class="fa-fw fas fa-chart-line"></i><span> 博客统计</span></a></li><li><a class="site-page child" href="/charts/"><i class="fa-fw fas fa-chart-bar"></i><span> 文章统计</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/random/"><i class="fa-fw fas fa-random"></i><span> 随便看看</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-info-circle"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">MySQL 面试题解析</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-04-14T01:00:00.000Z" title="发表于 2021-04-14 09:00:00">2021-04-14</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-04-14T05:59:43.256Z" title="更新于 2021-04-14 13:59:43">2021-04-14</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%F0%9F%93%96%E6%95%99%E7%A8%8B%E7%AC%94%E8%AE%B0/">📖教程笔记</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">8,549</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>32分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="MySQL 面试题解析"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span><span class="post-meta-separator">|</span><span class="post-meta-commentcount"><i class="far fa-comments fa-fw post-meta-icon"></i><span class="post-meta-label">评论数:</span><a href="/post/54dbb40b.html#post-comment"><span id="twikoo-count"></span></a></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><blockquote>
+<h3 id="CHAR、VARCHAR-的区别是什么？"><a href="#CHAR、VARCHAR-的区别是什么？" class="headerlink" title="CHAR、VARCHAR 的区别是什么？"></a>CHAR、VARCHAR 的区别是什么？</h3></blockquote>
+<ul>
+<li>CHAR 的特点<ul>
+<li>CHAR 表示定长字符串，长度是固定的；</li>
+<li>如果插入数据的长度小于 CHAR 的固定长度时，则用空格填充；</li>
+<li>因为长度固定，所以存取速度要比 VARCHAR 快很多，甚至能快 50%，但正因为其长度固定，所以会占据多余的空间，是空间换时间的做法；</li>
+<li>对于 CHAR 来说，最多能存放的字符个数为 255，和编码无关。</li>
+</ul>
+</li>
+<li>VARCHAR 的特点<ul>
+<li>VARCHAR 表示可变长字符串，长度是可变的；</li>
+<li>插入的数据是多长，就按照多长来存储；</li>
+<li>VARCHAR 在存取方面与 CHAR 相反，它存取慢，因为长度不固定，但正因如此，不占据多余的空间，是时间换空间的做法；</li>
+<li>对于 VARCHAR 来说，最多能存放的字符个数为 65532。</li>
+</ul>
+</li>
+</ul>
+<p>总之，结合性能角度（CHAR 更快）和节省磁盘空间角度（VARCHAR 更小），具体情况还需具体来设计数据库才是妥当的做法。</p>
+<blockquote>
+<h3 id="DELETE、TRUNCATE-与-DROP-的区别是什么？"><a href="#DELETE、TRUNCATE-与-DROP-的区别是什么？" class="headerlink" title="DELETE、TRUNCATE 与 DROP 的区别是什么？"></a>DELETE、TRUNCATE 与 DROP 的区别是什么？</h3></blockquote>
+<ul>
+<li>DELETE 命令从一个表中删除某一行，或多行；</li>
+<li>TRUNCATE 命令永久地从表中删除每一行。</li>
+<li>DROP 命令是删除表和表中所有数据；</li>
+</ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>&nbsp;</th>
+<th>DELETE</th>
+<th>TRUNCATE</th>
+<th>DROP</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>类型</td>
+<td>属于 DML</td>
+<td>属于 DDL</td>
+<td>属于 DDL</td>
+</tr>
+<tr>
+<td>回滚</td>
+<td>可回滚</td>
+<td>不可回滚</td>
+<td>不可回滚</td>
+</tr>
+<tr>
+<td>删除内容</td>
+<td>表结构还在，删除表的全部或者一部分数据</td>
+<td>表结构还在，删除表中的所有数据</td>
+<td>从数据库中删除表、所有的数据行、索引和权限也会被删除</td>
+</tr>
+<tr>
+<td>删除速度</td>
+<td>删除速度慢，需要逐行删除</td>
+<td>删除速度快</td>
+<td>删除速度最快</td>
+</tr>
+</tbody>
+</table>
+</div>
+<blockquote>
+<h3 id="什么是触发器，MySQL-中都有哪些触发器？"><a href="#什么是触发器，MySQL-中都有哪些触发器？" class="headerlink" title="什么是触发器，MySQL 中都有哪些触发器？"></a>什么是触发器，MySQL 中都有哪些触发器？</h3></blockquote>
+<p>触发器是用户定义在关系表上的一类由事件驱动的特殊的存储过程。触发器是指一段代码，当触发某个事件时，自动执行这些代码。</p>
+<p><strong>使用场景</strong></p>
+<ul>
+<li>可以通过数据库中的相关表实现级联更改。</li>
+<li>实时监控某张表中的某个字段的更改而需要做出相应的处理。</li>
+<li>例如可以生成某些业务的编号。</li>
+<li>注意不要滥用，否则会造成数据库及应用程序的维护困难。</li>
+</ul>
+<p><strong>在 MySQL 数据库中有如下六种触发器：</strong></p>
+<ul>
+<li>Before Insert</li>
+<li>After Insert</li>
+<li>Before Update</li>
+<li>After Update</li>
+<li>Before Delete</li>
+<li>After Delete</li>
+</ul>
+<blockquote>
+<h3 id="FLOAT-和-DOUBLE-的区别是什么？"><a href="#FLOAT-和-DOUBLE-的区别是什么？" class="headerlink" title="FLOAT 和 DOUBLE 的区别是什么？"></a>FLOAT 和 DOUBLE 的区别是什么？</h3></blockquote>
+<ul>
+<li>FLOAT 类型数据可以存储至多 8 位十进制数，并在内存中占 4 字节。</li>
+<li>DOUBLE 类型数据可以存储至多 18 位十进制数，并在内存中占 8 字节。</li>
+</ul>
+<blockquote>
+<h3 id="如何在-MySQL-中获取当前日期？"><a href="#如何在-MySQL-中获取当前日期？" class="headerlink" title="如何在 MySQL 中获取当前日期？"></a>如何在 MySQL 中获取当前日期？</h3></blockquote>
+<p><code>SELECT CURRENT_DATE();</code></p>
+<blockquote>
+<h3 id="如何查询第-n-高的工资？"><a href="#如何查询第-n-高的工资？" class="headerlink" title="如何查询第 n 高的工资？"></a>如何查询第 n 高的工资？</h3></blockquote>
+<p><code>SELECT DISTINCT(salary) FROM employee ORDER BY salary DESC LIMIT n-1, 1</code></p>
+<blockquote>
+<h3 id="请写出下面-MySQL-数据类型表达的意义（INT-0-、CHAR-16-、VARCHAR-16-、DATETIME、TEXT）"><a href="#请写出下面-MySQL-数据类型表达的意义（INT-0-、CHAR-16-、VARCHAR-16-、DATETIME、TEXT）" class="headerlink" title="请写出下面 MySQL 数据类型表达的意义（INT(0)、CHAR(16)、VARCHAR(16)、DATETIME、TEXT）"></a>请写出下面 MySQL 数据类型表达的意义（INT(0)、CHAR(16)、VARCHAR(16)、DATETIME、TEXT）</h3></blockquote>
+<p><strong>知识点分析</strong></p>
+<p>此题考察的是 MySQL 数据类型。MySQL 数据类型属于 MySQL 数据库基础，由此延伸出的知识点还包括如下内容：</p>
+<ul>
+<li>MySQL基础操作</li>
+<li>MySQL存储引擎</li>
+<li>MySQL锁机制</li>
+<li>MySQL事务处理、存储过程、触发器</li>
+</ul>
+<p><strong>数据类型考点：</strong></p>
+<ol>
+<li><p>整数类型，包括 TINYINT、SMALLINT、MEDIUMINT、INT、BIGINT，分别表示 1 字节、2 字节、3 字节、4 字节、8 字节整数。任何整数类型都可以加上 <code>UNSIGNED</code> 属性，表示数据是无符号的，即非负整数。</p>
+<p> 长度：整数类型可以被指定长度，例如：INT(11) 表示长度为 11 的 INT 类型。长度在大多数场景是没有意义的，它不会限制值的合法范围，只会影响显示字符的个数，而且需要和<code>UNSIGNED ZEROFILL</code> 属性配合使用才有意义。</p>
+<p> 例子，假定类型设定为 INT(5)，属性为 <code>UNSIGNED ZEROFILL</code>，如果用户插入的数据为 12 的话，那么数据库实际存储数据为 00012。</p>
+</li>
+<li><p>实数类型，包括 FLOAT、DOUBLE、DECIMAL。</p>
+<p> DECIMAL 可以用于存储比 BIGINT 还大的整型，能存储精确的小数。</p>
+<p> 而 FLOAT 和 DOUBLE 是有取值范围的，并支持使用标准的浮点进行近似计算。</p>
+<p> 计算时 FLOAT 和 DOUBLE 相比 DECIMAL 效率更高一些，DECIMAL 你可以理解成是用字符串进行处理。</p>
+</li>
+<li><p>字符串类型，包括 VARCHAR、CHAR、TEXT、BLOB。</p>
+<p> VARCHAR 用于存储可变长字符串，它比定长类型更节省空间。</p>
+<p> VARCHAR 使用额外 1 或 2 个字节存储字符串长度。列长度小于 255 字节时，使用 1 字节表示，否则使用 2 字节表示。</p>
+<p> VARCHAR 存储的内容超出设置的长度时，内容会被截断。</p>
+<p> CHAR 是定长的，根据定义的字符串长度分配足够的空间。</p>
+<p> CHAR 会根据需要使用空格进行填充方便比较。</p>
+<p> CHAR 适合存储很短的字符串，或者所有值都接近同一个长度。</p>
+<p> CHAR 存储的内容超出设置的长度时，内容同样会被截断。</p>
+<p> <strong>使用策略：</strong></p>
+<p> 对于经常变更的数据来说，CHAR 比 VARCHAR 更好，因为 CHAR 不容易产生碎片。
+ 对于非常短的列，CHAR 比 VARCHAR 在存储空间上更有效率。
+ 使用时要注意只分配需要的空间，更长的列排序时会消耗更多内存。
+ 尽量避免使用 TEXT/BLOB 类型，查询时会使用临时表，导致严重的性能开销。</p>
+</li>
+<li><p>枚举类型（ENUM），把不重复的数据存储为一个预定义的集合。</p>
+<p> 有时可以使用 ENUM 代替常用的字符串类型。
+ ENUM 存储非常紧凑，会把列表值压缩到一个或两个字节。
+ ENUM 在内部存储时，其实存的是整数。
+ 尽量避免使用数字作为 ENUM 枚举的常量，因为容易混乱。
+ 排序是按照内部存储的整数</p>
+</li>
+<li><p>日期和时间类型，尽量使用 TIMESTAMP，空间效率高于 DATETIME，</p>
+<p> 用整数保存时间戳通常不方便处理。</p>
+<p> 如果需要存储微秒，可以使用 BIGINT 存储。</p>
+</li>
+</ol>
+<p>看到这里，这道真题是不是就比较容易回答了。</p>
+<p>答：INT(0) 表示数据是 INT 类型，长度是 0；CHAR(16) 表示固定长度字符串，长度为 16；VARCHAR(16) 表示可变长度字符串，长度为 16；DATETIME 表示时间类型；TEXT 表示字符串类型，能存储大字符串，最多存储 65535 字节数据。</p>
+<blockquote>
+<h3 id="MySQL-基础操作"><a href="#MySQL-基础操作" class="headerlink" title="MySQL 基础操作"></a>MySQL 基础操作</h3></blockquote>
+<p>MySQL 的连接和关闭：<code>mysql -u -p -h -P</code></p>
+<ul>
+<li>-u：指定用户名</li>
+<li>-p：指定密码</li>
+<li>-h：主机</li>
+<li>-P：端口</li>
+</ul>
+<p>进入 MySQL 命令行后：<code>G</code>、<code>c</code>、<code>q</code>、<code>s</code>、<code>h</code>、<code>d</code></p>
+<ul>
+<li>G：打印结果垂直显示</li>
+<li>c：取消当前MySQL命令</li>
+<li>q：退出MySQL连接</li>
+<li>s：显示服务器状态</li>
+<li>h：帮助信息</li>
+<li>d：改变执行符</li>
+</ul>
+<blockquote>
+<h3 id="MySQL-存储引擎"><a href="#MySQL-存储引擎" class="headerlink" title="MySQL 存储引擎"></a>MySQL 存储引擎</h3></blockquote>
+<ul>
+<li><p>InnoDB 存储引擎：</p>
+<ul>
+<li>默认事务型引擎，最重要最广泛的存储引擎，性能非常优秀。</li>
+<li>数据存储在共享表空间，可以通过配置分开。也就是多个表和索引都存储在一个表空间中，可以通过配置文件改变此配置。</li>
+<li>对主键查询的性能高于其他类型的存储引擎。</li>
+<li>内部做了很多优化，从磁盘读取数据时会自动构建 hash 索引，插入数据时自动构建插入缓冲区。</li>
+<li>通过一些机制和工具支持真正的热备份。</li>
+<li>支持崩溃后的安全恢复。</li>
+<li>支持行级锁。</li>
+<li>支持外键。</li>
+</ul>
+</li>
+<li><p>MyISAM 存储引擎：</p>
+<ul>
+<li>拥有全文索引、压缩、空间函数。</li>
+<li>不支持事务和行级锁、不支持崩溃后的安全恢复。</li>
+<li>表存储在两个文件，MYD 和 MYI。</li>
+<li>设计简单，某些场景下性能很好，例如获取整个表有多少条数据，性能很高。</li>
+<li>全文索引不是很常用，不如使用外部的 ElasticSearch 或 Lucene。</li>
+</ul>
+</li>
+<li><p>其他表引擎：</p>
+<ul>
+<li>Archive、Blackhole、CSV、Memory</li>
+</ul>
+</li>
+</ul>
+<p><strong>使用策略：</strong>在大多数场景下建议使用 InnoDB 存储引擎。</p>
+<blockquote>
+<h3 id="MySQL-锁机制"><a href="#MySQL-锁机制" class="headerlink" title="MySQL 锁机制"></a>MySQL 锁机制</h3></blockquote>
+<p>表锁是日常开发中的常见问题，因此也是面试当中最常见的考察点，当多个查询同一时刻进行数据修改时，就会产生并发控制的问题。共享锁和排他锁，就是读锁和写锁。</p>
+<ul>
+<li>共享锁，不堵塞，多个用户可以同时读一个资源，互不干扰。</li>
+<li>排他锁，一个写锁会阻塞其他的读锁和写锁，这样可以只允许一个用户进行写入，防止其他用户读取正在写入的资源。</li>
+</ul>
+<p><strong>锁的粒度</strong></p>
+<ul>
+<li>表锁，系统开销最小，会锁定整张表，MyISAM 使用表锁。</li>
+<li>行锁，最大程度的支持并发处理，但是也带来了最大的锁开销，InnoDB 使用行锁。</li>
+</ul>
+<blockquote>
+<h3 id="MySQL-事务处理"><a href="#MySQL-事务处理" class="headerlink" title="MySQL 事务处理"></a>MySQL 事务处理</h3></blockquote>
+<ul>
+<li>MySQL 提供事务处理的表引擎，也就是 InnoDB。</li>
+<li>服务器层不管理事务，由下层的引擎实现，所以同一个事务中，使用多种引擎是不靠谱的。</li>
+<li>需要注意，在非事务表上执行事务操作，MySQL 不会发出提醒，也不会报错。</li>
+</ul>
+<blockquote>
+<h3 id="MySQL-存储过程"><a href="#MySQL-存储过程" class="headerlink" title="MySQL 存储过程"></a>MySQL 存储过程</h3></blockquote>
+<ul>
+<li>为以后的使用保存的一条或多条 MySQL 语句的集合，因此也可以在存储过程中加入业务逻辑和流程。</li>
+<li>可以在存储过程中创建表，更新数据，删除数据等等。</li>
+</ul>
+<p><strong>使用策略</strong></p>
+<ul>
+<li>可以通过把 SQL 语句封装在容易使用的单元中，简化复杂的操作；</li>
+<li>可以保证数据的一致性；</li>
+<li>可以简化对变动的管理。</li>
+</ul>
+<blockquote>
+<h3 id="MySQL-触发器"><a href="#MySQL-触发器" class="headerlink" title="MySQL 触发器"></a>MySQL 触发器</h3></blockquote>
+<p>提供给程序员和数据分析员来保证数据完整性的一种方法，它是与表事件相关的特殊的存储过程。</p>
+<p><strong>使用场景</strong></p>
+<ul>
+<li>可以通过数据库中的相关表实现级联更改。</li>
+<li>实时监控某张表中的某个字段的更改而需要做出相应的处理。</li>
+<li>例如可以生成某些业务的编号。</li>
+<li>注意不要滥用，否则会造成数据库及应用程序的维护困难。</li>
+</ul>
+<blockquote>
+<h3 id="请说明-InnoDB-和-MyISAM-的区别"><a href="#请说明-InnoDB-和-MyISAM-的区别" class="headerlink" title="请说明 InnoDB 和 MyISAM 的区别"></a>请说明 InnoDB 和 MyISAM 的区别</h3></blockquote>
+<ul>
+<li>InnoDB 支持事务，MyISAM 不支持；</li>
+<li>InnoDB 数据存储在共享表空间，MyISAM 数据存储在文件中；</li>
+<li>InnoDB 支持行级锁，MyISAM 只支持表锁；</li>
+<li>InnoDB 支持崩溃后的恢复，MyISAM 不支持；</li>
+<li>InnoDB 支持外键，MyISAM 不支持；</li>
+<li>InnoDB 不支持全文索引，MyISAM 支持全文索引；</li>
+</ul>
+<blockquote>
+<h3 id="InnoDB-引擎的特性"><a href="#InnoDB-引擎的特性" class="headerlink" title="InnoDB 引擎的特性"></a>InnoDB 引擎的特性</h3></blockquote>
+<ul>
+<li>插入缓冲（insert buffer）</li>
+<li>二次写（double write）</li>
+<li>自适应哈希索引（ahi）</li>
+<li>预读（read ahead）</li>
+</ul>
+<blockquote>
+<h3 id="请说明-VARCHAR-和-TEXT-的区别"><a href="#请说明-VARCHAR-和-TEXT-的区别" class="headerlink" title="请说明 VARCHAR 和 TEXT 的区别"></a>请说明 VARCHAR 和 TEXT 的区别</h3></blockquote>
+<ul>
+<li>VARCHAR 可指定字符数，TEXT 不能指定，内部存储 VARCHAR 是存入的实际字符数 + 1 个字节（n&lt;=255）或 2 个字节(n&gt;255)，TEXT 是实际字符数 + 2 个字节。</li>
+<li>TEXT 类型不能有默认值。</li>
+<li>VARCHAR 可直接创建索引，TEXT 创建索引要指定前多少个字符。VARCHAR 查询速度快于 TEXT，在都创建索引的情况下，TEXT 的索引几乎不起作用。</li>
+<li>查询 TEXT 需要创建临时表。</li>
+</ul>
+<blockquote>
+<h3 id="VARCHAR-50-中-50-的含义"><a href="#VARCHAR-50-中-50-的含义" class="headerlink" title="VARCHAR(50) 中 50 的含义"></a>VARCHAR(50) 中 50 的含义</h3><p>最多存放 50 个字符，VARCHAR(50) 和 VARCHAR(200)存储 <code>hello</code> 所占空间一样，但后者在排序时会消耗更多内存，因为 <code>ORDER BY col</code> 采用 <code>fixed_length</code> 计算 <code>col</code> 长度（Memory 引擎也一样）。</p>
+<h3 id="INT-20-中-20-的含义"><a href="#INT-20-中-20-的含义" class="headerlink" title="INT(20) 中 20 的含义"></a>INT(20) 中 20 的含义</h3></blockquote>
+<p>是指显示字符的长度，不影响内部存储，只是当定义了 <code>ZEROFILL</code> 时，前面补多少个 0。</p>
+<blockquote>
+<h3 id="简单描述-MySQL-中，索引，主键，唯一索引，联合索引的区别，对数据库的性能有什么影响？"><a href="#简单描述-MySQL-中，索引，主键，唯一索引，联合索引的区别，对数据库的性能有什么影响？" class="headerlink" title="简单描述 MySQL 中，索引，主键，唯一索引，联合索引的区别，对数据库的性能有什么影响？"></a>简单描述 MySQL 中，索引，主键，唯一索引，联合索引的区别，对数据库的性能有什么影响？</h3></blockquote>
+<p><strong>知识点分析</strong></p>
+<p>此题主要考察的是 MySQL 索引的基础和类型，由此延伸出的知识点还包括如下内容：</p>
+<ul>
+<li>MySQL 索引的创建原则</li>
+<li>MySQL 索引的注意事项</li>
+<li>MySQL 索引的原理</li>
+</ul>
+<p><strong>索引的基础</strong></p>
+<ul>
+<li>索引类似于书籍的目录，要想找到一本数的某个特定主题，需要先查找书的目录，定位对应的页码。</li>
+<li>存储引擎使用类似的方式进行数据查询，先去索引当中找到对应的值，然后根据匹配的索引找到对应的数据行。</li>
+</ul>
+<p><strong>索引的使用场景</strong></p>
+<ul>
+<li>对于非常小的表，大部分情况下全表扫描效率更高。</li>
+<li>中到大型表，索引非常有效。</li>
+<li>特大型的表，建立和使用索引的代价会随之增大，可以使用分区技术来解决。</li>
+</ul>
+<p><strong>索引的类型</strong></p>
+<p>索引很多种类型，是在 MySQL 的存储引擎实现的。</p>
+<ul>
+<li>普通索引：最基本的索引，没有任何约束限制。</li>
+<li>唯一索引：和普通索引类似，但是具有唯一性约束。</li>
+<li>主键索引：特殊的唯一索引，不允许有空值。</li>
+</ul>
+<p><strong>索引的区别</strong></p>
+<ul>
+<li>一个表只能有一个主键索引，但是可以有多个唯一索引。</li>
+<li>主键索引一定是唯一索引，唯一索引不是主键索引。</li>
+<li>主键可以与外键构成参照完整性约束，防止数据不一致。</li>
+<li>联合索引：将多个列组合在一起创建索引，可以覆盖多个列。（也叫复合索引，组合索引）</li>
+<li>外键索引：只有 InnoDB 类型的表才可以使用外键索引，保证数据的一致性、完整性、和实现级联操作（基本不用）。</li>
+<li>全文索引：MySQL 自带的全文索引只能用于 MyISAM，并且只能对英文进行全文检索（基本不用）。</li>
+</ul>
+<p><strong>索引对性能的影响</strong></p>
+<ul>
+<li>大大减少服务器需要扫描的数据量。</li>
+<li>帮助服务器避免排序和临时表。</li>
+<li>将随机 I/O 变顺序 I/O。</li>
+<li>大大提高查询速度。</li>
+<li>降低写的速度（不良影响）。</li>
+<li>磁盘占用（不良影响）。</li>
+</ul>
+<p><strong>创建索引的语法</strong></p>
+<ol>
+<li>首先创建一个表：<code>CREATE TABLE t1 (id INT PRIMARY KEY, username VARCHAR(20), password VARCHAR(20));</code></li>
+<li>创建单个索引的语法：<code>CREATE INDEX 索引名 ON 表名(字段名)</code></li>
+<li>索引名一般是：<code>表名_字段名</code></li>
+<li>给 id 创建索引：<code>CREATE INDEX t1_id ON t1(id);</code></li>
+<li>创建联合索引的语法：<code>CREATE INDEX 索引名 ON 表名(字段名1，字段名2)</code></li>
+<li>给 username 和 password 创建联合索引：<code>CREATE INDEX t1_username_password ON t1(username, password)</code>，其中 INDEX 还可以替换成 UNIQUE，PRIMARY KEY，分别代表唯一索引和主键索引。</li>
+<li>删除索引：<code>DROP INDEX t1_username_password ON t1</code></li>
+</ol>
+<p><strong>MySQL 索引的创建原则</strong></p>
+<ul>
+<li>最适合创建索引的列是出现在 <code>WHERE</code> 或 <code>ON</code> 子句中的列，或连接子句中的列而不是出现在 <code>SELECT</code> 关键字后的列。</li>
+<li>索引列的基数越大，数据区分度越高，索引的效果越好。</li>
+<li>对于字符串进行索引，应该制定一个前缀长度，可以节省大量的索引空间。</li>
+<li>根据情况创建联合索引，联合索引可以提高查询效率。</li>
+<li>避免创建过多的索引，索引会额外占用磁盘空间，降低写操作效率。</li>
+<li>主键尽可能选择较短的数据类型，可以有效减少索引的磁盘占用提高查询效率。</li>
+</ul>
+<p><strong>MySQL 索引的注意事项</strong></p>
+<ul>
+<li>联合索引遵循前缀原则<p><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">KEY</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> c<span class="token punctuation">)</span>
+<span class="token keyword">WHERE</span> a <span class="token operator">=</span> <span class="token number">1</span> <span class="token operator">AND</span> b <span class="token operator">=</span> <span class="token number">2</span> <span class="token operator">AND</span> c <span class="token operator">=</span> <span class="token number">3</span>
+<span class="token keyword">WHERE</span> a <span class="token operator">=</span> <span class="token number">1</span> <span class="token operator">AND</span> b <span class="token operator">=</span> <span class="token number">2</span>
+<span class="token keyword">WHERE</span> a <span class="token operator">=</span> <span class="token number">1</span>
+<span class="token comment"># 以上SQL语句可以用到索引</span>
+<span class="token keyword">WHERE</span> b <span class="token operator">=</span> <span class="token number">2</span> <span class="token operator">AND</span> c <span class="token operator">=</span> <span class="token number">3</span>
+<span class="token keyword">WHERE</span> a <span class="token operator">=</span> <span class="token number">1</span> <span class="token operator">AND</span> c <span class="token operator">=</span> <span class="token number">3</span>
+<span class="token comment"># 以上SQL语句用不到索引</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></p>
+</li>
+<li>LIKE查询，<code>%</code> 不能在前<p><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">WHERE</span> name <span class="token operator">LIKE</span> <span class="token string">"%wang%"</span>
+<span class="token comment"># 以上语句用不到索引，可以用外部的 ElasticSearch、Lucene 等全文搜索引擎替代。</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></p>
+</li>
+<li><p>列值为空（NULL）时是可以使用索引的，但 MySQL 难以优化引用了可空列的查询，它会使索引、索引统计和值更加复杂。可空列需要更多的储存空间，还需要在 MySQL 内部进行特殊处理。</p>
+</li>
+<li><p>如果 MySQL 估计使用索引比全表扫描更慢，会放弃使用索引。</p>
+<p>例如：表中只有 100 条数据左右。对于 SQL 语句 <code>WHERE id &gt; 1 AND id &lt; 100</code>，MySQL 会优先考虑全表扫描。</p>
+</li>
+<li><p>如果关键词 <code>OR</code> 前面的条件中的列有索引，后面的没有，所有列的索引都不会被用到。</p>
+</li>
+<li><p>列类型是字符串，查询时一定要给值加引号，否则索引失效。</p>
+<p><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment"># 列 name VARCHAR(16)，存储了字符串 "100"。</span>
+<span class="token keyword">WHERE</span> name <span class="token operator">=</span> <span class="token number">100</span><span class="token punctuation">;</span>
+<span class="token comment"># 以上SQL语句能搜到，但无法用到索引。</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</p>
+</li>
+</ul>
+<p><strong>MySQL索引的原理</strong></p>
+<p>MySQL 索引是用一种叫做聚簇索引的数据结构实现的，下面我们就来看一下什么是聚簇索引。</p>
+<p>聚簇索引是一种数据存储方式，它实际上是在同一个结构中保存了 B+ 树索引和数据行，InnoDB 表是按照聚簇索引组织的（类似于 Oracle 的索引组织表）。</p>
+<p>InnoDB 通过主键聚簇数据，如果没有定义主键，会选择一个唯一的非空索引代替，如果没有这样的索引，会隐式定义个主键作为聚簇索引。</p>
+<p><strong>注：</strong></p>
+<ul>
+<li>B+ 树是一种树数据结构，是一个 n 叉排序树，每个节点通常有多个孩子，一棵 B+ 树包含根节点、内部节点和叶子节点。根节点可能是一个叶子节点，也可能是一个包含两个或两个以上孩子节点的节点。</li>
+<li>B+ 树通常用于数据库和操作系统的文件系统中。NTFS、ReiserFS、NSS、XFS、JFS、ReFS 和 BFS 等文件系统都在使用 B+ 树作为元数据索引。B+ 树的特点是能够保持数据稳定有序，其插入与修改拥有较稳定的对数时间复杂度。B+ 树元素自底向上插入。</li>
+</ul>
+<blockquote>
+<h3 id="列值为-NULL-时，查询是否会用到索引？"><a href="#列值为-NULL-时，查询是否会用到索引？" class="headerlink" title="列值为 NULL 时，查询是否会用到索引？"></a>列值为 NULL 时，查询是否会用到索引？</h3></blockquote>
+<p>在 MySQL 里 NULL 值的列也是走索引的。当然，如果计划对列进行索引，就要尽量避免把它设置为可空，MySQL 难以优化引用了可空列的查询，它会使索引、索引统计和值更加复杂。</p>
+<blockquote>
+<h3 id="以下语句是否会应用索引：SELECT-FROM-users-WHERE-YEAR-adddate-lt-2007"><a href="#以下语句是否会应用索引：SELECT-FROM-users-WHERE-YEAR-adddate-lt-2007" class="headerlink" title="以下语句是否会应用索引：SELECT FROM users WHERE YEAR(adddate) &lt; 2007;"></a>以下语句是否会应用索引：SELECT FROM users WHERE YEAR(adddate) &lt; 2007;</h3></blockquote>
+<p>不会，因为只要列涉及到运算，MySQL 就不会使用索引。</p>
+<blockquote>
+<h3 id="MyISAM索引实现？"><a href="#MyISAM索引实现？" class="headerlink" title="MyISAM索引实现？"></a>MyISAM索引实现？</h3></blockquote>
+<p>MyISAM 存储引擎使用 B+Tree 作为索引结构，叶节点的 data 域存放的是数据记录的地址。MyISAM 的索引方式也叫做非聚簇索引的，之所以这么称呼是为了与 InnoDB 的聚簇索引区分。</p>
+<blockquote>
+<h3 id="MyISAM索引与InnoDB索引的区别？"><a href="#MyISAM索引与InnoDB索引的区别？" class="headerlink" title="MyISAM索引与InnoDB索引的区别？"></a>MyISAM索引与InnoDB索引的区别？</h3></blockquote>
+<ul>
+<li>InnoDB 索引是聚簇索引，MyISAM 索引是非聚簇索引。</li>
+<li>InnoDB 的主键索引的叶子节点存储着行数据，因此主键索引非常高效。</li>
+<li>MyISAM 索引的叶子节点存储的是行数据地址，需要再寻址一次才能得到数据。</li>
+<li>InnoDB 非主键索引的叶子节点存储的是主键和其他带索引的列数据，因此查询时做到覆盖索引会非常高效。</li>
+</ul>
+<blockquote>
+<h3 id="有-A-id-sex-par-c1-c2-、B-id-age-c1-c2-两张表，其中-A-id-与-B-id-关联，现在要求写出一条-SQL-语句，将-B-中-age-gt-50-的记录的-c1，c2-更新到-A-表中同一记录中的-c1，c2-字段中"><a href="#有-A-id-sex-par-c1-c2-、B-id-age-c1-c2-两张表，其中-A-id-与-B-id-关联，现在要求写出一条-SQL-语句，将-B-中-age-gt-50-的记录的-c1，c2-更新到-A-表中同一记录中的-c1，c2-字段中" class="headerlink" title="有 A(id, sex, par, c1, c2)、B(id, age, c1, c2) 两张表，其中 A.id 与 B.id 关联，现在要求写出一条 SQL 语句，将 B 中 age&gt;50 的记录的 c1，c2 更新到 A 表中同一记录中的 c1，c2 字段中"></a>有 A(id, sex, par, c1, c2)、B(id, age, c1, c2) 两张表，其中 A.id 与 B.id 关联，现在要求写出一条 SQL 语句，将 B 中 age&gt;50 的记录的 c1，c2 更新到 A 表中同一记录中的 c1，c2 字段中</h3></blockquote>
+<p><strong>考点分析</strong></p>
+<p>这道题主要考察的是MySQL的关联UPDATE语句</p>
+<p><strong>延伸考点</strong></p>
+<ul>
+<li>MySQL 的关联查询语句</li>
+<li>MySQL 的关联UPDATE语句</li>
+</ul>
+<p>针对刚才这道题，答案可以是如下两种形式的写法：</p>
+<p><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">UPDATE</span> A<span class="token punctuation">,</span> B <span class="token keyword">SET</span> A<span class="token punctuation">.</span>c1 <span class="token operator">=</span> B<span class="token punctuation">.</span>c1<span class="token punctuation">,</span> A<span class="token punctuation">.</span>c2 <span class="token operator">=</span> B<span class="token punctuation">.</span>c2 <span class="token keyword">WHERE</span> A<span class="token punctuation">.</span>id <span class="token operator">=</span> B<span class="token punctuation">.</span>id<span class="token punctuation">;</span>
+<span class="token keyword">UPDATE</span> A <span class="token keyword">INNER</span> <span class="token keyword">JOIN</span> B <span class="token keyword">ON</span> A<span class="token punctuation">.</span>id <span class="token operator">=</span> B<span class="token punctuation">.</span>id <span class="token keyword">SET</span> A<span class="token punctuation">.</span>c1 <span class="token operator">=</span> B<span class="token punctuation">.</span>c1<span class="token punctuation">,</span> A<span class="token punctuation">.</span>c2 <span class="token operator">=</span> B<span class="token punctuation">.</span>c2<span class="token punctuation">;</span>
+<span class="token comment"># 再加上 B 中 age > 50的条件：</span>
+<span class="token keyword">UPDATE</span> A<span class="token punctuation">,</span> B <span class="token keyword">set</span> A<span class="token punctuation">.</span>c1 <span class="token operator">=</span> B<span class="token punctuation">.</span>c1<span class="token punctuation">,</span> A<span class="token punctuation">.</span>c2 <span class="token operator">=</span> B<span class="token punctuation">.</span>c2 <span class="token keyword">WHERE</span> A<span class="token punctuation">.</span>id <span class="token operator">=</span> B<span class="token punctuation">.</span>id <span class="token operator">and</span> B<span class="token punctuation">.</span>age <span class="token operator">></span> <span class="token number">50</span><span class="token punctuation">;</span>
+<span class="token keyword">UPDATE</span> A <span class="token keyword">INNER</span> <span class="token keyword">JOIN</span> B <span class="token keyword">ON</span> A<span class="token punctuation">.</span>id <span class="token operator">=</span> B<span class="token punctuation">.</span>id <span class="token keyword">set</span> A<span class="token punctuation">.</span>c1 <span class="token operator">=</span> B<span class="token punctuation">.</span>c1<span class="token punctuation">,</span> A<span class="token punctuation">.</span>c2 <span class="token operator">=</span> B<span class="token punctuation">.</span>c2 <span class="token keyword">WHERE</span> B<span class="token punctuation">.</span>age <span class="token operator">></span> <span class="token number">50</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</p>
+<blockquote>
+<h3 id="MySQL-的关联查询语句"><a href="#MySQL-的关联查询语句" class="headerlink" title="MySQL 的关联查询语句"></a>MySQL 的关联查询语句</h3></blockquote>
+<ul>
+<li>交叉连接（CROSS JOIN）</li>
+<li>内连接（INNER JOIN）</li>
+<li>外连接（LEFT JOIN 或 RIGHT JOIN）</li>
+<li>联合查询（UNION 与 UNION ALL）</li>
+<li>全连接（FULL JOIN）</li>
+<li>嵌套查询</li>
+</ul>
+<p><strong>交叉连接（CROSS JOIN）</strong>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> A<span class="token punctuation">,</span> B<span class="token punctuation">(</span><span class="token punctuation">,</span>C<span class="token punctuation">)</span>
+<span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> A <span class="token keyword">CROSS</span> <span class="token keyword">JOIN</span> B <span class="token punctuation">(</span><span class="token keyword">CROSS</span> <span class="token keyword">JOIN</span> C<span class="token punctuation">)</span>
+<span class="token comment"># 没有任何关联条件，结果是笛卡尔积，结果集会很大，没有意义，很少使用</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<strong>内连接（INNER JOIN）</strong>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> A<span class="token punctuation">,</span> B <span class="token keyword">WHERE</span> A<span class="token punctuation">.</span>id <span class="token operator">=</span> B<span class="token punctuation">.</span>id
+<span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> A <span class="token keyword">INNER</span> <span class="token keyword">JOIN</span> B <span class="token keyword">ON</span> A<span class="token punctuation">.</span>id <span class="token operator">=</span> B<span class="token punctuation">.</span>id
+<span class="token comment"># 多表中同时符合某种条件的数据记录的集合，INNER JOIN 可以缩写为 JOIN</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+内连接分为三类</p>
+<ul>
+<li>等值连接：<code>ON A.id = B.id</code></li>
+<li>不等值连接：<code>ON A.id &gt; B.id</code></li>
+<li>自连接：<code>SELECT * FROM A T1 INNER JOIN A T2 ON T1.id=T2.pid</code></li>
+</ul>
+<p><strong>外连接（LEFT JOIN 或 RIGHT JOIN）</strong></p>
+<ul>
+<li>左外连接：<code>LEFT OUTER JOIN</code>，以左表为主，先查询出左表，按照 <code>ON</code> 后的关联条件匹配右表，没有匹配到的用 NULL 填充，可以简写成 <code>LEFT JOIN</code>。</li>
+<li>右外连接：<code>RIGHT OUTER JOIN</code>，以右表为主，先查询出右表，按照 <code>ON</code> 后的关联条件匹配左表，没有匹配到的用 NULL 填充，可以简写成 <code>RIGHT JOIN</code>。</li>
+</ul>
+<p><strong>联合查询（UNION 与 UNION ALL）</strong></p>
+<p><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> A <span class="token keyword">UNION</span> <span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> B <span class="token keyword">UNION</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</p>
+<ul>
+<li>就是把多个结果集集中在一起，<code>UNION</code> 前的结果为基准，需要注意的是联合查询的列数要相等，相同的记录行会合并</li>
+<li>如果使用 <code>UNION ALL</code>，不会合并重复的记录行</li>
+<li>效率 <code>UNION</code> 高于 <code>UNION ALL</code></li>
+</ul>
+<p><strong>全连接（FULL JOIN）</strong></p>
+<p>MySQL 不支持全连接</p>
+<p>可以使用 <code>LEFT JOIN</code> 和 <code>UNION</code> 和 <code>RIGHT JOIN</code> 联合使用</p>
+<p><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> A <span class="token keyword">LEFT</span> <span class="token keyword">JOIN</span> B <span class="token keyword">ON</span> A<span class="token punctuation">.</span>id<span class="token operator">=</span>B<span class="token punctuation">.</span>id <span class="token keyword">UNION</span>
+<span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> A <span class="token keyword">RIGHT</span> <span class="token keyword">JOIN</span> B <span class="token keyword">ON</span> A<span class="token punctuation">.</span>id<span class="token operator">=</span>B<span class="token punctuation">.</span>id<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+</p>
+<p><strong>嵌套查询</strong></p>
+<p>用一条 SQL 语句的结果作为另外一条 SQL 语句的条件，效率不好把握。</p>
+<p><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> A <span class="token keyword">WHERE</span> id <span class="token operator">IN</span> <span class="token punctuation">(</span><span class="token keyword">SELECT</span> id <span class="token keyword">FROM</span> B<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</p>
+<p><strong>解题方法</strong></p>
+<p>根据考题要搞清楚表的结果和多表之间的关系，根据想要的结果思考使用那种关联方式，通常把要查询的列先写出来，然后分析这些列都属于哪些表，才考虑使用关联查询</p>
+<blockquote>
+<h3 id="MySQL-中-IN-和-EXISTS-区别"><a href="#MySQL-中-IN-和-EXISTS-区别" class="headerlink" title="MySQL 中 IN 和 EXISTS 区别"></a>MySQL 中 IN 和 EXISTS 区别</h3></blockquote>
+<p>MySQL 中的 IN 语句是把外表和内表作 hash 连接，而 EXISTS 语句是对外表作 loop 循环，每次 loop 循环再对内表进行查询。一直大家都认为 EXISTS 比 IN 语句的效率要高，这种说法其实是不准确的。这个是要区分环境的。</p>
+<ul>
+<li>如果查询的两个表大小相当，那么用 IN 和 EXISTS 差别不大。</li>
+<li>如果两个表中一个较小，一个是大表，则子查询表大的用 EXISTS ，子查询表小的用 IN。</li>
+<li>NOT IN 和 NOT EXISTS：如果查询语句使用了 NOT IN，那么内外表都进行全表扫描，没有用到索引；而 NOT EXISTS 的子查询依然能用到表上的索引。所以无论那个表大，用 NOT EXISTS 都比 NOT IN 要快。</li>
+</ul>
+<blockquote>
+<h3 id="一个-6-亿的表-A，一个-3-亿的表-B，通过外键-tid-关联，你如何最快的查询出满足条件的第-50000-到第-50200-中的这-200-条数据记录。"><a href="#一个-6-亿的表-A，一个-3-亿的表-B，通过外键-tid-关联，你如何最快的查询出满足条件的第-50000-到第-50200-中的这-200-条数据记录。" class="headerlink" title="一个 6 亿的表 A，一个 3 亿的表 B，通过外键 tid 关联，你如何最快的查询出满足条件的第 50000 到第 50200 中的这 200 条数据记录。"></a>一个 6 亿的表 A，一个 3 亿的表 B，通过外键 tid 关联，你如何最快的查询出满足条件的第 50000 到第 50200 中的这 200 条数据记录。</h3></blockquote>
+<ul>
+<li>如果 A 表 TID 是自增长，并且是连续的，B 表的 ID 为索引<p><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> a<span class="token punctuation">,</span> b <span class="token keyword">WHERE</span> a<span class="token punctuation">.</span>tid <span class="token operator">=</span> b<span class="token punctuation">.</span>id <span class="token operator">AND</span> a<span class="token punctuation">.</span>tid <span class="token operator">></span> <span class="token number">50000</span> <span class="token keyword">LIMIT</span> <span class="token number">200</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></p>
+</li>
+<li>如果 A 表的 TID 不是连续的，那么就需要使用覆盖索引，tid 要么是主键，要么是辅助索引，B 表 id 也需要有索引。<p><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> b<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">SELECT</span> tid <span class="token keyword">FROM</span> a <span class="token keyword">LIMIT</span> <span class="token number">50000</span><span class="token punctuation">,</span> <span class="token number">200</span><span class="token punctuation">)</span> a <span class="token keyword">WHERE</span> b<span class="token punctuation">.</span>id <span class="token operator">=</span> a <span class="token punctuation">.</span>tid<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</p>
+</li>
+</ul>
+<blockquote>
+<h3 id="拷贝表（拷贝数据，源表名：a-，目标表名：b）"><a href="#拷贝表（拷贝数据，源表名：a-，目标表名：b）" class="headerlink" title="拷贝表（拷贝数据，源表名：a ，目标表名：b）"></a>拷贝表（拷贝数据，源表名：a ，目标表名：b）</h3></blockquote>
+<p><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> b<span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> c<span class="token punctuation">)</span> <span class="token keyword">SELECT</span> d<span class="token punctuation">,</span> e<span class="token punctuation">,</span> f <span class="token keyword">FROM</span> a<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</p>
+<blockquote>
+<h3 id="Student-S-Sname-Sage-Ssex-学生表-Course-C-Cname-T-课程表-SC-S-C-score-成绩表-Teacher-T-Tname-教师表，查询没学过“叶平”老师课的同学的学号、姓名"><a href="#Student-S-Sname-Sage-Ssex-学生表-Course-C-Cname-T-课程表-SC-S-C-score-成绩表-Teacher-T-Tname-教师表，查询没学过“叶平”老师课的同学的学号、姓名" class="headerlink" title="Student(S#, Sname, Sage, Ssex) 学生表 Course(C#, Cname, T#) 课程表 SC(S#, C#, score) 成绩表 Teacher(T#, Tname) 教师表，查询没学过“叶平”老师课的同学的学号、姓名"></a>Student(S#, Sname, Sage, Ssex) 学生表 Course(C#, Cname, T#) 课程表 SC(S#, C#, score) 成绩表 Teacher(T#, Tname) 教师表，查询没学过“叶平”老师课的同学的学号、姓名</h3></blockquote>
+<p><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> Student<span class="token punctuation">.</span>S<span class="token comment">#, Student.Sname</span>
+  <span class="token keyword">FROM</span> Student
+ <span class="token keyword">WHERE</span> S<span class="token comment"># NOT IN (SELECT DISTINCT (SC.S#)</span>
+                    <span class="token keyword">FROM</span> SC<span class="token punctuation">,</span> Course<span class="token punctuation">,</span> Teacher
+                   <span class="token keyword">WHERE</span> SC<span class="token punctuation">.</span>C<span class="token comment"># = Course.C#</span>
+                     <span class="token operator">AND</span> Teacher<span class="token punctuation">.</span>T<span class="token comment"># = Course.T#</span>
+                     <span class="token operator">AND</span> Teacher<span class="token punctuation">.</span>Tname <span class="token operator">=</span> <span class="token string">'叶平'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</p>
+<blockquote>
+<h3 id="随机取出-10-条数据"><a href="#随机取出-10-条数据" class="headerlink" title="随机取出 10 条数据"></a>随机取出 10 条数据</h3></blockquote>
+<p><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">*</span>
+  <span class="token keyword">FROM</span> users
+ <span class="token keyword">WHERE</span> id <span class="token operator">>=</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword">SELECT</span> <span class="token function">MAX</span><span class="token punctuation">(</span>id<span class="token punctuation">)</span> <span class="token keyword">FROM</span> users<span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token punctuation">(</span><span class="token keyword">SELECT</span> <span class="token function">MIN</span><span class="token punctuation">(</span>id<span class="token punctuation">)</span> <span class="token keyword">FROM</span> users<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">*</span>
+       RAND<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token punctuation">(</span><span class="token keyword">SELECT</span> <span class="token function">MIN</span><span class="token punctuation">(</span>id<span class="token punctuation">)</span> <span class="token keyword">FROM</span> users<span class="token punctuation">)</span> <span class="token keyword">LIMIT</span> <span class="token number">10</span>
+<span class="token comment"># 此方法效率比直接用 SELECT * FROM users ORDER BY RAND() LIMIT 10 高很多</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</p>
+<blockquote>
+<h3 id="请简述项目中优化-SQL-语句执行效率的方法，从哪些方面，SQL-语句性能如何分析？"><a href="#请简述项目中优化-SQL-语句执行效率的方法，从哪些方面，SQL-语句性能如何分析？" class="headerlink" title="请简述项目中优化 SQL 语句执行效率的方法，从哪些方面，SQL 语句性能如何分析？"></a>请简述项目中优化 SQL 语句执行效率的方法，从哪些方面，SQL 语句性能如何分析？</h3></blockquote>
+<p><strong>考点分析</strong></p>
+<p>这道题主要考察的是查找分析 SQL 语句查询速度慢的方法</p>
+<p><strong>延伸考点</strong></p>
+<ul>
+<li>优化查询过程中的数据访问</li>
+<li>优化长难的查询语句</li>
+<li>优化特定类型的查询语句</li>
+</ul>
+<p><strong>如何查找查询速度慢的原因</strong></p>
+<p>记录慢查询日志，分析查询日志，不要直接打开慢查询日志进行分析，这样比较浪费时间和精力，可以使用 pt-query-digest 工具进行分析。</p>
+<ul>
+<li>使用 <code>show profile</code><p><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">set</span> profiling<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token comment"># 开启，服务器上所有执行语句会记录执行时间，存到临时表中</span>
+<span class="token keyword">show</span> profiles
+<span class="token keyword">show</span> profile <span class="token keyword">for</span> query 临时表ID<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></p>
+</li>
+<li>使用 <code>show status</code>
+<code>show status</code> 会返回一些计数器，<code>show global status</code> 会查看所有服务器级别的所有计数，有时根据这些计数，可以推测出哪些操作代价较高或者消耗时间多。</li>
+<li><code>show processlist</code>
+观察是否有大量线程处于不正常的状态或特征</li>
+</ul>
+<p><img src= "https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/loading.gif" data-lazy-src="/images/post/bigdata_interview/mysql_precesslist.png" alt></p>
+<ul>
+<li>使用 <code>explain</code> 分析单条 SQL 语句</li>
+</ul>
+<p><img src= "https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/loading.gif" data-lazy-src="/images/post/bigdata_interview/mysql_explain.png" alt></p>
+<p><strong>id</strong> 由一组数字组成。表示一个查询中各个子查询的执行顺序。</p>
+<ul>
+<li>id 相同执行顺序由上至下。</li>
+<li>id 不同，id 值越大优先级越高，越先被执行。</li>
+<li>id 为 NULL 时表示一个结果集，不需要使用它查询，常出现在包含 UNION 等查询语句中。</li>
+</ul>
+<p><strong>select_type</strong> 每个子查询的查询类型，一些常见的查询类型。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>select_type</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>SIMPLE</td>
+<td>不包含任何子查询或 UNION 等查询</td>
+</tr>
+<tr>
+<td>2</td>
+<td>PRIMARY</td>
+<td>包含子查询最外层查询就显示为 PRIMARY</td>
+</tr>
+<tr>
+<td>3</td>
+<td>SUBQUERY</td>
+<td>在 SELECT 或 WHERE 子句中包含的查询</td>
+</tr>
+<tr>
+<td>4</td>
+<td>DERIVED</td>
+<td>FROM 子句中包含的查询</td>
+</tr>
+<tr>
+<td>5</td>
+<td>UNION</td>
+<td>出现在 UNION 后的查询语句中</td>
+</tr>
+<tr>
+<td>6</td>
+<td>UNION RESULT</td>
+<td>从 UNION 中获取结果集</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>type</strong> 访问类型（非常重要，可以看到有没有走索引）</p>
+<ul>
+<li>ALL：扫描全表数据</li>
+<li>index：遍历索引</li>
+<li>range：索引范围查找</li>
+<li>index_subquery：在子查询中使用 ref</li>
+<li>unique_subquery：在子查询中使用 eq_ref</li>
+<li>ref_or_null：对 NULL 进行索引的优化的 ref</li>
+<li>fulltext：使用全文索引</li>
+<li>ref：使用非唯一索引查找数据</li>
+<li>eq_ref：在 JOIN 查询中使用 PRIMARY KEY 或 UNIQUE NOT NULL 索引关联。</li>
+</ul>
+<p><strong>possible_keys</strong> 可能使用的索引，注意不一定会使用。查询涉及到的字段上若存在索引，则该索引将被列出来。当该列为 NULL 时就要考虑当前的SQL是否需要优化了。</p>
+<p><strong>key</strong> 显示 MySQL 在查询中实际使用的索引，若没有使用索引，显示为 NULL。查询中若使用了覆盖索引（索引的数据覆盖了需要查询的所有数据），则该索引仅出现在 key 列表中。</p>
+<p><strong>key_length</strong> 索引长度</p>
+<ul>
+<li>ref 表示上述表的连接匹配条件，即哪些列或常量被用于查找索引列上的值</li>
+<li>rows 返回估算的结果集数目，并不是一个准确的值。</li>
+<li>extra 的信息非常丰富，常见的有：<ul>
+<li>Using index 使用覆盖索引</li>
+<li>Using where 使用了用where子句来过滤结果集</li>
+<li>Using filesort 使用文件排序，使用非索引列进行排序时出现，非常消耗性能，尽量优化。</li>
+<li>Using temporary 使用了临时表 sql优化的目标可以参考阿里开发手册</li>
+</ul>
+</li>
+</ul>
+<p><strong>推荐：</strong>SQL 性能优化的目标至少要达到 range 级别，要求是 ref 级别，如果可以是 consts 最好。</p>
+<ul>
+<li>consts：单表中最多只有一个匹配行（主键或者唯一索引），在优化阶段即可读取到数据。</li>
+<li>ref：指的是使用普通的索引（normal index）。</li>
+<li>range：对索引进行范围检索。</li>
+</ul>
+<p>反例：explain 表的结果，<code>type=index</code>，索引物理文件全扫描，速度非常慢，这个 index 级别比较 range 还低，与全表扫描是小巫见大巫。</p>
+<p><strong>优化查询过程中的数据访问</strong></p>
+<ul>
+<li>访问数据太多导致查询性能下降</li>
+<li>确定应用程序是否在检索大量超过需要的数据，可能是太多行或列</li>
+<li>确认 MySQL 服务器是否在分析大量不必要的数据行</li>
+<li>避免犯如下 SQL 语句错误<ul>
+<li>查询不需要的数据。解决办法：使用 LIMIT 解决。</li>
+<li>多表关联返回全部列。解决办法：指定列名。</li>
+<li>总是返回全部列。解决办法：避免使用 SELECT *。</li>
+</ul>
+</li>
+<li>重复查询相同的数据。解决办法：可以缓存数据，下次直接读取缓存。</li>
+<li>是否在扫描额外的记录。解决办法：使用explain进行分析，如果发现查询需要扫描大量的数据，但只返回少数的行。</li>
+<li>使用索引覆盖扫描，把所有的列都放到索引中，这样存储引擎不需要回表获取对应行就可以返回结果。</li>
+<li>改变数据库和表的结构，修改数据表范式。</li>
+<li>重写SQL语句，让优化器可以以更优的方式执行查询。</li>
+</ul>
+<p><strong>优化长难的查询语句</strong></p>
+<ul>
+<li>一个复杂查询还是多个简单查询。</li>
+<li>MySQL 内部每秒能扫描内存中上百万行数据，相比之下，响应数据给客户端就要慢得多。</li>
+<li>使用尽可能小的查询是好的，但是有时将一个大的查询分解为多个小的查询是很有必要的。</li>
+<li>切分查询，将一个大的查询分为多个小的相同的查询。</li>
+<li>一次性删除 1000 万的数据要比一次删除 1 万快，暂停一会的方案更加损耗服务器开销。</li>
+<li>分解关联查询，让缓存的效率更高。</li>
+<li>执行单个查询可以减少锁的竞争。</li>
+<li>在应用层做关联更容易对数据库进行拆分。</li>
+<li>查询效率会有大幅提升。</li>
+<li>较少冗余记录的查询。</li>
+</ul>
+<p><strong>优化特定类型的查询语句</strong></p>
+<ul>
+<li>COUNT(*) 会忽略所有的列，直接统计所有列数，不要使用 COUNT(列名)。</li>
+<li>MyISAM 中，没有任何 WHERE 条件的 COUNT(*) 非常快。</li>
+<li>当有 WHERE 条件时，MyISAM 的 COUNT 统计不一定比其它引擎快。</li>
+<li>可以使用 <code>explain</code> 查询近似值，用近似值替代 COUNT(*)。</li>
+<li>增加汇总表。</li>
+<li>使用缓存。</li>
+</ul>
+<p><strong>优化关联查询</strong></p>
+<ul>
+<li>确定 ON 或者 USING 子句中是否有索引。</li>
+<li>确保 GROUP BY 和 ORDER BY 只有一个表中的列，这样 MySQL 才有可能使用索引。</li>
+</ul>
+<p><strong>优化子查询</strong></p>
+<ul>
+<li>用关联查询替代。</li>
+<li>优化 GROUP BY 和 DISTINCT。</li>
+<li>这两种查询可以使用索引来优化，是最有效的优化方法。</li>
+<li>关联查询中，使用标识列分组的效率更高。</li>
+<li>如果不需要 ORDER BY，进行 GROUP BY 时加 ORDER BY NULL，MySQL 不会再进行文件排序。</li>
+<li>WITH ROLLUP 超级聚合，可以挪到应用程序处理。</li>
+</ul>
+<p><strong>优化 LIMIT 分页</strong></p>
+<ul>
+<li>LIMIT 偏移量大的时候，查询效率较低</li>
+<li>可以记录上次查询的最大 ID，下次查询时直接根据该 ID 来查询</li>
+</ul>
+<p><strong>优化 UNION 查询</strong></p>
+<ul>
+<li>UNION ALL 的效率高于 UNION</li>
+</ul>
+<p><strong>解题方法</strong></p>
+<p>对于此类考题，先说明如何定位低效 SQL 语句，然后根据 SQL 语句可能低效的原因做排查，先从索引着手，如果索引没有问题，考虑以上几个方面，数据访问的问题，长难查询句的问题还是一些特定类型优化的问题，逐一回答。</p>
+<blockquote>
+<h3 id="SQL-语句优化的一些方法？"><a href="#SQL-语句优化的一些方法？" class="headerlink" title="SQL 语句优化的一些方法？"></a>SQL 语句优化的一些方法？</h3></blockquote>
+<ul>
+<li>对查询进行优化，应尽量避免全表扫描，首先应考虑在 WHERE 及 ORDER BY 涉及的列上建立索引。</li>
+<li><p>应尽量避免在 WHERE 子句中对字段进行 NULL 值判断，否则将导致引擎放弃使用索引而进行全表扫描，如：</p>
+<p><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> id <span class="token keyword">FROM</span> t <span class="token keyword">WHERE</span> num <span class="token operator">is</span> <span class="token boolean">NULL</span>
+<span class="token comment"># 可以在 num 上设置默认值 0，确保表中 num 列没有 NULL值，然后这样查询：</span>
+<span class="token keyword">SELECT</span> id <span class="token keyword">FROM</span> t <span class="token keyword">WHERE</span> num <span class="token operator">=</span> <span class="token number">0</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></p>
+</li>
+<li><p>应尽量避免在 WHERE 子句中使用 <code>!=</code> 或 <code>&lt;&gt;</code> 操作符，否则引擎将放弃使用索引而进行全表扫描。</p>
+</li>
+<li><p>应尽量避免在 WHERE 子句中使用 OR 来连接条件，否则将导致引擎放弃使用索引而进行全表扫描，如：</p>
+<p><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> id <span class="token keyword">FROM</span> t <span class="token keyword">WHERE</span> num <span class="token operator">=</span> <span class="token number">10</span> <span class="token operator">OR</span> num <span class="token operator">=</span> <span class="token number">20</span>
+<span class="token comment"># 可以这样查询：</span>
+<span class="token keyword">SELECT</span> id <span class="token keyword">FROM</span> t <span class="token keyword">WHERE</span> num <span class="token operator">=</span> <span class="token number">10</span> <span class="token keyword">UNION</span> <span class="token keyword">ALL</span> <span class="token keyword">SELECT</span> id <span class="token keyword">FROM</span> t <span class="token keyword">WHERE</span> num <span class="token operator">=</span> <span class="token number">20</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></p>
+</li>
+<li><p>IN 和 NOT IN 也要慎用，否则会导致全表扫描，如：</p>
+<p><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> id <span class="token keyword">FROM</span> t <span class="token keyword">WHERE</span> num <span class="token operator">IN</span> <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span> 
+对于连续的数值，能用 <span class="token operator">BETWEEN</span> 就不要用 <span class="token operator">IN</span> 了：
+<span class="token keyword">SELECT</span> id <span class="token keyword">FROM</span> t <span class="token keyword">WHERE</span> num <span class="token operator">BETWEEN</span> <span class="token number">1</span> <span class="token operator">AND</span> <span class="token number">3</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></p>
+</li>
+<li><p>下面的查询也将导致全表扫描：<code>SELECT id FROM t WHERE name LIKE &#39;%李%&#39;</code> 若要提高效率，可以考虑全文检索。</p>
+</li>
+<li><p>如果在 WHERE 子句中使用参数，也会导致全表扫描。因为 SQL 只有在运行时才会解析局部变量，但优化程序不能将访问计划的选择推迟到运行时；它必须在编译时进行选择。然而，如果在编译时建立访问计划，变量的值还是未知的，因而无法作为索引选择的输入项。如下面语句将进行全表扫描：</p>
+<p><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> id <span class="token keyword">FROM</span> t <span class="token keyword">WHERE</span> num<span class="token operator">=</span><span class="token variable">@num</span>
+可以改为强制查询使用索引：
+<span class="token keyword">SELECT</span> id <span class="token keyword">FROM</span> t <span class="token keyword">WITH</span><span class="token punctuation">(</span><span class="token keyword">INDEX</span><span class="token punctuation">(</span>索引名<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">WHERE</span> num<span class="token operator">=</span><span class="token variable">@num</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></p>
+</li>
+<li>应尽量避免在 WHERE 子句中对字段进行表达式操作，这将导致引擎放弃使用索引而进行全表扫描。如：<p><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> id <span class="token keyword">FROM</span> t <span class="token keyword">WHERE</span> num<span class="token operator">/</span><span class="token number">2</span><span class="token operator">=</span><span class="token number">100</span>
+<span class="token comment"># 应改为:</span>
+<span class="token keyword">SELECT</span> id <span class="token keyword">FROM</span> t <span class="token keyword">WHERE</span> num<span class="token operator">=</span><span class="token number">100</span><span class="token operator">*</span><span class="token number">2</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></p>
+</li>
+<li>应尽量避免在 WHERE 子句中对字段进行函数操作，这将导致引擎放弃使用索引而进行全表扫描。如：<p><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> id <span class="token keyword">FROM</span> t <span class="token keyword">WHERE</span> substring<span class="token punctuation">(</span>name<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token string">'abc'</span>
+以 abc 开头的 id 应改为:
+<span class="token keyword">SELECT</span> id <span class="token keyword">FROM</span> t <span class="token keyword">WHERE</span> name <span class="token operator">LIKE</span> <span class="token string">'abc%'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></p>
+</li>
+<li>不要在 WHERE 子句中的 <code>=</code> 左边进行函数、算术运算或其他表达式运算，否则系统将可能无法正确使用索引。</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__title"><span class="post-copyright-info"><h>MySQL 面试题解析</h></span></div><div class="post-copyright__type"><span class="post-copyright-info"><a href="https://blog.eurkon.com/post/54dbb40b.html">https://blog.eurkon.com/post/54dbb40b.html</a></span></div><div class="post-copyright-m"><div class="post-copyright-m-info"><div class="post-copyright-a"><h>作者</h><div class="post-copyright-cc-info"><h>Eurkon</h></div></div><div class="post-copyright-p"><h>发布于</h><div class="post-copyright-cc-info"><h>2021-04-14</h></div></div><div class="post-copyright-u"><h>更新于</h><div class="post-copyright-cc-info"><h>2021-04-14</h></div></div><div class="post-copyright-c"><h>许可协议</h><div class="post-copyright-cc-info"><a class="icon" title="Creative Commons" target="_blank" rel="noopener" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a><a title="CC BY-NC-SA 4.0" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></div></div></div></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%F0%9F%91%A8%E2%80%8D%F0%9F%92%BB%E5%A4%A7%E6%95%B0%E6%8D%AE/">👨‍💻大数据</a><a class="post-meta__tags" href="/tags/%F0%9F%90%ACMySQL/">🐬MySQL</a></div><div class="post_share"><div class="social-share" data-image="/images/cover/bigdata_interview.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button button--animated"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/wechat.jpg" target="_blank"><img class="post-qr-code-img" data-lazy-src="https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/wechat.jpg" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/alipay.jpg" target="_blank"><img class="post-qr-code-img" data-lazy-src="https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/alipay.jpg" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/post/420614eb.html"><img class="next-cover" data-lazy-src="/images/cover/bigdata_interview.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Sqoop 面试题解析</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts-list"><div><a href="/post/7e24cf66.html" title="大数据面试题解析"><img class="cover" data-lazy-src="/images/cover/bigdata_interview.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-03-25</div><div class="title">大数据面试题解析</div></div></a></div><div><a href="/post/d7961cf0.html" title="MySQL 优化"><img class="cover" data-lazy-src="/images/cover/mysql_optimization.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-01-14</div><div class="title">MySQL 优化</div></div></a></div><div><a href="/post/4bd4f98e.html" title="MySQL 常用命令行"><img class="cover" data-lazy-src="/images/cover/mysql_command.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-01-13</div><div class="title">MySQL 常用命令行</div></div></a></div><div><a href="/post/7f59cefa.html" title="MySQL 教程"><img class="cover" data-lazy-src="/images/cover/mysql_course.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-01-09</div><div class="title">MySQL 教程</div></div></a></div><div><a href="/post/5a2a12a6.html" title="Flume 面试题解析"><img class="cover" data-lazy-src="/images/cover/bigdata_interview.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-03-29</div><div class="title">Flume 面试题解析</div></div></a></div><div><a href="/post/d1e7dfd3.html" title="HDFS Shell 命令"><img class="cover" data-lazy-src="/images/cover/hdfs_shell.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-03-05</div><div class="title">HDFS Shell 命令</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" data-lazy-src="https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">Eurkon</div><div class="author-info__description">不只是代码的搬运工</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">42</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">21</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Eurkon"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Eurkon" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:eurkon@foxmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">Hello Eurkon</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#CHAR%E3%80%81VARCHAR-%E7%9A%84%E5%8C%BA%E5%88%AB%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-number">1.</span> <span class="toc-text">CHAR、VARCHAR 的区别是什么？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DELETE%E3%80%81TRUNCATE-%E4%B8%8E-DROP-%E7%9A%84%E5%8C%BA%E5%88%AB%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-number">2.</span> <span class="toc-text">DELETE、TRUNCATE 与 DROP 的区别是什么？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E8%A7%A6%E5%8F%91%E5%99%A8%EF%BC%8CMySQL-%E4%B8%AD%E9%83%BD%E6%9C%89%E5%93%AA%E4%BA%9B%E8%A7%A6%E5%8F%91%E5%99%A8%EF%BC%9F"><span class="toc-number">3.</span> <span class="toc-text">什么是触发器，MySQL 中都有哪些触发器？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#FLOAT-%E5%92%8C-DOUBLE-%E7%9A%84%E5%8C%BA%E5%88%AB%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-number">4.</span> <span class="toc-text">FLOAT 和 DOUBLE 的区别是什么？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E5%9C%A8-MySQL-%E4%B8%AD%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E6%97%A5%E6%9C%9F%EF%BC%9F"><span class="toc-number">5.</span> <span class="toc-text">如何在 MySQL 中获取当前日期？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E6%9F%A5%E8%AF%A2%E7%AC%AC-n-%E9%AB%98%E7%9A%84%E5%B7%A5%E8%B5%84%EF%BC%9F"><span class="toc-number">6.</span> <span class="toc-text">如何查询第 n 高的工资？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%B7%E5%86%99%E5%87%BA%E4%B8%8B%E9%9D%A2-MySQL-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E8%A1%A8%E8%BE%BE%E7%9A%84%E6%84%8F%E4%B9%89%EF%BC%88INT-0-%E3%80%81CHAR-16-%E3%80%81VARCHAR-16-%E3%80%81DATETIME%E3%80%81TEXT%EF%BC%89"><span class="toc-number">7.</span> <span class="toc-text">请写出下面 MySQL 数据类型表达的意义（INT(0)、CHAR(16)、VARCHAR(16)、DATETIME、TEXT）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MySQL-%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C"><span class="toc-number">8.</span> <span class="toc-text">MySQL 基础操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MySQL-%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E"><span class="toc-number">9.</span> <span class="toc-text">MySQL 存储引擎</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MySQL-%E9%94%81%E6%9C%BA%E5%88%B6"><span class="toc-number">10.</span> <span class="toc-text">MySQL 锁机制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MySQL-%E4%BA%8B%E5%8A%A1%E5%A4%84%E7%90%86"><span class="toc-number">11.</span> <span class="toc-text">MySQL 事务处理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MySQL-%E5%AD%98%E5%82%A8%E8%BF%87%E7%A8%8B"><span class="toc-number">12.</span> <span class="toc-text">MySQL 存储过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MySQL-%E8%A7%A6%E5%8F%91%E5%99%A8"><span class="toc-number">13.</span> <span class="toc-text">MySQL 触发器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%B7%E8%AF%B4%E6%98%8E-InnoDB-%E5%92%8C-MyISAM-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">14.</span> <span class="toc-text">请说明 InnoDB 和 MyISAM 的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#InnoDB-%E5%BC%95%E6%93%8E%E7%9A%84%E7%89%B9%E6%80%A7"><span class="toc-number">15.</span> <span class="toc-text">InnoDB 引擎的特性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%B7%E8%AF%B4%E6%98%8E-VARCHAR-%E5%92%8C-TEXT-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">16.</span> <span class="toc-text">请说明 VARCHAR 和 TEXT 的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#VARCHAR-50-%E4%B8%AD-50-%E7%9A%84%E5%90%AB%E4%B9%89"><span class="toc-number">17.</span> <span class="toc-text">VARCHAR(50) 中 50 的含义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#INT-20-%E4%B8%AD-20-%E7%9A%84%E5%90%AB%E4%B9%89"><span class="toc-number">18.</span> <span class="toc-text">INT(20) 中 20 的含义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%80%E5%8D%95%E6%8F%8F%E8%BF%B0-MySQL-%E4%B8%AD%EF%BC%8C%E7%B4%A2%E5%BC%95%EF%BC%8C%E4%B8%BB%E9%94%AE%EF%BC%8C%E5%94%AF%E4%B8%80%E7%B4%A2%E5%BC%95%EF%BC%8C%E8%81%94%E5%90%88%E7%B4%A2%E5%BC%95%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%8C%E5%AF%B9%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E6%80%A7%E8%83%BD%E6%9C%89%E4%BB%80%E4%B9%88%E5%BD%B1%E5%93%8D%EF%BC%9F"><span class="toc-number">19.</span> <span class="toc-text">简单描述 MySQL 中，索引，主键，唯一索引，联合索引的区别，对数据库的性能有什么影响？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%97%E5%80%BC%E4%B8%BA-NULL-%E6%97%B6%EF%BC%8C%E6%9F%A5%E8%AF%A2%E6%98%AF%E5%90%A6%E4%BC%9A%E7%94%A8%E5%88%B0%E7%B4%A2%E5%BC%95%EF%BC%9F"><span class="toc-number">20.</span> <span class="toc-text">列值为 NULL 时，查询是否会用到索引？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A5%E4%B8%8B%E8%AF%AD%E5%8F%A5%E6%98%AF%E5%90%A6%E4%BC%9A%E5%BA%94%E7%94%A8%E7%B4%A2%E5%BC%95%EF%BC%9ASELECT-FROM-users-WHERE-YEAR-adddate-lt-2007"><span class="toc-number">21.</span> <span class="toc-text">以下语句是否会应用索引：SELECT FROM users WHERE YEAR(adddate) &lt; 2007;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MyISAM%E7%B4%A2%E5%BC%95%E5%AE%9E%E7%8E%B0%EF%BC%9F"><span class="toc-number">22.</span> <span class="toc-text">MyISAM索引实现？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MyISAM%E7%B4%A2%E5%BC%95%E4%B8%8EInnoDB%E7%B4%A2%E5%BC%95%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-number">23.</span> <span class="toc-text">MyISAM索引与InnoDB索引的区别？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%89-A-id-sex-par-c1-c2-%E3%80%81B-id-age-c1-c2-%E4%B8%A4%E5%BC%A0%E8%A1%A8%EF%BC%8C%E5%85%B6%E4%B8%AD-A-id-%E4%B8%8E-B-id-%E5%85%B3%E8%81%94%EF%BC%8C%E7%8E%B0%E5%9C%A8%E8%A6%81%E6%B1%82%E5%86%99%E5%87%BA%E4%B8%80%E6%9D%A1-SQL-%E8%AF%AD%E5%8F%A5%EF%BC%8C%E5%B0%86-B-%E4%B8%AD-age-gt-50-%E7%9A%84%E8%AE%B0%E5%BD%95%E7%9A%84-c1%EF%BC%8Cc2-%E6%9B%B4%E6%96%B0%E5%88%B0-A-%E8%A1%A8%E4%B8%AD%E5%90%8C%E4%B8%80%E8%AE%B0%E5%BD%95%E4%B8%AD%E7%9A%84-c1%EF%BC%8Cc2-%E5%AD%97%E6%AE%B5%E4%B8%AD"><span class="toc-number">24.</span> <span class="toc-text">有 A(id, sex, par, c1, c2)、B(id, age, c1, c2) 两张表，其中 A.id 与 B.id 关联，现在要求写出一条 SQL 语句，将 B 中 age&gt;50 的记录的 c1，c2 更新到 A 表中同一记录中的 c1，c2 字段中</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MySQL-%E7%9A%84%E5%85%B3%E8%81%94%E6%9F%A5%E8%AF%A2%E8%AF%AD%E5%8F%A5"><span class="toc-number">25.</span> <span class="toc-text">MySQL 的关联查询语句</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MySQL-%E4%B8%AD-IN-%E5%92%8C-EXISTS-%E5%8C%BA%E5%88%AB"><span class="toc-number">26.</span> <span class="toc-text">MySQL 中 IN 和 EXISTS 区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E4%B8%AA-6-%E4%BA%BF%E7%9A%84%E8%A1%A8-A%EF%BC%8C%E4%B8%80%E4%B8%AA-3-%E4%BA%BF%E7%9A%84%E8%A1%A8-B%EF%BC%8C%E9%80%9A%E8%BF%87%E5%A4%96%E9%94%AE-tid-%E5%85%B3%E8%81%94%EF%BC%8C%E4%BD%A0%E5%A6%82%E4%BD%95%E6%9C%80%E5%BF%AB%E7%9A%84%E6%9F%A5%E8%AF%A2%E5%87%BA%E6%BB%A1%E8%B6%B3%E6%9D%A1%E4%BB%B6%E7%9A%84%E7%AC%AC-50000-%E5%88%B0%E7%AC%AC-50200-%E4%B8%AD%E7%9A%84%E8%BF%99-200-%E6%9D%A1%E6%95%B0%E6%8D%AE%E8%AE%B0%E5%BD%95%E3%80%82"><span class="toc-number">27.</span> <span class="toc-text">一个 6 亿的表 A，一个 3 亿的表 B，通过外键 tid 关联，你如何最快的查询出满足条件的第 50000 到第 50200 中的这 200 条数据记录。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8B%B7%E8%B4%9D%E8%A1%A8%EF%BC%88%E6%8B%B7%E8%B4%9D%E6%95%B0%E6%8D%AE%EF%BC%8C%E6%BA%90%E8%A1%A8%E5%90%8D%EF%BC%9Aa-%EF%BC%8C%E7%9B%AE%E6%A0%87%E8%A1%A8%E5%90%8D%EF%BC%9Ab%EF%BC%89"><span class="toc-number">28.</span> <span class="toc-text">拷贝表（拷贝数据，源表名：a ，目标表名：b）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Student-S-Sname-Sage-Ssex-%E5%AD%A6%E7%94%9F%E8%A1%A8-Course-C-Cname-T-%E8%AF%BE%E7%A8%8B%E8%A1%A8-SC-S-C-score-%E6%88%90%E7%BB%A9%E8%A1%A8-Teacher-T-Tname-%E6%95%99%E5%B8%88%E8%A1%A8%EF%BC%8C%E6%9F%A5%E8%AF%A2%E6%B2%A1%E5%AD%A6%E8%BF%87%E2%80%9C%E5%8F%B6%E5%B9%B3%E2%80%9D%E8%80%81%E5%B8%88%E8%AF%BE%E7%9A%84%E5%90%8C%E5%AD%A6%E7%9A%84%E5%AD%A6%E5%8F%B7%E3%80%81%E5%A7%93%E5%90%8D"><span class="toc-number">29.</span> <span class="toc-text">Student(S#, Sname, Sage, Ssex) 学生表 Course(C#, Cname, T#) 课程表 SC(S#, C#, score) 成绩表 Teacher(T#, Tname) 教师表，查询没学过“叶平”老师课的同学的学号、姓名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9A%8F%E6%9C%BA%E5%8F%96%E5%87%BA-10-%E6%9D%A1%E6%95%B0%E6%8D%AE"><span class="toc-number">30.</span> <span class="toc-text">随机取出 10 条数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%B7%E7%AE%80%E8%BF%B0%E9%A1%B9%E7%9B%AE%E4%B8%AD%E4%BC%98%E5%8C%96-SQL-%E8%AF%AD%E5%8F%A5%E6%89%A7%E8%A1%8C%E6%95%88%E7%8E%87%E7%9A%84%E6%96%B9%E6%B3%95%EF%BC%8C%E4%BB%8E%E5%93%AA%E4%BA%9B%E6%96%B9%E9%9D%A2%EF%BC%8CSQL-%E8%AF%AD%E5%8F%A5%E6%80%A7%E8%83%BD%E5%A6%82%E4%BD%95%E5%88%86%E6%9E%90%EF%BC%9F"><span class="toc-number">31.</span> <span class="toc-text">请简述项目中优化 SQL 语句执行效率的方法，从哪些方面，SQL 语句性能如何分析？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SQL-%E8%AF%AD%E5%8F%A5%E4%BC%98%E5%8C%96%E7%9A%84%E4%B8%80%E4%BA%9B%E6%96%B9%E6%B3%95%EF%BC%9F"><span class="toc-number">32.</span> <span class="toc-text">SQL 语句优化的一些方法？</span></a></li></ol></div></div><div class="card-widget card-clock"><div class="card-glass"><div class="card-background"><div class="card-content"><div id="electric_clock"><img id="card-clock-loading" src="https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/clock_loading.gif" data-ll-status="loading" style="height:'120px'; width:'100%';"/></div></div></div></div></div><script defer="defer" data-pjax="data-pjax" src="https://pv.sohu.com/cityjson?ie=utf-8"></script><script defer="defer" data-pjax="data-pjax" src="/js/card_clock.js"></script><div class="card-widget card-history"><div class="card-content"><div class="item-headline"><i class="fas fa-clock fa-spin"></i><span>那年今日</span></div><div id="history-baidu" style="height: 100px; overflow: hidden;"><div class="history_swiper-container" id="history-container" style="width: 100%; height: 100%;"><div class="swiper-wrapper" id="history_container_wrapper" style="height: 20px;"></div></div></div></div></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" media="print" onload="this.media='all'"/><script defer="defer" data-pjax="data-pjax" src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script><script defer="defer" data-pjax="data-pjax" src="/js/card_history.js"></script><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/post/54dbb40b.html" title="MySQL 面试题解析"><img data-lazy-src="/images/cover/bigdata_interview.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="MySQL 面试题解析"/></a><div class="content"><a class="title" href="/post/54dbb40b.html" title="MySQL 面试题解析">MySQL 面试题解析</a><time datetime="2021-04-14T01:00:00.000Z" title="发表于 2021-04-14 09:00:00">2021-04-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/420614eb.html" title="Sqoop 面试题解析"><img data-lazy-src="/images/cover/bigdata_interview.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Sqoop 面试题解析"/></a><div class="content"><a class="title" href="/post/420614eb.html" title="Sqoop 面试题解析">Sqoop 面试题解析</a><time datetime="2021-04-13T01:00:00.000Z" title="发表于 2021-04-13 09:00:00">2021-04-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/7891b2e6.html" title="Hive SQL 大全"><img data-lazy-src="/images/cover/hive.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hive SQL 大全"/></a><div class="content"><a class="title" href="/post/7891b2e6.html" title="Hive SQL 大全">Hive SQL 大全</a><time datetime="2021-04-07T01:00:00.000Z" title="发表于 2021-04-07 09:00:00">2021-04-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/47457d03.html" title="HBase 面试题解析"><img data-lazy-src="/images/cover/bigdata_interview.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="HBase 面试题解析"/></a><div class="content"><a class="title" href="/post/47457d03.html" title="HBase 面试题解析">HBase 面试题解析</a><time datetime="2021-04-02T01:00:00.000Z" title="发表于 2021-04-02 09:00:00">2021-04-02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/ef1da941.html" title="Hexo 博客访问统计图"><img data-lazy-src="/images/cover/hexo.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hexo 博客访问统计图"/></a><div class="content"><a class="title" href="/post/ef1da941.html" title="Hexo 博客访问统计图">Hexo 博客访问统计图</a><time datetime="2021-04-01T04:00:00.000Z" title="发表于 2021-04-01 12:00:00">2021-04-01</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2021 By Eurkon</div><div class="footer_custom_text"><p id="badges"><a target="_blank" href="https://hexo.io/" rel="external nofollow noopener noreferrer" style="margin-inline: 5px;" one-link-mark="yes"><img title="博客框架Hexo" class="entered loaded" src="https://img.shields.io/badge/Frame-Hexo-blue?style=flat&amp;logo=hexo" data-ll-status="loaded"></a><a target="_blank" href="https://butterfly.js.org/" rel="external nofollow noopener noreferrer" style="margin-inline: 5px;" one-link-mark="yes"><img title="博客主题Butterfly" class="entered loaded" src="https://img.shields.io/badge/Theme-Butterfly-6513df?style=flat&amp;logo=bitdefender" data-ll-status="loaded"></a><a target="_blank" href="https://www.jsdelivr.com/" rel="external nofollow noopener noreferrer" style="margin-inline: 5px;" one-link-mark="yes"><img title="本站使用JsDelivr为静态资源提供CDN加速" class="entered loaded" src="https://img.shields.io/badge/CDN-jsDelivr-orange?style=flat&amp;logo=jsDelivr" data-ll-status="loaded"></a><a target="_blank" href="https://vercel.com/" rel="external nofollow noopener noreferrer" style="margin-inline: 5px;" one-link-mark="yes"><img title="本站部署托管于Vercel" class="entered loading" src="https://img.shields.io/badge/Hosted-Vercel-brightgreen?style=flat&amp;logo=Vercel" data-ll-status="loaded" ></a><a target="_blank" href="https://github.com/" rel="external nofollow noopener noreferrer" style="margin-inline: 5px;" one-link-mark="yes"><img title="本站项目由GitHub托管" class="entered loaded" src="https://img.shields.io/badge/Source-Github-d021d6?style=flat&amp;logo=GitHub" data-ll-status="loaded"></a><a target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noopener noreferrer" style="margin-inline: 5px;" one-link-mark="yes"><img title="本站采用创作共用-署名-非商业性-相同方式共享4.0版国际许可协议" class="entered loaded" src="https://img.shields.io/badge/Copyright-BY--NC--SA%204.0-d42328?style=flat&amp;logo=Claris" data-ll-status="loaded"></a></p></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="font-plus" type="button" title="放大字体"><i class="fas fa-plus"></i></button><button id="font-minus" type="button" title="缩小字体"><i class="fas fa-minus"></i></button><button id="translateLink" type="button" title="简繁转换">简</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>if (document.getElementsByClassName('mermaid').length) {
+  if (window.mermaidJsLoad) mermaid.init()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js').then(() => {
+      window.mermaidJsLoad = true
+      mermaid.initialize({
+        theme: 'dark',
+      })
+      true && mermaid.init()
+    })
+  }
+}</script><script>(()=>{
+  const $countDom = document.getElementById('twikoo-count')
+  const init = () => {
+    twikoo.init(Object.assign({
+      el: '#twikoo-wrap',
+      envId: 'twikoo-7gsa2rc0c087a562',
+      region: ''
+    }, null))
+  }
+
+  const getCount = () => {
+    twikoo.getCommentsCount({
+      envId: 'twikoo-7gsa2rc0c087a562',
+      region: '',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(function (res) {
+      $countDom.innerText = res[0].count
+    }).catch(function (err) {
+      console.error(err);
+    });
+  }
+
+  const loadTwikoo = (bool = false) => {
+    if (typeof twikoo === 'object') {
+      init()
+      bool && $countDom && setTimeout(getCount,0)
+    } else {
+      getScript('https://cdn.jsdelivr.net/npm/twikoo/dist/twikoo.all.min.js').then(()=> {
+        init()
+        bool && $countDom && setTimeout(getCount,0)
+      })
+    }
+  }
+
+  if ('Twikoo' === 'Twikoo' || !false) {
+    if (false) btf.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else loadTwikoo(true)
+  } else {
+    window.loadOtherComment = () => {
+      loadTwikoo()
+    }
+  }
+})()</script></div><script>window.addEventListener('load', () => {
+  const changeContent = (content) => {
+    if (content === '') return content
+
+    content = content.replace(/<img.*?src="(.*?)"?[^\>]+>/ig, '[图片]') // replace image link
+    content = content.replace(/<a[^>]+?href=["']?([^"']+)["']?[^>]*>([^<]+)<\/a>/gi, '[链接]') // replace url
+    content = content.replace(/<pre><code>.*?<\/pre>/gi, '[代码]') // replace code
+    content = content.replace(/<[^>]+>/g,"") // remove html tag
+
+    if (content.length > 150) {
+      content = content.substring(0,150) + '...'
+    }
+    return content
+  }
+
+  const getComment = () => {
+    const runTwikoo = () => {
+      twikoo.getRecentComments({
+        envId: 'twikoo-7gsa2rc0c087a562',
+        region: '',
+        pageSize: 6,
+        includeReply: true
+      }).then(function (res) {
+        const twikooArray = res.map(e => {
+          return {
+            'content': changeContent(e.comment),
+            'avatar': e.avatar,
+            'nick': e.nick,
+            'url': e.url + '#' + e.id,
+            'date': new Date(e.created).toISOString()
+          }
+        })
+
+        saveToLocal.set('twikoo-newest-comments', JSON.stringify(twikooArray), 10/(60*24))
+        generateHtml(twikooArray)
+      }).catch(function (err) {
+        const $dom = document.querySelector('#card-newest-comments .aside-list')
+        $dom.innerHTML= "无法获取评论，请确认相关配置是否正确"
+      })
+    }
+
+    if (typeof twikoo === 'object') {
+      runTwikoo()
+    } else {
+      getScript('https://cdn.jsdelivr.net/npm/twikoo/dist/twikoo.all.min.js').then(runTwikoo)
+    }
+  }
+
+  const generateHtml = array => {
+    let result = ''
+
+    if (array.length) {
+      for (let i = 0; i < array.length; i++) {
+        result += '<div class=\'aside-list-item\'>'
+
+        if (true) {
+          const name = 'data-lazy-src'
+          result += `<a href='${array[i].url}' class='thumbnail'><img ${name}='${array[i].avatar}' alt='${array[i].nick}'></a>`
+        }
+        
+        result += `<div class='content'>
+        <a class='comment' href='${array[i].url}'>${array[i].content}</a>
+        <div class='name'><span>${array[i].nick} / </span><time datetime="${array[i].date}">${btf.diffDate(array[i].date, true)}</time></div>
+        </div></div>`
+      }
+    } else {
+      result += '没有评论'
+    }
+
+    let $dom = document.querySelector('#card-newest-comments .aside-list')
+    $dom.innerHTML= result
+    window.lazyLoadInstance && window.lazyLoadInstance.update()
+    window.pjax && window.pjax.refresh($dom)
+  }
+
+  const newestCommentInit = () => {
+    if (document.querySelector('#card-newest-comments .aside-list')) {
+      const data = saveToLocal.get('twikoo-newest-comments')
+      if (data) {
+        generateHtml(JSON.parse(data))
+      } else {
+        getComment()
+      }
+    }
+  }
+
+  newestCommentInit()
+  document.addEventListener('pjax:complete', newestCommentInit)
+})</script><script data-pjax src="/js/custom.js"></script><script data-pjax src="https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/js/gitcalendar.js"></script><script data-pjax async src="//at.alicdn.com/t/font_2358265_expoyqe85d4.js"></script><script data-pjax src="https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/js/smooth-scrolling.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/gh/metowolf/MetingJS@1.2/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = [
+  'title',
+  '#config-diff',
+  '#body-wrap',
+  '#rightside-config-hide',
+  '#rightside-config-show',
+  '.js-pjax'
+]
+
+if (false) {
+  pjaxSelectors.unshift('meta[property="og:image"]', 'meta[property="og:title"]', 'meta[property="og:url"]')
+}
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax], .pjax-reload script').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // Analytics
+  if (false) {
+    MtaH5.pgv()
+  }
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+
+document.addEventListener('pjax:send', function () {
+  typeof preloader === 'object' && preloader.initLoading()
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><div class="pjax-reload"><script async="async">var arr = document.getElementsByClassName('recent-post-item');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__zoomIn');
+    arr[i].setAttribute('data-wow-duration', '');
+    arr[i].setAttribute('data-wow-delay', '');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script><script async="async">var arr = document.getElementsByClassName('card-widget');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__zoomIn');
+    arr[i].setAttribute('data-wow-duration', '');
+    arr[i].setAttribute('data-wow-delay', '');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script></div><script defer="defer" src="https://cdn.jsdelivr.net/gh/graingert/wow@1.3.0/dist/wow.min.js"></script><script defer="defer" src="https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/js/wow_init.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><!-- hexo injector body_end start -->
+    <script data-pjax>
+    if (document.getElementById('catalog_magnet')) {
+      document.getElementById('catalog_magnet').innerHTML = '<div class="magnet_item"><a class="magnet_link" href="https://blog.eurkon.com/categories/💬生活随记/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">💬 Eurkonの生活随记 (1)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="https://blog.eurkon.com/categories/📖教程笔记/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">📖 Eurkonの教程笔记 (40)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="https://blog.eurkon.com/categories/🖥️作品案例/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">🖥️ Eurkonの作品案例 (1)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item" style="visibility: hidden"></div><a class="magnet_link_more"  href="https://blog.eurkon.com/categories" style="flex:1;text-align: center;margin-bottom: 10px;">查看更多...</a>'
+    }
+    </script>
+    </script><style>#catalog_magnet{flex-wrap: wrap;display: flex;width:100%;justify-content:space-between;padding: 10px 10px 0 10px;align-content: flex-start;}.magnet_item{flex-basis: calc(50% - 5px);background: var(--card-bg);margin-bottom: 10px;border-radius: 8px;transition: all 0.2s ease-in-out;}.magnet_item:hover{background: var(--btn-bg)}.magnet_link_more{color:#555}.magnet_link{color:var(--font-color)}.magnet_link:hover{color: #fff}@media screen and (max-width: 600px) {.magnet_item {flex-basis: 100%;}}.magnet_link_context{display:flex;padding: 10px;font-size:16px;transition: all 0.2s ease-in-out;}.magnet_link_context:hover{padding: 10px 20px;}</style>
+      <script data-pjax>
+        if(document.getElementById('swiper_container')){
+          document.getElementById('swiper_container').innerHTML = '<div class="blog-slider__wrp swiper-wrapper" style="transition-duration: 0ms"><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms"><div class="blog-slider__img"><img src="/images/cover/bigdata_list.jpg" alt="/images/cover/bigdata_list.jpg"/></div><div class="blog-slider__content"><span class="blog-slider__code">2021-01-07</span><a class="blog-slider__title" href="post/fc3d946f.html">大数据精选清单</a><div class="blog-slider__text">有关大数据资料的精选清单</div><a class="blog-slider__button" href="post/fc3d946f.html">详情</a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms"><div class="blog-slider__img"><img src="/images/cover/bigdata_interview.png" alt="/images/cover/bigdata_interview.png"/></div><div class="blog-slider__content"><span class="blog-slider__code">2021-03-25</span><a class="blog-slider__title" href="post/7e24cf66.html">大数据面试题解析</a><div class="blog-slider__text">大数据面试题解析</div><a class="blog-slider__button" href="post/7e24cf66.html">详情</a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms"><div class="blog-slider__img"><img src="/images/cover/java_interview.jpg" alt="/images/cover/java_interview.jpg"/></div><div class="blog-slider__content"><span class="blog-slider__code">2021-03-15</span><a class="blog-slider__title" href="post/d2aef718.html">Java 面试题解析</a><div class="blog-slider__text">Java 面试题解析</div><a class="blog-slider__button" href="post/d2aef718.html">详情</a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms"><div class="blog-slider__img"><img src="/images/cover/markdown_grammar.jpg" alt="/images/cover/markdown_grammar.jpg"/></div><div class="blog-slider__content"><span class="blog-slider__code">2021-01-03</span><a class="blog-slider__title" href="post/c894e39a.html">Markdown 基本语法</a><div class="blog-slider__text">Markdown 基本语法</div><a class="blog-slider__button" href="post/c894e39a.html">详情</a></div></div></div><div class="blog-slider__pagination swiper-pagination-clickable swiper-pagination-bullets"></div>'
+        }
+        </script>
+      <script data-pjax src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.1.6/js/swiper.min.js"></script>
+      <script data-pjax>
+        var swiper = new Swiper('.blog-slider', {
+          passiveListeners: true,
+          spaceBetween: 30,
+          effect: 'fade',
+          loop: true,
+          autoplay: {
+            disableOnInteraction: true,
+            delay: 3000
+          },
+          observer: true,//修改swiper自己或子元素时，自动初始化swiper
+          observeParents: true,//修改swiper的父元素时，自动初始化swiper
+          mousewheel: false,
+          // autoHeight: true,
+          pagination: {
+            el: '.blog-slider__pagination',
+            clickable: true,
+          }
+        });
+        
+        if (document.getElementById('swiper_container')) {
+          var comtainer = document.getElementById('swiper_container');
+          comtainer.onmouseenter = function () {
+            swiper.autoplay.stop();
+          };
+          comtainer.onmouseleave = function () {
+            swiper.autoplay.start();
+          }
+        }
+      </script><!-- hexo injector body_end end --><script async>window.onload=function(){var a=document.createElement('script'),b=document.getElementsByTagName('script')[0];a.type='text/javascript',a.async=!0,a.src='/sw-register.js?v='+Date.now(),b.parentNode.insertBefore(a,b)};</script></body></html>
