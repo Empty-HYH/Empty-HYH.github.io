@@ -258,20 +258,24 @@ a {
 #recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap > .tags-meta {
 		padding: .45em 0;
 		display: block;
+		transition: all .6s;
 	}
 
 	#recent-posts > .recent-post-item:hover >.recent-post-info > .article-meta-wrap > .post-meta-date ,
 #recent-posts > .recent-post-item:hover >.recent-post-info > .article-meta-wrap > .article-meta,
 #recent-posts > .recent-post-item:hover >.recent-post-info > .article-meta-wrap > .tags-meta {
 		display: inline;
+		transition: all .6s;
 	}
 
 	#recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap .article-meta__separator {
 		display: none;
+		transition: all .6s;
 	}
 
 	#recent-posts > .recent-post-item:hover >.recent-post-info > .article-meta-wrap .article-meta__separator {
 		display: inline;
+		transition: all .6s;
 	}
 
 	#recent-posts > .recent-post-item >.recent-post-info > .content {
@@ -702,4 +706,28 @@ div#post, div#page, div#archive, div#tag, div#category, div.card-widget, #recent
 
 .card-star {
 	background: var(--card-bg) !important;
+}
+
+/* pace进度条 */
+.pace {
+	-webkit-pointer-events: none;
+	pointer-events: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none
+}
+
+.pace-inactive .pace-progress {
+	opacity: 0;
+	transition: .3s
+}
+
+.pace .pace-progress {
+	background: linear-gradient(215deg,#49b1f5 30%,#00c4b6 70%);
+	position: fixed;
+	z-index: 2000;
+	top: 0;
+	right: 100%;
+	width: 100%;
+	height: 4px
 }
