@@ -845,3 +845,24 @@ div#post, div#page, div#archive, div#tag, div#category, div.card-widget, #recent
 #nav .menus_items .menus_item .menus_item_child li a:hover {
 	color: var(--btn-color) !important;
 }
+
+/* 隐藏page-tile */
+#page h1.page-title{
+  display: none;
+  text-align: center;
+}
+
+/* 搜索按钮 */
+#search-button span{
+  display: none;
+}
+
+#search-button i, #darkmode-button i{
+font-size: .9rem;
+}
+
+/* 明亮/暗黑模式按钮 */
+#darkmode-button{
+  display: inline;
+  padding: 0 8px 0 16px;
+}
