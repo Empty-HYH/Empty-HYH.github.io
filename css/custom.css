@@ -361,13 +361,11 @@ a {
 #pagination a.extend.prev {
 	float: left;
 	padding: 0 10px 0 6px;
-	/* margin: 0 2rem; */
 }
 
 #pagination a.extend.next {
 	float: right;
 	padding: 0 6px 0 10px;
-	/* margin: 0 2rem; */
 }
 
 /* 推荐文章 */
@@ -785,24 +783,25 @@ div#post, div#page, div#archive, div#tag, div#category, div.card-widget, #recent
 }
 
 #page-header.nav-fixed #nav #page-name-text {
-	display: inline;
+  top: 0;
 	opacity: 1;
+	display: inline;
 	transition: .15s;
-	top: 0;
+  letter-spacing: 3px;
 }
 
 #page-header.nav-fixed.nav-visible #nav #page-name-text {
-	display: inline;
-	opacity: 0;
-	transition: .15s;
 	top: 30px;
+	opacity: 0;
+	display: inline;
+	transition: .15s;
 }
 
 /* 顶部菜单栏导航 */
 #nav .menus_items {
 	position: absolute;
 	text-align: center;
-  width: 650px;
+	width: 650px;
 	left: 0;
 	right: 0;
 	margin: auto;
@@ -847,22 +846,22 @@ div#post, div#page, div#archive, div#tag, div#category, div.card-widget, #recent
 }
 
 /* 隐藏page-tile */
-#page h1.page-title{
-  display: none;
-  text-align: center;
+#page h1.page-title {
+	display: none;
+	text-align: center;
 }
 
 /* 搜索按钮 */
-#search-button span{
-  display: none;
+#search-button span {
+	display: none;
 }
 
-#search-button i, #darkmode-button i{
-font-size: .9rem;
+#search-button i, #darkmode-button i {
+	font-size: .9rem;
 }
 
 /* 明亮/暗黑模式按钮 */
-#darkmode-button{
-  display: inline;
-  padding: 0 8px 0 16px;
+#darkmode-button {
+	display: inline;
+	padding: 0 8px 0 16px;
 }
