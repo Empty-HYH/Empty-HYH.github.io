@@ -5186,6 +5186,9 @@ div.btns.rounded a > i:first-child {
   color: #fff;
   line-height: 2;
 }
+#article-container .btn-beautify i + span {
+  margin-left: 0.3rem;
+}
 #article-container .btn-beautify:not(.block) + .btn-beautify:not(.block) {
   margin: 0 0.2rem 1rem;
 }
@@ -6110,6 +6113,32 @@ kbd {
   margin: 0 3px;
   height: 1.1em;
   vertical-align: text-bottom;
+}
+.hl-label {
+  padding: 2px 4px;
+  border-radius: 3px;
+  color: #fff;
+}
+.hl-label.default {
+  background-color: #777;
+}
+.hl-label.blue {
+  background-color: #428bca;
+}
+.hl-label.pink {
+  background-color: #ff69b4;
+}
+.hl-label.red {
+  background-color: #f00;
+}
+.hl-label.purple {
+  background-color: #6f42c1;
+}
+.hl-label.orange {
+  background-color: #ff8c00;
+}
+.hl-label.green {
+  background-color: #5cb85c;
 }
 #article-container a.link-card {
   margin: 0.25rem auto;
@@ -7881,12 +7910,15 @@ div.timenode .meta:after {
 [data-theme='dark'] .hide-button,
 [data-theme='dark'] .btn-beautify,
 [data-theme='dark'] .mermaid,
+[data-theme='dark'] .hl-label,
 [data-theme='dark'] .post-outdate-notice,
 [data-theme='dark'] .error-img,
 [data-theme='dark'] #article-container iframe,
-[data-theme='dark'] img,
 [data-theme='dark'] .gist,
 [data-theme='dark'] .ads-wrap {
+  filter: brightness(0.8);
+}
+[data-theme='dark'] img {
   filter: brightness(0.8);
 }
 [data-theme='dark'] #aside-content .aside-list > .aside-list-item:not(:last-child) {
@@ -8117,23 +8149,14 @@ div.timenode .meta:after {
   border: 1px solid var(--gray) !important;
 }
 .read-mode #article-container .hide-button,
-.read-mode #article-container .btn-beautify {
+.read-mode #article-container .btn-beautify,
+.read-mode #article-container .hl-label {
+  border: 1px solid var(--gray) !important;
   background: var(--readmode-light-color) !important;
   color: var(--font-color) !important;
 }
-.read-mode #article-container .btn-beautify {
-  border: 1px solid var(--gray) !important;
-}
 .read-mode #article-container .button--animated:before {
   background: var(--readmode-light-color) !important;
-}
-.read-mode #article-container .hide-inline >.hide-button,
-.read-mode #article-container .hide-block >.hide-button {
-  border: 1px solid var(--gray);
-}
-.read-mode #article-container .hide-inline > .button--animated:before,
-.read-mode #article-container .hide-block > .button--animated:before {
-  background: var(--readmode-light-color);
 }
 .read-mode #article-container .note {
   border: 2px solid var(--gray);
