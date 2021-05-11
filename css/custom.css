@@ -502,6 +502,11 @@ strong {
 	margin-top: 2rem;
 }
 
+/* 文章链接复制 */
+.post-copyright #post-url-copy {
+	margin-left: .5rem;
+}
+
 /* 右下角按钮 */
 
 #rightside #rightside-config-hide {
@@ -517,16 +522,6 @@ strong {
 #rightside > div > a {
 	margin-bottom: 2px;
 	border-radius: 50%;
-}
-
-#to-top a i {
-	display: none;
-	transform: rotate(-45deg);
-	color: var(--btn-bg);
-	position: fixed;
-	right: 3rem;
-	bottom: 1.5rem;
-	font-size: 2rem;
 }
 
 /* Twikoo */
