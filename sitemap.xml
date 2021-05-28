@@ -613,13 +613,6 @@
   </url>
   
   <url>
-    <loc>https://blog.eurkon.com/tags/Sqoop/</loc>
-    <lastmod>2021-05-28</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.eurkon.com/tags/Zookeeper/</loc>
     <lastmod>2021-05-28</lastmod>
     <changefreq>daily</changefreq>
@@ -627,7 +620,7 @@
   </url>
   
   <url>
-    <loc>https://blog.eurkon.com/tags/%E7%94%9F%E6%B4%BB%E9%9A%8F%E8%AE%B0/</loc>
+    <loc>https://blog.eurkon.com/tags/Sqoop/</loc>
     <lastmod>2021-05-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -670,6 +663,13 @@
   
   <url>
     <loc>https://blog.eurkon.com/tags/Flink/</loc>
+    <lastmod>2021-05-28</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.eurkon.com/tags/%E7%94%9F%E6%B4%BB%E9%9A%8F%E8%AE%B0/</loc>
     <lastmod>2021-05-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
