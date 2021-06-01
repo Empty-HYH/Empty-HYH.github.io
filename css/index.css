@@ -1297,9 +1297,11 @@ canvas:not(#ribbon-canvas),
   }
 }
 :root {
-  --main: #000;
-  --second: #eee;
-  --global-font-size: 15px;
+  --main: #49b1f5;
+  --cover-bg: #000;
+  --cover-text: #eee;
+  --main-shadow: 0 8px 12px -3px rgba(73,177,245,0.2);
+  --global-font-size: 16px;
   --global-bg: #edf0f7;
   --font-color: #4c4948;
   --hr-border: #a4d8fa;
@@ -5569,7 +5571,7 @@ details {
   margin: 1em 0;
   border-radius: 4px;
   background: #fff;
-  font-size: 15px;
+  font-size: 16px;
   -webkit-transition: all 0.28s ease;
   -moz-transition: all 0.28s ease;
   -o-transition: all 0.28s ease;
@@ -6695,7 +6697,7 @@ div.videos[col='4'] iframe {
   display: -ms-flexbox;
   display: box;
   display: flex;
-  font-size: 15px;
+  font-size: 16px;
   background-color: rgba(88,88,88,0.6);
   border-radius: 0.25rem;
   margin: 1rem 0;
@@ -6967,7 +6969,7 @@ p.p.right {
 }
 span.p.small,
 p.p.small {
-  font-size: 15px;
+  font-size: 16px;
 }
 span.p.large,
 p.p.large {
