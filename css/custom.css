@@ -1,9 +1,9 @@
 html {
-	cursor: url(https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/default.cur), auto !important;
+	cursor: url(https://cdn.jsdelivr.net/gh/Eurkon/CDN@master/hexo/images/user/default.cur), auto !important;
 }
 
 #recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap > .post-meta-date {
-	cursor: url(https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/default.cur), auto !important;
+	cursor: url(https://cdn.jsdelivr.net/gh/Eurkon/CDN@master/hexo/images/user/default.cur), auto !important;
 }
 
 a,
@@ -12,39 +12,39 @@ button,
 svg,
 canvas,
 select {
-	cursor: url(https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/pointer.cur), auto !important;
+	cursor: url(https://cdn.jsdelivr.net/gh/Eurkon/CDN@master/hexo/images/user/pointer.cur), auto !important;
 }
 
 i.scroll-down-effects {
-	cursor: url(https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/pointer.cur), auto !important;
+	cursor: url(https://cdn.jsdelivr.net/gh/Eurkon/CDN@master/hexo/images/user/pointer.cur), auto !important;
 }
 
 /* 打赏按钮 */
 .reward-button {
-	cursor: url(https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/pointer.cur), auto !important;
+	cursor: url(https://cdn.jsdelivr.net/gh/Eurkon/CDN@master/hexo/images/user/pointer.cur), auto !important;
 }
 
 /* 翻页 */
 #pagination span {
-	cursor: url(https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/default.cur), auto !important;
+	cursor: url(https://cdn.jsdelivr.net/gh/Eurkon/CDN@master/hexo/images/user/default.cur), auto !important;
 }
 
 #pagination a {
-	cursor: url(https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/pointer.cur), auto !important;
+	cursor: url(https://cdn.jsdelivr.net/gh/Eurkon/CDN@master/hexo/images/user/pointer.cur), auto !important;
 }
 
 /* 图片预览 */
 .fancybox,
 .fancybox-button,
 .fancybox-content {
-	cursor: url(https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/pointer.cur), auto !important;
+	cursor: url(https://cdn.jsdelivr.net/gh/Eurkon/CDN@master/hexo/images/user/pointer.cur), auto !important;
 }
 
 /* 代码块 */
 #article-container figure.highlight .highlight-tools .expand ~ .copy-button,
 #article-container figure.highlight .highlight-tools .expand,
 #article-container .code-expand-btn {
-	cursor: url(https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/pointer.cur), auto !important;
+	cursor: url(https://cdn.jsdelivr.net/gh/Eurkon/CDN@master/hexo/images/user/pointer.cur), auto !important;
 }
 
 /* 评论与回复 */
@@ -55,7 +55,7 @@ i.scroll-down-effects {
 .vat,
 .vemojis *,
 .vcontent.expand {
-	cursor: url(https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/pointer.cur), auto !important;
+	cursor: url(https://cdn.jsdelivr.net/gh/Eurkon/CDN@master/hexo/images/user/pointer.cur), auto !important;
 }
 
 /* twikoo */
@@ -66,17 +66,17 @@ i.scroll-down-effects {
 .OwO .OwO-body,
 .OwO .OwO-body .OwO-items .OwO-item,
 .OwO .OwO-body .OwO-bar .OwO-packages li {
-	cursor: url(https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/pointer.cur), auto !important;
+	cursor: url(https://cdn.jsdelivr.net/gh/Eurkon/CDN@master/hexo/images/user/pointer.cur), auto !important;
 }
 
 /* 网站收藏卡片 */
 .card-star {
-	cursor: url(https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/pointer.cur), auto !important;
+	cursor: url(https://cdn.jsdelivr.net/gh/Eurkon/CDN@master/hexo/images/user/pointer.cur), auto !important;
 }
 
 /* 文章轮播 */
 .swiper-pagination-clickable .swiper-pagination-bullet {
-	cursor: url(https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/pointer.cur), auto !important;
+	cursor: url(https://cdn.jsdelivr.net/gh/Eurkon/CDN@master/hexo/images/user/pointer.cur), auto !important;
 }
 
 .layout {
