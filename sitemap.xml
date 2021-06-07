@@ -289,14 +289,14 @@
   </url>
   
   <url>
-    <loc>https://blog.eurkon.com/post/741c153c.html</loc>
+    <loc>https://blog.eurkon.com/post/996a1090.html</loc>
     
     <lastmod>2021-05-20</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.eurkon.com/post/996a1090.html</loc>
+    <loc>https://blog.eurkon.com/post/741c153c.html</loc>
     
     <lastmod>2021-05-20</lastmod>
     
@@ -515,14 +515,14 @@
   </url>
   
   <url>
-    <loc>https://blog.eurkon.com/tags/Hadoop/</loc>
+    <loc>https://blog.eurkon.com/tags/%E6%96%87%E6%A1%A3/</loc>
     <lastmod>2021-06-07</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://blog.eurkon.com/tags/%E6%96%87%E6%A1%A3/</loc>
+    <loc>https://blog.eurkon.com/tags/Hadoop/</loc>
     <lastmod>2021-06-07</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -543,14 +543,14 @@
   </url>
   
   <url>
-    <loc>https://blog.eurkon.com/tags/Zookeeper/</loc>
+    <loc>https://blog.eurkon.com/tags/Sqoop/</loc>
     <lastmod>2021-06-07</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://blog.eurkon.com/tags/Sqoop/</loc>
+    <loc>https://blog.eurkon.com/tags/Zookeeper/</loc>
     <lastmod>2021-06-07</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
